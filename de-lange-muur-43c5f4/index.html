@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<title>De Lange Muur | Chinees restaurant en afhaal in Emst</title>
+<meta name="description" content="Chinees restaurant en afhaal aan de Eperweg in Emst, met uitzicht op het Veluwse landschap en een ruime eigen parkeerplaats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&text=%E9%95%BF%E5%9F%8E%E9%85%92%E6%A5%BC&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lacquer:#7E1712; --cinnabar:#C8371B; --gold:#E3B24F; --ink:#1C1311; --porcelain:#F5F3EF; --paper:#FFFDF9;
+  --jade:#1E6B57; --muted:#6F625C; --line:#E4DDD5;
+  --display:'Gloock',Georgia,serif; --sans:'Figtree',system-ui,sans-serif; --han:'Noto Serif SC',serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--porcelain);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;margin:0}
+h2{font-size:clamp(38px,5.4vw,64px);letter-spacing:-.01em}
+h3{font-size:26px}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* the long wall: a crenellated edge */
+.wall{--h:22px;height:var(--h);background:var(--lacquer);
+  -webkit-mask:linear-gradient(#000 0 0) bottom/100% 50% no-repeat,linear-gradient(90deg,#000 0 60%,transparent 60% 100%) top left/34px 51% repeat-x;
+          mask:linear-gradient(#000 0 0) bottom/100% 50% no-repeat,linear-gradient(90deg,#000 0 60%,transparent 60% 100%) top left/34px 51% repeat-x}
+.wall.ink{background:var(--ink)}
+
+/* header */
+.top{position:absolute;inset:0 0 auto;z-index:20;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand{text-decoration:none;font-family:var(--display);font-size:24px;display:flex;align-items:center;gap:12px}
+.brand i{font-style:normal;font-family:var(--han);font-size:15px;background:var(--cinnabar);color:#fff;width:34px;height:34px;display:grid;place-items:center;border-radius:4px}
+.top nav{display:flex;gap:28px;align-items:center;font-weight:600;font-size:15px}
+.top nav a{text-decoration:none;opacity:.9}
+.top nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:var(--sans)}
+.btn svg{width:18px;height:18px}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#efc46a}
+.btn-ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.btn-red{background:var(--cinnabar);color:#fff}
+.btn-red:hover{background:#b02f15}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,920px);color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.hero .slide.on{opacity:1}
+.hero .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 7s linear}
+.hero .slide.on img{transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,8,.55) 0%,rgba(20,10,8,.1) 30%,rgba(20,10,8,.35) 55%,rgba(20,10,8,.88) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding:0 0 76px}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.status{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);padding:8px 16px 8px 12px;border-radius:999px;font-weight:600;font-size:15px;margin-bottom:26px}
+.status b{width:10px;height:10px;border-radius:50%;background:#8a8a8a;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+.status.open b{background:#4fd1a1}
+.hero h1{font-size:clamp(64px,11vw,156px);letter-spacing:-.02em;line-height:.9}
+.hero .sub{font-size:clamp(18px,2vw,22px);max-width:34ch;margin:22px 0 32px;color:rgba(255,255,255,.9)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.seal{writing-mode:vertical-rl;font-family:var(--han);font-weight:900;font-size:clamp(34px,4vw,54px);line-height:1;letter-spacing:.12em;background:var(--cinnabar);color:#fff;padding:22px 16px;border-radius:6px;box-shadow:inset 0 0 0 3px var(--cinnabar),inset 0 0 0 5px rgba(255,255,255,.75);transform:rotate(2deg)}
+
+/* intro band */
+.band{background:var(--lacquer);color:#fff;padding:54px 0 64px}
+.band .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.band p.big{font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0}
+.band p{color:rgba(255,255,255,.85);margin:0}
+.band .sig{display:block;margin-top:14px;color:var(--gold);font-weight:600}
+
+section{padding:110px 0}
+
+/* takeaway + week menu */
+.afhaal .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.lead{font-size:20px;color:var(--muted);max-width:44ch}
+.steps{list-style:none;padding:0;margin:34px 0 34px;display:grid;gap:18px}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.steps svg{width:44px;height:44px;padding:11px;border-radius:50%;background:#fff;color:var(--cinnabar);box-shadow:0 0 0 1px var(--line)}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--muted)}
+.phone-big{font-family:var(--display);font-size:clamp(34px,4vw,48px);text-decoration:none;color:var(--cinnabar);display:inline-block;margin-top:6px}
+.phone-big:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+
+.weekmenu{position:relative;background:var(--cinnabar);color:#fff;border-radius:10px;padding:46px 40px 40px;overflow:hidden}
+.weekmenu::before{content:"";position:absolute;inset:12px;border:1.5px solid rgba(255,255,255,.45);border-radius:6px;pointer-events:none}
+.weekmenu .han{position:absolute;right:-6px;top:-24px;font-family:var(--han);font-size:190px;line-height:1;color:rgba(0,0,0,.09);writing-mode:vertical-rl}
+.weekmenu h3{font-size:44px;position:relative}
+.weekmenu .valid{display:inline-block;margin:12px 0 26px;background:rgba(0,0,0,.18);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600}
+.dishes{list-style:none;margin:0 0 28px;padding:0;position:relative}
+.dishes li{padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.4);font-family:var(--display);font-size:28px;line-height:1.15}
+.dishes li small{display:block;font-family:var(--sans);font-size:15px;color:rgba(255,255,255,.82);margin-top:4px}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;position:relative}
+.price strong{font-family:var(--display);font-weight:400;font-size:56px;color:var(--gold);line-height:1}
+.price span{font-size:15px;color:rgba(255,255,255,.88);max-width:24ch}
+.weekmenu .note{position:relative;margin:22px 0 0;font-size:14px;color:rgba(255,255,255,.8)}
+
+
+/* afhaalkaart */
+.kaart{background:var(--paper);border-top:1px solid var(--line)}
+.kaart-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.kaart-head .lead{margin-top:18px}
+.ktabs{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 0;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.ktabs::-webkit-scrollbar{display:none}
+.ktabs button{flex:none;font:600 15px var(--sans);padding:11px 18px;border-radius:999px;border:0;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;white-space:nowrap}
+.ktabs button:hover{box-shadow:inset 0 0 0 1.5px var(--cinnabar)}
+.ktabs button[aria-selected="true"]{background:var(--lacquer);color:#fff;box-shadow:none}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:10px 60px;margin-top:34px}
+.kp[hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){.kp{animation:rise .45s var(--ease) both}}
+.cat h3{font-size:28px;color:var(--lacquer);padding:18px 0 12px;border-bottom:2px solid var(--lacquer)}
+.nrs{list-style:none;margin:0 0 30px;padding:0}
+.nrs li{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.nrs .nr{font-weight:700;font-size:13px;color:var(--cinnabar);font-variant-numeric:tabular-nums;background:#FBEDE8;border-radius:4px;text-align:center;padding:2px 0}
+.nrs .nr:empty{background:none}
+.nrs .nm{font-weight:500}
+.nrs .nm small{display:block;color:var(--muted);font-size:14px;font-weight:400;margin-top:2px}
+.nrs .pr{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cat.actie{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.actie-head p{color:var(--muted);margin-top:16px}
+.actie-head .fine{font-size:14px}
+.stamp{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;margin-top:10px;width:150px;height:150px;border-radius:50%;background:var(--cinnabar);color:#fff;font-family:var(--display);font-size:38px;line-height:1;box-shadow:inset 0 0 0 4px var(--cinnabar),inset 0 0 0 6px rgba(255,255,255,.7);transform:rotate(-6deg);text-align:center}
+.stamp small{display:block;font-family:var(--sans);font-size:13px;font-weight:600;margin-bottom:6px}
+.nrs.plain{columns:2;column-gap:40px;margin-top:6px}
+.nrs.plain li{grid-template-columns:44px 1fr;break-inside:avoid}
+.kaart-foot{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:30px}
+.kf-card{background:var(--porcelain);border-radius:10px;padding:28px 30px}
+.kf-card h3{font-size:28px;margin-bottom:12px}
+.kf-card ul{margin:0;padding-left:18px;color:var(--muted)}
+.kf-card li{margin-bottom:6px}
+.kf-card .fine{font-size:14px;color:var(--muted);margin:12px 0 0}
+.pdfs{display:flex;flex-wrap:wrap;gap:10px 22px;margin:16px 0 0;font-size:15px;font-weight:600}
+.pdfs a{color:var(--cinnabar);text-underline-offset:4px}
+.stempel{background:var(--lacquer);color:#fff}
+.stempel p{color:rgba(255,255,255,.85);margin:0}
+.stempel .fine{color:rgba(255,255,255,.7)}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:18px;max-width:320px}
+.dots i{aspect-ratio:1;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.dots i:nth-child(-n+7){background:var(--gold);box-shadow:none}
+@media (max-width:900px){
+  .kp,.cat.actie,.kaart-foot{grid-template-columns:1fr;gap:0}
+  .cat.actie{gap:20px}
+  .kaart-foot{gap:14px}
+  .nrs.plain{columns:1}
+  .ktabs{flex-wrap:nowrap;margin-right:-20px;padding-right:20px}
+  .nrs li{grid-template-columns:40px 1fr auto;gap:12px}
+  .kf-card{padding:24px 22px}
+}
+/* kitchen */
+.keuken{background:var(--ink);color:#fff;padding-top:0}
+.keuken .wall{background:var(--porcelain);transform:rotate(180deg)}
+.keuken-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:100px}
+.keuken-head{grid-column:1 / span 5;align-self:center}
+.keuken-head p{color:rgba(255,255,255,.75);font-size:19px;max-width:40ch;margin-top:22px}
+.ph{border-radius:8px;overflow:hidden;position:relative;margin:0}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph figcaption{position:absolute;left:14px;bottom:14px;background:rgba(28,19,17,.78);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600}
+.ph-a{grid-column:6 / span 7;aspect-ratio:16/10}
+.specials{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;border-top:1px solid rgba(255,255,255,.18)}
+.special{padding:30px 26px 6px 0;border-right:1px solid rgba(255,255,255,.18);margin-right:26px}
+.special:last-child{border-right:0;margin-right:0}
+.special h3{color:var(--gold);font-size:30px;margin-bottom:10px}
+.special p{color:rgba(255,255,255,.78);font-size:16px;margin:0}
+.ph-b{grid-column:1 / span 4;aspect-ratio:4/5;margin-top:70px}
+.ph-c{grid-column:5 / span 4;aspect-ratio:4/5;margin-top:120px}
+.ph-d{grid-column:9 / span 4;aspect-ratio:4/5;margin-top:70px}
+
+/* hours */
+.tijden .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:start}
+.notice{margin-top:26px;background:#fff;border-left:4px solid var(--cinnabar);padding:22px 24px;border-radius:0 8px 8px 0;color:var(--muted);font-size:16px}
+.notice b{color:var(--ink)}
+.days{list-style:none;margin:0;padding:0;background:#fff;border-radius:10px;box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.days li{display:flex;justify-content:space-between;gap:16px;padding:17px 26px;border-bottom:1px solid var(--line);font-size:18px}
+.days li:last-child{border-bottom:0}
+.days li span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+.days li.closed span:last-child{color:var(--muted);font-weight:500;text-align:right}
+.days .exc{display:block;font-size:12px;font-weight:500}
+.days li.today{background:var(--lacquer);color:#fff}
+.days li.today span:last-child{color:var(--gold)}
+.days li.today span:first-child::after{content:"vandaag";margin-left:10px;font-size:12px;font-weight:700;background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:999px;vertical-align:2px}
+.days .period{display:block;padding:14px 26px;background:var(--porcelain);font-size:14px;color:var(--muted);border-bottom:1px solid var(--line)}
+
+/* route */
+.route{background:var(--paper);padding-bottom:130px}
+.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.route address{font-style:normal;font-size:20px;margin:24px 0 8px;line-height:1.5}
+.route .ways{display:grid;gap:22px;margin-top:30px}
+.route .ways h3{font-family:var(--sans);font-weight:700;font-size:17px;margin-bottom:4px}
+.route .ways p{color:var(--muted);margin:0;font-size:16px}
+.parking{display:flex;gap:14px;align-items:center;margin-top:30px;padding:18px 20px;border-radius:10px;background:var(--porcelain);font-weight:600}
+.parking span{flex:none;width:40px;height:40px;border-radius:8px;background:var(--jade);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+.map{border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line);aspect-ratio:1/1;background:#e9e5df}
+.map{position:relative}
+.map iframe{position:relative;width:100%;height:100%;border:0;display:block;z-index:1}
+.map-fallback{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;text-decoration:none;color:var(--ink);background:radial-gradient(circle at 50% 45%,#fff 0 18%,transparent 19%),repeating-linear-gradient(90deg,transparent 0 46px,rgba(126,23,18,.07) 46px 48px),repeating-linear-gradient(0deg,transparent 0 46px,rgba(126,23,18,.07) 46px 48px),#EEE9E2}
+.map-fallback svg{width:46px;height:46px;color:var(--cinnabar)}
+.map-fallback b{font-size:18px}
+.map-fallback span{color:var(--cinnabar);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.landscape{margin-top:100px;position:relative;height:clamp(260px,38vw,460px);overflow:hidden}
+.landscape img{width:100%;height:100%;object-fit:cover}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.8);padding:70px 0 110px;font-size:16px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+footer h3{color:#fff;font-size:30px;margin-bottom:12px}
+footer h4{margin:0 0 10px;color:var(--gold);font-size:15px;font-weight:700}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+.social{display:flex;gap:18px}.social a{color:var(--gold);font-weight:600}
+.pay{display:flex;flex-wrap:wrap;gap:8px}.pay span{border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:3px 10px;font-size:14px}
+footer .han{font-family:var(--han);font-size:26px;color:var(--cinnabar);letter-spacing:.1em}
+
+.preview-ribbon{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;white-space:nowrap;z-index:60;background:var(--ink);color:#fff;font-size:13px;padding:8px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.preview-ribbon b{color:var(--gold);font-weight:600}
+
+/* phone call bar */
+.callbar{display:none}
+
+/* one orchestrated entrance: the hero */
+@media (prefers-reduced-motion:no-preference){
+  .hero-in .status,.hero-in h1,.hero-in .sub,.hero-in .ctas{animation:rise .9s var(--ease) both}
+  .hero-in h1{animation-delay:.1s}.hero-in .sub{animation-delay:.22s}.hero-in .ctas{animation-delay:.34s}
+  .seal{animation:stamp .7s .55s cubic-bezier(.3,1.6,.5,1) both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+@keyframes stamp{from{opacity:0;transform:rotate(2deg) scale(1.5)}}
+@media (prefers-reduced-motion:reduce){.hero .slide,.hero .slide img{transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  section{padding:76px 0}
+  .top nav a:not(.btn){display:none}
+  .top nav .btn{padding:10px 16px;font-size:14px;white-space:nowrap}
+  .top nav .btn .long{display:none}
+  .brand{font-size:21px;white-space:nowrap}
+  .hero::after{background:linear-gradient(180deg,rgba(20,10,8,.6) 0%,rgba(20,10,8,.15) 25%,rgba(20,10,8,.55) 50%,rgba(20,10,8,.92) 100%)}
+  .hero{min-height:100svh}
+  .hero-in{padding-bottom:110px}
+  .hero-grid{grid-template-columns:1fr;gap:0}
+  .seal{position:absolute;right:20px;top:-150px;font-size:26px;padding:14px 10px}
+  .hero h1{font-size:clamp(58px,17vw,96px)}
+  .band .wrap,.afhaal .wrap,.tijden .wrap,.route-grid{grid-template-columns:1fr;gap:40px}
+  .weekmenu{padding:38px 26px 30px}
+  .weekmenu h3{font-size:36px}
+  .dishes li{font-size:24px}
+  .keuken-grid{grid-template-columns:1fr 1fr;gap:14px;margin-top:70px}
+  .keuken-head,.ph-a,.specials{grid-column:1 / -1}
+  .specials{grid-template-columns:1fr 1fr;margin-top:30px}
+  .special{border-right:0;margin-right:0;padding:24px 14px 20px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+  .ph-b{grid-column:1;margin-top:20px}.ph-c{grid-column:2;margin-top:50px}.ph-d{display:none}
+  .days li{padding:15px 18px;font-size:16px}
+  .days .period{padding:12px 18px}
+  .map{aspect-ratio:4/3}
+  .landscape{margin-top:70px}
+  footer .wrap{grid-template-columns:1fr;gap:30px}
+  footer{padding-bottom:150px}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:52px;z-index:55;gap:8px}
+  .callbar a{flex:1;justify-content:center;padding:13px 10px;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .callbar.hide{opacity:0;pointer-events:none}
+  .preview-ribbon{bottom:10px;font-size:12px}
+}
+@media (max-width:420px){.specials{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>长城</i>De Lange Muur</a>
+    <nav aria-label="Hoofdmenu">
+      <a href="#afhalen">Afhalen</a>
+      <a href="#kaart">Afhaalkaart</a>
+      <a href="#keuken">Restaurant</a>
+      <a href="#tijden">Openingstijden</a>
+      <a href="#route">Route</a>
+      <a class="btn btn-gold" href="tel:0578662446">Bel<span class="long">&nbsp;0578-662446</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="De Lange Muur" style="padding:0" data-slideshow>
+  <div class="slide on"><img src="img/bami.jpg" alt="Gebakken mie op een houten schaal met stokjes"></div>
+  <div class="slide"><img src="img/zoetzuur.jpg" alt="Kip in zoetzure saus met paprika"></div>
+  <div class="slide"><img src="img/wok.jpg" alt="Nasi wordt gebakken in een grote wok" style="object-position:60% 80%"></div>
+  <div class="hero-in">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="status" data-status><b></b><span>Openingstijden</span></p>
+        <h1>De Lange<br>Muur</h1>
+        <p class="sub">Chinees restaurant en afhaal aan de Eperweg in Emst. Een familiezaak, met de Veluwe voor het raam.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="tel:0578662446"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Bel om af te halen</a>
+          <a class="btn btn-ghost" href="#kaart">Bekijk de afhaalkaart</a>
+        </div>
+      </div>
+      <div class="seal" aria-hidden="true">长城酒楼</div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <p class="big">Aan een doorlopende weg, met een prachtig uitzicht op het Veluwse landschap.</p>
+    <p>Kom aan tafel in ons restaurant aan de wegzijde, of haal je eten op en neem het mee naar huis. Parkeren is geen zorg: we hebben een ruime eigen parkeerplaats.<span class="sig">Familie Chen</span></p>
+  </div>
+</div>
+<div class="wall" aria-hidden="true"></div>
+
+<section class="afhaal" id="afhalen">
+  <div class="wrap">
+    <div>
+      <h2>Afhalen in de wijde omgeving</h2>
+      <p class="lead" style="margin-top:22px">Onze afhaalservice is een begrip in de omgeving. Wil je niet te lang wachten? Geef je bestelling dan telefonisch door.</p>
+      <ul class="steps">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><b>Bel je bestelling door</b><span>Bestellen per e-mail is helaas niet mogelijk.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Kies een moment binnen de openingstijden</b><span>Maandag vanaf 16:00, vrijdag tot en met zondag vanaf 12:00.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11h18M5 11l1 9h12l1-9M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><b>Haal op aan de Eperweg 21</b><span>Met een ruime eigen parkeerplaats voor de deur.</span></div></li>
+      </ul>
+      <a class="phone-big" href="tel:0578662446">0578-662446</a>
+    </div>
+
+    <article class="weekmenu" aria-labelledby="wm">
+      <span class="han" aria-hidden="true">长城</span>
+      <h3 id="wm">Weekmenu</h3>
+      <span class="valid">Geldig van 6 t/m 24 november</span>
+      <ul class="dishes">
+        <li>Kerry Ko</li>
+        <li>Babi Pangang</li>
+        <li>Koe Loe Yuk</li>
+        <li>Ka Li Kai<small>Kipfilet met groente in kerriesaus</small></li>
+      </ul>
+      <div class="price"><strong>€&nbsp;18,40</strong><span>Per menu, genoeg voor 2 à 3 personen, inclusief witte rijst</span></div>
+      <p class="note">Liever nasi of bami in plaats van rijst? Dat kan voor € 0,50 extra. Elke 2 weken, op woensdag, staat er een nieuw weekmenu klaar.</p>
+    </article>
+  </div>
+</section>
+
+
+<section class="kaart" id="kaart">
+  <div class="wrap">
+    <div class="kaart-head">
+      <div>
+        <h2>De afhaalkaart</h2>
+        <p class="lead">Alle gerechten met hun nummer. Noem bij het bestellen graag het nummer, dan gaat er niets mis.</p>
+      </div>
+      <a class="phone-big" href="tel:0578662446">0578-662446</a>
+    </div>
+    <div class="ktabs" role="tablist" aria-label="Onderdelen van de afhaalkaart">
+      <button role="tab" id="k-voor" aria-controls="kp-voor" aria-selected="true">Soep & bijgerechten</button>
+      <button role="tab" id="k-rijst" aria-controls="kp-rijst" aria-selected="false" tabindex="-1">Nasi, bami & mihoen</button>
+      <button role="tab" id="k-groente" aria-controls="kp-groente" aria-selected="false" tabindex="-1">Tjap tjoy & foe yong hai</button>
+      <button role="tab" id="k-kip" aria-controls="kp-kip" aria-selected="false" tabindex="-1">Kip</button>
+      <button role="tab" id="k-vlees" aria-controls="kp-vlees" aria-selected="false" tabindex="-1">Vlees, ossenhaas & eend</button>
+      <button role="tab" id="k-special" aria-controls="kp-special" aria-selected="false" tabindex="-1">Garnalen & specialiteiten</button>
+      <button role="tab" id="k-veg" aria-controls="kp-veg" aria-selected="false" tabindex="-1">Vegetarisch, Indisch & kids</button>
+      <button role="tab" id="k-rijsttafel" aria-controls="kp-rijsttafel" aria-selected="false" tabindex="-1">Rijsttafels</button>
+      <button role="tab" id="k-actie" aria-controls="kp-actie" aria-selected="false" tabindex="-1">Actiemenu € 7,40</button>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-voor" aria-labelledby="k-voor">
+      <div class="cat"><h3>Soep en voorgerechten</h3><ul class="nrs">
+        <li><span class="nr">2</span><span class="nm">Wan Tan Soep</span><span class="pr">€&nbsp;5,60</span></li>
+        <li><span class="nr">3</span><span class="nm">Soep “De Lange Muur”</span><span class="pr">€&nbsp;5,60</span></li>
+        <li><span class="nr">6</span><span class="nm">Kippensoep</span><span class="pr">€&nbsp;4,30</span></li>
+        <li><span class="nr">7</span><span class="nm">Tomatensoep</span><span class="pr">€&nbsp;4,30</span></li>
+        <li><span class="nr">9</span><span class="nm">Scherpe kroepoek</span><span class="pr">€&nbsp;3,50</span></li>
+        <li><span class="nr">10</span><span class="nm">Kroepoek</span><span class="pr">€&nbsp;3,40</span></li>
+        <li><span class="nr">11</span><span class="nm">Kippenvleugels (10 stuks)</span><span class="pr">€&nbsp;8,20</span></li>
+        <li><span class="nr">12</span><span class="nm">Pangsit Goreng (8 stuks)</span><span class="pr">€&nbsp;6,20</span></li>
+        <li><span class="nr">13</span><span class="nm">Pisang Goreng (6 stuks)</span><span class="pr">€&nbsp;4,60</span></li>
+        <li><span class="nr">14</span><span class="nm">Gebakken Kerry Ko (6 stuks)</span><span class="pr">€&nbsp;4,60</span></li>
+        <li><span class="nr">15</span><span class="nm">Loempia</span><span class="pr">€&nbsp;5,40</span></li>
+        <li><span class="nr">16</span><span class="nm">Loempia “De Lange Muur”</span><span class="pr">€&nbsp;6,70</span></li>
+        <li><span class="nr">17</span><span class="nm">Chinese Kleine Loempia (4 st.)</span><span class="pr">€&nbsp;5,70</span></li>
+      </ul></div>
+      <div class="cat"><h3>Bijgerechten</h3><ul class="nrs">
+        <li><span class="nr">19</span><span class="nm">Saté Ajam</span><span class="pr">€&nbsp;6,20</span></li>
+        <li><span class="nr">20</span><span class="nm">Garnalen rolletjes (6 stuks)</span><span class="pr">€&nbsp;9,50</span></li>
+        <li><span class="nr">21</span><span class="nm">Atjar</span><span class="pr">€&nbsp;2,70</span></li>
+        <li><span class="nr">22</span><span class="nm">Satésaus</span><span class="pr">€&nbsp;3,20</span></li>
+        <li><span class="nr">23</span><span class="nm">Babi Pangangsaus</span><span class="pr">€&nbsp;3,20</span></li>
+        <li><span class="nr">24</span><span class="nm">Witte Rijst</span><span class="pr">€&nbsp;3,70</span></li>
+        <li><span class="nr">25</span><span class="nm">Patat</span><span class="pr">€&nbsp;4,00</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-rijst" aria-labelledby="k-rijst" hidden>
+      <div class="cat"><h3>Nasi gerechten</h3><ul class="nrs">
+        <li><span class="nr">26</span><span class="nm">Nasi Goreng ei en ham</span><span class="pr">€&nbsp;6,50</span></li>
+        <li><span class="nr">27</span><span class="nm">Nasi Goreng speciaal (kip en saté)</span><span class="pr">€&nbsp;10,20</span></li>
+        <li><span class="nr">28</span><span class="nm">Nasi Goreng 4 stokjes saté</span><span class="pr">€&nbsp;11,50</span></li>
+        <li><span class="nr">29</span><span class="nm">Nasi Goreng “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,00</span></li>
+        <li><span class="nr">31</span><span class="nm">Tjap You Fan<small>nasi, babi pangang, tjap tjoy, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">32</span><span class="nm">Koe You Fan<small>nasi, babi pangang, koe loe yuk, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">33</span><span class="nm">Foe You Fan<small>nasi, babi pangang, foe yong hai, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">34</span><span class="nm">Ha You Fan<small>nasi, babi pangang, garnalen, saté</small></span><span class="pr">€&nbsp;14,50</span></li>
+      </ul></div>
+      <div class="cat"><h3>Bami gerechten</h3><ul class="nrs">
+        <li><span class="nr">35</span><span class="nm">Bami Goreng ei en ham</span><span class="pr">€&nbsp;6,50</span></li>
+        <li><span class="nr">36</span><span class="nm">Bami Goreng speciaal (kip en saté)</span><span class="pr">€&nbsp;10,20</span></li>
+        <li><span class="nr">37</span><span class="nm">Bami Goreng 4 stokjes saté</span><span class="pr">€&nbsp;11,50</span></li>
+        <li><span class="nr">38</span><span class="nm">Bami Goreng “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,00</span></li>
+        <li><span class="nr">39</span><span class="nm">Tjap You Mie<small>bami, babi pangang, tjap tjoy, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">40</span><span class="nm">Koe You Mie<small>bami, babi pangang, koe loe yuk, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">41</span><span class="nm">Foe You Mie<small>bami, babi pangang, foe yong hai, saté</small></span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">42</span><span class="nm">Ha You Mie<small>bami, babi pangang, garnalen, saté</small></span><span class="pr">€&nbsp;14,50</span></li>
+      </ul></div>
+      <div class="cat"><h3>Mihoen gerechten</h3><ul class="nrs">
+        <li><span class="nr">43</span><span class="nm">Mihoen met kipfilet</span><span class="pr">€&nbsp;10,50</span></li>
+        <li><span class="nr">45</span><span class="nm">Mihoen met garnalen</span><span class="pr">€&nbsp;14,40</span></li>
+        <li><span class="nr">46</span><span class="nm">Mihoen met ossenhaas</span><span class="pr">€&nbsp;14,00</span></li>
+        <li><span class="nr">47</span><span class="nm">Mihoen Singapore</span><span class="pr">€&nbsp;14,30</span></li>
+        <li><span class="nr">48</span><span class="nm">Mihoen “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,70</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-groente" aria-labelledby="k-groente" hidden>
+      <div class="cat"><h3>Tjap Tjoy gerechten (groenten)</h3><ul class="nrs">
+        <li><span class="nr">53</span><span class="nm">Tjap Tjoy kipfilet</span><span class="pr">€&nbsp;10,50</span></li>
+        <li><span class="nr">55</span><span class="nm">Tjap Tjoy garnalen</span><span class="pr">€&nbsp;14,40</span></li>
+        <li><span class="nr">56</span><span class="nm">Tjap Tjoy ossenhaas</span><span class="pr">€&nbsp;13,80</span></li>
+        <li><span class="nr">57</span><span class="nm">Tjap Tjoy “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,70</span></li>
+      </ul></div>
+      <div class="cat"><h3>Foe yong hai gerechten (omelet)</h3><ul class="nrs">
+        <li><span class="nr">58</span><span class="nm">Foe yong hai met kipfilet</span><span class="pr">€&nbsp;10,50</span></li>
+        <li><span class="nr">60</span><span class="nm">Foe yong hai met garnalen</span><span class="pr">€&nbsp;14,40</span></li>
+        <li><span class="nr">61</span><span class="nm">Foe yong hai met ossenhaas</span><span class="pr">€&nbsp;13,80</span></li>
+        <li><span class="nr">62</span><span class="nm">Foe yong hai “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,70</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-kip" aria-labelledby="k-kip" hidden>
+      <div class="cat"><h3>Kipgerechten</h3><ul class="nrs">
+        <li><span class="nr">63</span><span class="nm">Ajam ketjap</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">64</span><span class="nm">Ajam pangang met pikante saus</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">65</span><span class="nm">Ajam roedjak</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">66</span><span class="nm">Koe loe kai</span><span class="pr">€&nbsp;11,90</span></li>
+        <li><span class="nr">67</span><span class="nm">Kipfilet in zwarte bonensaus</span><span class="pr">€&nbsp;12,20</span></li>
+        <li><span class="nr">68</span><span class="nm">Kipfilet met champignons</span><span class="pr">€&nbsp;12,40</span></li>
+        <li><span class="nr">70</span><span class="nm">Kipfilet met kerrie</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">71</span><span class="nm">Kipfilet met ananas</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">72</span><span class="nm">Gepaneerd kipfilet met verse ananas</span><span class="pr">€&nbsp;15,40</span></li>
+        <li><span class="nr">383</span><span class="nm">Kipfilet met verse knoflook</span><span class="pr">€&nbsp;12,40</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-vlees" aria-labelledby="k-vlees" hidden>
+      <div class="cat"><h3>Vleesgerechten</h3><ul class="nrs">
+        <li><span class="nr">73</span><span class="nm">Babi ketjap</span><span class="pr">€&nbsp;12,60</span></li>
+        <li><span class="nr">74</span><span class="nm">Cha siau vlees</span><span class="pr">€&nbsp;13,10</span></li>
+        <li><span class="nr">75</span><span class="nm">Babi pangang</span><span class="pr">€&nbsp;12,40</span></li>
+        <li><span class="nr">76</span><span class="nm">Babi pangang in satésaus</span><span class="pr">€&nbsp;12,40</span></li>
+        <li><span class="nr">78</span><span class="nm">Speenvarken</span><span class="pr">€&nbsp;13,20</span></li>
+        <li><span class="nr">79</span><span class="nm">Koe loe yuk</span><span class="pr">€&nbsp;11,90</span></li>
+        <li><span class="nr">80</span><span class="nm">Koe loe yuk “De Lange Muur”<small>garnalen, babi pangang, saté, ajam ketjap</small></span><span class="pr">€&nbsp;15,70</span></li>
+      </ul></div>
+      <div class="cat"><h3>Ossenhaasgerechten</h3><ul class="nrs">
+        <li><span class="nr">86</span><span class="nm">Ossenhaas met champignons</span><span class="pr">€&nbsp;16,50</span></li>
+        <li><span class="nr">87</span><span class="nm">Ossenhaas met kerrie</span><span class="pr">€&nbsp;16,30</span></li>
+        <li><span class="nr">88</span><span class="nm">Ossenhaas met paprika</span><span class="pr">€&nbsp;16,50</span></li>
+        <li><span class="nr">89</span><span class="nm">Ossenhaas met broccoli</span><span class="pr">€&nbsp;16,50</span></li>
+        <li><span class="nr">90</span><span class="nm">Ossenhaas in zwarte bonensaus</span><span class="pr">€&nbsp;16,40</span></li>
+        <li><span class="nr">91</span><span class="nm">Ti Pan Ossenhaas</span><span class="pr">€&nbsp;17,20</span></li>
+      </ul></div>
+      <div class="cat"><h3>Peking eend gerechten</h3><ul class="nrs">
+        <li><span class="nr">92</span><span class="nm">Peking eend met pikante saus</span><span class="pr">€&nbsp;16,50</span></li>
+        <li><span class="nr">93</span><span class="nm">Peking eend met Chin. champignons</span><span class="pr">€&nbsp;16,80</span></li>
+        <li><span class="nr">94</span><span class="nm">Peking eend met zwarte bonensaus</span><span class="pr">€&nbsp;16,80</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-special" aria-labelledby="k-special" hidden>
+      <div class="cat"><h3>Garnalengerechten</h3><ul class="nrs">
+        <li><span class="nr">96</span><span class="nm">Chinese garnalen met broccoli</span><span class="pr">€&nbsp;17,50</span></li>
+        <li><span class="nr">97</span><span class="nm">Chinese garnalen in zw. bonensaus</span><span class="pr">€&nbsp;17,40</span></li>
+        <li><span class="nr">98</span><span class="nm">Chinese garnalen met verse knoflook</span><span class="pr">€&nbsp;17,70</span></li>
+      </ul></div>
+      <div class="cat"><h3>Chinese specialiteitengerechten</h3><ul class="nrs">
+        <li><span class="nr">127</span><span class="nm">Gon Bao Kai<small>kipfilet met groenten en cashewnoten in gon baosaus</small></span><span class="pr">€&nbsp;14,80</span></li>
+        <li><span class="nr">128</span><span class="nm">Gon Bao Niu You<small>ossenhaas met groenten en cashewnoten in gon baosaus</small></span><span class="pr">€&nbsp;18,00</span></li>
+        <li><span class="nr">129</span><span class="nm">Gon Bao Ha<small>garnalen met groenten en cashewnoten in gon baosaus</small></span><span class="pr">€&nbsp;19,00</span></li>
+        <li><span class="nr">134</span><span class="nm">Yu Shiang Ba Ku<small>spare ribs met groenten in lichtpikante yu shiangsaus</small></span><span class="pr">€&nbsp;15,20</span></li>
+        <li><span class="nr">136</span><span class="nm">Yu Shiang Kai<small>kipfilet met groenten in lichtpikante yu shiangsaus</small></span><span class="pr">€&nbsp;14,80</span></li>
+        <li><span class="nr">137</span><span class="nm">Yu Shiang Niu You<small>ossenhaas met groenten in lichtpikante yu shiangsaus</small></span><span class="pr">€&nbsp;18,00</span></li>
+        <li><span class="nr">142</span><span class="nm">Sa Cha Niu You<small>ossenhaas met groenten en knoflook in sa chasaus</small></span><span class="pr">€&nbsp;18,00</span></li>
+        <li><span class="nr">144</span><span class="nm">Sa Cha Kai<small>kipfilet met groenten en knoflook in sa chasaus</small></span><span class="pr">€&nbsp;14,80</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-veg" aria-labelledby="k-veg" hidden>
+      <div class="cat"><h3>Vegetarische gerechten</h3><ul class="nrs">
+        <li><span class="nr">104</span><span class="nm">Tjap tjoy vegetarisch</span><span class="pr">€&nbsp;10,30</span></li>
+        <li><span class="nr">105</span><span class="nm">Foe yong hai vegetarisch</span><span class="pr">€&nbsp;10,30</span></li>
+        <li><span class="nr">106</span><span class="nm">Mihoen vegetarisch</span><span class="pr">€&nbsp;10,30</span></li>
+        <li><span class="nr">107</span><span class="nm">Luo Han Tsai (groente met toufu)</span><span class="pr">€&nbsp;14,40</span></li>
+        <li><span class="nr">108</span><span class="nm">Gon Bao Toufu</span><span class="pr">€&nbsp;12,60</span></li>
+        <li><span class="nr">109</span><span class="nm">Gado Gado</span><span class="pr">€&nbsp;10,30</span></li>
+      </ul></div>
+      <div class="cat"><h3>Indische gerechten</h3><ul class="nrs">
+        <li><span class="nr">110</span><span class="nm">Nasi Rames</span><span class="pr">€&nbsp;10,30</span></li>
+        <li><span class="nr">111</span><span class="nm">Nasi Rames Speciaal</span><span class="pr">€&nbsp;12,10</span></li>
+        <li><span class="nr">112</span><span class="nm">Bami Rames</span><span class="pr">€&nbsp;10,80</span></li>
+        <li><span class="nr">113</span><span class="nm">Bami Rames Speciaal</span><span class="pr">€&nbsp;12,60</span></li>
+        <li><span class="nr">114</span><span class="nm">Ma La Yuk tomatensaus</span><span class="pr">€&nbsp;15,50</span></li>
+      </ul></div>
+      <div class="cat"><h3>Kindermenu</h3><ul class="nrs">
+        <li><span class="nr">115</span><span class="nm">Kindermenu<small>met patat, appelmoes en mayonaise. Keuze uit: kipnugget, saté of frikandel</small></span><span class="pr">€&nbsp;7,20</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-rijsttafel" aria-labelledby="k-rijsttafel" hidden>
+      <div class="cat"><h3>Chinese rijsttafel voor 2 personen</h3><ul class="nrs">
+        <li><span class="nr">A</span><span class="nm">Te Tja Koe You<small>Chinese kleine loempia, babi pangang, saté, tjap tjoy en koe loe yuk</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">B</span><span class="nm">Te Tja Ka Li Kai<small>Chinese kleine loempia, babi pangang, saté, tjap tjoy en kip kerry</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">C</span><span class="nm">Te Tja Cha Siau<small>Chinese kleine loempia, babi pangang, saté, tjap tjoy en cha siau vlees</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">D</span><span class="nm">Te Tja Tausie Niu<small>Chinese kleine loempia, babi pangang, saté, tjap tjoy en ossenhaas in zwartebonensaus</small></span><span class="pr">€&nbsp;28,90</span></li>
+        <li><span class="nr">E</span><span class="nm">Te Fu Koe You<small>Chinese kleine loempia, babi pangang, saté, foe yong hai en koe loe yuk</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">F</span><span class="nm">Te Fu Ka Li Kai<small>Chinese kleine loempia, babi pangang, saté, foe yong hai en kip kerry</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">G</span><span class="nm">Te Fu Cha Siau<small>Chinese kleine loempia, babi pangang, saté, foe yong hai en cha siau vlees</small></span><span class="pr">€&nbsp;26,50</span></li>
+        <li><span class="nr">H</span><span class="nm">Te Fu Tausie Niu<small>Chinese kleine loempia, babi pangang, saté, foe yong hai en ossenhaas in zwartebonensaus</small></span><span class="pr">€&nbsp;28,90</span></li>
+      </ul></div>
+      <div class="cat"><h3>Rijsttafels per persoon</h3><ul class="nrs">
+        <li><span class="nr"></span><span class="nm">Chinees Indische Rijsttafel (vanaf 4 personen)<small>kroepoek, kippen- of tomatensoep, foe yong hai, tjap tjoy, koe loe yuk, babi pangang, garnalen, saté, rundvlees, pisang goreng, gado gado, ajam ketjap, sajoer</small></span><span class="pr">€&nbsp;18,50 p.p.</span></li>
+        <li><span class="nr"></span><span class="nm">Chinese Rijsttafel (vanaf 3 personen)<small>kroepoek, kippen- of tomatensoep, pangsit goreng, babi pangang, koe loe yuk, kipfilet met kerrie, ossenhaas in gon baosaus, garnalen, tjap tjoy, saté</small></span><span class="pr">€&nbsp;18,50 p.p.</span></li>
+        <li><span class="nr"></span><span class="nm">Indische Rijsttafel (vanaf 2 personen)<small>kroepoek, saté, pisang goreng, gado gado, rundvlees, sajoer, babi pangang, ajam ketjap, foe yong hai, atjar, ananas</small></span><span class="pr">€&nbsp;16,90 p.p.</span></li>
+      </ul></div>
+    </div>
+    <div class="kp" role="tabpanel" id="kp-actie" aria-labelledby="k-actie" hidden>
+      <div class="cat actie"><div class="actie-head"><h3>Actiemenu</h3><p>Ons eenpersoonsmenu, sinds 2008. Ideaal voor de lunch, voor kleine eters of om zelf een rijsttafel samen te stellen.</p><div class="stamp"><small>per gerecht</small>€&nbsp;7,40</div><p class="fine">Inclusief witte rijst. Nasi of bami in plaats van rijst: € 0,50 extra. Saus apart: € 0,20 extra.</p></div><ul class="nrs plain">
+        <li><span class="nr">351</span><span class="nm">Saté (4 stokjes)</span></li>
+        <li><span class="nr">352</span><span class="nm">Babi Pangang</span></li>
+        <li><span class="nr">353</span><span class="nm">Babi Pangang Ketjapsaus</span></li>
+        <li><span class="nr">354</span><span class="nm">Koe Loe Yuk</span></li>
+        <li><span class="nr">355</span><span class="nm">Ajam Pangang</span></li>
+        <li><span class="nr">356</span><span class="nm">Ajam Ketjap</span></li>
+        <li><span class="nr">357</span><span class="nm">Foe Yong Hai</span></li>
+        <li><span class="nr">358</span><span class="nm">Tjap Tjoy</span></li>
+        <li><span class="nr">359</span><span class="nm">Gado Gado</span></li>
+        <li><span class="nr">360</span><span class="nm">Kipfilet Kerrysaus</span></li>
+        <li><span class="nr">361</span><span class="nm">Kipfilet Ananas</span></li>
+        <li><span class="nr">362</span><span class="nm">Kipfilet Oestersaus</span></li>
+        <li><span class="nr">363</span><span class="nm">Kipfilet Knoflook</span></li>
+        <li><span class="nr">364</span><span class="nm">Kipfilet Zwartebonensaus</span></li>
+        <li><span class="nr">366</span><span class="nm">Koe Loe Kai (kip)</span></li>
+        <li><span class="nr">367</span><span class="nm">Speenvarken (zonder saus)</span></li>
+        <li><span class="nr">368</span><span class="nm">Babi Pangang in Satésaus</span></li>
+        <li><span class="nr">369</span><span class="nm">Kipfilet Zwarte pepersaus</span></li>
+        <li><span class="nr">370</span><span class="nm">King Do Kai (gepaneerd kipfilet in zoetscherpe saus)</span></li>
+      </ul></div>
+    </div>
+    <div class="kaart-foot">
+      <div class="kf-card"><h3>Goed om te weten</h3><ul>
+        <li>In plaats van rijst: nasi of bami € 0,50 extra, mihoen vanaf € 3,00.</li>
+        <li>In al onze gerechten kunnen sporen van allergenen voorkomen. Heb je een allergie? Meld het ons.</li>
+        <li>In het restaurant kun je gerust een afhaallijst meenemen.</li>
+      </ul>
+      <p class="pdfs"><a href="https://www.delangemuuremst.nl/pdf_files/afhaallijst%202026.pdf" target="_blank" rel="noopener">Afhaallijst 2026 (pdf)</a><a href="https://www.delangemuuremst.nl/pdf_files/eenpersoonsmenu%202026.pdf" target="_blank" rel="noopener">Actiemenu 2026 (pdf)</a></p></div>
+      <div class="kf-card stempel"><h3>Spaar stempels</h3><p>Bij afhalen krijg je bij elke € 7,50 een stempel. Een volle kaart (20 stempels) geeft € 7,50 korting op je volgende afhaalmaaltijd, of € 10,00 korting bij een diner.</p><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="fine">Niet inwisselbaar voor contanten.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="keuken" id="keuken">
+  <div class="wall" aria-hidden="true"></div>
+  <div class="wrap keuken-grid">
+    <div class="keuken-head">
+      <h2>Een grote kaart, met veel variatie</h2>
+      <p>Naast de vaste kaart met gerechten en rijsttafels is er een actiemenu, en elke twee weken een nieuw weekmenu. Een paar favorieten van het huis:</p>
+    </div>
+    <figure class="ph ph-a"><img src="img/tafel.jpg" alt="Een tafel vol Chinese gerechten" loading="lazy"></figure>
+    <div class="specials">
+      <div class="special"><h3>Ti Pan</h3><p>Gerechten die sissend op tafel komen, op een hete gietijzeren plaat.</p></div>
+      <div class="special"><h3>Ying Ha</h3><p>Een garnalengerecht dat je eigenlijk gewoon moet proeven.</p></div>
+      <div class="special"><h3>Rijsttafels</h3><p>Samen eten van een tafel vol schalen, in het restaurant of thuis.</p></div>
+      <div class="special"><h3>Actiemenu</h3><p>Ideaal voor de lunch, voor kleine eters of om zelf een rijsttafel samen te stellen.</p></div>
+    </div>
+    <figure class="ph ph-b"><img src="img/nasi.jpg" alt="Gebakken rijst op een wit bord" loading="lazy"></figure>
+    <figure class="ph ph-c"><img src="img/lantaarns.jpg" alt="Rode lantaarns" loading="lazy"></figure>
+    <figure class="ph ph-d"><img src="img/vlam.jpg" alt="Een kok aan de wok boven een open vlam" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="tijden" id="tijden">
+  <div class="wrap">
+    <div>
+      <h2>Wanneer we open zijn</h2>
+      <p class="lead" style="margin-top:22px">Reserveren of afhalen gaat het makkelijkst telefonisch, via <a href="tel:0578662446">0578-662446</a>.</p>
+      <div class="notice"><b>Meer rustdagen.</b> We zijn een familiezaak en werken al jaren met een klein team. Daarom zijn we tijdelijk minder dagen open. Bedankt voor je begrip, en tot snel.</div>
+    </div>
+    <ul class="days" data-days>
+      <li class="period" aria-hidden="false">Vanaf 8 september 2026 t/m juni/juli 2027 (onder voorbehoud)</li>
+      <li data-day="1"><span>Maandag</span><span>16:00 – 20:00</span></li>
+      <li data-day="2" class="closed"><span>Dinsdag</span><span>Gesloten<small class="exc">behalve feestdagen</small></span></li>
+      <li data-day="3" class="closed"><span>Woensdag</span><span>Gesloten<small class="exc">behalve feestdagen</small></span></li>
+      <li data-day="4" class="closed"><span>Donderdag</span><span>Gesloten<small class="exc">behalve feestdagen</small></span></li>
+      <li data-day="5"><span>Vrijdag</span><span>12:00 – 20:30</span></li>
+      <li data-day="6"><span>Zaterdag</span><span>12:00 – 20:30</span></li>
+      <li data-day="0"><span>Zondag</span><span>12:00 – 20:30</span></li>
+      <li><span>Feestdagen</span><span>12:00 – 20:30</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="route" id="route">
+  <div class="wrap route-grid">
+    <div>
+      <h2>Makkelijk te vinden</h2>
+      <address>De Lange Muur<br>Eperweg 21<br>8166 AA Emst</address>
+      <div class="ways">
+        <div><h3>Vanaf de A50</h3><p>Neem afslag 27 Epe/Nunspeet richting Epe. Rechtdoor over de rotonde, bij de stoplichten linksaf. Na ongeveer 300 meter vind je ons aan de rechterkant.</p></div>
+        <div><h3>Vanaf de A28</h3><p>Neem afslag 15 Nunspeet/Epe richting Epe en volg de weg. Op beide rotondes rechtdoor, bij de stoplichten rechtsaf. Na ongeveer 300 meter vind je ons aan de rechterkant.</p></div>
+      </div>
+      <div class="parking"><span>P</span>Ruime eigen parkeerplaats bij het restaurant</div>
+      <p style="margin-top:26px"><a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&amp;destination=Eperweg+21+8166+AA+Emst" target="_blank" rel="noopener">Plan je route</a></p>
+    </div>
+    <div class="map">
+      <a class="map-fallback" href="https://www.google.com/maps/dir/?api=1&amp;destination=Eperweg+21+8166+AA+Emst" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg><b>Eperweg 21, Emst</b><span>Plan je route</span></a>
+      <iframe title="Kaart: De Lange Muur, Eperweg 21, Emst" src="https://maps.google.com/maps?q=De+Lange+Muur,+Eperweg+21,+8166+AA+Emst&amp;z=14&amp;output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wall ink" aria-hidden="true" style="margin-top:-22px;position:relative"></div>
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>De Lange Muur</h3>
+      <p class="han" aria-hidden="true">长城酒楼</p>
+      <p>Chinees restaurant en afhaal in Emst.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Eperweg 21, 8166 AA Emst<br><a href="tel:0578662446">0578-662446</a><br>Fax 0578-662449<br><a href="mailto:info@delangemuuremst.nl">info@delangemuuremst.nl</a></p>
+      <p class="social"><a href="https://www.facebook.com/delangemuuremst" target="_blank" rel="noopener">Facebook</a><a href="https://www.twitter.com/delangemuuremst" target="_blank" rel="noopener">Twitter</a></p>
+    </div>
+    <div>
+      <h4>Goed om te weten</h4>
+      <p>Bestellingen geef je telefonisch door. Vragen, klachten, opmerkingen of suggesties zijn welkom per e-mail: daar worden we beter van. Acties, evenementen en nieuws vind je op onze Facebookpagina.</p>
+      <h4 style="margin-top:22px">Betalen</h4>
+      <p class="pay"><span>Pin</span><span>Maestro</span><span>Mastercard</span><span>Visa</span></p>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar" data-callbar>
+  <a class="btn btn-red" href="tel:0578662446">Bel om af te halen</a>
+  <a class="btn btn-gold" href="#tijden">Open?</a>
+</div>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Lange%20Muur%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // slideshow
+  var slides = document.querySelectorAll('[data-slideshow] .slide'), i = 0;
+  if (!reduce && slides.length > 1) setInterval(function(){
+    slides[i].classList.remove('on'); i = (i + 1) % slides.length; slides[i].classList.add('on');
+  }, 5500);
+
+  // opening hours (from their site, 8 sept 2026 to summer 2027)
+  var hours = {1:[16,0,20,0],5:[12,0,20,30],6:[12,0,20,30],0:[12,0,20,30]};
+  var names = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  var now = new Date(), d = now.getDay(), m = now.getHours()*60 + now.getMinutes();
+  var row = document.querySelector('[data-day="'+d+'"]'); if (row) row.classList.add('today');
+  var st = document.querySelector('[data-status]'), txt = st.querySelector('span');
+  var h = hours[d], pad = function(n){return n<10?'0'+n:''+n};
+  if (h && m >= h[0]*60+h[1] && m < h[2]*60+h[3]) { st.classList.add('open'); txt.textContent = 'Nu open tot ' + h[2] + ':' + pad(h[3]); }
+  else if (h && m < h[0]*60+h[1]) { txt.textContent = 'Vandaag open vanaf ' + h[0] + ':' + pad(h[1]); }
+  else { for (var k = 1; k < 8; k++) { var nd = (d + k) % 7; if (hours[nd]) { txt.textContent = 'Gesloten, ' + (k === 1 ? 'morgen' : names[nd]) + ' weer open vanaf ' + hours[nd][0] + ':' + pad(hours[nd][1]); break; } } }
+
+  // hide the phone call bar while the hero buttons are visible
+  var bar = document.querySelector('[data-callbar]'), hero = document.querySelector('.hero');
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(e){ bar.classList.toggle('hide', e[0].intersectionRatio > .35); }, {threshold:[0,.35,1]}).observe(hero);
+})();
+(function(){var tb=[].slice.call(document.querySelectorAll('.ktabs [role=tab]'));
+tb.forEach(function(b,i){b.addEventListener('click',function(){tb.forEach(function(x){var on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});var bar=b.parentNode;bar.scrollTo({left:b.offsetLeft-bar.clientWidth/2+b.offsetWidth/2,behavior:'smooth'});});
+b.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tb[(i+k+tb.length)%tb.length];n.focus();n.click();}});});})();
+</script>
+</body>
+</html>

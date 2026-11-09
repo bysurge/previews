@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<title>Tapperij de Zwijger · Houten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stout:#1d120b; --oak:#2e1d12; --oak2:#3b2617; --amber:#e09a35; --amber-d:#b8741c;
+  --foam:#f5ecdb; --foam2:#e9dcc3; --brass:#c4a468; --bottle:#22392e; --ink:#2a1c12;
+  --serif:"Young Serif", Georgia, serif; --sans:"Figtree", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--stout);color:var(--foam);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.6vw,3.5rem)}
+.lead{font-size:1.12rem;max-width:58ch;opacity:.88}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:20;transition:background .35s, box-shadow .35s}
+.top.solid{background:rgba(29,18,11,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(196,164,104,.25)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.brand{font-family:var(--serif);font-size:1.35rem;text-decoration:none;white-space:nowrap}
+.brand small{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.06em;color:var(--brass);margin-top:-2px}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.85}
+.nav a:hover{opacity:1;color:var(--amber)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:var(--stout);font-weight:700;text-decoration:none;padding:13px 22px;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer;transition:background .2s, transform .2s}
+.btn:hover{background:#f0ad4a;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--foam);box-shadow:inset 0 0 0 1.5px rgba(245,236,219,.55)}
+.btn.ghost:hover{background:rgba(245,236,219,.1)}
+.btn svg{width:18px;height:18px}
+.top .btn{padding:10px 18px;font-size:.92rem}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero .slides{position:absolute;inset:0}
+.hero .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.04)}
+.hero .slides img.on{opacity:1;animation:drift 9s ease-out forwards}
+@keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,18,11,.55) 0%,rgba(29,18,11,.05) 35%,rgba(29,18,11,.55) 62%,rgba(29,18,11,.97) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:0 0 9vh}
+.status{display:inline-flex;align-items:center;gap:9px;background:rgba(29,18,11,.6);backdrop-filter:blur(6px);padding:7px 14px 7px 12px;border-radius:999px;font-size:.88rem;font-weight:600;margin-bottom:22px}
+.status i{width:9px;height:9px;border-radius:50%;background:#7bc47f;box-shadow:0 0 0 4px rgba(123,196,127,.25)}
+.status.closed i{background:#d9734e;box-shadow:0 0 0 4px rgba(217,115,78,.25)}
+.hero h1{font-size:clamp(3.2rem,10.5vw,9rem);line-height:.92;max-width:11ch}
+.hero h1 span{display:block;text-shadow:0 2px 14px rgba(0,0,0,.5);font-size:.34em;font-family:var(--sans);font-weight:600;letter-spacing:.02em;color:var(--amber);margin-bottom:.25em;line-height:1}
+.hero p{font-size:clamp(1.05rem,1.8vw,1.3rem);max-width:44ch;margin:22px 0 30px;opacity:.92}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.rise{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* tap board */
+.taps{position:relative;padding:120px 0 110px;background:
+  radial-gradient(120% 80% at 50% 0%,rgba(224,154,53,.16),transparent 60%),
+  repeating-linear-gradient(90deg,var(--oak) 0 180px,var(--oak2) 180px 182px,var(--oak) 182px 360px)}
+.taps-head{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.taps-head p{opacity:.85}
+.rail{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding-top:24px}
+.rail::before{content:"";position:absolute;left:-10px;right:-10px;top:0;height:16px;border-radius:8px;background:linear-gradient(180deg,#e8d29b,#a8853f 55%,#6d5427);box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.tap{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.tap .handle{width:46px;height:150px;border-radius:14px 14px 8px 8px;background:linear-gradient(90deg,#120a05,#3a271a 45%,#140b06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),0 10px 18px rgba(0,0,0,.4);position:relative;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.tap .handle::after{content:"";position:absolute;left:50%;bottom:-26px;width:14px;height:26px;margin-left:-7px;background:linear-gradient(90deg,#8a6a2d,#e8d29b,#8a6a2d);border-radius:0 0 4px 4px}
+.tap .handle b{position:absolute;inset:14px 7px;border-radius:8px;display:grid;place-items:center;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--serif);font-weight:400;font-size:.95rem;color:var(--stout);background:var(--foam);letter-spacing:.02em}
+.tap.wissel .handle b{background:var(--amber)}
+.tap:hover .handle{transform:rotate(-9deg)}
+.tap h3{font-size:1.18rem;margin-top:46px}
+.tap span{font-size:.83rem;color:var(--brass);font-weight:600}
+.cellar{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,164,104,.3);border-radius:18px;overflow:hidden}
+.cellar div{background:rgba(29,18,11,.88);padding:26px 26px 28px}
+.cellar h4{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--amber);margin-bottom:6px}
+.cellar p{font-size:.97rem;opacity:.85}
+
+/* panoramas */
+.binnen{padding:110px 0 30px;background:var(--stout)}
+.binnen .wrap>p{margin-top:14px}
+.pano{margin-top:46px}
+.pano figure{position:relative;margin-bottom:22px}
+.pano .strip{overflow-x:auto;scrollbar-width:none;border-radius:16px;cursor:grab}
+.pano .strip::-webkit-scrollbar{display:none}
+.pano img{height:clamp(170px,17vw,220px);width:auto;max-width:none}
+.pano figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 20px;margin-top:12px}
+.pano figcaption b{white-space:nowrap}
+.pano figcaption b{font-family:var(--serif);font-weight:400;font-size:1.4rem}
+.pano figcaption span{font-size:.92rem;opacity:.7}
+.swipe{display:none}
+
+/* eten */
+.eten{padding:110px 0;background:var(--foam);color:var(--ink)}
+.eten .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.eten .photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5}
+.eten .photo img{width:100%;height:100%;object-fit:cover}
+.eten .photo .tag{position:absolute;left:18px;bottom:18px;background:var(--amber);color:var(--stout);font-weight:700;padding:9px 16px;border-radius:999px;font-size:.9rem}
+.eten .lead{opacity:1;color:#4a3626;margin:18px 0 10px}
+.facts{list-style:none;margin:26px 0 34px;display:grid;gap:12px}
+.facts li{display:flex;gap:14px;align-items:flex-start}
+.facts li::before{content:"";flex:none;width:10px;height:10px;margin-top:.55em;border-radius:50%;background:var(--amber-d)}
+.kaarten{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kaarten a{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-radius:14px;background:#fff;text-decoration:none;font-weight:600;box-shadow:0 1px 0 rgba(42,28,18,.08);border:1px solid #e6d8bd;transition:border-color .2s, transform .2s}
+.kaarten a:hover{border-color:var(--amber-d);transform:translateY(-2px)}
+.kaarten a small{font-weight:500;color:#8a6c4e;font-size:.78rem}
+
+/* gelagkamer */
+.gelag{position:relative;padding:120px 0;background:var(--bottle);overflow:hidden}
+.gelag::before{content:"";position:absolute;inset:0;background:url(img/pano-gelagkamer.jpg) center/cover;opacity:.16;filter:grayscale(.3)}
+.gelag .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.gelag .big{font-family:var(--serif);font-size:clamp(4rem,9vw,7.5rem);line-height:.9;color:var(--amber)}
+.gelag .big small{display:block;font-family:var(--sans);font-size:1rem;color:var(--foam);opacity:.8;margin-top:10px;font-weight:500}
+.gelag ul{list-style:none;margin:26px 0 0;display:grid;gap:10px}
+.gelag ul li{padding:14px 18px;border-radius:12px;background:rgba(245,236,219,.07)}
+form{background:var(--foam);color:var(--ink);border-radius:22px;padding:32px;display:grid;gap:14px}
+form h3{font-size:1.7rem}
+form label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+form input,form select,form textarea{font:inherit;font-size:1rem;padding:12px 14px;border-radius:10px;border:1px solid #d9c7a6;background:#fff;color:var(--ink)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .btn{justify-self:start}
+.demo-msg{display:none;padding:14px 16px;border-radius:12px;background:var(--bottle);color:var(--foam);font-weight:500}
+.demo-msg.show{display:block}
+
+/* agenda */
+.agenda{padding:110px 0;background:var(--stout)}
+.events{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.ev{border:1px solid rgba(196,164,104,.3);border-radius:18px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:6px;background:linear-gradient(180deg,rgba(59,38,23,.6),rgba(29,18,11,0))}
+.ev time{font-family:var(--serif);font-size:1.7rem;color:var(--amber);line-height:1.1}
+.ev time small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--brass);font-weight:600;margin-top:4px}
+.ev h3{font-family:var(--sans);font-weight:700;font-size:1.05rem;margin-top:8px}
+.ev p{font-size:.93rem;opacity:.78}
+.jobs{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;padding:20px 24px;border-radius:16px;background:rgba(224,154,53,.12)}
+.jobs b{font-family:var(--serif);font-weight:400;font-size:1.2rem}
+
+/* bezoek */
+.bezoek{padding:110px 0 130px;background:var(--oak)}
+.bezoek .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;margin-top:44px}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:12px 0;border-bottom:1px solid rgba(196,164,104,.22)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{color:var(--amber);font-weight:700}
+.note{margin-top:20px;font-size:.95rem;opacity:.8}
+.addr{margin-top:34px;display:grid;gap:4px}
+.addr .btn{margin-top:18px;justify-self:start}
+.map{border-radius:22px;overflow:hidden;min-height:440px;background:var(--oak2)}
+.map iframe{width:100%;height:100%;min-height:440px;border:0;filter:sepia(.25) saturate(.9)}
+footer{padding:40px 0 90px;background:var(--stout);font-size:.9rem;opacity:.75}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:50;background:rgba(20,12,7,.92);color:var(--foam);font-size:.78rem;padding:7px 14px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);white-space:nowrap}
+.ribbon b{color:var(--amber);font-weight:700}
+.callfab{display:none}
+
+
+/* volledige kaart */
+.kaart{padding:20px 0 110px;background:var(--foam);color:var(--ink)}
+.drank{padding:110px 0;background:var(--stout)}
+.khead{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:end;margin-bottom:30px}
+.kaart .lead{opacity:1;color:#4a3626}
+.mtabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 0 6px}
+.mtabs::-webkit-scrollbar{display:none}
+.mtabs button{flex:none;font:inherit;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:999px;border:1px solid #d9c7a6;background:#fff;color:var(--ink);cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.mtabs button[aria-selected="true"]{background:var(--ink);color:var(--foam);border-color:var(--ink)}
+.drank .mtabs button{background:transparent;color:var(--foam);border-color:rgba(196,164,104,.4)}
+.drank .mtabs button[aria-selected="true"]{background:var(--amber);color:var(--stout);border-color:var(--amber)}
+.mpanel{margin-top:26px}
+@media (prefers-reduced-motion:no-preference){.mpanel{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}}
+.mtime{font-weight:600;color:var(--amber-d);margin-bottom:6px}
+.drank .mtime{color:var(--brass)}
+.mcols{columns:2;column-gap:56px}
+.mcols.three{columns:3;column-gap:40px}
+.mgrp{break-inside:avoid;padding-top:22px;margin-bottom:8px}
+.mgrp h3{font-size:1.6rem;padding-bottom:8px;border-bottom:2px solid currentColor}
+.mgrp.boxed{background:#fff;border-radius:16px;padding:20px 22px 8px;margin-top:22px;border:1px solid #e6d8bd}
+.drank .mgrp.boxed{background:rgba(245,236,219,.06);border-color:rgba(196,164,104,.3)}
+.mnote{font-size:.9rem;opacity:.75;margin-top:8px}
+.mlist{list-style:none;margin-top:4px}
+.mlist li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px dashed rgba(120,90,60,.3)}
+.drank .mlist li{border-bottom-color:rgba(196,164,104,.22)}
+.mlist li:last-child{border-bottom:0}
+.mlist b{font-weight:600}
+.mlist small{display:block;font-size:.86rem;opacity:.72;margin-top:2px;line-height:1.45}
+.mlist span{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mgrp.tight .mlist li{padding:7px 0}
+.mgrp.tight .mlist small{display:inline;margin-left:6px}
+.mpdf{margin-top:24px;font-size:.92rem}
+.mpdf a{color:var(--amber-d);font-weight:600;text-underline-offset:4px}
+.drank .mpdf a{color:var(--amber)}
+.afh-intro{background:var(--bottle);color:var(--foam);border-radius:20px;padding:28px 30px;margin-bottom:10px}
+.afh-intro h3{font-size:1.9rem}
+.afh-intro p{margin-top:8px;opacity:.9}
+.afh-time{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.afh-time b{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--amber)}
+.weetjes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(196,164,104,.3);border-radius:18px;overflow:hidden;margin-top:36px}
+.weetjes div{background:var(--oak);padding:22px 22px 24px}
+.weetjes h4{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--amber);margin-bottom:6px}
+.weetjes p{font-size:.92rem;opacity:.85}
+.route-d{margin-top:22px;border-top:1px solid rgba(196,164,104,.22);padding-top:14px}
+.route-d summary{cursor:pointer;font-weight:700;color:var(--amber)}
+.route-d div{margin-top:12px;font-size:.95rem;opacity:.88;display:grid;gap:10px}
+.route-d b{color:var(--foam)}
+@media (max-width:900px){
+  .khead{grid-template-columns:1fr;gap:12px}
+  .mcols,.mcols.three{columns:1}
+  .weetjes{grid-template-columns:1fr 1fr}
+  .mtabs{margin-right:-20px;padding-right:20px}
+}
+@media (max-width:560px){
+  .kaart{padding-bottom:80px}.drank{padding:80px 0}
+  .weetjes{grid-template-columns:1fr}
+  .mgrp h3{font-size:1.4rem}
+  .afh-intro{padding:22px}
+}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .taps-head,.eten .grid,.gelag .wrap,.bezoek .grid{grid-template-columns:1fr;gap:34px}
+  .rail{grid-template-columns:repeat(3,1fr);row-gap:30px}
+  .rail::before{display:none}
+  .tap{padding-top:18px}
+  .tap::before{content:"";position:absolute;top:0;left:-7px;right:-7px;height:12px;border-radius:6px;background:linear-gradient(180deg,#e8d29b,#a8853f 55%,#6d5427)}
+  .cellar{grid-template-columns:1fr}
+  .kaarten{grid-template-columns:1fr 1fr}
+  .eten .photo{aspect-ratio:4/3}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .top .wrap{height:64px}
+  .top .btn{display:none}
+  .hero .wrap{padding-bottom:13vh}
+  .hero h1{font-size:3.6rem}
+  .hero::after{background:linear-gradient(180deg,rgba(29,18,11,.6) 0%,rgba(29,18,11,.15) 25%,rgba(29,18,11,.78) 50%,rgba(29,18,11,.97) 100%)}
+  .taps,.binnen,.eten,.gelag,.agenda,.bezoek{padding-top:80px;padding-bottom:80px}
+  .tap .handle{height:120px;width:42px}
+  .tap h3{font-size:1.02rem}
+  .pano img{height:180px}
+  .swipe{display:inline-block;font-size:.85rem;color:var(--brass)}
+  .pano figcaption .credit{order:3;width:100%;font-size:.8rem}
+  form{padding:24px}
+  form .row{grid-template-columns:1fr}
+  .map,.map iframe{min-height:320px}
+  .callfab{display:grid;place-items:center;position:fixed;right:16px;bottom:56px;z-index:40;width:56px;height:56px;border-radius:50%;background:var(--amber);color:var(--stout);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .callfab svg{width:24px;height:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rise{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top">De Zwijger<small>Tapperij · Houten</small></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#tap">Van de tap</a>
+      <a href="#kaart">Kaart</a>
+      <a href="#drank">Bier &amp; wijn</a>
+      <a href="#gelagkamer">Gelagkamer</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#bezoek">Bezoek</a>
+    </nav>
+    <a class="btn" href="tel:0306369719"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Reserveren</a>
+  </div>
+</header>
+
+<section class="hero" aria-label="Welkom">
+  <div class="slides">
+    <img class="on" src="img/tap.jpg" alt="Een glas bier wordt getapt">
+    <img src="img/borrel.jpg" alt="Een vers getapt biertje aan de bar">
+  </div>
+  <div class="wrap">
+    <div class="status rise" id="status"><i></i><span>Openingstijden</span></div>
+    <h1 class="rise d1"><span>Tapperij</span>de Zwijger</h1>
+    <p class="rise d2">Sinds 2002 aan het Plein in het Oude Dorp van Houten. Zes bieren van de tap, ruim vijftig uit de fles en elke dag behalve maandag lunch en diner.</p>
+    <div class="ctas rise d3">
+      <a class="btn" href="tel:0306369719"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Bel 030 636 97 19</a>
+      <a class="btn ghost" href="#kaart">Bekijk de kaart</a>
+    </div>
+  </div>
+</section>
+
+<section class="taps" id="tap">
+  <div class="wrap">
+    <div class="taps-head">
+      <h2>Nu van de tap</h2>
+      <p>Trots lid van het Hertog Jan Genootschap. Twee vaste kranen en een wisseltap die met het seizoen meegaat. Uit de fles kies je uit ruim vijftig bieren.</p>
+    </div>
+    <div class="rail">
+      <div class="tap"><div class="handle"><b>Weizener</b></div><h3>Hertog Jan Weizener</h3><span>Vast van de tap</span></div>
+      <div class="tap"><div class="handle"><b>Leffe</b></div><h3>Leffe Blond</h3><span>Vast van de tap</span></div>
+      <div class="tap wissel"><div class="handle"><b>Kwak</b></div><h3>Pauwel Kwak</h3><span>Wisseltap</span></div>
+      <div class="tap wissel"><div class="handle"><b>Bock</b></div><h3>Hertog Jan Bock</h3><span>Wisseltap</span></div>
+      <div class="tap wissel"><div class="handle"><b>Prestige</b></div><h3>Hertog Jan Grand Prestige</h3><span>Wisseltap</span></div>
+      <div class="tap wissel"><div class="handle"><b>Karmeliet</b></div><h3>Tripel Karmeliet</h3><span>Wisseltap</span></div>
+    </div>
+    <div class="cellar">
+      <div><h4>Uit de kelder</h4><p>Nu verkrijgbaar: Hertog Jan Vatgerijpt 2023, 2024 en 2025, en Grand Prestige 2020 in de 75 cl fles.</p></div>
+      <div><h4>Hertog Jan Proeftuin</h4><p>Vraag aan de bar wat er op dit moment beschikbaar is.</p></div>
+      <div><h4>De hele bierkaart</h4><p><a href="#drank" data-tab="bier">Bekijk alle bieren, van de tap en uit de fles</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="binnen" aria-labelledby="binnen-h">
+  <div class="wrap">
+    <h2 id="binnen-h">Kijk even binnen</h2>
+    <p class="lead">Van de bar beneden tot de gelagkamer boven. Schuif door de ruimtes heen.</p>
+    <div class="pano">
+      <figure>
+        <div class="strip" tabindex="0" aria-label="Panorama van de bar"><img src="img/pano-bar.jpg" alt="Panorama van de bar met tapkranen en flessen"></div>
+        <figcaption><b>De bar</b><span class="swipe">Veeg opzij</span><span class="credit">Panorama: E. van Vessem Fotografie</span></figcaption>
+      </figure>
+      <figure>
+        <div class="strip" tabindex="0" aria-label="Panorama van de opkamer"><img src="img/pano-opkamer.jpg" alt="Panorama van de opkamer met houten tafels en kaarslicht"></div>
+        <figcaption><b>Binnen</b></figcaption>
+      </figure>
+      <figure>
+        <div class="strip" tabindex="0" aria-label="Panorama van de gelagkamer"><img src="img/pano-gelagkamer.jpg" alt="Panorama van de gelagkamer op de eerste verdieping met eigen bar"></div>
+        <figcaption><b>De gelagkamer</b><span>Eerste verdieping, met eigen bar</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="eten" id="eten">
+  <div class="wrap grid">
+    <div class="photo"><img src="img/borrel.jpg" alt="Biertje met een mandje borrelhapjes" loading="lazy"><span class="tag">Nieuwe kaart vanaf 6 oktober 2026</span></div>
+    <div>
+      <h2>Lunch, diner en een goede borrel</h2>
+      <p class="lead">De keuken is zes dagen per week open van 12.00 tot 21.00 uur. De kaart wisselt twee keer per jaar, en er staan regelmatig gerechten buiten de kaart om.</p>
+      <ul class="facts">
+        <li>Gerechten voor vegetariërs en een allergenenkaart</li>
+        <li>Uitgebreide warme en koude bittergarnituren voor bij de borrel</li>
+        <li>Grote groepen kiezen gewoon van de lunch- of dinerkaart</li>
+      </ul>
+      <div class="kaarten">
+        <a href="#kaart" data-tab="lunch">Lunch <small>bekijk</small></a>
+        <a href="#kaart" data-tab="diner">Diner <small>bekijk</small></a>
+        <a href="#kaart" data-tab="borrel">Borrel <small>bekijk</small></a>
+        <a href="#kaart" data-tab="afhaal">Afhalen <small>vr &amp; za</small></a>
+        <a href="#drank" data-tab="bier">Bier <small>bekijk</small></a>
+        <a href="#drank" data-tab="wijn">Wijn <small>bekijk</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="kaart" id="kaart">
+  <div class="wrap">
+    <div class="khead"><h2>De kaart</h2><p class="lead">Nieuwe kaart vanaf 6 oktober 2026. Vegetarisch eten? Vraag ook naar de allergenenkaart.</p></div>
+    <div class="mtabs" role="tablist" aria-label="Eten"><button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch</button><button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Diner</button><button role="tab" id="t-na" aria-controls="p-na" aria-selected="false" tabindex="-1">Erna & koffie</button><button role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrel</button><button role="tab" id="t-afhaal" aria-controls="p-afhaal" aria-selected="false" tabindex="-1">Afhalen</button></div><div class="mpanel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch"><p class="mtime">Lunch van 12.00 tot 17.30 uur, of in overleg</p><div class="mcols"><div class="mgrp "><h3>Lunchgerechten</h3><p class="mnote">Bij de lunchgerechten kies je tussen wit of bruin boerenbrood.</p><ul class="mlist"><li><div><b>12-Uurtje</b><small>Kipburgertje · broodje carpaccio · broodje tonijn · soepje · mini frietje</small></div><span>17,50</span></li><li><div><b>Broodje Carpaccio</b><small>Rucola · pittenmix · parmezaan · olijven · ui · kappertjes · tomaat · truffel of balsamico dressing</small></div><span>15,50</span></li><li><div><b>Focacia Tonijnsalade</b><small>Paprika · kappertjes · ui · groene appel · augurk</small></div><span>13,50</span></li><li><div><b>Zuurdesembrood Avocado</b><small>Gepocheerd ei · chilivlokken · kerriemayonaise</small></div><span>12,50</span></li><li><div><b>Broodje Warme Geitenkaas</b><small>Walnoten · honing · olijven · tomaat · ui · komkommer</small></div><span>13,75</span></li><li><div><b>Eggs Benedict</b><small>Gerookte zalm · gepocheerd ei · hollandaise saus · brioche bol</small></div><span>15,75</span></li><li><div><b>Broodje Spicy Pulled Chicken</b><small>Little gem · tomaat · ui · komkommer · augurk · chilimayonaise</small></div><span>13,75</span></li></ul></div><div class="mgrp boxed"><h3>Clubsandwich</h3><p class="mnote">Onze clubsandwiches worden geserveerd met chips.</p><ul class="mlist"><li><div><b>Ham en Kaas</b><small>Ham · kaas · bacon · ei · little gem · tomaat · ui · augurk · mayonaise</small></div><span>14,75</span></li><li><div><b>Gerookte Kip</b><small>Kip · kaas · bacon · tomaat · ei · ui · little gem · augurk · pestomayonaise</small></div><span>14,75</span></li><li><div><b>Gerookte Zalm</b><small>Roomkaas · ui · augurk · little gem · tomaat · ei · honing mosterd dillesaus</small></div><span>14,75</span></li></ul></div><div class="mgrp "><h3>Kroketten & eieren</h3><ul class="mlist"><li><div><b>2 Rundvleeskroketten op Boerenbrood</b><small>Geserveerd met mosterd</small></div><span>12,75</span></li><li><div><b>Trio Mini Kroketjes</b><small>Brioche broodjes · oosters · garnalen · groente · luxe toppings</small></div><span>13,75</span></li><li><div><b>Uitsmijter Ham, Kaas of Spek</b></div><span>10,25</span></li><li><div><b>Uitsmijter 2 items</b></div><span>11,00</span></li><li><div><b>Uitsmijter 3 items</b></div><span>11,75</span></li></ul></div><div class="mgrp "><h3>Kleine trek</h3><ul class="mlist"><li><div><b>Tosti Kaas of Ham/Kaas</b><small>Met ketchup · curry · chilisaus of mayonaise</small></div><span>5,50 | 5,75</span></li><li><div><b>Tosti v/h Moment</b><small>Met ketchup · curry · chilisaus of mayonaise</small></div><span>7,50</span></li><li><div><b>Soep van het Moment</b><small>Geserveerd met boerenbrood</small></div><span>7,50</span></li></ul></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/lunchkaart.pdf" target="_blank" rel="noopener">Lunchkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden><p class="mtime">Diner van 12.00 tot 21.00 uur</p><div class="mcols"><div class="mgrp "><h3>Vooraf</h3><ul class="mlist"><li><div><b>Brood met Dips</b><small>Warme broodjes · 3 dips</small></div><span>8,75</span></li><li><div><b>Soep van het Moment</b><small>Dagverse soep · brood</small></div><span>7,50</span></li><li><div><b>Carpaccio</b><small>Rucola · pittenmix · parmezaan · olijven · ui · kappertjes · tomaat · truffel of balsamico dressing</small></div><span>14,50</span></li><li><div><b>Garnalenspiesjes</b><small>Limoengras · bosui · knoflook</small></div><span>9,75</span></li><li><div><b>Hummus</b><small>Kikkererwt · gegrilde paprika · naanbrood</small></div><span>8,75</span></li><li><div><b>Beef Tataki</b><small>Steak · ponzu · bosui · krokante uitjes</small></div><span>11,75</span></li><li><div><b>Jalapeño Pops</b><small>Jalapeño · roomkaas · cheddar (optie spek + 2,50)</small></div><span>7,75</span></li></ul></div><div class="mgrp "><h3>Hoofdzaken</h3><p class="mnote">Geserveerd met verse friet, mayonaise en op verzoek een salade.</p><ul class="mlist"><li><div><b>Saté</b><small>Saté van varkenshaas · huisgemaakte atjar · uitjes · sesam · kroepoek · pindasaus</small></div><span>19,75</span></li><li><div><b>Runderburger</b><small>Little gem · bacon · cheddar · uienringen · coleslaw · BBQ saus</small></div><span>19,95</span></li><li><div><b>Sizzling Plate</b><small>Steak · paksoi · ui · knoflook · honing · sesam · teriyaki saus</small></div><span>22,50</span></li><li><div><b>Pousin</b><small>Kippetje · kruidenboter · citroen · groenten · zoete aardappelpuree</small></div><span>23,75</span></li><li><div><b>Zeebaars van de BBQ</b><small>Zeebaars · citroen · gepofte tomaat · groenten · zoete aardappelpuree</small></div><span>26,75</span></li><li><div><b>Truffel Risotto</b><small>Paddenstoelen · gepocheerd ei · Parmezaan</small></div><span>19,95</span></li><li><div><b>Pompoen Rendang</b><small>Flespompoen · boemboe · sambal boontjes · zoetzure komkommer · naanbrood</small></div><span>19,95</span></li></ul></div><div class="mgrp "><h3>Maaltijdsalades</h3><p class="mnote">Met brood of verse friet en croutons. Ook als halve portie.</p><ul class="mlist"><li><div><b>Carpaccio</b><small>Rucola · pittenmix · parmezaan · olijven · ui · kappertjes · truffel of balsamico dressing</small></div><span>18,50</span></li><li><div><b>Spicy Pulled Chicken</b><small>Bacon · tomaat · ui · komkommer · augurk · olijven · chilimayonaise</small></div><span>17,50</span></li><li><div><b>Warme Geitenkaas</b><small>Walnoten · honing · olijven · tomaat · ui · augurk · komkommer</small></div><span>17,50</span></li><li><div><b>Gerookte Zalm</b><small>Tomaat · ui · komkommer · augurk · olijven · ei · honing mosterd dillesaus</small></div><span>18,50</span></li></ul></div><div class="mgrp boxed"><h3>Spareribs</h3><ul class="mlist"><li><div><b>Sweet BBQ</b><small>Honey BBQ marinade · kruidencrumble · coleslaw · knoflooksaus</small></div><span>26,50</span></li><li><div><b>Spicy Sriracha</b><small>Pikante marinade · kruidencrumble · coleslaw · Sriracha mayonaise</small></div><span>26,50</span></li><li><div><b>XL portie Sweet BBQ of Spicy Sriracha</b></div><span>34,50</span></li></ul></div><div class="mgrp boxed"><h3>Kleine Zwijgertjes</h3><p class="mnote">Voor de kinderen.</p><ul class="mlist"><li><div><b>Kroket</b><small>Verse friet · appelmoes · mayonaise · ijsje</small></div><span>8,75</span></li><li><div><b>Kipnuggets</b><small>Verse friet · appelmoes · mayonaise · ijsje</small></div><span>8,75</span></li><li><div><b>Frikandelletjes</b><small>Verse friet · appelmoes · mayonaise · ijsje</small></div><span>8,75</span></li><li><div><b>Saté van Varkenshaas</b><small>Verse friet · appelmoes · pindasaus · ijsje</small></div><span>9,75</span></li></ul></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/dinerkaart.pdf" target="_blank" rel="noopener">Dinerkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-na" aria-labelledby="t-na" hidden><div class="mcols"><div class="mgrp "><h3>Erna</h3><p class="mnote">Het toetje.</p><ul class="mlist"><li><div><b>Cheese Cake</b><small>Tony Chocolonely framboos · Monin saus · Bastognekoek</small></div><span>8,75</span></li><li><div><b>Christiaan’s Malva Cake</b><small>Abrikoos · vanille · vanille ijs · slagroom</small></div><span>8,25</span></li><li><div><b>Tiramisu</b><small>Amaretto · mascarpone · lange vingers · cacao</small></div><span>7,95</span></li><li><div><b>Crêpe Perzik</b><small>Geflambeerde perzik · vanille ijs · Bacardi Spiced</small></div><span>9,25</span></li><li><div><b>Bonbons Marco Osté</b><small>Met koffie of thee uit de theedoos</small></div><span>9,95</span></li><li><div><b>Espresso Martini</b><small>Espresso · wodka · koffielikeur</small></div><span>9,75</span></li></ul></div><div><div class="mgrp "><h3>Lekkers bij de koffie</h3><ul class="mlist"><li><div><b>Huisgemaakte appeltaart</b><small>Zonder slagroom</small></div><span>5,25</span></li><li><div><b>Huisgemaakte appeltaart</b><small>Met slagroom</small></div><span>6,25</span></li><li><div><b>Bonbons Marco Osté</b><small>Met koffie of thee</small></div><span>9,95</span></li></ul></div><div class="mgrp tight"><h3>Speciale koffie’s</h3><ul class="mlist"><li><div><b>Irish coffee</b></div><span>8,75</span></li><li><div><b>Dom coffee</b></div><span>8,75</span></li><li><div><b>French coffee</b></div><span>8,75</span></li><li><div><b>Italian coffee</b></div><span>8,75</span></li><li><div><b>Spanish coffee</b></div><span>8,75</span></li><li><div><b>Mexican coffee</b></div><span>8,75</span></li><li><div><b>Brasil coffee</b></div><span>8,75</span></li><li><div><b>Baileys coffee</b></div><span>8,75</span></li><li><div><b>Licor 43 coffee</b></div><span>8,75</span></li><li><div><b>Rüdesheimer kaffee</b></div><span>8,75</span></li></ul></div></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/dinerkaart.pdf" target="_blank" rel="noopener">Dinerkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden><div class="mcols"><div class="mgrp tight"><h3>Bittergarnituur</h3><ul class="mlist"><li><div><b>Bourgondische Bitterballen</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Vegan Bitterballen</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Luxe Kipnuggets</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Vega Mini Loempia’s</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Kaastengels</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Torpedo Garnalen</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Mini Frikandellen</b><small>8 stuks</small></div><span>9,95</span></li><li><div><b>Bittergarnituur</b><small>12 stuks (ook vega)</small></div><span>14,50</span></li><li><div><b>Bittergarnituur</b><small>24 stuks (ook vega)</small></div><span>27,50</span></li><li><div><b>Portie Friet</b><small>Mayonaise</small></div><span>4,75</span></li><li><div><b>Portie Olijven</b></div><span>4,75</span></li><li><div><b>Portie Oude Kaas</b></div><span>6,75</span></li><li><div><b>Tortilla chips</b><small>Kaas · chilimayo</small></div><span>7,25</span></li></ul></div><div class="mgrp "><h3>Lekker om te delen</h3><p class="mnote">Voor 2 tot 3 personen, te bestellen tot 21.00 uur.</p><ul class="mlist"><li><div><b>Brood met Dips</b><small>Warme broodjes · 3 dips</small></div><span>8,75</span></li><li><div><b>Karaage Kip</b><small>Krokante kip · Korean BBQ saus · sesam · krokante ui</small></div><span>9,95</span></li><li><div><b>Loaded Friet Pulled Chicken</b><small>Verse friet · pulled chicken · kaas · tomaat · rode ui · salsa. Op verzoek vegetarisch: 12,75</small></div><span>15,75</span></li><li><div><b>Nacho’s</b><small>Pulled chicken · kaas · ui · salsa · crème fraîche. Op verzoek vegetarisch: 11,25</small></div><span>13,75</span></li><li><div><b>Borrelplank</b><small>Tot 17.30 uur of in overleg. Vockingworst · ossenworst · mini nachos · zalmwraps · kaas · yakitori kipspiesjes · foccacia</small></div><span>27,50</span></li><li><div><b>Hollandse Borrelplankje</b><small>Vockingworst · ossenworst · oude kaas · piccalilly · mosterd</small></div><span>14,50</span></li></ul></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/borrelkaart.pdf" target="_blank" rel="noopener">Borrelkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-afhaal" aria-labelledby="t-afhaal" hidden><div class="afh"><div class="afh-intro"><h3>Onze hardlopers, voor thuis</h3><p>Op vrijdag en zaterdag bestel je onze favoriete gerechten om mee te nemen.</p><p class="afh-time"><b>Afhalen 16.00 – 18.30 uur</b><a class="btn" href="tel:0306369719">Bel 030 636 97 19</a></p></div><div class="mcols"><div class="mgrp "><h3>Vooraf</h3><ul class="mlist"><li><div><b>Broodjes</b><small>Kruidenboter · aioli</small></div><span>6</span></li><li><div><b>Carpaccio</b><small>Truffelmayonaise</small></div><span>10</span></li></ul></div><div class="mgrp "><h3>Hoofdzaken</h3><ul class="mlist"><li><div><b>Kipsaté</b><small>Pindasaus · atjar · kroepoek</small></div><span>15</span></li><li><div><b>Sweet BBQ spareribs</b><small>Knoflooksaus</small></div><span>17</span></li><li><div><b>Spicy Sriracha spareribs</b><small>Sriracha mayo</small></div><span>17</span></li><li><div><b>Runderburger</b><small>Truffelmayonaise</small></div><span>15</span></li><li><div><b>Vegetarische burger</b><small>Salsa</small></div><span>15</span></li><li><div><b>Kindermenu</b><small>Kipnuggets, kroketje of frikandelletjes</small></div><span>6</span></li></ul></div><div class="mgrp "><h3>Erna</h3><ul class="mlist"><li><div><b>Apfelstrudel</b><small>8 minuten in de oven op 200 °C</small></div><span>7</span></li></ul></div><div class="mgrp "><h3>Emmertje snert</h3><ul class="mlist"><li><div><b>0,5 liter</b><small>1 persoon</small></div><span>6</span></li><li><div><b>1 liter</b><small>2 personen</small></div><span>11</span></li></ul></div></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/afhaalmenu.pdf" target="_blank" rel="noopener">Afhaalmenu als pdf</a></p></div>
+  </div>
+</section>
+
+<section class="drank" id="drank">
+  <div class="wrap">
+    <div class="khead"><h2>Bier, wijn en meer</h2><p class="lead">Ruim vijftig bieren uit de fles, zes van de tap, een goed glas wijn en een volle achterbar.</p></div>
+    <div class="mtabs" role="tablist" aria-label="Dranken"><button role="tab" id="t-bier" aria-controls="p-bier" aria-selected="true">Bier</button><button role="tab" id="t-wijn" aria-controls="p-wijn" aria-selected="false" tabindex="-1">Wijn</button><button role="tab" id="t-dranken" aria-controls="p-dranken" aria-selected="false" tabindex="-1">Dranken</button></div><div class="mpanel" role="tabpanel" id="p-bier" aria-labelledby="t-bier"><div class="mcols"><div class="mgrp tight"><h3>Hertog Jan pils van de tap</h3><ul class="mlist"><li><div><b>Fluitje</b></div><span>3,75</span></li><li><div><b>Vaasje</b></div><span>4,10</span></li><li><div><b>Halve liter</b></div><span>7,75</span></li></ul></div><div class="mgrp tight"><h3>Vast van de tap</h3><ul class="mlist"><li><div><b>Leffe Blond</b><small>6,6%</small></div><span>5,95</span></li><li><div><b>Hertog Jan Weizen</b><small>5,7%</small></div><span>6,95</span></li></ul></div><div class="mgrp tight"><h3>Hertog Jan bier van de tap</h3><ul class="mlist"><li><div><b>Lentebock (seizoen)</b><small>7,2%</small></div><span>6,75</span></li><li><div><b>Grand Prestige (seizoen)</b><small>10%</small></div><span>7,25</span></li><li><div><b>Bock (seizoen)</b><small>6,5%</small></div><span>6,75</span></li><li><div><b>Weizener 0,30</b><small>5,7%</small></div><span>6,95</span></li><li><div><b>Weizener 0,50</b><small>5,7%</small></div><span>9,95</span></li></ul></div><div class="mgrp tight"><h3>Wisseltap (seizoen)</h3><ul class="mlist"><li><div><b>Hoegaarden Wit</b><small>4,9%</small></div><span>6,25</span></li><li><div><b>Franziskaner Weizen</b><small>5%</small></div><span>6,75</span></li><li><div><b>Karmeliet Tripel</b><small>8,5%</small></div><span>6,95</span></li><li><div><b>Leffe Bruin</b><small>6,5%</small></div><span>5,95</span></li><li><div><b>Goose Island IPA</b><small>5,9%</small></div><span>6,50</span></li><li><div><b>Pauwel Kwak Blond</b><small>7,4%</small></div><span>6,50</span></li><li><div><b>Pauwel Kwak</b><small>8,4%</small></div><span>6,50</span></li></ul></div><div class="mgrp tight"><h3>Hertog Jan speciaalfles</h3><p class="mnote">Elk jaar rijpt de Grand Prestige op andere houten vaten: de Vatgerijpt-editie, in kleine oplage. Vraag naar de nieuwste editie.</p><ul class="mlist"><li><div><b>Hertog Jan Proeftuin</b></div><span>18,75</span></li><li><div><b>Grand Prestige 33 cl</b><small>10%</small></div><span>6,95</span></li><li><div><b>Grand Prestige 75 cl</b><small>10%</small></div><span>24,75</span></li></ul></div><div class="mgrp tight"><h3>Hommeles, bier uit Houten</h3><p class="mnote">Gebrouwen door het Houtens Brouw Collectief, sinds 2013, met producten uit de streek.</p><ul class="mlist"><li><div><b>Dorstvlegel</b><small>6%</small></div><span>6,95</span></li><li><div><b>Goede Raat</b><small>7,5%</small></div><span>6,95</span></li><li><div><b>Hopdonder IPA</b><small>6%</small></div><span>6,95</span></li><li><div><b>Gluiperd</b><small>8%</small></div><span>6,95</span></li><li><div><b>Kuitenbijter</b><small>6,3%</small></div><span>6,95</span></li><li><div><b>Bokkepruik</b><small>8%</small></div><span>6,95</span></li><li><div><b>Strooper</b><small>7,5%</small></div><span>6,95</span></li><li><div><b>Specials</b><small>Zie het schoolbord</small></div><span>8,75</span></li></ul></div><div class="mgrp tight"><h3>Leffe</h3><p class="mnote">Abdijbier, met een receptuur die teruggaat tot de abdij van Leffe.</p><ul class="mlist"><li><div><b>Leffe Tripel</b><small>8,5%</small></div><span>6,75</span></li><li><div><b>Leffe Bruin</b><small>6,5%</small></div><span>6,75</span></li><li><div><b>Leffe Ruby</b><small>5%</small></div><span>6,75</span></li><li><div><b>Leffe Rituel</b><small>9%</small></div><span>7,00</span></li><li><div><b>Leffe Blond, vast van de tap</b><small>6,6%</small></div><span>5,95</span></li></ul></div><div class="mgrp tight"><h3>Trappist, fles</h3><ul class="mlist"><li><div><b>Chimay Blue</b><small>9%</small></div><span>7,50</span></li><li><div><b>Rochefort 6</b><small>7,5%</small></div><span>7,50</span></li><li><div><b>Westmalle Dubbel</b><small>7%</small></div><span>7,50</span></li><li><div><b>Westmalle Tripel</b><small>9,5%</small></div><span>7,75</span></li><li><div><b>Orval</b><small>6,2%</small></div><span>7,50</span></li></ul></div><div class="mgrp tight"><h3>Speciaalbier, fles</h3><ul class="mlist"><li><div><b>Bruut Gajus</b><small>8%</small></div><span>7,50</span></li><li><div><b>Duvel</b><small>8,5%</small></div><span>7,25</span></li><li><div><b>Hoegaarden Grand Cru</b><small>10%</small></div><span>7,75</span></li><li><div><b>Belle-Vue Kriek</b><small>4,1%</small></div><span>5,25</span></li><li><div><b>Hoegaarden Radler</b><small>2%</small></div><span>4,95</span></li><li><div><b>Liefmans Fruitesse</b><small>3,8%</small></div><span>5,25</span></li><li><div><b>Pauwel Kwak</b><small>8,4%</small></div><span>6,95</span></li><li><div><b>Jopen Mooie Nel</b><small>6,5%</small></div><span>7,75</span></li><li><div><b>Karmeliet Tripel</b><small>8,5%</small></div><span>7,25</span></li><li><div><b>Texels Skuumkoppe</b><small>6%</small></div><span>6,25</span></li><li><div><b>Hoegaarden Wit</b><small>4,9%</small></div><span>5,50</span></li><li><div><b>La Chouffe</b><small>8%</small></div><span>7,25</span></li><li><div><b>Corona</b><small>4,5%</small></div><span>6,50</span></li><li><div><b>Proeftuin Hertog Jan</b></div><span>18,75</span></li></ul></div><div class="mgrp tight"><h3>Bieren 0,0 – 0,5%</h3><ul class="mlist"><li><div><b>Hoegaarden Radler 0.0</b></div><span>4,75</span></li><li><div><b>Leffe Blond 0.0</b></div><span>5,95</span></li><li><div><b>Leffe Dubbel 0.0</b></div><span>5,95</span></li><li><div><b>Van de Streek IPA 0.5%</b></div><span>6,95</span></li><li><div><b>Hertog Jan 0.0</b></div><span>4,75</span></li><li><div><b>Lowlander Wit 0.0</b></div><span>6,50</span></li><li><div><b>Franziskaner Weissbier 0.5%</b></div><span>5,75</span></li><li><div><b>Liefmans 0.0</b></div><span>5,25</span></li><li><div><b>Corona Zero</b></div><span>5,75</span></li><li><div><b>Texels Skuumkoppe 0.0</b></div><span>5,75</span></li><li><div><b>Karmeliet 0.4%</b></div><span>6,95</span></li></ul></div></div><div class="weetjes">
+<div><h4>Hertog Jan Genootschap</h4><p>Sinds 2016 zijn we lid van het Genootschap: een selectie van 27 cafés door heel Nederland die aan de hoogste Hertog Jan-normen voldoen. Nieuwe speciaalbieren en evenementen van Hertog Jan komen hier als eerste.</p></div>
+<div><h4>Hertog Jan Proeftuin</h4><p>Elk kwartaal brouwen de brouwers van Hertog Jan een nieuw Proeftuinbier, alleen verkrijgbaar bij leden van het Genootschap. Op is op: vraag welke er nu zijn.</p></div>
+<div><h4>Brouwerij Arcen</h4><p>Hertog Jan begon in 1915 in Arcen, toen vier bevriende brouwers stoombierbrouwerij “De Vriendschap” oprichtten. De naam verwijst naar Jan Primus, hertog van Brabant in de 13e eeuw.</p></div>
+<div><h4>Bierweetje</h4><p>Pils is altijd bier, maar bier is niet altijd pils. Speciaalbier is bovengistend, pils ondergistend. En een trappist is een abdijbier, maar niet elk abdijbier is een trappist.</p></div>
+</div><p class="mnote" style="margin-top:18px">Bier buiten de kaart om? Vraag de bediening.</p><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/bierkaart.pdf" target="_blank" rel="noopener">Bierkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-wijn" aria-labelledby="t-wijn" hidden><p class="mtime">Nieuwe huiswijnen en nieuwe wijnen op de kaart. Buiten de kaart om regelmatig wisselende wijnen per glas of fles: vraag de bediening.</p><div class="mcols"><div class="mgrp "><h3>Wit</h3><ul class="mlist"><li><div><b>Vistas Verdejo Bio, huiswijn</b><small>Spanje, Verdejo · Wit fruit · Fris · Kruidig · Soepel</small></div><span>glas 5,50 · fles 24,95</span></li><li><div><b>Green Trail Airen Sauvignon</b><small>Spanje, Sauvignon Verdejo · Wit fruit · Citrus · Fris · Biologisch</small></div><span>fles 26,95</span></li><li><div><b>Jean Biecher Pinot Blanc</b><small>Frankrijk, Pinot Blanc · Zacht · Geel fruit · Fris · Appelig</small></div><span>fles 25,95</span></li><li><div><b>Kleindal Chardonnay</b><small>Zuid-Afrika, Chardonnay · Vol · Subtiel · Fruit · Fris · Hout</small></div><span>fles 27,75</span></li><li><div><b>Vincente Gandia Neblo Verdejo</b><small>Spanje, Verdejo · Tropisch fruit · Vanille · Frisse zuren</small></div><span>fles 28,75</span></li></ul></div><div class="mgrp "><h3>Rood</h3><ul class="mlist"><li><div><b>Hoja Sana BIO, huiswijn</b><small>Spanje, Tempranillo · Bosfruit · Intens · Rond · Soepel · Toegankelijk</small></div><span>glas 5,50 · fles 24,95</span></li><li><div><b>Montepulciano d’Abruzzo</b><small>Italië, Montepulciano en Sangiovese · Soepel · Intens · Rond · Fruitig</small></div><span>fles 24,95</span></li><li><div><b>Campo di Christobal Primitivo</b><small>Italië (Puglia), Primitivo · Rood fruit · Rijk · Vol · Kruidig · Vanille</small></div><span>fles 28,50</span></li><li><div><b>Torres Altos Ibericos Rioja Crianza</b><small>Spanje, Graciano · Zacht · Kruidig · Hout · Zwart fruit</small></div><span>fles 33,75</span></li><li><div><b>Kaiken Estate Malbec</b><small>Argentinië, Malbec · Rijp rood fruit · Hout · Vanille · Krachtig · Intens</small></div><span>fles 32,50</span></li></ul></div><div class="mgrp "><h3>Rosé</h3><ul class="mlist"><li><div><b>Confidencia Tempranillo Rosado</b><small>Spanje, Tempranillo · Zacht · Fris · Fruitig · Soepel · Fris zuurtje</small></div><span>glas 5,50 · fles 24,95</span></li><li><div><b>Caillou Gamay</b><small>Frankrijk, Gamay · Sappig · Droog · Rood fruit · Soepel</small></div><span>glas 5,50 · fles 26,50</span></li><li><div><b>Campo di Christobal Blush</b><small>Italië, Pinot Grigio · Elegant · Fris · Fruitig · Verfrissend · Terraswijn</small></div><span>fles 27,50</span></li></ul></div><div class="mgrp "><h3>Zoet</h3><ul class="mlist"><li><div><b>Mainzer Domherr Kabinett</b><small>Duitsland, Elbing en Riesling · Licht · Soepel · Zacht · Zoet</small></div><span>glas 5,50 · fles 25,50</span></li></ul></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/wijnkaart.pdf" target="_blank" rel="noopener">Wijnkaart als pdf</a></p></div><div class="mpanel" role="tabpanel" id="p-dranken" aria-labelledby="t-dranken" hidden><div class="mcols three"><div class="mgrp tight"><h3>Warme dranken</h3><ul class="mlist"><li><div><b>Koffie</b></div><span>3,50</span></li><li><div><b>Espresso</b></div><span>3,10</span></li><li><div><b>Cortado</b></div><span>3,25</span></li><li><div><b>Dubbele espresso</b></div><span>3,95</span></li><li><div><b>Cappuccino</b></div><span>3,75</span></li><li><div><b>Cappuccino extra shot</b></div><span>4,25</span></li><li><div><b>Koffie verkeerd</b></div><span>3,75</span></li><li><div><b>Latte macchiato</b></div><span>4,50</span></li><li><div><b>Thee (diverse smaken)</b></div><span>3,50</span></li><li><div><b>Verse muntthee</b></div><span>4,50</span></li><li><div><b>Verse gemberthee</b></div><span>4,50</span></li><li><div><b>Chai tea latte</b></div><span>4,50</span></li><li><div><b>Warme Chocomel</b></div><span>3,95</span></li></ul></div><div class="mgrp tight"><h3>Frisdranken</h3><ul class="mlist"><li><div><b>Coca Cola Regular | Zero</b></div><span>3,50</span></li><li><div><b>Spa Blauw | Rood</b></div><span>3,50</span></li><li><div><b>Bitter Lemon | Tonic | Gingerale</b></div><span>3,75</span></li><li><div><b>Fanta Cassis | Sinas</b></div><span>3,75</span></li><li><div><b>Lipton IJsthee | Green | Peach</b></div><span>3,75</span></li><li><div><b>Looza Appelsap | Tomatensap</b></div><span>3,50</span></li><li><div><b>Verse jus klein | groot</b></div><span>3,75 | 6,75</span></li><li><div><b>Sprite</b></div><span>3,50</span></li><li><div><b>Rivella</b></div><span>3,75</span></li><li><div><b>Fentimans Ginger beer</b></div><span>6,25</span></li><li><div><b>Fever-Tree Tonic</b></div><span>4,95</span></li></ul></div><div class="mgrp tight"><h3>Zuivel & tafelwater</h3><ul class="mlist"><li><div><b>Fristi</b></div><span>3,75</span></li><li><div><b>Chocomel</b></div><span>3,75</span></li><li><div><b>Chaudfontaine Rood 0,5 l</b></div><span>5,75</span></li><li><div><b>Chaudfontaine Blauw 0,5 l</b></div><span>5,75</span></li></ul></div><div class="mgrp tight"><h3>Aperitief</h3><ul class="mlist"><li><div><b>Prosecco 0,25 cl</b></div><span>9,50</span></li><li><div><b>Noa Sparkling 0.0, 20 cl</b></div><span>9,50</span></li><li><div><b>Crodino 0.0</b></div><span>5,75</span></li><li><div><b>Aperol Spritz (ook 0.0)</b></div><span>11,75</span></li><li><div><b>Limoncello Spritz (ook 0.0)</b></div><span>11,75</span></li></ul></div><div class="mgrp tight"><h3>Gin & tonics</h3><ul class="mlist"><li><div><b>Bombay Sapphire</b><small>Indian Tonic · Citroen</small></div><span>11,50</span></li><li><div><b>Bombay Bramble</b><small>Indian Tonic · Bramen</small></div><span>11,75</span></li><li><div><b>Bombay East</b><small>Mediterranean Tonic · Steranijs</small></div><span>11,75</span></li><li><div><b>Citadelle</b><small>Elderflower Tonic · Munt · Gember</small></div><span>11,50</span></li><li><div><b>Hendricks</b><small>Indian Tonic · Komkommer</small></div><span>13,50</span></li><li><div><b>Tanqueray</b><small>Mediterranean Tonic · Jeneverbes</small></div><span>11,50</span></li><li><div><b>Gordon’s 0.0</b><small>Indian Tonic · Citroen</small></div><span>10,50</span></li></ul></div><div class="mgrp tight"><h3>Port, sherry, vermout</h3><ul class="mlist"><li><div><b>Martini Rood | Wit</b></div><span>4,95</span></li><li><div><b>Sherry Droog | Medium</b></div><span>4,95</span></li><li><div><b>Port Medium | Ruby | Tawny</b></div><span>4,95</span></li><li><div><b>Vintage Port</b></div><span>8,75</span></li></ul></div><div class="mgrp tight"><h3>Binnenlands gedestilleerd</h3><ul class="mlist"><li><div><b>Jonge Jenever Ketel 1</b></div><span>3,95</span></li><li><div><b>Oude Jenever</b></div><span>3,95</span></li><li><div><b>Bessenjenever</b></div><span>3,95</span></li><li><div><b>Apfelkorn</b></div><span>3,95</span></li><li><div><b>Vieux</b></div><span>3,95</span></li><li><div><b>Berenburg</b></div><span>3,95</span></li><li><div><b>Jägermeister</b></div><span>4,25</span></li><li><div><b>Korenwijn</b></div><span>4,25</span></li><li><div><b>Dropshot</b></div><span>3,95</span></li><li><div><b>Salmari</b></div><span>4,25</span></li></ul></div><div class="mgrp tight"><h3>Buitenlands gedestilleerd</h3><ul class="mlist"><li><div><b>Bacardi | Limón | Black</b></div><span>5,25</span></li><li><div><b>Bacardi Spiced</b></div><span>5,25</span></li><li><div><b>Vodka Eristoff</b></div><span>5,25</span></li><li><div><b>Vodka Eristoff Rood</b></div><span>5,25</span></li><li><div><b>Pernod</b></div><span>5,25</span></li><li><div><b>Tequila</b></div><span>5,25</span></li><li><div><b>Campari</b></div><span>5,25</span></li><li><div><b>Smirnoff Wodka</b></div><span>5,25</span></li><li><div><b>Bombay Sapphire Gin</b></div><span>5,25</span></li></ul></div><div class="mgrp tight"><h3>Likeur</h3><ul class="mlist"><li><div><b>Baileys | Sambucca | Tia Maria</b></div><span>5,50</span></li><li><div><b>Limoncello</b></div><span>5,50</span></li><li><div><b>Amaretto</b></div><span>5,50</span></li><li><div><b>Cointreau</b></div><span>5,75</span></li><li><div><b>DOM Bénédictine</b></div><span>6,50</span></li><li><div><b>Drambuie | Grand Marnier</b></div><span>6,50</span></li><li><div><b>Boswandeling | Malibu</b></div><span>5,25</span></li><li><div><b>Passoa | Safari</b></div><span>5,25</span></li><li><div><b>Likeur 43</b></div><span>5,50</span></li><li><div><b>Kahlúa</b></div><span>5,25</span></li><li><div><b>Pisang Ambon</b></div><span>5,25</span></li><li><div><b>Zwijgertje</b></div><span>5,00</span></li></ul></div><div class="mgrp tight"><h3>Whiskey</h3><ul class="mlist"><li><div><b>Canadian Club</b></div><span>5,25</span></li><li><div><b>Four Roses</b></div><span>5,25</span></li><li><div><b>Jameson</b></div><span>5,25</span></li><li><div><b>JW Red Label</b></div><span>5,25</span></li><li><div><b>Ballantine’s</b></div><span>5,25</span></li><li><div><b>Famous Grouse</b></div><span>5,25</span></li><li><div><b>William Lawson’s</b></div><span>5,25</span></li><li><div><b>Chivas Regal</b></div><span>6,50</span></li><li><div><b>Jack Daniel’s</b></div><span>5,50</span></li><li><div><b>JW Black Label</b></div><span>6,50</span></li><li><div><b>Southern Comfort</b></div><span>5,25</span></li><li><div><b>Glenfiddich</b></div><span>7,50</span></li><li><div><b>The Glenlivet</b></div><span>8,00</span></li></ul></div><div class="mgrp tight"><h3>Cognac</h3><ul class="mlist"><li><div><b>Courvoisier VS</b></div><span>6,50</span></li><li><div><b>Joseph Guy VS</b></div><span>6,50</span></li><li><div><b>Martell VS</b></div><span>7,25</span></li><li><div><b>Rémy Martin VSOP</b></div><span>9,75</span></li><li><div><b>Janneau Armagnac VSOP</b></div><span>6,50</span></li><li><div><b>Busnel Calvados</b></div><span>6,50</span></li></ul></div></div><p class="mpdf"><a href="https://tapperijdezwijger.nl/menus/drankenkaart.pdf" target="_blank" rel="noopener">Drankenkaart als pdf</a></p></div>
+  </div>
+</section>
+
+<section class="gelag" id="gelagkamer">
+  <div class="wrap">
+    <div>
+      <h2>De gelagkamer, je eigen privé-café</h2>
+      <p class="lead" style="margin-top:16px">Een volledig aparte ruimte op de eerste verdieping, met een eigen bar en bediening. Voor besloten feestjes, recepties, presentaties en vergaderingen.</p>
+      <p class="big" style="margin-top:34px">40<small>personen voor een borrel of feest</small></p>
+      <ul>
+        <li>Eindtijd en opstelling van tafels en stoelen in overleg</li>
+        <li>Beamer, scherm en geluidsinstallatie met microfoon aanwezig</li>
+        <li>Je wensen bespreken we graag bij een kopje koffie</li>
+      </ul>
+    </div>
+    <form id="form" novalidate>
+      <h3>Vraag de gelagkamer aan</h3>
+      <div class="row">
+        <label>Naam<input name="naam" autocomplete="name"></label>
+        <label>Telefoon<input name="tel" type="tel" autocomplete="tel"></label>
+      </div>
+      <label>E-mail<input name="mail" type="email" autocomplete="email"></label>
+      <div class="row">
+        <label>Datum<input name="datum" type="date"></label>
+        <label>Aantal personen<input name="aantal" type="number" min="1" max="40"></label>
+      </div>
+      <label>Ik wil info over
+        <select name="soort"><option>Besloten feest</option><option>Receptie</option><option>Presentatie</option><option>Vergadering</option><option>Iets anders</option></select>
+      </label>
+      <label>Bericht<textarea name="bericht" rows="3"></textarea></label>
+      <button class="btn" type="submit">Aanvraag versturen</button>
+      <p class="demo-msg" role="status">Dit is een voorbeeld, er is niets verstuurd.</p>
+    </form>
+  </div>
+</section>
+
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <h2>Binnenkort op het Plein</h2>
+    <p class="lead" style="margin-top:14px">De Zwijger ligt midden in het Oude Dorp. Dit staat er de komende tijd op de agenda.</p>
+    <div class="events">
+      <article class="ev"><time>18 december<small>vrijdag 16.00 tot 20.00</small></time><h3>Streek- en kerstmarkt</h3><p>Plein Oude Dorp</p></article>
+      <article class="ev"><time>Kerst 2026<small>24 december tot 19.00</small></time><h3>Openingstijden rond kerst</h3><p>Eerste en tweede kerstdag gesloten.</p></article>
+      <article class="ev"><time>27 april 2027<small>dinsdag</small></time><h3>Koningsdag</h3><p>Kom naar het Plein Oude Dorp.</p></article>
+      <article class="ev"><time>6 mei 2027<small>donderdag 12.00 tot 19.00</small></time><h3>Heerlijk Houten Festival</h3><p>Plein Oude Dorp</p></article>
+      <article class="ev"><time>17 mei 2027<small>maandag</small></time><h3>Wijn op het Plein</h3><p>Plein Oude Dorp</p></article>
+      <article class="ev"><time>Vanaf mei 2027<small>laatste zondag van de maand, 12.00 tot 18.00</small></time><h3>Streekmarkt Oude Dorp</h3><p>Elke maand op het Plein.</p></article>
+      <article class="ev"><time>11 juni 2027<small>vrijdag 16.00 tot 21.00</small></time><h3>Loop door Houten Oude Dorp</h3><p>Oude Dorp, Houten</p></article>
+    </div>
+    <div class="jobs"><b>Werken bij de Zwijger?</b><span>We zoeken afwassers vanaf 16 jaar en vaste medewerkers bediening, 20 tot 30 uur per week.</span><span><a href="mailto:houten@tapperijdezwijger.nl">houten@tapperijdezwijger.nl</a> of bel <a href="tel:0654770043">06 54 77 00 43</a></span></div>
+  </div>
+</section>
+
+<section class="bezoek" id="bezoek">
+  <div class="wrap">
+    <h2>Kom langs</h2>
+    <div class="grid">
+      <div>
+        <table class="hours" id="hours">
+          <tr data-d="1"><td>Maandag</td><td>Gesloten</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>11.00 – 23.00</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>11.00 – 23.00</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>11.00 – 00.00</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>11.00 – 00.00</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>11.00 – 00.00</td></tr>
+          <tr data-d="0"><td>Zondag</td><td>11.00 – 22.00</td></tr>
+          <tr><td>Lunch en diner</td><td>12.00 – 21.00</td></tr>
+        </table>
+        <p class="note">Maandag gesloten. Reserveren voor lunch, borrel en diner: bel 030 636 97 19. Binnen reserveren kan telefonisch. Op het terras reserveren we niet. Spontaan langskomen kan natuurlijk ook, dan kijken we of er plek is.</p>
+        <div class="addr">
+          <strong>Tapperij de Zwijger</strong>
+          <span>Plein 21, 3991 DL Houten</span>
+          <span><a href="tel:0306369719">030 636 97 19</a> · <a href="mailto:houten@tapperijdezwijger.nl">houten@tapperijdezwijger.nl</a></span>
+          <span style="opacity:.75;font-size:.95rem">Gratis parkeren op en rond het plein met blauwe kaart.</span>
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Plein+21+3991+DL+Houten" target="_blank" rel="noopener">Route plannen</a>
+          <details class="route-d"><summary>Routebeschrijving met de auto</summary><div>
+            <p>Houten ligt aan de A27 (Breda – Hilversum). Vanuit het westen, oosten en noorden is Houten de eerste afslag van de A27.</p>
+            <p><b>Vanuit Den Haag (A12):</b> richting Houten A27 Utrecht-Oost, Nieuwegein. Rij de eerste afslag Houten (Utrecht-Oost, Nieuwegein) voorbij, houd richting Breda aan en neem de afslag Houten.</p>
+            <p><b>Vanuit Amersfoort (A28) en Arnhem (A12):</b> houd richting Breda aan en neem de afslag Houten.</p>
+            <p><b>Vanuit Amsterdam (A2):</b> bij Oudenrijn richting Arnhem, daarna richting Utrecht-Oost, Nieuwegein, Houten (A27). Rij de eerste afslag Houten (Utrecht-Oost, Nieuwegein) voorbij, houd richting Breda aan en neem de afslag Houten.</p>
+            <p><b>Na de afslag Houten:</b> einde afrit links richting Houten. Bij de T-splitsing met stoplichten rechtsaf de rondweg op, richting Oude Dorp. Bij de tweede stoplichten linksaf, afslag Oude Dorp (Dorpstraat). Dan de tweede weg links (Loerikseweg). Je rijdt naar het plein; de Zwijger ligt aan je rechterhand.</p>
+          </div></details>
+        </div>
+      </div>
+      <div class="map"><iframe title="Kaart: Plein 21, Houten" src="https://www.google.com/maps?q=Tapperij+de+Zwijger,+Plein+21,+3991+DL+Houten&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>Tapperij de Zwijger · Plein 21, Houten</span><span>Sinds september 2002 · ABN AMRO NL17ABNA062.66.33.834</span></div>
+</footer>
+
+<a class="callfab" href="tel:0306369719" aria-label="Bel de Zwijger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Tapperij%20De%20Zwijger%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+// header
+const top_=document.getElementById('top');
+const onScroll=()=>top_.classList.toggle('solid',scrollY>40);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// hero slideshow
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slides=[...document.querySelectorAll('.hero .slides img')];let si=0;
+if(!reduce&&slides.length>1)setInterval(()=>{slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on')},6500);
+
+// open now (their published hours)
+const H={0:[11,22],1:null,2:[11,23],3:[11,23],4:[11,24],5:[11,24],6:[11,24]};
+const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+const st=document.getElementById('status'),t=H[d];
+const fmt=x=>x===24?'00.00':String(x).padStart(2,'0')+'.00';
+if(t&&h>=t[0]&&h<t[1]){st.querySelector('span').textContent='Nu open tot '+fmt(t[1])}
+else{st.classList.add('closed');let n=d,k=0;do{n=(n+1)%7;k++}while(!H[n]&&k<7);
+  const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  st.querySelector('span').textContent=(t&&h<t[0])?'Vandaag open vanaf '+fmt(t[0]):'Gesloten, '+(k===1?'morgen':days[n])+' weer open vanaf '+fmt(H[n][0])}
+const row=document.querySelector('#hours tr[data-d="'+d+'"]');if(row)row.classList.add('today');
+
+// drag-scroll panoramas on desktop
+document.querySelectorAll('.strip').forEach(s=>{let x0,l0,down=false;
+  s.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;x0=e.clientX;l0=s.scrollLeft;s.style.cursor='grabbing'});
+  addEventListener('pointerup',()=>{down=false;s.style.cursor=''});
+  s.addEventListener('pointermove',e=>{if(down)s.scrollLeft=l0-(e.clientX-x0)});
+});
+
+// menu tabs
+document.querySelectorAll('.mtabs').forEach(bar=>{const tb=[...bar.querySelectorAll('[role=tab]')];
+  tb.forEach((b,i)=>{b.addEventListener('click',()=>{tb.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});bar.scrollTo({left:b.offsetLeft-bar.clientWidth/2+b.offsetWidth/2,behavior:'smooth'})});
+  b.addEventListener('keydown',e=>{const k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){const n=tb[(i+k+tb.length)%tb.length];n.focus();n.click()}})})});
+document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',()=>{const t=document.getElementById('t-'+a.dataset.tab);if(t)t.click()}));
+
+// demo form
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();e.target.querySelector('.demo-msg').classList.add('show')});
+</script>
+</body>
+</html>
