@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Belgisch Bier Café Belvédère, Delft</title>
+<meta name="description" content="Belgisch Bier Café Belvédère aan de Beestenmarkt in Delft: Belgisch bier van de tap en ruim honderd op de fles, lunch, borrel en diner.">
+<meta name="theme-color" content="#24150d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%2715%27 ry=%2712%27 fill=%27%2324150d%27 stroke=%27%23c9a862%27 stroke-width=%272%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27%23f3e8d2%27 font-family=%27serif%27 font-weight=%27bold%27%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Alegreya:ital,wght@0,400;0,500;1,400&family=Grenze+Gotisch:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="mark" href="#top" aria-label="Belvédère, naar boven">Belvédère</a>
+  <nav class="nav" aria-label="Hoofdmenu">
+    <a href="#bier">Bierkaart</a>
+    <a href="#keuken">Keuken</a>
+    <a href="#groepen">Groepen</a>
+    <a href="#reserveren">Reserveren</a>
+    <a href="#info">Open &amp; contact</a>
+  </nav>
+  <button class="btn btn-amber btn-sm open-res" type="button">Reserveer</button>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu openen"><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu" hidden>
+  <a href="#bier">Bierkaart</a>
+  <a href="#keuken">Uit de keuken</a>
+  <a href="#groepen">Zakelijk of privé</a>
+  <a href="#reserveren">Reserveren</a>
+  <a href="#info">Open &amp; contact</a>
+</nav>
+
+<main>
+<section class="hero" aria-label="Welkom">
+  <img class="hero-img" src="img/terras-avond.jpg" alt="Het terras van Belvédère op de Beestenmarkt in de avond, met kaarsjes en een flesje Maredsous op tafel" fetchpriority="high">
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <div class="label">
+      <span class="label-top">Belgisch Bier Café</span>
+      <h1 class="label-name">Belvédère</h1>
+      <span class="label-bottom">Beestenmarkt 8, Delft</span>
+    </div>
+    <p class="hero-line">Een stukje België op misschien wel het mooiste plein van Nederland.</p>
+    <div class="hero-actions">
+      <a class="btn btn-amber" href="#bier">Bekijk de bierkaart</a>
+      <button class="btn btn-ghost open-res" type="button">Reserveer een tafel</button>
+    </div>
+    <p class="today" id="today" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="intro wrap" id="welkom">
+  <div class="intro-text">
+    <h2>The place to be</h2>
+    <p class="lead">Belgisch Bier Café Belvédère ligt op de Beestenmarkt, omringd door historische gebouwen, gezellige cafés en restaurants. Je kunt hier heerlijk eten en drinken, maar ook voor een feestje draaien we onze handen niet om.</p>
+    <p>Kom voor je dagelijkse portie gezelligheid, tijdens de lunch, de borrel of het diner. De Bourgondische bierliefhebber komt hier aan zijn trekken: van de tap is er altijd iets nieuws om te proeven, en op de fles staan er een paar hele mooie die je met vrienden kunt delen.</p>
+    <p class="motto">Gezellig en ongedwongen, dat is waar wij voor staan.</p>
+  </div>
+  <figure class="intro-photo">
+    <img src="img/ober-plank.jpg" alt="Een kaasplank met brood, druiven en stroop op een Westmalle-plankje" loading="lazy">
+  </figure>
+</section>
+
+<section class="beer" id="bier">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2>De bierkaart</h2>
+      <p>Belgisch bier van de tap en ruim honderd bieren op de fles. De kaart wisselt regelmatig; dit is de stand van november.</p>
+    </header>
+
+    <div class="taps">
+      <div class="tap-board">
+        <h3>Vast van de tap</h3>
+        <ol class="tap-list" id="tap-vast"></ol>
+      </div>
+      <div class="tap-board tap-board-wissel">
+        <h3>Wisseltap</h3>
+        <p class="tap-note">Deze tappen wisselen geregeld, dus er is altijd iets nieuws om te proeven.</p>
+        <ol class="tap-list" id="tap-wissel"></ol>
+      </div>
+    </div>
+
+    <div class="bottles" id="flessen">
+      <div class="bottles-head">
+        <h3>Op de fles</h3>
+        <p class="count" id="bottle-count" aria-live="polite"></p>
+      </div>
+      <div class="controls">
+        <label class="search">
+          <span class="visually-hidden">Zoek een bier</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <input type="search" id="beer-search" placeholder="Zoek op bier, brouwerij of stijl" autocomplete="off">
+        </label>
+        <label class="sort">
+          <span>Sorteer</span>
+          <select id="beer-sort">
+            <option value="kaart">Zoals op de kaart</option>
+            <option value="prijs">Prijs, laag naar hoog</option>
+            <option value="sterk">Alcohol, sterk naar licht</option>
+            <option value="naam">Naam, A tot Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="chips" id="beer-chips" role="group" aria-label="Kies een soort"></div>
+      <div class="bottle-list" id="bottle-list"></div>
+      <p class="fineprint">Alle prijzen in euro. Stijlen en alcoholpercentages zoals vermeld op de bierkaart; de bieren met &lsquo;tap&rsquo; staan zo op de kaart vermeld.</p>
+    </div>
+  </div>
+</section>
+
+<section class="kitchen" id="keuken">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2>Uit de keuken</h2>
+      <p>Lunch, borrel en diner, met Belgische en Bourgondische klassiekers.</p>
+    </header>
+    <div class="photo-strip">
+      <img src="img/borrelplanken.jpg" alt="Borrelplanken met kaas, ham en bitterballen naast een glas Duvel" loading="lazy">
+      <img src="img/kaasplank.jpg" alt="Kaas- en vleesplank met rood fruit en een bord garnalen" loading="lazy">
+      <img src="img/borreltafel.jpg" alt="Een tafel vol borrelgerechten, friet, bitterballen en glazen bier" loading="lazy">
+    </div>
+    <div class="new-card">
+      <p><strong>Onze nieuwe kaart komt eraan.</strong> Tot die tijd vind je hieronder de gerechten van onze huidige kaart, zonder prijzen. Daarnaast hebben we elke week wisselende weekgerechten.</p>
+    </div>
+    <div class="dishes">
+      <div class="dish-group">
+        <h3>Lunch</h3>
+        <ul>
+          <li>Brood gegrilde groenten</li><li>Brood tonijnsalade</li><li>Brood carpaccio</li><li>Brood pulled chicken</li><li>Brood geitenkaas</li><li>Brood gerookte zalm</li><li>Brood pittige kip</li><li>12-uurtje</li><li>Uitsmijter Belvédère</li><li>Kalfskroketten</li><li>Groentekroketten</li><li>Tosti kaas</li><li>Tosti ham en kaas</li>
+        </ul>
+      </div>
+      <div class="dish-group">
+        <h3>Salades &amp; burgers</h3>
+        <ul>
+          <li>Geitenkaassalade</li><li>Vissalade</li><li>Pittige kipsalade</li><li>Belvédère burger</li><li>Vegan burger</li><li>Vlaamse burger</li><li>Kipburger</li>
+        </ul>
+      </div>
+      <div class="dish-group">
+        <h3>Bistro</h3>
+        <ul>
+          <li>Carpaccio</li><li>Aspergekroketjes</li><li>Brood met kruidenboter &amp; aioli</li><li>Duivelse garnalen</li><li>Groentekroketjes</li><li>Tomatencrèmesoep</li><li>Kipsaté</li><li>Schnitzel Belvédère</li><li>Puntpaprika geitenkaas</li><li>Ribeye</li><li>Varkenshaas</li><li>Zalmfilet</li><li>Molenaarsbrood</li><li>Groene salade</li><li>Luikse wafel</li><li>Stroopwafel cheesecake</li>
+        </ul>
+      </div>
+      <div class="dish-group">
+        <h3>Borrel</h3>
+        <ul>
+          <li>Koude borrelplank</li><li>Belvédère plank</li><li>Molenaarsbrood</li><li>Olijven</li><li>Delfts Goud</li><li>Nootjes</li><li>Nacho&rsquo;s</li><li>Nacho&rsquo;s pulled chicken</li><li>Kalfsbitterballen</li><li>Bittergarnituur</li><li>Kaastengels</li><li>Kip karaage</li><li>Mini kaassoufflés</li><li>Vegan bitterballen</li><li>Vegan loempiaatjes</li><li>Gambanuggets</li><li>Frikandellen</li><li>Vlaamse friet</li><li>Loaded fries</li><li>Loaded fries met pulled chicken</li><li>Loaded fries met gambanuggets</li><li>Appeltaart</li><li>Brownie</li>
+        </ul>
+      </div>
+      <div class="dish-group">
+        <h3>Mosselen</h3>
+        <ul>
+          <li>Mosselen naturel</li><li>Mosselen witte wijn</li><li>Mosselen witbier</li><li>Mosselen look en room</li><li>Mosselen blauwe kaas</li>
+        </ul>
+      </div>
+      <div class="dish-group">
+        <h3>Asperges</h3>
+        <ul>
+          <li>Aspergesoep</li><li>Aspergesoep met zalm</li><li>Asperges à la flamande</li><li>Asperges met zalm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="allergy">
+      <p><strong>Heb je een voedselallergie?</strong> In onze keuken werken wij met allergenen. Bekijk de allergenenkaart of vraag het ons gerust.</p>
+      <a class="btn btn-line" href="https://www.bbcbelvedere.nl/wp-content/uploads/2026/07/Allergenen-kaart-2026-W29.pdf" target="_blank" rel="noopener">Allergenenkaart (pdf)</a>
+    </div>
+  </div>
+</section>
+
+<section class="groups" id="groepen">
+  <figure class="groups-photo"><img src="img/proosten.jpg" alt="Proosten met bier en wijn boven een tafel met friet en nootjes" loading="lazy"></figure>
+  <div class="groups-text">
+    <h2>Zakelijk of privé</h2>
+    <p>Bij Belvédère ben je welkom voor elke gelegenheid. Ook grote groepen kunnen bij ons terecht: voor een vergadering, een afstudeerborrel of gewoon omdat er wat te vieren valt.</p>
+    <p>Groepen groter dan 15 personen reserveren vooraf, telefonisch via <a href="tel:+31152123297">015 212 32 97</a> of via <a href="mailto:info@bbcbelvedere.nl">info@bbcbelvedere.nl</a>.</p>
+    <a class="btn btn-amber" href="#contact">Vraag naar de mogelijkheden</a>
+  </div>
+</section>
+
+<section class="reserve wrap" id="reserveren">
+  <div class="reserve-cta">
+    <h2>Reserveren</h2>
+    <p>Reserveren mag, maar hoeft niet. Is er even geen tafel vrij, neem dan plaats aan onze ruime bar voor een drankje; we zorgen dat je snel een tafel hebt.</p>
+    <button class="btn btn-amber open-res" type="button">Reserveer een tafel</button>
+  </div>
+  <div class="faq">
+    <h3>Veelgestelde vragen</h3>
+    <details>
+      <summary>Is reserveren verplicht?</summary>
+      <p>Reserveren mag maar hoeft niet. Het kan zijn dat je even moet wachten tot er een tafel vrijkomt; je kunt dan aan de bar plaatsnemen voor een drankje. Groepen groter dan 15 personen moeten wel vooraf reserveren, via 015 212 32 97 of info@bbcbelvedere.nl.</p>
+    </details>
+    <details>
+      <summary>Kan ik een tafel op het terras reserveren?</summary>
+      <p>Tafels op het terras kunnen we niet reserveren. Je kunt het wel als voorkeur vermelden; we doen altijd ons best. Dit kunnen we alleen ter plekke voor je bekijken en regelen.</p>
+    </details>
+    <details>
+      <summary>Hoe kan ik betalen?</summary>
+      <p>Contant of met pin. We accepteren de creditcards Mastercard, Visa, American Express en Diners.</p>
+      <p>Cadeaukaarten die we accepteren: VVV Dinercheque (ook de papieren versie), NHC Nationale Horeca Cadeaukaart en de Dinerbon. Dinercadeau en Restaurant Cadeau accepteren we niet.</p>
+    </details>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap info-grid">
+    <div class="hours">
+      <h2>Open</h2>
+      <table id="hours-table">
+        <tbody>
+          <tr data-day="1"><th scope="row">Maandag</th><td>16:00 tot 00:00</td></tr>
+          <tr data-day="2"><th scope="row">Dinsdag</th><td>16:00 tot 00:00</td></tr>
+          <tr data-day="3"><th scope="row">Woensdag</th><td>11:00 tot 00:00</td></tr>
+          <tr data-day="4"><th scope="row">Donderdag</th><td>11:00 tot 01:00</td></tr>
+          <tr data-day="5"><th scope="row">Vrijdag</th><td>11:00 tot 01:00</td></tr>
+          <tr data-day="6"><th scope="row">Zaterdag</th><td>11:00 tot 01:00</td></tr>
+          <tr data-day="0"><th scope="row">Zondag</th><td>12:00 tot 00:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="where">
+      <h2>Waar</h2>
+      <address>Belgisch Bier Café Belvédère<br>Beestenmarkt 8<br>2611 GB Delft</address>
+      <ul class="contact-list">
+        <li><a href="tel:+31152123297">015 212 32 97</a></li>
+        <li><a href="tel:+31651569315">06 51 56 93 15</a> <a class="wa" href="https://wa.me/31651569315" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:info@bbcbelvedere.nl">info@bbcbelvedere.nl</a></li>
+      </ul>
+      <ul class="social">
+        <li><a href="https://www.facebook.com/BelvedereDelft/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/explore/locations/397614378/belgisch-bier-cafe-belvedere/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://tiktok.com/@belverderdelft" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+      <a class="btn btn-line" href="https://maps.google.com/?q=Beestenmarkt+8+2611+GB+Delft" target="_blank" rel="noopener">Route plannen</a>
+    </div>
+    <div class="map">
+      <iframe title="Kaart: Beestenmarkt 8, Delft" loading="lazy" src="https://maps.google.com/maps?q=Beestenmarkt%208%2C%202611%20GB%20Delft&amp;z=16&amp;output=embed"></iframe>
+    </div>
+  </div>
+
+  <div class="wrap contact" id="contact">
+    <div class="contact-intro">
+      <h2>Vraag het ons</h2>
+      <p>Een vraag over een groep, een feestje of een vergadering? Stuur ons een bericht, of volg ons op Facebook, Instagram en TikTok via @BelvedereDelft om op de hoogte te blijven.</p>
+    </div>
+    <form class="form sample-form" novalidate>
+      <div class="row2">
+        <label>Voornaam<input name="voornaam" autocomplete="given-name"></label>
+        <label>Achternaam<input name="achternaam" autocomplete="family-name"></label>
+      </div>
+      <div class="row2">
+        <label>E-mail<input type="email" name="email" autocomplete="email"></label>
+        <label>Telefoon<input type="tel" name="telefoon" autocomplete="tel"></label>
+      </div>
+      <label>Bericht<textarea name="bericht" rows="4"></textarea></label>
+      <button class="btn btn-amber" type="submit">Verstuur bericht</button>
+      <p class="form-msg" role="status" hidden>Dit is een voorbeeld: dit formulier verstuurt nog niets.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <blockquote class="proverb">
+    <p>De moeilijkst te nemen bocht loopt langs het café op de hoek.</p>
+    <cite>Belgisch spreekwoord</cite>
+  </blockquote>
+  <p class="foot-meta">Belgisch Bier Café Belvédère, Beestenmarkt 8, 2611 GB Delft<br>KvK 86914561, btw NL864145135B01</p>
+</footer>
+
+<dialog class="res-dialog" id="res-dialog" aria-labelledby="res-title">
+  <form class="form sample-form" method="dialog" novalidate>
+    <div class="dlg-head">
+      <h2 id="res-title">Reserveer een tafel</h2>
+      <button class="dlg-close" type="button" aria-label="Sluiten">&times;</button>
+    </div>
+    <div class="row2">
+      <label>Datum<input type="date" name="datum"></label>
+      <label>Tijd<input type="time" name="tijd" step="900"></label>
+    </div>
+    <label>Aantal personen<input type="number" name="personen" min="1" max="15" value="2"></label>
+    <label>Naam<input name="naam" autocomplete="name"></label>
+    <div class="row2">
+      <label>E-mail<input type="email" name="email" autocomplete="email"></label>
+      <label>Telefoon<input type="tel" name="telefoon" autocomplete="tel"></label>
+    </div>
+    <label>Opmerking<textarea name="opmerking" rows="2" placeholder="Bijvoorbeeld een voorkeur voor het terras"></textarea></label>
+    <p class="dlg-note">Met meer dan 15 personen? Bel of mail ons even.</p>
+    <button class="btn btn-amber" type="submit">Reserveer</button>
+    <p class="form-msg" role="status" hidden>Dit is een voorbeeld: er is niets verstuurd. Op de echte site komt hier het reserveringssysteem van Belvédère.</p>
+  </form>
+</dialog>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Belgisch%20Bier%20Caf%C3%A9%20Belv%C3%A9d%C3%A8re%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script src="js/bottles.js"></script>
+<script src="js/main.js"></script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
