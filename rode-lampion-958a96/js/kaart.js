@@ -1,0 +1,17 @@
+window.TAFEL = [
+  { t: 'Soepen', items: [[1,'Kippensoep'],[2,'Tomatensoep'],[3,'Kerry soep'],[4,'Peking soep'],[5,'Pikante garnalen soep'],[6,'Pikante vis soep']] },
+  { t: 'Kleine hapjes', items: [[10,'Gebakken wan tan'],[11,"Mini loempia's"],[12,"Peking loempia's"],[13,'Curry pasteitjes'],[14,'Gebakken banaantjes'],[15,'Gebakken garnalen'],[16,'Kip spies in teriyaki saus'],[17,'Varkenshaas spies in teriyaki saus'],[18,'Biefstuk in teriyaki saus'],[19,'Frisse salademix met reepjes kip']] },
+  { t: 'Fruit del mar', items: [[20,'Gegrillde visfilet in teriyaki saus'],[21,'Gegrillde zalm in teriyaki saus'],[22,'Gestoomde visfilet in kerrysaus'],[23,'Gegrillde garnalen in teriyaki saus'],[24,'Gebakken St. Jacobsschelpen in teriyaki saus']] },
+  { t: 'Gebakken & geroosterd', items: [[30,'Babi pangang (mager)'],[31,'Ajam pangang'],[32,'Koe lo yuk'],[33,'Krokant geroosterd beenspek'],[34,'Geroosterd cha sieuw'],[35,'Peking eend'],[36,'Krokant gefrituurd kip in zoetzure saus']] },
+  { t: 'Vegetarisch', items: [[40,'Roergebakken groenteschotel'],[41,'Omelet in tomatensaus'],[42,'Gebakken champignons'],[43,'Roergebakken groenteschotel in kerry saus en tofu'],[44,'Gesneden tofu in zwarte bonen saus, lichtjes pikant']] },
+  { t: 'Wok', note: 'Nummers 50 t/m 56: elk naar keuze met kip, varkenshaas, runderhaas of garnalen.', items: [[50,'Tau sie saus (zwarte bonen)'],[51,'Mo koe saus (champignons)'],[52,'Ka li saus (kerry-saus)'],[53,'Teriyaki saus (gesneden uitjes)'],[54,'Knoflook saus'],[55,'Szechuan saus (pikante saus)'],[56,'Kong bao saus'],[57,'Krokant gefrituurd kip in zoete chilli saus en sesamzaadjes'],[58,'Krokant droog roergebakken kip met kerry kruiden en gesneden uitjes'],[59,'Stoof rundvlees in ketjap saus'],[60,'Stoof rundvlees in kerry-saus']] },
+  { t: 'Voor kinderen', items: [[70,'Patat met frikandel'],[71,'Patat met kroket'],[72,'Patat met saté en pindasaus'],[73,'Patat met kip']] }
+];
+window.DRANK = [
+  { t: 'Frisdranken', items: [['Cola','2,00'],['Cola light','2,00'],['Fanta','2,00'],['Cassis','2,00'],['7-up','2,00'],['Bitter Lemon','2,00'],['Tonic','2,00'],['Spa blauw','2,00'],['Spa rood','2,00'],['Crystal Clear','2,00'],['Ice Tea','2,20'],['Appelsap','2,10'],['Chocomelk','2,25'],["Verse jus d'orange",'3,25'],['Jillz','2,20'],['Fristi','2,20'],['Fles mineraalwater','4,75'],['Rivella','2,00']] },
+  { t: 'Bier', items: [['Heineken pils','2,20'],['Heineken pint','4,00'],['Amstel Malt','2,20'],['Tsingtao bier (import)','3,50'],['Witbier','3,00'],['Rosé bier','3,00']] },
+  { t: 'Wijn', items: [['Witte, rode en rosé wijn, per glas','3,25'],['Per fles','14,75'],['Martini rood/wit','3,50'],['Port rood/wit','3,00'],['Sherry droog/medium','3,00']] },
+  { t: 'Gedestilleerd', items: [['Jonge jenever','2,50'],['Oude jenever','2,50'],['Bessenjenever','2,50'],['Bacardi','3,50'],['Vodka','3,50'],['Jameson Whiskey','4,50'],['Johnnie Walker Red','4,50'],["Ballantine's",'4,50'],["Jack Daniel's",'4,50'],['Four Roses','4,50'],['Rémy Martin VSOP','5,50']] },
+  { t: 'Likeuren', items: [['Amaretto','4,50'],['Baileys','4,50'],['Cointreau','4,50'],['Sambuca','4,50'],['Tia Maria','4,50'],['Grand Marnier rood/geel','4,50']] },
+  { t: 'Warme dranken', items: [['Koffie','2,00'],['Koffie verkeerd','2,20'],['Cappuccino','2,20'],['Espresso','2,00'],['Dubbele espresso','3,50'],['Thee','2,00'],['Chinese thee','2,75'],['Chocomelk met slagroom','2,75'],['Irish, French of Italian coffee','5,25']] }
+];
