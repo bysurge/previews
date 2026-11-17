@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<title>Restaurant De Wouwse Wereld · Wouw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#13202a; --deep:#1c2d3a; --candle:#e9b86a; --candle-d:#b9853a; --stone:#ece7df; --stone2:#ddd5c9;
+  --ink:#16222b; --rust:#a2543a;
+  --serif:"Gloock", Georgia, serif; --sans:"Hanken Grotesk", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--night);color:var(--stone);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--candle);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02}
+h2{font-size:clamp(2.4rem,5vw,4rem)}
+.lead{font-size:1.12rem;max-width:54ch}
+
+.top{position:fixed;inset:0 0 auto;z-index:30;transition:background .3s}
+.top.solid{background:rgba(19,32,42,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(233,184,106,.2)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.brand{font-family:var(--serif);font-size:1.3rem;text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.85}
+.nav a:hover{opacity:1;color:var(--candle)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--candle);color:var(--ink);font:inherit;font-weight:700;text-decoration:none;padding:14px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s, background .2s}
+.btn:hover{background:#f3c886;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--stone);box-shadow:inset 0 0 0 1.5px rgba(236,231,223,.5)}
+.btn.ghost:hover{background:rgba(236,231,223,.08)}
+.btn svg{width:18px;height:18px;flex:none}
+.top .btn{padding:10px 18px;font-size:.92rem}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr 1fr;overflow:hidden}
+.hero .copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:120px 56px 80px max(20px,(100vw - 1180px)/2)}
+.globe{position:absolute;width:min(620px,80vw);aspect-ratio:1;left:-12%;top:50%;transform:translateY(-50%);opacity:.22;pointer-events:none}
+.globe g{transform-origin:50% 50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .kicker{font-weight:600;color:var(--candle);font-size:1rem;margin-bottom:14px;position:relative}
+.hero h1{position:relative;font-size:clamp(3.4rem,7.4vw,7rem);line-height:.95}
+.hero h1 span{display:block}
+.hero h1 span+span{color:var(--candle)}
+.hero p{position:relative;font-size:1.15rem;max-width:40ch;margin:26px 0 32px;opacity:.9}
+.hero .ctas{position:relative;display:flex;flex-wrap:wrap;gap:12px}
+.hero .open{position:relative;display:flex;align-items:center;gap:10px;margin-top:34px;font-size:.95rem;opacity:.85}
+.hero .open i{width:9px;height:9px;border-radius:50%;background:var(--candle);box-shadow:0 0 12px var(--candle)}
+.hero figure{position:relative;margin:96px 0 0;padding:0 max(20px,(100vw - 1180px)/2) 0 0}
+.hero figure img{width:100%;height:calc(100% - 40px);object-fit:cover;border-radius:999px 999px 0 0;animation:reveal 1.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes reveal{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.fade{opacity:0;transform:translateY(16px);animation:fade .9s cubic-bezier(.2,.7,.2,1) forwards}
+.fade.d1{animation-delay:.2s}.fade.d2{animation-delay:.35s}.fade.d3{animation-delay:.5s}
+@keyframes fade{to{opacity:1;transform:none}}
+
+/* reserveren */
+.res{background:var(--candle);color:var(--ink);padding:70px 0}
+.res .wrap{display:grid;grid-template-columns:1.1fr 1.2fr;gap:48px;align-items:center}
+.res h2{font-size:clamp(2.2rem,3.6vw,3rem)}
+.res p{margin-top:12px;max-width:44ch}
+.res .ways{display:grid;grid-template-columns:1fr 1.45fr;gap:14px}
+.res .ways a{display:grid;gap:4px;padding:24px 24px 22px;border-radius:20px;background:var(--night);color:var(--stone);text-decoration:none;transition:transform .2s}
+.res .ways a:hover{transform:translateY(-3px)}
+.res .ways small{color:var(--candle);font-weight:600;font-size:.88rem}
+.res .ways b{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.15;overflow-wrap:anywhere}
+
+/* kaart */
+.kaart{background:var(--stone);color:var(--ink);padding:120px 0}
+.kaart .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
+.kaart .pic{position:sticky;top:100px;border-radius:240px 240px 24px 24px;overflow:hidden;aspect-ratio:4/5}
+.kaart .pic img{width:100%;height:100%;object-fit:cover}
+.kaart h2{margin-bottom:10px}
+.kaart .lead{color:#3d4a53}
+.course{margin-top:28px}
+.course h3{font-size:1.6rem;padding-bottom:12px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+.course h3 small{font-family:var(--sans);font-size:.85rem;color:#6a747b;font-weight:500}
+.dish{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--stone2)}
+.dish span{font-size:1.08rem;font-weight:500}
+.dish em{font-style:normal;font-size:.85rem;color:#5d7a5a;font-weight:600;margin-left:6px}
+.dish i{flex:1;border-bottom:1.5px dotted #b6ad9f;transform:translateY(-4px)}
+.dish b{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.also{margin-top:38px}
+.also p{font-weight:600;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--stone2);font-weight:500;font-size:.95rem}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.tabs button{font:inherit;font-size:.95rem;font-weight:600;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--stone2);color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.tabs button:hover{border-color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--stone);border-color:var(--ink)}
+.course{animation:inn .35s ease}
+@keyframes inn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.dish small{display:block;font-size:.88rem;font-weight:400;color:#56626b;margin-top:2px}
+.notes{margin-top:30px;padding:20px 22px;background:#fff;border-radius:14px;list-style:none;font-size:.95rem;color:#3d4a53;display:grid;gap:8px}
+.notes li{padding-left:18px;position:relative}
+.notes li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--candle-d)}
+.kaart .note{margin-top:26px;font-size:.95rem;color:#56626b}
+
+/* sfeer */
+.sfeer{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:100%;overflow:hidden;height:min(62vh,560px);gap:4px;background:var(--night)}
+.sfeer img{width:100%;height:100%;min-height:0;object-fit:cover}
+
+/* binnen */
+.binnen{padding:120px 0;background:var(--deep)}
+.binnen .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.polas{position:relative;height:440px}
+.pola{position:absolute;background:#fff;padding:10px 10px 38px;box-shadow:0 24px 50px rgba(0,0,0,.4);width:min(320px,74%)}
+.pola img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.pola figcaption{position:absolute;left:12px;bottom:9px;color:var(--ink);font-family:var(--serif);font-size:1.05rem}
+.pola.a{left:0;top:0;transform:rotate(-4deg)}
+.pola.b{right:0;top:120px;transform:rotate(3deg)}
+.pola.c{left:12%;bottom:0;transform:rotate(-1deg);width:min(260px,60%)}
+.binnen .lead{margin-top:18px;opacity:.88}
+
+/* bezoek */
+.bezoek{padding:120px 0 140px;background:var(--night)}
+.bezoek .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;margin-top:44px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{border-radius:14px;padding:14px 4px;text-align:center;background:var(--deep);font-size:.9rem}
+.day b{display:block;font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.1}
+.day.open{background:rgba(233,184,106,.14);box-shadow:inset 0 0 0 1px rgba(233,184,106,.45)}
+.day.open span{color:var(--candle)}
+.day.closed{opacity:.55}
+.day.today{box-shadow:inset 0 0 0 2px var(--candle)}
+.adr{margin-top:36px;display:grid;gap:4px;font-size:1.05rem}
+.adr strong{font-family:var(--serif);font-weight:400;font-size:1.7rem}
+.adr .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.map{border-radius:24px;overflow:hidden;min-height:420px}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:saturate(.8)}
+footer{padding:36px 0 90px;font-size:.9rem;opacity:.7;border-top:1px solid rgba(236,231,223,.12)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:50;background:rgba(10,18,24,.94);color:var(--stone);font-size:.78rem;padding:7px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.ribbon b{color:var(--candle)}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .top .btn{margin-left:auto}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero figure{order:-1;margin:0;padding:84px 16px 0;height:52svh}
+  .hero figure img{height:100%}
+  .hero .copy{padding:34px 20px 60px}
+  .globe{left:auto;right:-30%;top:40%;width:110vw}
+  .res .wrap,.kaart .grid,.binnen .grid,.bezoek .grid{grid-template-columns:1fr;gap:34px}
+  .kaart .pic{position:relative;top:0;aspect-ratio:16/11;border-radius:200px 200px 20px 20px}
+  .sfeer{grid-template-columns:1fr;grid-template-rows:auto;height:auto}
+  .sfeer img{aspect-ratio:16/11}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .top .wrap{height:64px}
+  .brand{font-size:1.15rem}
+  .top .btn{padding:9px 14px;font-size:.85rem}
+  .hero h1{font-size:3.3rem}
+  .hero .copy{padding:28px 16px 56px}
+  .res .ways{grid-template-columns:1fr}
+  .kaart,.binnen,.bezoek{padding:80px 0}
+  .dish span{font-size:1rem}
+  .polas{height:380px}
+  .pola.b{top:110px}
+  .days{gap:4px}
+  .day{padding:12px 2px;font-size:.72rem}
+  .day b{font-size:1.05rem}
+  .map,.map iframe{min-height:320px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fade{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top">De Wouwse Wereld</a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#reserveren">Reserveren</a>
+      <a href="#kaart">De kaart</a>
+      <a href="#binnen">Binnen</a>
+      <a href="#bezoek">Openingstijden</a>
+    </nav>
+    <a class="btn" href="tel:0165300646"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Reserveren</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="copy">
+    <svg class="globe" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#e9b86a" stroke-width=".5">
+      <circle cx="100" cy="100" r="96"/><ellipse cx="100" cy="100" rx="70" ry="96"/><ellipse cx="100" cy="100" rx="38" ry="96"/><line x1="100" y1="4" x2="100" y2="196"/>
+      <ellipse cx="100" cy="100" rx="96" ry="30"/><ellipse cx="100" cy="100" rx="96" ry="62"/><line x1="4" y1="100" x2="196" y2="100"/></g></svg>
+    <div class="kicker fade">Restaurant in Wouw</div>
+    <h1 class="fade d1"><span>De Wouwse</span><span>Wereld</span></h1>
+    <p class="fade d2">Op de hoek van de Roosendaalsestraat en de Markt. Woensdag tot en met zondag schuif je vanaf 18.00 uur aan.</p>
+    <div class="ctas fade d3">
+      <a class="btn" href="tel:0165300646"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Bel 0165 300 646</a>
+      <a class="btn ghost" href="#kaart">Bekijk de kaart</a>
+    </div>
+    <div class="open fade d3" id="open"><i></i><span>Woensdag t/m zondag vanaf 18.00 uur</span></div>
+  </div>
+  <figure><img src="img/diner.jpg" alt="Een gedekte tafel met een voorgerecht, wijnglazen en kaarslicht"></figure>
+</section>
+
+<section class="res" id="reserveren">
+  <div class="wrap">
+    <div>
+      <h2>Reserveren doe je bij ons</h2>
+      <p>Bel of mail ons gewoon. We zijn niet aangesloten bij online reserveringssites en reserveren niet via Facebook.</p>
+    </div>
+    <div class="ways">
+      <a href="tel:0165300646"><small>Bellen</small><b>0165 300 646</b></a>
+      <a href="mailto:info@wouwsewereld.nl?subject=Reservering"><small>Mailen</small><b>info@wouwsewereld.nl</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="kaart">
+  <div class="wrap grid">
+    <div class="pic"><img src="img/voorgerecht.jpg" alt="Een fijn opgemaakt voorgerecht op een wit bord" loading="lazy"></div>
+    <div>
+      <h2>De kaart</h2>
+      <p class="lead">Van koude en warme voorgerechten tot vlees, vis en dessert. Kies hieronder een onderdeel.</p>
+      <div class="tabs" role="tablist" aria-label="Onderdelen van de kaart">
+        <button role="tab" id="t-koud" aria-controls="p-koud" aria-selected="true">Koude voorgerechten</button>
+        <button role="tab" id="t-warm" aria-controls="p-warm" aria-selected="false">Warme voorgerechten</button>
+        <button role="tab" id="t-vlees" aria-controls="p-vlees" aria-selected="false">Vlees</button>
+        <button role="tab" id="t-vis" aria-controls="p-vis" aria-selected="false">Vis</button>
+        <button role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false">Desserts</button>
+        <button role="tab" id="t-daghap" aria-controls="p-daghap" aria-selected="false">Daghap &amp; menu's</button>
+      </div>
+      <div class="course" role="tabpanel" id="p-koud" aria-labelledby="t-koud">
+        <h3>Koude voorgerechten</h3>
+        <div class="dish"><span>Vispalet</span><i></i><b>€ 17,50</b></div>
+        <div class="dish"><span>Steak tartaar</span><i></i><b>€ 17,50</b></div>
+        <div class="dish"><span>Carpaccio van rund met truffelmayonaise</span><i></i><b>€ 16,50</b></div>
+        <div class="dish"><span>Carpaccio van rode biet met geitenkaas<em>vegetarisch</em></span><i></i><b>€ 14,50</b></div>
+        <div class="dish"><span>Rivierkreeft cocktail met avocado</span><i></i><b>€ 16,50</b></div>
+        <div class="dish"><span>Tapas plateau voor 2 personen</span><i></i><b>p.p. € 24,50</b></div>
+      </div>
+      <div class="course" role="tabpanel" id="p-warm" aria-labelledby="t-warm" hidden>
+        <h3>Warme voorgerechten</h3>
+        <div class="dish"><span>Tomaten-crèmesoep<em>vegetarisch</em></span><i></i><b>€ 8,50</b></div>
+        <div class="dish"><span>Champignonsoep<em>vegetarisch</em></span><i></i><b>€ 8,50</b></div>
+        <div class="dish"><span>Franse uiensoep<em>vegetarisch</em></span><i></i><b>€ 9,00</b></div>
+        <div class="dish"><span>Gamba's in kreeftensaus</span><i></i><b>€ 16,50</b></div>
+        <div class="dish"><span>Gerookte paling</span><i></i><b>€ 18,50</b></div>
+        <div class="dish"><span>Coquille St. Jacques</span><i></i><b>€ 16,50</b></div>
+        <div class="dish"><span>Gegratineerde mosselen</span><i></i><b>€ 16,50</b></div>
+      </div>
+      <div class="course" role="tabpanel" id="p-vlees" aria-labelledby="t-vlees" hidden>
+        <h3>Vlees hoofdgerechten</h3>
+        <div class="dish"><span>Mixed grill</span><i></i><b>€ 28,50</b></div>
+        <div class="dish"><span>Ossenhaas van limousin</span><i></i><b>€ 34,50</b></div>
+        <div class="dish"><span>Entrecote</span><i></i><b>€ 34,50</b></div>
+        <div class="dish"><span>Varkenshaas</span><i></i><b>€ 24,50</b></div>
+        <div class="dish"><span>Spareribs</span><i></i><b>€ 25,50</b></div>
+        <div class="dish"><span>Chateau Briand</span><i></i><b>€ 34,50</b></div>
+      </div>
+      <div class="course" role="tabpanel" id="p-vis" aria-labelledby="t-vis" hidden>
+        <h3>Vis hoofdgerechten</h3>
+        <div class="dish"><span>Zeebaarsfilet</span><i></i><b>€ 24,50</b></div>
+        <div class="dish"><span>Tonijn cru gebakken</span><i></i><b>€ 24,50</b></div>
+        <div class="dish"><span>Vispotje Wouwse Wereld</span><i></i><b>€ 26,50</b></div>
+        <div class="dish"><span>Gamba's in romige knoflooksaus</span><i></i><b>€ 26,50</b></div>
+        <div class="dish"><span>Vegetarisch tapperijtje</span><i></i><b>€ 21,50</b></div>
+        <div class="dish"><span>Kabeljauwfilet in een krokant jasje</span><i></i><b>€ 24,50</b></div>
+      </div>
+      <div class="course" role="tabpanel" id="p-dessert" aria-labelledby="t-dessert" hidden>
+        <h3>Desserts</h3>
+        <div class="dish"><span>Crème brulée</span><i></i><b>€ 11,00</b></div>
+        <div class="dish"><span>Scroppino</span><i></i><b>€ 9,50</b></div>
+        <div class="dish"><span>Papboerke</span><i></i><b>€ 10,00</b></div>
+        <div class="dish"><span>Tropical fruitsorbet</span><i></i><b>€ 8,50</b></div>
+        <div class="dish"><span>Dame blanche</span><i></i><b>€ 12,00</b></div>
+        <div class="dish"><span>Chocolade surprise</span><i></i><b>€ 12,00</b></div>
+        <div class="dish"><span>Kaasplank</span><i></i><b>€ 17,50</b></div>
+      </div>
+      <div class="course" role="tabpanel" id="p-daghap" aria-labelledby="t-daghap" hidden>
+        <h3>Daghap &amp; menu's</h3>
+        <div class="dish"><span>De DagHap<small>Alleen een hoofdgerecht, met keuze uit vis of vlees. Woensdag t/m vrijdag en zondag.</small></span><i></i><b>€ 17,50 p.p.</b></div>
+        <div class="dish"><span>3-gangen keuzemenu<small>Woensdag t/m vrijdag en zondag.</small></span><i></i><b>€ 33,50 p.p.</b></div>
+        <div class="dish"><span>Tapas Grande<small>Alleen op reservering vooraf en per tafel.</small></span><i></i><b>€ 45,00 p.p.</b></div>
+      </div>
+      <ul class="notes">
+        <li>Groepen vanaf 9 personen dineren à la carte, met maximaal 5 verschillende gerechten per gang.</li>
+        <li>Een allergenenlijst ligt op papier voor je klaar in het restaurant.</li>
+        <li>Om teleurstelling te voorkomen is reserveren gewenst, het liefst telefonisch.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sfeer" aria-label="Sfeerbeelden">
+  <img src="img/gerecht.jpg" alt="Een hoofdgerecht met vis en groenten, met een glas wijn" loading="lazy">
+  <img src="img/wijn.jpg" alt="Proosten met rode wijn" loading="lazy">
+</section>
+
+<section class="binnen" id="binnen">
+  <div class="wrap grid">
+    <div class="polas">
+      <figure class="pola a"><img src="img/binnen-1.jpg" alt="Het restaurant met planten, ronde tafels en een bakstenen vloer" loading="lazy"><figcaption>Binnen</figcaption></figure>
+      <figure class="pola b"><img src="img/binnen-2.jpg" alt="Een sfeervol verlichte zaal met gedekte tafels" loading="lazy"><figcaption>'s Avonds</figcaption></figure>
+    </div>
+    <div>
+      <h2>Midden in Wouw</h2>
+      <p class="lead">Je vindt ons op de hoek van de Roosendaalsestraat en de Markt. Binnen is het licht en groen, of juist warm en sfeervol als het buiten donker wordt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bezoek" id="bezoek">
+  <div class="wrap">
+    <h2>Openingstijden</h2>
+    <div class="grid">
+      <div>
+        <div class="days" id="days">
+          <div class="day closed" data-d="1"><b>ma</b>dicht</div>
+          <div class="day closed" data-d="2"><b>di</b>dicht</div>
+          <div class="day open" data-d="3"><b>wo</b><span>18.00</span></div>
+          <div class="day open" data-d="4"><b>do</b><span>18.00</span></div>
+          <div class="day open" data-d="5"><b>vr</b><span>18.00</span></div>
+          <div class="day open" data-d="6"><b>za</b><span>18.00</span></div>
+          <div class="day open" data-d="0"><b>zo</b><span>18.00</span></div>
+        </div>
+        <p style="margin-top:16px;opacity:.8">Woensdag tot en met zondag geopend vanaf 18.00 uur. Maandag en dinsdag gesloten.</p>
+        <div class="adr">
+          <strong>Restaurant De Wouwse Wereld</strong>
+          <span>Roosendaalsestraat 1, 4724 AA Wouw</span>
+          <span><a href="tel:0165300646">0165 300 646</a></span>
+          <span><a href="mailto:info@wouwsewereld.nl">info@wouwsewereld.nl</a></span>
+          <div class="ctas"><a class="btn" href="tel:0165300646">Bel om te reserveren</a><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=Roosendaalsestraat+1+4724+AA+Wouw" target="_blank" rel="noopener">Route</a></div>
+        </div>
+      </div>
+      <div class="map"><iframe title="Kaart: Roosendaalsestraat 1, Wouw" src="https://www.google.com/maps?q=Roosendaalsestraat+1,+4724+AA+Wouw&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>Restaurant De Wouwse Wereld · Roosendaalsestraat 1, Wouw</span><span>Woensdag t/m zondag vanaf 18.00 uur</span></div></footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Wouwse%20Wereld%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+const top_=document.getElementById('top');const sc=()=>top_.classList.toggle('solid',scrollY>40);addEventListener('scroll',sc,{passive:true});sc();
+const d=new Date().getDay(),h=new Date().getHours();
+const el=document.querySelector('#days [data-d="'+d+'"]');if(el)el.classList.add('today');
+const o=document.querySelector('#open span');
+if(d===1||d===2)o.textContent='Vandaag gesloten, woensdag weer open vanaf 18.00 uur';
+else if(h>=18)o.textContent='Vanavond geopend';
+else o.textContent='Vanavond open vanaf 18.00 uur';
+const tb=[...document.querySelectorAll('.tabs [role=tab]')];
+tb.forEach((b,i)=>{b.addEventListener('click',()=>{tb.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});});
+b.tabIndex=i?-1:0;b.addEventListener('keydown',e=>{const k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){const n=tb[(i+k+tb.length)%tb.length];n.focus();n.click();}});});
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

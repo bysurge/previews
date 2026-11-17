@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.svg">
+<title>Café De Bommel · Halstraat 1, Breda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#3d0a10; --bordeaux:#5e121b; --red:#8e1b26; --globe:#fff3d6; --sepia:#d8b98c;
+  --paper:#f3ebdd; --yellow:#ffc93c; --coal:#000;
+  --display:"Big Shoulders Display", Impact, sans-serif; --sans:"Work Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--wine);color:var(--globe);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.92;letter-spacing:.005em}
+h2{font-size:clamp(3rem,7vw,5.6rem)}
+.lead{font-size:1.12rem;max-width:56ch}
+
+.top{position:fixed;inset:0 0 auto;z-index:30;transition:background .3s}
+.top.solid{background:rgba(61,10,16,.95);backdrop-filter:blur(8px)}
+.top .wrap{display:flex;align-items:center;gap:30px;height:74px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.9rem;text-decoration:none;line-height:1;display:flex;align-items:center;gap:10px}
+.logo i{width:16px;height:16px;border-radius:50%;background:var(--globe);box-shadow:0 0 14px 4px rgba(255,243,214,.55)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+.nav a:hover{color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:#200508;font:inherit;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:4px;border:0;cursor:pointer;transition:transform .2s, background .2s}
+.btn:hover{transform:translateY(-2px);background:#ffd665}
+.btn.line{background:transparent;color:var(--globe);box-shadow:inset 0 0 0 2px var(--globe)}
+.btn.line:hover{background:rgba(255,243,214,.1)}
+.btn svg{width:18px;height:18px}
+.top .btn{padding:10px 16px;font-size:.92rem;margin-left:auto}
+.nav+.btn{margin-left:0}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;animation:slowzoom 18s ease-out forwards}
+@keyframes slowzoom{from{transform:scale(1.1)}to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(61,10,16,.55),rgba(61,10,16,0) 30%,rgba(61,10,16,.35) 55%,var(--wine) 97%)}
+.hero .wrap{padding-bottom:7vh}
+.hero h1{font-size:clamp(5.5rem,21vw,19rem);font-weight:900;line-height:.8;letter-spacing:-.01em;color:var(--globe);text-shadow:0 0 50px rgba(255,220,160,.35)}
+.hero .row{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:28px}
+.hero p{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:42ch}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.next{background:var(--paper);color:#2a0609;padding:20px 22px;border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:center;text-decoration:none;box-shadow:0 20px 40px rgba(0,0,0,.35);transform:rotate(-1.2deg)}
+.next .d{grid-row:span 3;font-family:var(--display);font-weight:900;font-size:3.6rem;line-height:.85;text-align:center;color:var(--red)}
+.next .d small{display:block;font-size:1.05rem;font-weight:800}
+.next .k{font-size:.8rem;font-weight:700;color:var(--red)}
+.next b{font-family:var(--display);font-size:1.6rem;line-height:1;font-weight:800}
+.next span{font-size:.9rem}
+.status{display:inline-flex;gap:9px;align-items:center;font-weight:600;font-size:.9rem;margin-bottom:12px}
+.status i{width:9px;height:9px;border-radius:50%;background:#8fdc8a;box-shadow:0 0 10px #8fdc8a}
+.status.closed i{background:#ff8a6a;box-shadow:0 0 10px #ff8a6a}
+.in{opacity:0;transform:translateY(24px);animation:in 1s cubic-bezier(.2,.7,.2,1) forwards}
+.in.b{animation-delay:.25s}.in.c{animation-delay:.45s}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* agenda */
+.agenda{padding:110px 0;background:var(--bordeaux);position:relative}
+.agenda-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+.vast{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:40px 0 28px}
+.vast div{border:2px solid rgba(255,243,214,.25);padding:18px 20px;border-radius:6px}
+.vast b{display:block;font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--yellow);font-weight:800;margin-bottom:6px}
+.list{border-top:2px solid rgba(255,243,214,.3)}
+.gig{display:grid;grid-template-columns:150px 1fr auto;gap:30px;align-items:center;padding:24px 0;border-bottom:2px solid rgba(255,243,214,.3);transition:background .25s,padding .25s}
+.gig:hover{background:rgba(0,0,0,.12)}
+.gig .date{font-family:var(--display);font-weight:900;line-height:.85;display:flex;align-items:baseline;gap:10px}
+.gig .date em{font-style:normal;font-size:4rem}
+.gig .date span{font-size:1.25rem;color:var(--sepia);font-weight:800}
+.gig h3{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800}
+.gig p{font-size:.97rem;opacity:.85;margin-top:6px;max-width:70ch}
+.gig .t{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--yellow);white-space:nowrap;text-align:right}
+.gig .t small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--sepia);font-weight:600}
+.tag{display:inline-block;font-family:var(--sans);font-size:.72rem;font-weight:700;background:var(--yellow);color:#2a0609;padding:3px 8px;border-radius:3px;vertical-align:middle;margin-right:8px;letter-spacing:.02em;position:relative;top:-4px}
+.more{margin-top:26px;font-size:.95rem;opacity:.85}
+
+/* cafe */
+.cafe{padding:120px 0;background:var(--paper);color:#2a0609}
+.cafe .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.cafe h2{color:var(--bordeaux)}
+.cafe .lead{margin-top:22px;font-size:1.2rem;line-height:1.65}
+.cafe .photos{position:relative;min-height:520px}
+.cafe .photos img{position:absolute;box-shadow:0 22px 50px rgba(61,10,16,.3);border:10px solid #fff}
+.cafe .p1{width:88%;right:0;top:0;transform:rotate(1.5deg)}
+.cafe .p2{width:58%;left:0;bottom:0;transform:rotate(-3deg)}
+.cafe .points{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.cafe .points span{background:var(--bordeaux);color:var(--globe);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.92rem}
+
+/* live */
+.live{position:relative;padding:130px 0;background:#000;overflow:hidden}
+.live .bg{position:absolute;inset:0;background:url(img/optreden.jpg) center/cover;opacity:.45}
+.live::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000 15%,rgba(0,0,0,.2))}
+.live .wrap{position:relative;z-index:1}
+.live h2{max-width:10ch}
+.live .lead{margin-top:22px;opacity:.9}
+.genres{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:34px;font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1}
+.genres span:nth-child(2){color:var(--yellow)}
+.genres span:nth-child(3){color:var(--sepia)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:70px}
+.strip img{width:100%;aspect-ratio:1150/425;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+
+/* tijdlijn */
+.tijd{padding:120px 0 100px;background:var(--wine)}
+.tijd .lead{margin-top:18px;opacity:.88}
+.timeline{margin-top:56px;display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(20px,(100% - 1200px)/2);padding:0 max(20px,(100% - 1200px)/2) 30px;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+.yr{flex:0 0 320px;scroll-snap-align:start;position:relative;padding-top:40px}
+.yr::before{content:"";position:absolute;left:0;right:-22px;top:9px;height:2px;background:rgba(255,243,214,.3)}
+.yr::after{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--globe);box-shadow:0 0 18px 4px rgba(255,243,214,.5)}
+.yr b{font-family:var(--display);font-size:4.2rem;font-weight:900;line-height:1;color:var(--sepia)}
+.yr h3{font-size:1.9rem;margin:6px 0 10px}
+.yr p{font-size:.96rem;opacity:.85}
+.tijd .boek{margin-top:30px}
+
+/* foto's */
+.archief{background:var(--bordeaux);color:var(--globe);padding:80px 0 56px}.archief .lead{max-width:64ch}
+.archief .albums{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.archief .albums span{border:2px solid currentColor;border-radius:999px;padding:6px 16px;font-weight:600;opacity:.9}
+.soc a{text-decoration:underline}
+.fotos{background:#000;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:4px}
+.fotos img{width:100%;height:100%;object-fit:cover}
+.fotos .a{grid-row:span 2}
+.fotos .w{grid-column:span 2}
+
+/* contact */
+.contact{padding:120px 0 140px;background:var(--bordeaux)}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:46px}
+.hours{width:100%;border-collapse:collapse;font-size:1.02rem}
+.hours td{padding:13px 0;border-bottom:1px solid rgba(255,243,214,.22)}
+.hours td+td{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{color:var(--yellow);font-weight:700}
+.adr{margin-top:34px;display:grid;gap:4px;font-size:1.05rem}
+.adr strong{font-family:var(--display);font-size:2rem;font-weight:800;line-height:1}
+.adr .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.map{margin-top:30px;border-radius:6px;overflow:hidden;height:300px}
+.map iframe{width:100%;height:100%;border:0;filter:sepia(.35) contrast(1.05)}
+form{background:var(--paper);color:#2a0609;padding:32px;border-radius:6px;display:grid;gap:14px;align-content:start}
+form h3{font-size:2.4rem;color:var(--bordeaux)}
+form p.s{font-size:.95rem;margin-top:-6px}
+label{display:grid;gap:6px;font-weight:600;font-size:.88rem}
+input,textarea{font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid #d4c3a7;border-radius:4px;background:#fff;color:#2a0609}
+input:focus,textarea:focus{border-color:var(--red);outline:none}
+form .btn{justify-self:start}
+.demo{display:none;background:var(--bordeaux);color:var(--globe);padding:12px 14px;border-radius:4px}
+.demo.show{display:block}
+footer{background:var(--wine);padding:36px 0 90px;font-size:.9rem;opacity:.8}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:50;background:#000;color:var(--globe);font-size:.78rem;padding:7px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+.ribbon b{color:var(--yellow)}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .nav+.btn{margin-left:auto}
+  .hero .row,.cafe .grid,.contact .grid{grid-template-columns:1fr;gap:34px}
+  .gig{grid-template-columns:96px 1fr;gap:6px 18px;align-items:start}
+  .gig .date{flex-direction:column;gap:2px}
+  .gig .date em{font-size:3.2rem}
+  .gig .t{grid-column:2;text-align:left;font-size:1.3rem}
+  .gig .t small{display:inline;margin-left:8px}
+  .vast{grid-template-columns:1fr}
+  .cafe .photos{min-height:400px}
+  .strip{grid-template-columns:1fr 1fr}.strip img:nth-child(3){display:none}
+  .fotos{grid-template-columns:1fr 1fr;grid-template-rows:200px 150px 150px}
+  .fotos .a{grid-row:auto;grid-column:span 2}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .top .btn{padding:9px 12px;font-size:.85rem}
+  .top .btn .long{display:none}
+  .hero h1{font-size:7.4rem}
+  .hero::before{background:linear-gradient(180deg,rgba(61,10,16,.6),rgba(61,10,16,.35) 25%,rgba(61,10,16,.8) 55%,var(--wine) 90%)}
+  .hero .wrap{padding-bottom:70px}
+  .next{transform:none}
+  .next .d{font-size:3rem}
+  .agenda,.cafe,.live,.tijd,.contact{padding:80px 0}
+  .gig .date em{font-size:2.8rem}
+  .gig h3{font-size:1.75rem}
+  .cafe .photos{min-height:300px}
+  .cafe .photos img{border-width:6px}
+  .yr{flex-basis:78%}
+  form{padding:22px}
+  .fotos{grid-template-rows:170px 120px 120px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>De Bommel</a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#agenda">Agenda</a>
+      <a href="#cafe">Het café</a>
+      <a href="#live">Live</a>
+      <a href="#tijdlijn">Tijdlijn</a>
+      <a href="#fotos">Foto's</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="tel:0765212429"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Bel<span class="long">&nbsp;076 521 24 29</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="img/interieur.jpg" alt="Het interieur van café De Bommel met de bar en de witte bollampen">
+  <div class="wrap">
+    <div class="status in" id="status"><i></i><span>Openingstijden</span></div>
+    <h1 class="in b">De Bommel</h1>
+    <div class="row in c">
+      <div>
+        <p>Café in de Halstraat in Breda. Al ruim veertig jaar een warm thuis voor jong en oud, van een goed bakje koffie tot feestweekenden en live muziek.</p>
+        <div class="ctas"><a class="btn" href="#agenda">Bekijk de agenda</a><a class="btn line" href="#contact">Kom langs</a></div>
+      </div>
+      <a class="next" id="next" href="#agenda" aria-label="Eerstvolgende in de agenda"></a>
+    </div>
+  </div>
+</section>
+
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <div class="agenda-head">
+      <h2>Agenda</h2>
+      <p class="lead">Feestweekenden, quizavonden, Clipcafé en jong talent op het podium.</p>
+    </div>
+    <div class="vast">
+      <div><b>Elke vrijdag en zaterdag</b>Deejays achter de draaitafels vanaf 22.00 uur. Behalve de laatste zaterdag van de maand, want dan is het Clipcafé.</div>
+      <div><b>Elke laatste donderdag</b>De Bommel Live: jong talent op het podium waar al veel legends hebben gestaan.</div>
+    </div>
+    <div class="list" id="list"></div>
+    <p class="more">Reserveren voor een speciale avond? Mail naar <a href="mailto:cafedebommel@gmail.com">cafedebommel@gmail.com</a> of stuur een berichtje via Instagram.</p>
+  </div>
+</section>
+
+<section class="cafe" id="cafe">
+  <div class="wrap grid">
+    <div>
+      <h2>Een ontmoetingsplek in het hart van Breda</h2>
+      <p class="lead">Café De Bommel is een plek waar mensen elkaar vinden en waar het fijne samenzijn bij een drankje voorop staat. Bruisende feestweekenden wisselen zich af met intieme liveoptredens en persoonlijke onderonsjes. Voor iedereen is er wat te vinden.</p>
+      <div class="points"><span>Een goed bakje koffie</span><span>Feestweekenden</span><span>Live op het podium</span><span>Quiz &amp; Clipcafé</span></div>
+    </div>
+    <div class="photos">
+      <img class="p1" src="img/gevel.jpg" alt="De gevel van De Bommel in de Halstraat, zwart-wit" loading="lazy">
+      <img class="p2" src="img/setlist.jpg" alt="Een setlist naast een effectpedaal op het podium" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="live" id="live">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>Het podium staat klaar</h2>
+    <p class="lead">Met regelmaat maken we op zondag het podium vrij voor liveoptredens. Van jonge, startende bandjes tot oude rotten in het vak. Kwaliteit staat altijd voorop. Zelfs Herman Brood en The Wild Romance lieten De Bommel hier twee keer op zijn grondvesten trillen.</p>
+    <div class="genres" aria-label="Muziekstijlen"><span>Hardrock</span><span>Country</span><span>Rock-'n-roll</span></div>
+  </div>
+  <div class="wrap strip">
+    <img src="img/podium.jpg" alt="Drumstel en versterkers op het podium" loading="lazy">
+    <img src="img/zaal.jpg" alt="Een volle zaal tijdens een avond in De Bommel" loading="lazy">
+    <img src="img/feest.jpg" alt="Feestend publiek met de handen in de lucht" loading="lazy">
+  </div>
+</section>
+
+<section class="tijd" id="tijdlijn">
+  <div class="wrap">
+    <h2>Twee eeuwen Halstraat</h2>
+    <p class="lead">Van de eerste tapperij tot het BommelBoek. Schuif door de geschiedenis.</p>
+  </div>
+  <div class="timeline" tabindex="0" aria-label="Tijdlijn">
+    <article class="yr"><b>1818</b><h3>Moriaans-hoofd</h3><p>De eerste tapperij in de Halstraat, de voorganger van De Bommel. Bier werd nog gedronken uit kelken.</p></article>
+    <article class="yr"><b>1930</b><h3>Dansen op orgelmuziek</h3><p>Vanaf de jaren dertig is het Carl Frei-orgel de blikvanger. Tot ver in de jaren vijftig zorgt het voor de dansmuziek. In 1968 verhuist het naar museum Van Speeldoos tot Pierement in Utrecht.</p></article>
+    <article class="yr"><b>1978</b><h3>De naam op de gevel</h3><p>Het bord met De Bommel komt boven de ingang. Tot op vandaag een herkenningspunt voor Bredanaars en ver daarbuiten.</p></article>
+    <article class="yr"><b>1982</b><h3>De verbouwing</h3><p>Op 17 oktober 1982 heropent De Bommel onder Frans van den Brand, Pieter Zuydwijk en Cees Verberk. De basis van het café van nu.</p></article>
+    <article class="yr"><b>1995</b><h3>Herman Brood</h3><p>De dichter, schilder en rock-’n-rollrebel liet met The Wild Romance café De Bommel tot twee keer toe op zijn grondvesten trillen.</p></article>
+    <article class="yr"><b>2006</b><h3>Halstrasse Bierfeste</h3><p>Pullen, lederhosen en worst. Sindsdien elk jaar in september terug.</p></article>
+    <article class="yr"><b>2008</b><h3>De muziekcomputer</h3><p>Na jaren van originele cd's doet de muziekcomputer zijn intrede. Heiligschennis, maar het repertoire is sindsdien eindeloos.</p></article>
+    <article class="yr"><b>2010</b><h3>De Kreuners</h3><p>De Belgische rockers, het ‘Doe Maar’ van België, komen naar Breda. Nog voor er een noot klinkt is er al een run op de bar. (bron: BN DeStem)</p></article>
+    <article class="yr"><b>2013</b><h3>Het BommelBoek</h3><p>Alle verhalen, foto's en anekdotes in één boek, gepresenteerd voor een uitverkochte zaal.</p></article>
+  </div>
+  <div class="wrap boek"><a class="btn line" href="https://www.debommel.nl/wp-content/uploads/bommelboek.pdf" target="_blank" rel="noopener">Blader door het BommelBoek</a></div>
+</section>
+
+<section class="archief" id="fotos">
+  <div class="wrap">
+    <h2>Uit het fotoarchief</h2>
+    <p class="lead">Waar wat georganiseerd wordt, gebeuren mooie dingen. Die leggen we zoveel mogelijk vast: van carnaval en bierfeesten tot WK’s, EK’s en Bier &amp; Ballen. Ook de liveoptredens komen regelmatig in het archief. Zo blijf je op de hoogte, ook als je er niet bij was.</p>
+    <div class="albums"><span>Carnaval</span><span>Clipcafé</span><span>Bier &amp; Ballen</span><span>Voetbaltoernooi</span><span>BommelBoek</span></div>
+  </div>
+</section>
+<section class="fotos" aria-label="Foto's">
+  <img class="a" src="img/setlist.jpg" alt="Setlist op het podium" loading="lazy">
+  <img class="w" src="img/band.jpg" alt="Band en zangeres tijdens een optreden" loading="lazy">
+  <img src="img/optreden.jpg" alt="Zanger met band op het podium" loading="lazy">
+  <img src="img/zaal.jpg" alt="Publiek in het café" loading="lazy">
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Halstraat 1</h2>
+    <div class="grid">
+      <div>
+        <table class="hours" id="hours">
+          <tr data-d="1"><td>Maandag</td><td>11.00 – 01.00</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>10.30 – 01.00</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>10.30 – 01.00</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>10.30 – 02.00</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>10.30 – 02.00</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>10.30 – 02.00</td></tr>
+          <tr data-d="0"><td>Zondag</td><td>13.30 – 01.00</td></tr>
+        </table>
+        <div class="adr">
+          <strong>Café De Bommel</strong>
+          <span>Halstraat 1, 4811 HV Breda</span>
+          <span><a href="tel:0765212429">076 521 24 29</a></span>
+          <span><a href="mailto:cafedebommel@gmail.com">cafedebommel@gmail.com</a></span>
+          <span class="soc">Volg ons: <a href="https://nl-nl.facebook.com/debommel.breda" target="_blank" rel="noopener">Facebook</a> · <a href="https://twitter.com/cafedebommel" target="_blank" rel="noopener">Twitter</a> · Instagram</span>
+          <div class="ctas"><a class="btn" href="tel:0765212429">Bel ons</a><a class="btn line" href="https://www.google.com/maps/dir/?api=1&destination=Halstraat+1+4811+HV+Breda" target="_blank" rel="noopener">Route</a></div>
+        </div>
+        <div class="map"><iframe title="Kaart: Halstraat 1, Breda" src="https://www.google.com/maps?q=Caf%C3%A9+De+Bommel,+Halstraat+1,+4811+HV+Breda&output=embed"></iframe></div>
+      </div>
+      <form id="form" novalidate>
+        <h3>Stuur ons een bericht</h3>
+        <p class="s">Een vraag, een feestje of een band die wil spelen? Laat het weten.</p>
+        <label>Naam<input name="naam" autocomplete="name"></label>
+        <label>E-mail<input name="mail" type="email" autocomplete="email"></label>
+        <label>Telefoon<input name="tel" type="tel" autocomplete="tel"></label>
+        <label>Bericht<textarea name="bericht" rows="5"></textarea></label>
+        <button class="btn" type="submit">Bericht versturen</button>
+        <p class="demo" role="status">Dit is een voorbeeld, er is niets verstuurd.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>Café De Bommel · Halstraat 1, Breda</span><span><a href="https://nl-nl.facebook.com/debommel.breda" target="_blank" rel="noopener">Facebook</a> · <a href="https://twitter.com/cafedebommel" target="_blank" rel="noopener">Twitter</a></span><span>Sinds 1982 in deze vorm, sinds 1818 een tapperij op deze plek</span></div></footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Caf%C3%A9%20De%20Bommel%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+const top_=document.getElementById('top');const sc=()=>top_.classList.toggle('solid',scrollY>40);addEventListener('scroll',sc,{passive:true});sc();
+
+// agenda from debommel.nl/agenda
+const EV=[
+ ['2026-10-21','','Mosselavond x Bühne','De eerste food collab: een tafel vol mosselen, volle glazen en goede muziek. Reserveren via mail of Instagram.',''],
+ ['2026-10-29','20:30','De Bommel Live: Tight Barrel','Energieke, jonge rockband, ontstaan via het Rock City Institute in Eindhoven.',''],
+ ['2026-10-31','21:00','Clipcafé','De lekkerste hits van vroeger. Guilty pleasures en klassiekers die je nog woord voor woord kent.',''],
+ ['2026-11-04','20:00','BommelQuiz','Quizmaster Danny Damen. Inschrijven vanaf 19.30 uur, deelname gratis.',''],
+ ['2026-11-05','20:00','Bier&Ballen voorverkoop','',''],
+ ['2026-11-14','20:30','Spinola Live Préparty: Addicted to Groove + DJ','Funk, soul en disco. Meld je ter plekke aan voor Spinola Live 2027: er worden twee plekken vergeven. Vanaf 23.00 uur DJ.',''],
+ ['2026-11-18','20:00','Bier&Ballen','Voetbalavond met Sjoerd Mossou en Chris van Nijnatten. Live muziek, voorlezen en special guests. De entree gaat naar een goed doel; kaarten in de voorverkoop.',''],
+ ['2026-11-26','21:00','De Bommel Live: DKS','De Krachten Samen, hiphopcollectief uit Breda met invloeden uit jazz, soul, rock en reggae.','TURF'],
+ ['2026-11-27','21:00','Bommels Boogie x Planet Disco','Een avond vol hot disco.','TURF'],
+ ['2026-11-28','21:00','Clipcafé','De lekkerste hits van vroeger. Trek je favoriete outfit aan en kom dansen en zingen.','TURF'],
+ ['2026-12-03','20:00','Bommels Kunst Estafette Borrel','Een nieuwe ronde, een nieuwe kunstenaar.',''],
+ ['2026-12-09','20:00','BommelQuiz','Quizmaster Danny Damen. Inschrijven vanaf 19.30 uur, deelname gratis.',''],
+ ['2026-12-20','17:00',"Live muziek: Torontopongo's",'',''],
+ ['2027-01-01','16:00','Nieuwjaarsborrel','','']
+];
+const M=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+const W=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const today=new Date();today.setHours(0,0,0,0);
+let up=EV.filter(e=>new Date(e[0]+'T23:59')>=today);if(up.length<3)up=EV.slice(-6);
+const list=document.getElementById('list');
+up.forEach(([d,t,title,desc,tag])=>{const dt=new Date(d+'T12:00');
+  list.insertAdjacentHTML('beforeend',`<article class="gig"><div class="date"><em>${dt.getDate()}</em><span>${M[dt.getMonth()]}</span></div><div><h3>${tag?`<span class="tag">${tag}</span>`:''}${title}</h3>${desc?`<p>${desc}</p>`:''}</div><div class="t">${t.replace(':','.')}<small>${W[dt.getDay()]}</small></div></article>`)});
+const n=up[0],nd=new Date(n[0]+'T12:00');
+document.getElementById('next').innerHTML=`<div class="d">${nd.getDate()}<small>${M[nd.getMonth()]}</small></div><span class="k">Eerstvolgende in De Bommel</span><b>${n[2]}</b><span>${W[nd.getDay()]} ${n[1].replace(':','.')} uur</span>`;
+
+// open now (incl. after midnight)
+const O={0:[13.5,25],1:[11,25],2:[10.5,25],3:[10.5,25],4:[10.5,26],5:[10.5,26],6:[10.5,26]};
+const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,prev=(d+6)%7;
+const f=x=>{x=x%24;const hh=Math.floor(x),mm=Math.round((x-hh)*60);return String(hh).padStart(2,'0')+'.'+String(mm).padStart(2,'0')};
+const st=document.getElementById('status');let txt;
+if(h<O[prev][1]-24)txt='Nu open tot '+f(O[prev][1]);
+else if(h>=O[d][0])txt='Nu open tot '+f(O[d][1]);
+else{txt='Vandaag open vanaf '+f(O[d][0]);st.classList.add('closed')}
+st.querySelector('span').textContent=txt;
+const r=document.querySelector('#hours tr[data-d="'+d+'"]');if(r)r.classList.add('today');
+
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();e.target.querySelector('.demo').classList.add('show')});
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
