@@ -1,0 +1,234 @@
+:root {
+  --kroeg: #1E1B18;
+  --kroeg-2: #2A2521;
+  --amber: #E9AE4E;
+  --amber-licht: #F6D59A;
+  --groen: #2F3B33;
+  --steen: #9A5034;
+  --kalk: #F1E8D9;
+  --kalk-2: #E6DAC5;
+  --inkt: #26211D;
+  --zacht: #6E6257;
+  --serif: "Young Serif", Georgia, serif;
+  --sans: "Public Sans", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--kalk); color: var(--inkt); font: 400 17px/1.65 var(--sans); padding-bottom: 34px; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.08; }
+h2 { font-size: clamp(38px, 5vw, 60px); margin-bottom: 22px; }
+.groot { font-size: 20px; line-height: 1.55; }
+p { margin: 0 0 14px; }
+.klein { font-size: 15px; color: var(--zacht); }
+.wrap { width: min(1160px, 100% - 40px); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+/* header */
+.top { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(30,27,24,.96); color: var(--kalk); border-bottom: 1px solid rgba(233,174,78,.25); }
+.top__in { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.merk img { width: 56px; height: 56px; filter: invert(1); }
+.nav { display: flex; gap: 24px; align-items: center; }
+.nav a { text-decoration: none; font-weight: 500; font-size: 15.5px; color: #E9DFCF; }
+.nav a:hover { color: var(--amber); }
+.nav .nav__knop { background: var(--amber); color: var(--kroeg); padding: 10px 18px; border-radius: 4px; font-weight: 700; }
+.nav .nav__knop:hover { background: var(--amber-licht); color: var(--kroeg); }
+.menuknop { display: none; }
+
+/* knoppen */
+.knoppen { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.knop { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 4px; font: 700 16.5px/1 var(--sans); text-decoration: none; border: 0; cursor: pointer; transition: background-color .15s, color .15s; }
+.knop--amber { background: var(--amber); color: var(--kroeg); }
+.knop--amber:hover { background: var(--amber-licht); }
+.knop--wit { border: 2px solid rgba(241,232,217,.75); color: var(--kalk); }
+.knop--wit:hover { background: var(--kalk); color: var(--kroeg); }
+.knop--donker { background: var(--kroeg); color: var(--kalk); }
+.knop--donker:hover { background: var(--steen); }
+
+/* hero */
+.hero { position: relative; min-height: calc(100svh - 34px); display: flex; flex-direction: column; justify-content: flex-end; color: var(--kalk); background: var(--kroeg); overflow: hidden; }
+.hero__fotos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; }
+.hero__fotos img.actief { opacity: 1; }
+.hero__fotos::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,27,24,.55) 0%, rgba(30,27,24,.35) 35%, rgba(30,27,24,.85) 85%); }
+.hero__in { position: relative; text-align: center; padding: 140px 0 56px; display: flex; flex-direction: column; align-items: center; }
+.hero__logo { width: 150px; height: 150px; filter: invert(1); margin-bottom: 22px; }
+.hero h1 { font-size: clamp(40px, 5.6vw, 74px); max-width: 15ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.55); }
+.hero__sub { font-size: 19px; color: #E9DFCF; margin: 18px 0 30px; max-width: 34em; }
+.nieuw { position: relative; background: var(--amber); color: var(--kroeg); }
+.nieuw__in { display: flex; align-items: center; gap: 16px; padding: 14px 0; }
+.nieuw strong { font: 400 20px/1 var(--serif); background: var(--kroeg); color: var(--amber); padding: 8px 12px 9px; border-radius: 3px; flex: none; }
+.nieuw p { margin: 0; font-weight: 600; font-size: 16px; }
+
+/* welkom */
+.welkom { padding: 110px 0; }
+.welkom__in { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: center; }
+.welkom__foto { margin: 0; position: relative; }
+.welkom__foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+.welkom__foto::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 2px solid var(--steen); border-radius: 3px; z-index: -1; }
+.welkom__tekst { max-width: 36em; }
+.handtekening { font: 400 30px/1 var(--serif); color: var(--steen); margin-top: 26px; }
+
+/* café */
+.cafe { background: var(--groen); color: var(--kalk); padding: 110px 0; }
+.cafe__in { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.cafe h2 { color: var(--amber-licht); }
+.cafe__tekst { max-width: 34em; }
+.kenmerken { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.kenmerken li { border: 1px solid rgba(246,213,154,.45); color: var(--amber-licht); padding: 7px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; }
+.kenmerken--licht li { border-color: var(--kalk-2); color: var(--inkt); background: #fff8ec; }
+.cafe__fotos { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: end; }
+.cafe__fotos img { width: 100%; object-fit: cover; border-radius: 3px; }
+.cafe__fotos img:first-child { aspect-ratio: 3 / 4; }
+.cafe__fotos img:last-child { aspect-ratio: 1; margin-bottom: 48px; }
+
+/* eten */
+.eten { padding: 110px 0 120px; }
+.eten__kop { display: grid; grid-template-columns: 1.3fr .7fr; gap: 64px; align-items: start; margin-bottom: 56px; }
+.eten__kop > div { max-width: 38em; }
+.dorpshap { background: var(--kroeg); color: var(--kalk); padding: 34px 30px 30px; border-radius: 3px; position: relative; box-shadow: 10px 10px 0 var(--steen); }
+.dorpshap__titel { font: 400 40px/1 var(--serif); color: var(--amber); margin-bottom: 4px; }
+.dorpshap__prijs { font: 400 26px/1 var(--serif); margin-bottom: 18px; }
+.dorpshap p:last-child { margin: 0; color: #D9CDBA; }
+
+.kaart { background: #FBF6EC; border: 1px solid var(--kalk-2); border-radius: 3px; padding: 40px 44px 34px; }
+.kaart__kop { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.kaart__kop h3 { font-size: 40px; }
+.kaart__kop p { margin: 0; color: var(--zacht); font-size: 15px; }
+.tabs { display: flex; gap: 6px; border-bottom: 2px solid var(--kalk-2); overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button { flex: none; border: 0; background: none; cursor: pointer; font: 600 16.5px/1 var(--sans); color: var(--zacht); padding: 14px 16px 16px; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tabs button:hover { color: var(--inkt); }
+.tabs button[aria-selected="true"] { color: var(--steen); border-bottom-color: var(--steen); }
+.paneel { padding-top: 22px; }
+.gerechten { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; }
+.gerechten li { display: flex; gap: 18px; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px dashed var(--kalk-2); }
+.gerechten h4 { font-size: 21px; margin-bottom: 4px; }
+.gerechten p { margin: 0; font-size: 15.5px; color: var(--zacht); line-height: 1.5; }
+.gerechten b { font: 400 21px/1 var(--serif); color: var(--steen); white-space: nowrap; }
+.gerechten__dorpshap h4 { color: var(--steen); }
+.noot { font-size: 15px; color: var(--zacht); font-style: italic; margin: 18px 0 0; }
+.noot--boven { margin: 0 0 4px; }
+.kaart__voet { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; border-top: 2px solid var(--kalk-2); }
+.kaart__voet p { margin: 0; }
+.pdf { font-weight: 700; color: var(--steen); }
+.eten__fotos { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: center; margin-top: 24px; }
+.eten__fotos img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 3px; }
+
+/* terras */
+.terras { position: relative; }
+.terras__foto { width: 100%; height: min(78vh, 760px); object-fit: cover; }
+.terras__kaartje { position: absolute; right: max(20px, calc((100% - 1160px) / 2)); bottom: 48px; max-width: 440px; background: var(--kalk); padding: 34px 34px 22px; border-radius: 3px; box-shadow: 0 20px 50px -20px rgba(0,0,0,.5); }
+.terras__kaartje h2 { font-size: 42px; margin-bottom: 14px; color: var(--steen); }
+
+/* feesten */
+.feesten { background: var(--kroeg); color: var(--kalk); padding: 110px 0; }
+.feesten h2 { color: var(--amber); }
+.feesten__kop { max-width: 40em; margin-bottom: 44px; }
+.feesten__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+.feesten__grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 3px; }
+.f1 { grid-row: 1 / 3; aspect-ratio: 3 / 4; }
+.f2, .f3 { aspect-ratio: 3 / 4; }
+.capaciteit { grid-column: 2 / 4; list-style: none; margin: 0; padding: 24px 26px; background: var(--kroeg-2); border-radius: 3px; display: grid; gap: 14px; align-content: center; }
+.capaciteit li { display: flex; align-items: baseline; gap: 16px; }
+.capaciteit b { font: 400 44px/1 var(--serif); color: var(--amber); min-width: 2.6ch; }
+.capaciteit span { color: #D9CDBA; }
+.feesten__voet { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+.feesten__voet p { margin: 0; font-size: 19px; }
+.feesten .knop--donker { background: var(--amber); color: var(--kroeg); }
+.feesten .knop--donker:hover { background: var(--amber-licht); }
+
+/* vergaderen */
+.vergaderen { padding: 100px 0; border-bottom: 1px solid var(--kalk-2); }
+.vergaderen__in { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; }
+.vergaderen__in > div { max-width: 38em; }
+.vergaderen .kenmerken { margin: 4px 0 22px; }
+
+/* contact */
+.contact { padding: 100px 0 80px; }
+.contact__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; margin-bottom: 48px; }
+address { font-style: normal; font-size: 19px; margin-bottom: 12px; }
+.contact__info a { color: var(--steen); font-weight: 700; }
+.contact__info h3 { font-size: 26px; margin: 30px 0 8px; }
+.tijden { width: 100%; max-width: 380px; border-collapse: collapse; margin-bottom: 14px; }
+.tijden th, .tijden td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--kalk-2); font-weight: 500; }
+.tijden td { text-align: right; }
+.tijden tr.vandaag th, .tijden tr.vandaag td { color: var(--steen); font-weight: 700; }
+.formulier { background: #FBF6EC; border: 1px solid var(--kalk-2); padding: 36px; border-radius: 3px; }
+.formulier h3 { font-size: 30px; margin-bottom: 8px; }
+.formulier label { display: block; font-weight: 600; font-size: 15px; margin-top: 16px; }
+.formulier input, .formulier select, .formulier textarea { display: block; width: 100%; margin-top: 6px; font: 400 16px/1.4 var(--sans); padding: 12px 14px; border: 1px solid #CDBFA8; border-radius: 3px; background: #fff; color: var(--inkt); }
+.formulier .twee { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.formulier button { margin-top: 22px; }
+.formulier__melding { margin-top: 14px; background: var(--groen); color: var(--kalk); padding: 12px 14px; border-radius: 3px; }
+.kaartje { width: 100%; height: 380px; border: 0; border-radius: 3px; display: block; }
+
+/* footer */
+.voet { background: var(--kroeg); color: #D9CDBA; padding: 44px 0; }
+.voet__in { display: flex; align-items: center; gap: 20px 36px; flex-wrap: wrap; }
+.voet img { filter: invert(1); width: 72px; height: 72px; }
+.voet p { margin: 0; font-size: 15px; }
+.voet a { color: var(--kalk); }
+.voet__klein { margin-left: auto !important; font-size: 13.5px !important; color: #9C8F80; }
+
+.ribbon { position: fixed; left: 0; right: 0; bottom: 0; z-index: 100; background: var(--kroeg); color: var(--kalk); text-align: center; font: 600 13px/34px var(--sans); height: 34px; border-top: 2px solid var(--amber); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__logo { animation: gloei .9s ease-out both; }
+  @keyframes gloei { from { opacity: .2; transform: scale(.94); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__fotos img { transition: none; }
+}
+
+@media (max-width: 960px) {
+  .menuknop { display: inline-flex; align-items: center; gap: 10px; background: none; border: 1px solid rgba(233,174,78,.6); color: var(--kalk); font: 600 15px/1 var(--sans); padding: 10px 14px; border-radius: 4px; cursor: pointer; }
+  .menuknop__streep, .menuknop__streep::before, .menuknop__streep::after { display: block; width: 18px; height: 2px; background: currentColor; position: relative; transition: transform .2s; }
+  .menuknop__streep::before, .menuknop__streep::after { content: ""; position: absolute; left: 0; }
+  .menuknop__streep::before { top: -6px; } .menuknop__streep::after { top: 6px; }
+  .menuknop[aria-expanded="true"] .menuknop__streep { background: transparent; }
+  .menuknop[aria-expanded="true"] .menuknop__streep::before { transform: translateY(6px) rotate(45deg); }
+  .menuknop[aria-expanded="true"] .menuknop__streep::after { transform: translateY(-6px) rotate(-45deg); }
+  .nav { position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--kroeg); flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 60px; display: none; overflow-y: auto; }
+  .nav.open { display: flex; }
+  .nav a { font: 400 30px/1 var(--serif); padding: 16px 0; border-bottom: 1px solid rgba(241,232,217,.12); }
+  .nav .nav__knop { margin-top: 24px; text-align: center; font: 700 18px/1 var(--sans); padding: 18px; border: 0; }
+  .welkom__in, .cafe__in, .eten__kop, .contact__in, .vergaderen__in { grid-template-columns: 1fr; gap: 44px; }
+  .welkom__foto { max-width: 420px; }
+  .gerechten { grid-template-columns: 1fr; }
+  .feesten__grid { grid-template-columns: 1fr 1fr; }
+  .f1 { grid-row: auto; grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .capaciteit { grid-column: 1 / -1; }
+  .terras__kaartje { position: relative; right: auto; bottom: auto; margin: -80px 20px 0; max-width: none; }
+  .eten__fotos { grid-template-columns: 1fr 1fr; }
+  .eten__fotos .knop { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16.5px; }
+  .wrap { width: calc(100% - 32px); }
+  .groot { font-size: 18px; }
+  .hero__in { padding: 110px 0 36px; }
+  .hero__logo { width: 112px; height: 112px; }
+  .hero h1 { font-size: 38px; }
+  .hero__sub { font-size: 17px; }
+  .knoppen .knop { flex: 1 1 100%; }
+  .nieuw__in { align-items: flex-start; }
+  .nieuw p { font-size: 15px; }
+  .welkom, .cafe, .eten, .feesten { padding: 76px 0; }
+  .welkom__foto::before { inset: 12px -10px -12px 12px; }
+  .kaart { padding: 26px 18px 22px; margin-inline: -6px; }
+  .tabs button { padding: 12px 12px 14px; font-size: 15.5px; }
+  .gerechten h4 { font-size: 19px; }
+  .terras__foto { height: 62vh; }
+  .terras__kaartje { margin: -60px 12px 0; padding: 26px 22px 12px; }
+  .capaciteit b { font-size: 36px; }
+  .formulier { padding: 24px 18px; }
+  .formulier .twee { grid-template-columns: 1fr; gap: 0; }
+  .voet__klein { margin-left: 0 !important; }
+  .ribbon { font-size: 12px; }
+}
+@media (max-width: 600px) {
+  .tabs { gap: 0; }
+  .tabs button { padding: 12px 9px 14px; font-size: 15px; }
+}
