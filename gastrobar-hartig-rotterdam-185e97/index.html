@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gastrobar Hartig · Shared dining in hartje Rotterdam</title>
+<meta name="description" content="Gastrobar Hartig: wereldse shared dining gerechten van een familiebedrijf aan de Hartmansstraat, om de hoek van de Witte de Withstraat in Rotterdam. Sinds 2013.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E1612'/%3E%3Ctext x='32' y='45' font-family='Arial' font-weight='700' font-size='36' text-anchor='middle' fill='%23F1E6D3'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#1E1612; --wood:#2B201A; --wood-2:#36291F;
+  --cream:#F1E6D3; --paper:#F8F1E5; --ink:#241A14; --muted:#75665A;
+  --olive:#6E7F45; --olive-l:#A9B67E; --red:#A8352A; --brass:#D2A75E;
+  --line:rgba(36,26,20,.14); --line-d:rgba(241,230,211,.16);
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --body:'Instrument Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--cream);background:var(--night);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.04;letter-spacing:-.015em}
+h2{font-size:clamp(32px,5vw,56px);font-weight:800}
+.lede{font-size:clamp(17px,1.5vw,19px);max-width:36em}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:999px;font:600 15.5px/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#bf3e31}
+.btn-line{border-color:rgba(241,230,211,.5);color:var(--cream)}
+.btn-line:hover{border-color:var(--cream);background:rgba(241,230,211,.08)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s,box-shadow .3s}
+.top.solid{background:var(--night);box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.top .wrap{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo img{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:26px;font-weight:500;font-size:15.5px}
+.nav a{text-decoration:none}
+.nav a:not(.btn):hover{color:var(--brass)}
+.nav .btn{padding:11px 20px;font-size:15px}
+.nav .tel{opacity:.85}
+.burger{display:none;width:46px;height:46px;background:none;border:0;color:var(--cream);cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:transform .25s,opacity .25s}
+.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.open .burger span:nth-child(2){opacity:0}
+.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:min(100vh,900px);display:flex;align-items:flex-end;overflow:hidden}
+.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:none}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,22,18,.62) 0%,rgba(30,22,18,.3) 35%,rgba(30,22,18,0) 60%),linear-gradient(180deg,rgba(30,22,18,.55) 0%,rgba(30,22,18,.08) 24%,rgba(30,22,18,.5) 46%,rgba(30,22,18,.8) 64%,rgba(30,22,18,.94) 100%)}
+.hero-inner{position:relative;z-index:2;padding:0 0 clamp(48px,8vh,90px)}
+.hero-kicker{font-size:16px;color:#f6dfb0;font-weight:600;margin-bottom:16px;text-shadow:0 1px 3px rgba(0,0,0,.85),0 0 18px rgba(0,0,0,.55)}
+.hero h1{font-size:clamp(46px,8.6vw,118px);font-weight:800;max-width:10.5em;line-height:.95;letter-spacing:-.03em;margin-bottom:24px}
+.hero p.lede{margin-bottom:30px;color:#efe4d2}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-hours{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:15px;color:#e6dac6}
+.hero-hours b{color:var(--cream);font-weight:600;margin-right:6px}
+
+/* now */
+.now{background:var(--wood);border-top:1px solid var(--line-d)}
+.now-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.now-card{padding:clamp(34px,5vw,56px) clamp(20px,4vw,56px) clamp(34px,5vw,56px) 0}
+.now-card + .now-card{border-left:1px solid var(--line-d);padding-left:clamp(20px,4vw,56px);padding-right:0}
+.now-card h3{font-size:clamp(22px,2.4vw,28px);font-weight:700;margin:8px 0 12px}
+.now-card p{color:#ddd0bc;max-width:34em;margin-bottom:18px}
+.pill{display:inline-block;font-size:13.5px;font-weight:600;border-radius:999px;padding:5px 12px;background:var(--olive);color:#fff}
+.pill.red{background:var(--red)}
+.textlink{font-weight:600;color:var(--brass);text-underline-offset:5px}
+
+/* concept */
+.concept{padding:clamp(70px,10vw,140px) 0}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,90px);align-items:center}
+.concept h2{margin-bottom:24px}
+.concept h2 span{display:block;color:var(--olive-l)}
+.concept p{color:#e3d7c4;margin-bottom:16px;max-width:34em}
+.concept-pics{position:relative;aspect-ratio:1/1.02}
+.concept-pics img{position:absolute;object-fit:cover;border-radius:6px}
+.concept-pics .a{inset:0 18% 22% 0;width:82%;height:78%}
+.concept-pics .b{right:0;bottom:0;width:52%;height:48%;border:8px solid var(--night)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;border-top:1px solid var(--line-d);padding-top:24px}
+.facts b{display:block;font-family:var(--display);font-size:22px;font-weight:700;color:var(--cream)}
+.facts span{font-size:14.5px;color:#bfb19c}
+
+/* menu */
+.menu{background:var(--paper);color:var(--ink);padding:clamp(70px,10vw,130px) 0}
+.menu-head{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:34px}
+.menu-head p{color:var(--muted);max-width:32em}
+.tabbar{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 14px;margin-bottom:26px;border-bottom:1px solid var(--line);scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{flex:none;font:600 15px/1 var(--body);padding:12px 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.tabbar button:hover{border-color:var(--ink)}
+.tabbar button[aria-selected="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.tabpanel{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tab-intro{color:var(--muted);max-width:44em;margin-bottom:26px}
+.course + .course{margin-top:44px}
+.course h3{font-size:clamp(30px,3.6vw,44px);font-weight:800;margin-bottom:18px;color:var(--red)}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 44px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:10px 56px}
+.mg h4{font-size:15px;font-weight:700;color:var(--olive);margin:6px 0 4px;letter-spacing:0}
+.mg + .mg{margin-top:20px}
+.cols3 > .mg + .mg,.cols2 > .mg + .mg{margin-top:0}
+.mg ul{list-style:none}
+.dish{padding:13px 0;border-bottom:1px solid var(--line)}
+.mg ul .dish:last-child{border-bottom:0}
+.dl{display:flex;align-items:baseline;gap:8px}
+.dn{font-family:var(--display);font-weight:700;font-size:18.5px;line-height:1.2}
+.dots{flex:1;border-bottom:1.5px dotted rgba(36,26,20,.3);transform:translateY(-4px);min-width:16px}
+.dp{font-weight:600;white-space:nowrap;font-size:16px;color:var(--ink)}
+.dd{color:var(--muted);font-size:15.5px;margin-top:3px;line-height:1.45}
+.tag{font:600 12px/1 var(--body);font-style:normal;background:var(--olive);color:#fff;padding:3px 8px;border-radius:999px;vertical-align:3px;margin-left:4px}
+.allergy,.small{font-size:15px;color:var(--muted);margin-top:28px;max-width:52em}
+.oyster{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,70px);align-items:center;background:var(--ink);color:var(--cream);border-radius:8px;padding:clamp(28px,5vw,60px)}
+.big-price{font-family:var(--display);font-weight:800;font-size:clamp(90px,14vw,170px);line-height:.85;color:var(--brass);letter-spacing:-.04em}
+.big-price span{display:block;font:500 17px/1.4 var(--body);color:var(--cream);letter-spacing:0;margin-top:10px}
+.oyster h3{font-size:clamp(26px,3vw,36px);font-weight:800;margin-bottom:14px}
+.oyster p{margin-bottom:12px;max-width:34em}
+.oyster .muted{color:#cbbfab;font-size:15.5px;margin-bottom:22px}
+details.drink{border-top:1px solid var(--line)}
+details.drink:last-of-type{border-bottom:1px solid var(--line)}
+details.drink summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:18px 0}
+details.drink summary::-webkit-details-marker{display:none}
+details.drink summary span{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:800;display:flex;align-items:center;gap:12px}
+details.drink summary span::before{content:"+";font-family:var(--body);font-weight:500;color:var(--red);width:18px;display:inline-block;transition:transform .2s}
+details.drink[open] summary span::before{content:"–"}
+details.drink summary small{color:var(--muted);font-size:15px;white-space:nowrap}
+details.drink > .cols2{padding:0 0 22px 30px}
+.pdfs{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:15px;color:var(--muted)}
+.pdfs a{color:var(--ink);text-underline-offset:4px}
+
+/* strip */
+.strip{display:grid;grid-template-columns:1.2fr 1fr 1fr;height:clamp(240px,34vw,440px)}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+/* family */
+.family{padding:clamp(70px,10vw,140px) 0}
+.family-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(34px,6vw,90px);align-items:center}
+.family-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.family h2{margin-bottom:22px}
+.family p{color:#e3d7c4;margin-bottom:16px;max-width:36em}
+.since{font-family:var(--display);font-weight:800;font-size:clamp(20px,2vw,24px);color:var(--brass);margin-bottom:14px}
+.awards{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.award{border:1.5px solid var(--line-d);border-radius:8px;padding:14px 18px;font-size:14.5px;color:#cbbfab;text-decoration:none}
+.award b{display:block;font-family:var(--display);font-size:18px;color:var(--cream)}
+
+/* groups */
+.groups{background:var(--olive);color:#fff;padding:clamp(64px,9vw,120px) 0}
+.groups-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:36px}
+.groups h2{max-width:14em}
+.groups h3{font-size:24px;font-weight:700;margin-bottom:10px}
+.groups p{color:#f1f3e8;font-size:16.5px;margin-bottom:10px}
+.groups a{text-underline-offset:4px}
+.groups .col{border-top:2px solid rgba(255,255,255,.4);padding-top:20px}
+
+/* reserve */
+.reserve{background:var(--wood);padding:clamp(70px,10vw,130px) 0}
+.reserve-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px)}
+.reserve h2{margin-bottom:16px}
+.reserve .lede{color:#ddd0bc;margin-bottom:28px}
+form{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:#cbbfab;font-weight:500}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:0;border-radius:6px;padding:13px 14px;width:100%}
+form .full{grid-column:1/-1}
+form .btn{grid-column:1/-1;justify-self:start;margin-top:6px}
+.formnote{grid-column:1/-1;font-size:15px;color:var(--brass);min-height:1.2em}
+.reserve-alt{margin-top:26px;color:#ddd0bc;font-size:16px}
+.reserve-alt a{color:var(--cream);font-weight:600;text-underline-offset:4px}
+.hours{background:var(--night);border-radius:8px;padding:clamp(24px,3vw,36px)}
+.hours h3{font-size:24px;font-weight:700;margin-bottom:14px}
+.hours table{width:100%;border-collapse:collapse;font-size:16.5px}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line-d)}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.closed td:last-child{color:#bfb19c;font-weight:400}
+.hours .notes{margin-top:16px;font-size:15px;color:#cbbfab}
+.hours .notes p + p{margin-top:8px}
+.hours details{margin-top:18px;border-top:1px solid var(--line-d);padding-top:14px}
+.hours summary{cursor:pointer;font-weight:600;color:var(--brass)}
+.hours details table{font-size:15px;margin-top:12px}
+.hours details td{padding:7px 0}
+
+/* location */
+.location{padding:clamp(70px,10vw,130px) 0}
+.loc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,60px);align-items:stretch}
+.location h2{margin-bottom:22px}
+.loc-block{padding:18px 0;border-top:1px solid var(--line-d)}
+.loc-block h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.loc-block p{color:#ddd0bc;font-size:16.5px}
+.map{min-height:420px;border-radius:8px;overflow:hidden}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:saturate(.8)}
+
+/* faq */
+.faq{background:var(--paper);color:var(--ink);padding:clamp(70px,10vw,130px) 0}
+.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(30px,5vw,70px)}
+.faq h2{position:sticky;top:100px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-family:var(--display);font-weight:700;font-size:clamp(18px,1.8vw,21px);position:relative;line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:18px;font:500 26px/1 var(--body);color:var(--red)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:#4d4037;padding:0 0 18px;max-width:42em}
+.faq details p + p{margin-top:-6px}
+
+/* jobs */
+.jobs{padding:clamp(70px,10vw,130px) 0}
+.jobs-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px)}
+.jobs h2{margin-bottom:18px}
+.jobs p{color:#ddd0bc;margin-bottom:14px;max-width:36em}
+.quote{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);font-weight:700;color:var(--cream);line-height:1.25}
+.roles{list-style:none;margin:22px 0}
+.roles li{padding:16px 0;border-top:1px solid var(--line-d)}
+.roles b{font-family:var(--display);font-size:19px;display:block}
+.roles span{color:#cbbfab;font-size:15.5px}
+.why{list-style:none;color:#ddd0bc;margin-bottom:16px}
+.why li{padding-left:22px;position:relative;margin-bottom:6px}
+.why li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;background:var(--brass)}
+.jobs form{grid-template-columns:1fr 1fr;background:var(--wood);padding:clamp(20px,3vw,32px);border-radius:8px}
+.jobs form h3{grid-column:1/-1;font-size:24px;font-weight:700}
+
+footer{background:#140e0b;padding:56px 0 30px;font-size:15px;color:#cbbfab}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px}
+.foot h4{font-size:16px;color:var(--cream);margin-bottom:10px;font-weight:700}
+.foot a{text-underline-offset:4px}
+.foot .logo img{height:54px;margin-bottom:12px}
+.socials{display:flex;flex-wrap:wrap;gap:8px 16px}
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line-d);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 24px}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#000;color:#f5f5f5;text-align:center;font:500 13px/1 var(--body);padding:10px 12px}
+
+@media (max-width:980px){
+  .nav{position:fixed;top:70px;left:0;right:0;background:var(--night);flex-direction:column;align-items:flex-start;gap:4px;padding:14px 20px 26px;transform:translateY(-130%);transition:transform .3s;box-shadow:0 20px 30px rgba(0,0,0,.4);z-index:-1}
+  .open .nav{transform:none}
+  .nav a{font-size:20px;padding:8px 0}
+  .nav .btn{margin-top:10px;font-size:16px}
+  .burger{display:block}
+  .open .top{background:var(--night)}
+  .now-grid,.concept-grid,.menu-head,.family-grid,.reserve-grid,.loc-grid,.faq-grid,.jobs-grid{grid-template-columns:1fr}
+  .now-card{padding-right:0}
+  .now-card + .now-card{border-left:0;border-top:1px solid var(--line-d);padding-left:0}
+  .cols3{grid-template-columns:1fr 1fr}
+  .groups-grid{grid-template-columns:1fr}
+  .faq h2{position:static}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .hero::after{background:linear-gradient(180deg,rgba(30,22,18,.72) 0%,rgba(30,22,18,.5) 30%,rgba(30,22,18,.78) 62%,rgba(30,22,18,.96) 100%)}
+  .hero-kicker{color:#f6dfb0}
+  .cols3,.cols2{grid-template-columns:minmax(0,1fr)}
+  .cols3 > .mg + .mg,.cols2 > .mg + .mg{margin-top:18px}
+  details.drink > .cols2 > .mg + .mg{margin-top:0}
+  details.drink > .cols2{padding-left:0}
+  .strip{grid-template-columns:1fr 1fr;height:auto}
+  .strip img{aspect-ratio:1/1}
+  .strip img:first-child{grid-column:1/-1;aspect-ratio:16/10}
+  .oyster{grid-template-columns:1fr}
+  form,.jobs form{grid-template-columns:1fr 1fr}
+  form label.wide{grid-column:1/-1}
+  .facts{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .facts b{font-size:18px}
+  .hero h1{font-size:clamp(44px,13vw,60px)}
+  .foot{grid-template-columns:1fr}
+  .hero{min-height:92vh}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="Gastrobar Hartig, naar boven"><img src="img/001.png" alt="Gastrobar Hartig"></a>
+    <nav class="nav" id="nav">
+      <a href="#menu">Menu</a>
+      <a href="#over-ons">Over ons</a>
+      <a href="#groepen">Groepen</a>
+      <a href="#contact">Contact</a>
+      <a class="tel" href="tel:+31102367548">010-2367548</a>
+      <a class="btn btn-red" href="#reserveren">Reserveren</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <img src="img/004.jpg" alt="Het interieur van Gastrobar Hartig met gedekte tafels, planten en rode lampen" fetchpriority="high">
+  <div class="wrap hero-inner">
+    <p class="hero-kicker">Shared dining aan de Hartmansstraat, Rotterdam</p>
+    <h1>Waar smaken samenkomen</h1>
+    <p class="lede">Wereldse shared dining gerechten van een hecht familiebedrijf, om de hoek van de Witte de Withstraat. Met een ruime keuze in vlees, vis en vega, in een warme, huiselijke sfeer waar u zelf het tempo aangeeft.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="#reserveren">Reserveer een tafel</a>
+      <a class="btn btn-line" href="#menu">Bekijk het menu</a>
+    </div>
+    <div class="hero-hours">
+      <span><b>Ma t/m vr</b>17.00 – 00.00</span>
+      <span><b>Zaterdag</b>12.00 – 00.00</span>
+      <span><b>Zondag</b>groepen op aanvraag</span>
+    </div>
+  </div>
+</section>
+
+<section class="now" aria-label="Nu bij Hartig">
+  <div class="wrap now-grid">
+    <div class="now-card">
+      <span class="pill">November &amp; december</span>
+      <h3>Sharing specials van het seizoen</h3>
+      <p>Samen delen, dát proef je. Deze winter staan er vier nieuwe seizoensspecials op de kaart, van hertenbiefstuk met truffelsaus tot red velvet met cranberryjam.</p>
+      <a class="textlink" href="#menu" data-tab="specials">Bekijk de specials</a>
+    </div>
+    <div class="now-card">
+      <span class="pill red">Feestdagen</span>
+      <h3>Openingstijden rond kerst</h3>
+      <p>Op 25, 26 en 31 december en 1 januari zijn we gesloten. Op zondag 20 en 27 december en 3 januari zijn we extra open vanaf 17.00 uur.</p>
+      <a class="textlink" href="#feestdagen" data-open="feestdagen">Alle feestdagtijden</a>
+    </div>
+  </div>
+</section>
+
+<section class="concept" id="concept">
+  <div class="wrap concept-grid">
+    <div>
+      <h2>Een smaakvolle ontmoeting <span>in het bruisende Rotterdam</span></h2>
+      <p>Midden in het centrum van Rotterdam vindt u de wereldkeuken van een hecht familiebedrijf. Wij serveren shared dining gerechten met een ruime keuze in vlees, vis en vega. Ofwel: gastronomie gericht op beleving en gezelligheid.</p>
+      <p>In plaats van een traditioneel voor-, hoofd- en nagerecht kiest u samen meerdere koude en warme gerechten om te delen aan tafel. Een deel van de kaart wisselt twee keer per jaar, zodat we u steeds weer kunnen verrassen met producten van het seizoen. Ons team adviseert u graag over de juiste combinatie en het aantal gerechten.</p>
+      <div class="facts">
+        <div><b>Sinds 2013</b><span>aan de Hartmansstraat</span></div>
+        <div><b>Vlees, vis, vega</b><span>koud en warm</span></div>
+        <div><b>Elke donderdag</b><span>oesters voor € 1</span></div>
+      </div>
+    </div>
+    <div class="concept-pics">
+      <img class="a" src="img/012.jpg" alt="Wand vol elpeehoezen boven gedekte tafels bij Gastrobar Hartig" loading="lazy">
+      <img class="b" src="img/014.jpg" alt="Burrata met tomaat en pesto" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>Menu</h2>
+      <p>Kleine gerechten die u samen deelt, met invloeden uit de hele wereld. Alle kaarten staan hieronder volledig uitgeschreven.</p>
+    </div>
+<!--MENU-->
+<div class="tabbar" role="tablist" aria-label="Menukaarten"><button role="tab" id="t-shared" aria-controls="p-shared" aria-selected="true">Shared dining</button><button role="tab" id="t-specials" aria-controls="p-specials" aria-selected="false" tabindex="-1">Seizoensspecials</button><button role="tab" id="t-oesters" aria-controls="p-oesters" aria-selected="false" tabindex="-1">Oesterdonderdag</button><button role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrel &amp; lunch</button><button role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false" tabindex="-1">Dessert</button><button role="tab" id="t-dranken" aria-controls="p-dranken" aria-selected="false" tabindex="-1">Dranken</button></div>
+<div class="tabpanel" role="tabpanel" id="p-shared" aria-labelledby="t-shared">
+<p class="tab-intro">Onze vaste kaart. Kies vrij uit koud en warm, met keuze uit vlees, vis en vegetarisch. De koude gerechten zijn te vergelijken met een voorgerecht, de warme hebben het formaat van een hoofdgerecht.</p>
+<div class="course"><h3>Koud</h3><div class="cols3">
+<div class="mg "><h4>Vlees</h4><ul><li class="dish"><div class="dl"><span class="dn">Runderlende carpaccio</span><span class="dots"></span><span class="dp">€ 17,50</span></div><p class="dd">Gerookt · truffelmayonaise · parmezaan · pijnboompitten</p></li><li class="dish"><div class="dl"><span class="dn">Beef tataki</span><span class="dots"></span><span class="dp">€ 17,50</span></div><p class="dd">Ponzu · sesamolie · radijskiemen · bosui</p></li></ul></div>
+<div class="mg "><h4>Vis &amp; schaaldieren</h4><ul><li class="dish"><div class="dl"><span class="dn">Botervis carpaccio</span><span class="dots"></span><span class="dp">€ 17,75</span></div><p class="dd">Komkommer · wasabicrumble · radijskiemen · harissamayonaise</p></li><li class="dish"><div class="dl"><span class="dn">Zalm</span><span class="dots"></span><span class="dp">€ 17,50</span></div><p class="dd">Gemarineerd · rode biet · mierikswortel · rode bessen · Granny Smith</p></li><li class="dish"><div class="dl"><span class="dn">Oesters</span><span class="dots"></span><span class="dp">€ 17,00</span></div><p class="dd">4 stuks · 2 sausjes · citroen · elke donderdag € 1,- per stuk</p></li></ul></div>
+<div class="mg "><h4>Vegetarisch</h4><ul><li class="dish"><div class="dl"><span class="dn">Burrata</span><span class="dots"></span><span class="dp">€ 17,00</span></div><p class="dd">Tomaat · aceto · komkommer · pesto</p></li><li class="dish"><div class="dl"><span class="dn">Knolselderijcarpaccio <em class="tag">vegan</em></span><span class="dots"></span><span class="dp">€ 15,75</span></div><p class="dd">Ras el hanout · vegan spread · dadels · crunchy quinoa · gepekelde ui</p></li><li class="dish"><div class="dl"><span class="dn">Bietencarpaccio</span><span class="dots"></span><span class="dp">€ 16,75</span></div><p class="dd">Geitenkaas · walnoot · worteljam · crunchy uiencrumble</p></li></ul></div>
+</div></div>
+<div class="course"><h3>Warm</h3><div class="cols3">
+<div class="mg "><h4>Vlees</h4><ul><li class="dish"><div class="dl"><span class="dn">Tournedospuntjes</span><span class="dots"></span><span class="dp">€ 26,75</span></div><p class="dd">Huisgemarineerd · spinazie · geroosterde paprika · groene-kruidencrumble</p></li><li class="dish"><div class="dl"><span class="dn">Buikspek</span><span class="dots"></span><span class="dp">€ 25,25</span></div><p class="dd">Pittige taotjosaus · haricots verts · zoetzure komkommer</p></li><li class="dish"><div class="dl"><span class="dn">Kipfilet</span><span class="dots"></span><span class="dp">€ 23,25</span></div><p class="dd">Ras el hanout · couscous · gekarameliseerde ui · pistache</p></li></ul></div>
+<div class="mg "><h4>Vis &amp; schaaldieren</h4><ul><li class="dish"><div class="dl"><span class="dn">Chef's vangst</span><span class="dots"></span><span class="dp">€ 25,75</span></div><p class="dd">Romanescopuree · venkel · beurre noisette</p></li><li class="dish"><div class="dl"><span class="dn">Coquilles</span><span class="dots"></span><span class="dp">€ 25,25</span></div><p class="dd">4 stuks · truffelboter · parmezaan · blini · truffel-balsamicocrumble</p></li><li class="dish"><div class="dl"><span class="dn">Gamba's</span><span class="dots"></span><span class="dp">€ 18,75</span></div><p class="dd">Piri-piriolie · saffraanrouille · croutons</p></li></ul></div>
+<div class="mg "><h4>Vegetarisch</h4><ul><li class="dish"><div class="dl"><span class="dn">Aubergine</span><span class="dots"></span><span class="dp">€ 22,50</span></div><p class="dd">Knolselderij · ras el hanout · huisgemaakte hummus · yoghurt-muntdressing · tomatencrumble · zongedroogde tomaat</p></li><li class="dish"><div class="dl"><span class="dn">Filodeeg met spinazie</span><span class="dots"></span><span class="dp">€ 20,75</span></div><p class="dd">Gevuld met spinazie · rode ui · feta · kruidencrème · pijnboompitten · zongedroogde tomaat</p></li></ul></div>
+</div></div>
+<div class="course"><h3>Erbij</h3><div class="cols3"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Aardappeltjes uit de oven</span><span class="dots"></span><span class="dp">€ 7,50</span></div><p class="dd">Aioli &amp; truffelmayonaise</p></li></ul></div></div></div>
+<p class="allergy">Allergieën of dieetwensen? Laat het ons weten, dan houden we er rekening mee. Vegan en glutenvrije varianten zijn bij veel gerechten mogelijk.</p></div>
+<div class="tabpanel" role="tabpanel" id="p-specials" aria-labelledby="t-specials" hidden>
+<p class="tab-intro">November &amp; december 2026: vier gerechten met wat het seizoen nu te bieden heeft.</p>
+<div class="cols3">
+<div class="mg "><h4>Koud</h4><ul><li class="dish"><div class="dl"><span class="dn">Gemarineerde komkommer</span><span class="dots"></span><span class="dp">€ 12,50</span></div><p class="dd">Artisjokharten · piperadesaus · avocadocrème</p></li></ul></div>
+<div class="mg "><h4>Warm</h4><ul><li class="dish"><div class="dl"><span class="dn">Hertenbiefstuk</span><span class="dots"></span><span class="dp">€ 27,50</span></div><p class="dd">Truffelsaus · knoflook-aardappelpuree · truffel-balsamicocrumble</p></li><li class="dish"><div class="dl"><span class="dn">Surf &amp; Turf</span><span class="dots"></span><span class="dp">€ 32,50</span></div><p class="dd">Zeeduivel · ibérico varkensnek · bloemkoolpuree · mini bospeen · hazelnoot</p></li></ul></div>
+<div class="mg "><h4>Dessert</h4><ul><li class="dish"><div class="dl"><span class="dn">Red velvet</span><span class="dots"></span><span class="dp">€ 9,00</span></div><p class="dd">Roomkaasfrosting · cranberryjam · witte chocolade</p></li></ul></div>
+</div></div>
+<div class="tabpanel" role="tabpanel" id="p-oesters" aria-labelledby="t-oesters" hidden>
+<div class="oyster">
+  <div><p class="big-price">€ 1<span>per oester</span></p></div>
+  <div>
+    <h3>Elke donderdag verse oesters</h3>
+    <p>Per stuk, met wisselende exclusieve toppings die we speciaal voor deze dag maken.</p>
+    <p class="muted">Zolang de voorraad strekt. Binnenlopen mag altijd, maar dan kunnen we niet garanderen hoeveel oesters er nog zijn. Reserveer je vooraf, dan houden we er rekening mee.</p>
+    <a class="btn btn-red" href="#reserveren">Reserveer voor donderdag</a>
+  </div>
+</div></div>
+<div class="tabpanel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+<p class="tab-intro">Kleine gerechten om bij te borrelen. Lunch serveren we alleen op zaterdag, vanaf 12:00 uur.</p>
+<div class="cols2">
+<div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Focaccia</span><span class="dots"></span><span class="dp">€ 9,00</span></div><p class="dd">Olijfolie · truffelmayonaise · aioli</p></li><li class="dish"><div class="dl"><span class="dn">Mini geitenkaas- &amp; roomkaasballetjes</span><span class="dots"></span><span class="dp">€ 9,00</span></div><p class="dd">4 stuks · geroosterde pinda · zongedroogde tomaat · roomkaas · olijven</p></li><li class="dish"><div class="dl"><span class="dn">Crostini serranoham</span><span class="dots"></span><span class="dp">€ 9,00</span></div><p class="dd">4 stuks · focacciatoast · bruschettamix</p></li><li class="dish"><div class="dl"><span class="dn">Pittige gehaktballetjes</span><span class="dots"></span><span class="dp">€ 10,00</span></div><p class="dd">6 stuks · rund- en varkensvlees · pittig gekruid · tomatensaus · peterselie</p></li><li class="dish"><div class="dl"><span class="dn">Crostini zalm</span><span class="dots"></span><span class="dp">€ 12,00</span></div><p class="dd">4 stuks · focacciatoast · mierikswortel · bieslook · gepekelde rode ui</p></li></ul></div>
+<div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Crostini krab</span><span class="dots"></span><span class="dp">€ 12,00</span></div><p class="dd">4 stuks · focacciatoast · huisgemaakte krabsalade</p></li><li class="dish"><div class="dl"><span class="dn">Camembert</span><span class="dots"></span><span class="dp">€ 14,00</span></div><p class="dd">Uit de oven · rustiek bruin brood · walnoten · honing</p></li><li class="dish"><div class="dl"><span class="dn">Charcuterie</span><span class="dots"></span><span class="dp">€ 19,50</span></div><p class="dd">Selectie van verfijnde vleeswaren · toastjes · olijven · noten</p></li><li class="dish"><div class="dl"><span class="dn">Kaasplateau</span><span class="dots"></span><span class="dp">€ 21,50</span></div><p class="dd">4 kazen · noten · kletzenbrood · wisselende dip</p></li></ul></div>
+</div></div>
+<div class="tabpanel" role="tabpanel" id="p-dessert" aria-labelledby="t-dessert" hidden>
+<p class="tab-intro">Zoet, kaas of koffie om mee af te sluiten.</p>
+<div class="cols2">
+<div>
+<div class="mg "><h4>Nagerechten</h4><ul><li class="dish"><div class="dl"><span class="dn">Citroen-mascarpone</span><span class="dots"></span><span class="dp">€ 11,00</span></div><p class="dd">Bastognecrumble · fruit · witte chocolade · macaron</p></li><li class="dish"><div class="dl"><span class="dn">Red velvet <em class="tag">seizoen</em></span><span class="dots"></span><span class="dp">€ 9,00</span></div><p class="dd">Roomkaasfrosting · cranberryjam · witte chocolade</p></li><li class="dish"><div class="dl"><span class="dn">Pannacotta</span><span class="dots"></span><span class="dp">€ 12,00</span></div><p class="dd">Framboos · kokosmelk · getoaste kokosvlokken · witte chocolade</p></li><li class="dish"><div class="dl"><span class="dn">Kaasplateau</span><span class="dots"></span><span class="dp">€ 21,50</span></div><p class="dd">4 soorten · noten · chutney · kletzenbrood</p></li></ul></div>
+<div class="mg "><h4>Dessertwijn &amp; port</h4><ul><li class="dish"><div class="dl"><span class="dn">Ruby port</span><span class="dots"></span><span class="dp">€ 5,00</span></div></li><li class="dish"><div class="dl"><span class="dn">Tawny port</span><span class="dots"></span><span class="dp">€ 5,00</span></div></li><li class="dish"><div class="dl"><span class="dn">Moscatel de Setúbal</span><span class="dots"></span><span class="dp">€ 6,50</span></div></li><li class="dish"><div class="dl"><span class="dn">Pedro Ximénez</span><span class="dots"></span><span class="dp">€ 7,00</span></div></li><li class="dish"><div class="dl"><span class="dn">Moscatel / Fernão Pires Late Harvest</span><span class="dots"></span><span class="dp">€ 7,50</span></div></li></ul></div>
+</div>
+<div>
+<div class="mg "><h4>Speciale koffie</h4><ul><li class="dish"><div class="dl"><span class="dn">Ierse koffie</span><span class="dots"></span><span class="dp">€ 9,75</span></div><p class="dd">Jameson · slagroom</p></li><li class="dish"><div class="dl"><span class="dn">Italiaanse koffie</span><span class="dots"></span><span class="dp">€ 9,75</span></div><p class="dd">Disaronno · slagroom</p></li><li class="dish"><div class="dl"><span class="dn">Spaanse koffie</span><span class="dots"></span><span class="dp">€ 9,75</span></div><p class="dd">Tia Maria · slagroom</p></li><li class="dish"><div class="dl"><span class="dn">Franse koffie</span><span class="dots"></span><span class="dp">€ 9,75</span></div><p class="dd">Grand Marnier · slagroom</p></li></ul></div>
+<div class="mg "><h4>Koffie &amp; thee</h4><ul><li class="dish"><div class="dl"><span class="dn">Espresso</span><span class="dots"></span><span class="dp">€ 3,30</span></div></li><li class="dish"><div class="dl"><span class="dn">Espresso macchiato</span><span class="dots"></span><span class="dp">€ 3,35</span></div></li><li class="dish"><div class="dl"><span class="dn">Koffie</span><span class="dots"></span><span class="dp">€ 3,55</span></div></li><li class="dish"><div class="dl"><span class="dn">Cortado</span><span class="dots"></span><span class="dp">€ 3,80</span></div></li><li class="dish"><div class="dl"><span class="dn">Caffè americano</span><span class="dots"></span><span class="dp">€ 4,05</span></div></li><li class="dish"><div class="dl"><span class="dn">Cappuccino</span><span class="dots"></span><span class="dp">€ 4,30</span></div></li><li class="dish"><div class="dl"><span class="dn">Koffie verkeerd</span><span class="dots"></span><span class="dp">€ 4,30</span></div></li><li class="dish"><div class="dl"><span class="dn">Flat white</span><span class="dots"></span><span class="dp">€ 4,55</span></div></li><li class="dish"><div class="dl"><span class="dn">Dubbele espresso</span><span class="dots"></span><span class="dp">€ 4,65</span></div></li><li class="dish"><div class="dl"><span class="dn">Latte macchiato</span><span class="dots"></span><span class="dp">€ 4,80</span></div></li><li class="dish"><div class="dl"><span class="dn">IJskoffie</span><span class="dots"></span><span class="dp">€ 5,40</span></div></li><li class="dish"><div class="dl"><span class="dn">Thee</span><span class="dots"></span><span class="dp">€ 3,80</span></div><p class="dd">Earl Grey · Droom van Rotterdam · jasmijn · oolong · chai · ontspanningsmix · rooibos</p></li><li class="dish"><div class="dl"><span class="dn">Verse muntthee of verse gemberthee</span><span class="dots"></span><span class="dp">€ 4,40</span></div></li></ul></div>
+<p class="small">Koffie met siroop naar keuze (hazelnoot, karamel, vanille of amaretto) voor € 0,75 extra.</p>
+</div>
+</div></div>
+<div class="tabpanel" role="tabpanel" id="p-dranken" aria-labelledby="t-dranken" hidden>
+<p class="tab-intro">Cocktails, gin-tonics, bier en de volledige wijnkaart. Tik op een kaart om hem te openen.</p>
+<details class="drink" open><summary><span>Cocktails</span><small>€ 13,90 per cocktail</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Pornstar Martini</span></div><p class="dd">Vodka · passievrucht · vanille</p></li><li class="dish"><div class="dl"><span class="dn">Espresso Martini</span></div><p class="dd">Vodka · espresso · een vleugje vanille</p></li><li class="dish"><div class="dl"><span class="dn">Amaretto Sour</span></div><p class="dd">Amaretto · citroen</p></li><li class="dish"><div class="dl"><span class="dn">Sex on the Beach</span></div><p class="dd">Vodka · sinaasappel · cranberry · perzik</p></li><li class="dish"><div class="dl"><span class="dn">Mojito</span></div><p class="dd">Rum · limoen · munt</p></li><li class="dish"><div class="dl"><span class="dn">Strawberry Mojito</span></div><p class="dd">Rum · aardbei · munt</p></li><li class="dish"><div class="dl"><span class="dn">Spicy Mezcal Margarita</span></div><p class="dd">Mezcal · limoen · chili</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Margarita</span></div><p class="dd">Tequila · sinaasappellikeur · limoen</p></li><li class="dish"><div class="dl"><span class="dn">Piña Colada</span></div><p class="dd">Rum · ananas · kokos</p></li><li class="dish"><div class="dl"><span class="dn">Negroni</span></div><p class="dd">Gin · vermout · bitter</p></li><li class="dish"><div class="dl"><span class="dn">Mai Tai</span></div><p class="dd">Rum · limoen · sinaasappel</p></li><li class="dish"><div class="dl"><span class="dn">Cosmopolitan</span></div><p class="dd">Vodka · cranberry · limoen · sinaasappel</p></li><li class="dish"><div class="dl"><span class="dn">Whiskey Sour</span></div><p class="dd">Whiskey · citroen</p></li><li class="dish"><div class="dl"><span class="dn">Long Island Iced Tea</span></div><p class="dd">Mix van sterke dranken · cola</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Gin &amp; tonic</span><small>€ 13,90</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Hendrick's Cucumber</span></div><p class="dd">Hendrick's gin · komkommer</p></li><li class="dish"><div class="dl"><span class="dn">Bobby's Gin &amp; Tonic</span></div><p class="dd">Sinaasappel-kruidnagel · yuzutonic</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Pink Willy</span></div><p class="dd">Frambozengin · framboos-citroen-munt · bohemian tonic</p></li><li class="dish"><div class="dl"><span class="dn">Blueberry Sensation</span></div><p class="dd">Bosbessengin · bosbes-gember · tonic water</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Spritz</span><small>€ 11,90</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Aperol Spritz</span></div><p class="dd">Aperol · sinaasappel · prosecco · bruiswater</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Limoncello Spritz</span></div><p class="dd">Limoncello · prosecco · bruiswater</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Mocktails</span><small>€ 10,00</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">0% Pornstar</span></div><p class="dd">Passievrucht &amp; vanille</p></li><li class="dish"><div class="dl"><span class="dn">0% Mojito</span></div><p class="dd">Limoen &amp; munt</p></li><li class="dish"><div class="dl"><span class="dn">0% Strawberry Mojito</span></div><p class="dd">Aardbei · limoen &amp; munt</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">0% Piña Colada</span></div><p class="dd">Ananas &amp; kokos</p></li><li class="dish"><div class="dl"><span class="dn">0% Amaretto Sour</span></div><p class="dd">Amandel &amp; citroen</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Bier</span></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Estaminet Lager 5,2%</span><span class="dots"></span><span class="dp">€ 3,50</span></div><p class="dd">25 cl</p></li><li class="dish"><div class="dl"><span class="dn">Swinckels Premium Pilsener 5,5%</span><span class="dots"></span><span class="dp">€ 4,90</span></div><p class="dd">25 cl · 50 cl € 9,00</p></li><li class="dish"><div class="dl"><span class="dn">Uiltje Blond 6,0%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl</p></li><li class="dish"><div class="dl"><span class="dn">Witte Trappist 5,5%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl</p></li><li class="dish"><div class="dl"><span class="dn">Uiltje Bird of Prey IPA 5,8%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Weihenstephaner Hefe Weissbier 5,4%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl · 50 cl € 9,65</p></li><li class="dish"><div class="dl"><span class="dn">La Trappe Tripel 8,0%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl</p></li><li class="dish"><div class="dl"><span class="dn">Corned Oaked Blond 8,5%</span><span class="dots"></span><span class="dp">€ 6,65</span></div><p class="dd">25 cl</p></li><li class="dish"><div class="dl"><span class="dn">Swinckels 0,0%</span><span class="dots"></span><span class="dp">€ 4,95</span></div><p class="dd">Alcoholvrij</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Mousserende wijn</span><small>glas / fles</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Prosecco Serenello Rosé</span><span class="dots"></span><span class="dp">€ 7,50 / € 40,00</span></div><p class="dd">Delicate aroma's van witte bloemen, aardbei en framboos · aangename mousse</p></li><li class="dish"><div class="dl"><span class="dn">Prosecco Treviso Ville d'Arfanta</span><span class="dots"></span><span class="dp">€ 7,50 / € 40,00</span></div><p class="dd">Tropisch fruit · appel · fris en fruitig · verfijnde, zachte mousse</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Cava L'Arboc Grand Medaille d'Or Métode Tradicional</span><span class="dots"></span><span class="dp">€ 45,00</span></div><p class="dd">Stuivend fris aroma van groene appel en citrus</p></li><li class="dish"><div class="dl"><span class="dn">Louis Tollet 1er Cru Champagne</span><span class="dots"></span><span class="dp">€ 85,00</span></div><p class="dd">Fruitig · tonen van appel, peer en limoen met een delicate touch van bloesem</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Witte wijn</span><small>glas / fles</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Sauvignon Blanc, Frankrijk, Languedoc</span><span class="dots"></span><span class="dp">€ 6,65 / € 35,50</span></div><p class="dd">Fruit en souplesse · stuivende fruitige neus van limoen en grapefruit</p></li><li class="dish"><div class="dl"><span class="dn">Zoete witte wijn, Duitsland</span><span class="dots"></span><span class="dp">€ 6,65 / € 35,50</span></div><p class="dd">Frisse, vriendelijke zoete wijn · meloen, peer en snoepjes</p></li><li class="dish"><div class="dl"><span class="dn">Pinot Grigio, Italië, Venetië</span><span class="dots"></span><span class="dp">€ 6,95 / € 37,50</span></div><p class="dd">Elegante wijn · combinatie van bloemig en fruitig</p></li><li class="dish"><div class="dl"><span class="dn">Verdejo, Spanje, Rueda</span><span class="dots"></span><span class="dp">€ 6,95 / € 37,50</span></div><p class="dd">Puur en krachtig · frisse mineraliteit · tropisch fruit en venkel</p></li><li class="dish"><div class="dl"><span class="dn">Alvarinho, Portugal, Tejo</span><span class="dots"></span><span class="dp">€ 7,60 / € 39,95</span></div><p class="dd">Bloemig · fraaie mineraliteit · licht filmend mondgevoel</p></li><li class="dish"><div class="dl"><span class="dn">Chardonnay (houtgerijpt), Frankrijk, Languedoc</span><span class="dots"></span><span class="dp">€ 42,50</span></div><p class="dd">Fraaie volle structuur · tonen van witte bloemen en tabak</p></li><li class="dish"><div class="dl"><span class="dn">Rioja J Cantera Blanco, Spanje, DOCa Rioja</span><span class="dots"></span><span class="dp">€ 42,50</span></div><p class="dd">Overwegend tropisch · hints van ananas en een toon van banaan</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Grauburgunder, Duitsland, Pfalz</span><span class="dots"></span><span class="dp">€ 47,50</span></div><p class="dd">Rijping op 'sur lie' geeft structuur, finesse en body</p></li><li class="dish"><div class="dl"><span class="dn">Vermentino, Italië, Sardinië</span><span class="dots"></span><span class="dp">€ 50,00</span></div><p class="dd">Grapefruit en bloedsinaasappel met een hint van bloemen</p></li><li class="dish"><div class="dl"><span class="dn">Grüner Veltliner, Oostenrijk, Thermenregion</span><span class="dots"></span><span class="dp">€ 50,00</span></div><p class="dd">Rijke maar stoere neus</p></li><li class="dish"><div class="dl"><span class="dn">Pouilly-Fumé, Frankrijk, Loire</span><span class="dots"></span><span class="dp">€ 62,50</span></div><p class="dd">Frisfruitig · geparfumeerd citrusfruit</p></li><li class="dish"><div class="dl"><span class="dn">Sancerre, Frankrijk, Loire</span><span class="dots"></span><span class="dp">€ 65,00</span></div><p class="dd">Intense aroma's van bloemen (acacia), bessen en exotisch fruit</p></li><li class="dish"><div class="dl"><span class="dn">Chablis, Frankrijk, Bourgogne</span><span class="dots"></span><span class="dp">€ 73,50</span></div><p class="dd">Fijne klassieke neus · rijk · citrusvruchten, toffee en karamel</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Rosé</span><small>glas / fles</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Rosé, Portugal, Tejo</span><span class="dots"></span><span class="dp">€ 6,75 / € 36,50</span></div><p class="dd">Stijlvol, toegankelijk en smaakvol · droog en harmonieus · framboos en aardbei</p></li><li class="dish"><div class="dl"><span class="dn">Pinot Grigio Blush, Italië, Veneto</span><span class="dots"></span><span class="dp">€ 6,95 / € 38,75</span></div><p class="dd">Elegant en fruitig verfrissend</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Grenache Rosé, Frankrijk, Languedoc</span><span class="dots"></span><span class="dp">€ 38,75</span></div><p class="dd">Fraaie geur van framboos en kers · fruitig, vriendelijk, erg smaakvol</p></li></ul></div></div></details>
+<details class="drink"><summary><span>Rode wijn</span><small>glas / fles</small></summary><div class="cols2"><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Syrah, Portugal, Tejo</span><span class="dots"></span><span class="dp">€ 6,75 / € 36,50</span></div><p class="dd">Zwoele wijn met een fijne neus van cacao en donkere kersen</p></li><li class="dish"><div class="dl"><span class="dn">Primitivo / Negroamaro, Italië, Puglia</span><span class="dots"></span><span class="dp">€ 6,95 / € 38,75</span></div><p class="dd">Aromatische neus van kersen en rijp donker bosfruit</p></li><li class="dish"><div class="dl"><span class="dn">Merlot / Tempranillo, Spanje, Rioja</span><span class="dots"></span><span class="dp">€ 7,30 / € 39,00</span></div><p class="dd">Fluweelzacht en vol levendig fruit · elegant en verfijnd</p></li><li class="dish"><div class="dl"><span class="dn">Pinot Noir, Frankrijk</span><span class="dots"></span><span class="dp">€ 42,50</span></div><p class="dd">Delicate aroma's · sappige bessen · elegante zachte textuur</p></li><li class="dish"><div class="dl"><span class="dn">Spätburgunder, Duitsland, Pfalz</span><span class="dots"></span><span class="dp">€ 51,00</span></div><p class="dd">Aalbessen en blauwe bessen · kruidengeuren van tijm en rozemarijn</p></li><li class="dish"><div class="dl"><span class="dn">Barbera d'Alba, Italië, Piemonte</span><span class="dots"></span><span class="dp">€ 51,50</span></div><p class="dd">Geur van viooltjes · elegant en verfijnd · bramen en frambozen</p></li></ul></div><div class="mg "><ul><li class="dish"><div class="dl"><span class="dn">Bovale, Italië, Sardinië</span><span class="dots"></span><span class="dp">€ 51,50</span></div><p class="dd">Stuivend, rijk en aards · leer, cacao, laurier en witte peper</p></li><li class="dish"><div class="dl"><span class="dn">Ripasso Valpolicella Classico Superiore, Italië, Veneto</span><span class="dots"></span><span class="dp">€ 57,50</span></div><p class="dd">Volle body met een complexiteit die aan Amarone doet denken</p></li><li class="dish"><div class="dl"><span class="dn">Chianti Classico, Italië</span><span class="dots"></span><span class="dp">€ 69,00</span></div><p class="dd">Cederhout, peper en kaneel · zoet donkerrood fruit · elegant vriendelijk</p></li><li class="dish"><div class="dl"><span class="dn">Amarone della Valpolicella, Italië, Veneto</span><span class="dots"></span><span class="dp">€ 72,00</span></div><p class="dd">Fluweelachtige aanzet van zwart fruit en kruiden · cacao, pruimen en mokka</p></li><li class="dish"><div class="dl"><span class="dn">St Emilion Grand Cru, Frankrijk, Bordeaux</span><span class="dots"></span><span class="dp">€ 75,00</span></div><p class="dd">Elegante, krachtige klassieker · gekonfijte kersen, eikenhout en zoethout</p></li></ul></div></div></details>
+<p class="small">Onze wijnkaart wisselt regelmatig. Vraag gerust onze bediening: we denken graag mee over een passende wijn bij je gerechten. Waar één prijs staat, is de wijn per fles.</p></div>
+<!--/MENU-->
+    <div class="pdfs">
+      <span>Liever printen? De kaarten als PDF:</span>
+      <a href="https://www.gastrobarhartig.nl/wp-content/uploads/Gastrobar-Hartig_Shared-dining_NL_EN_November_2026.pdf" target="_blank" rel="noopener">Shared dining</a>
+      <a href="https://www.gastrobarhartig.nl/wp-content/uploads/Gastrobar-Hartig_Borrel_NL_EN-Lente-Spring-2026.pdf" target="_blank" rel="noopener">Borrel</a>
+      <a href="https://www.gastrobarhartig.nl/wp-content/uploads/Borrel-lunch-voorjaar-2026.pdf" target="_blank" rel="noopener">Lunch</a>
+      <a href="https://www.gastrobarhartig.nl/wp-content/uploads/Gastrobar_Hartig_Dessert_NL_EN-1.pdf" target="_blank" rel="noopener">Dessert</a>
+      <a href="https://www.gastrobarhartig.nl/wp-content/uploads/Menu_Drinks_incl_Cocktail_menu_NL_EN_July.pdf" target="_blank" rel="noopener">Drinks</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Impressie">
+  <img src="img/010.jpg" alt="Carpaccio op een stenen bord" loading="lazy">
+  <img src="img/013.jpg" alt="De chef legt een gerecht op, in zwart-wit" loading="lazy">
+  <img src="img/011.jpg" alt="Dessert met aardbeien en bessen" loading="lazy">
+</div>
+
+<section class="family" id="over-ons">
+  <div class="wrap family-grid">
+    <div class="family-photo"><img src="img/003.jpg" alt="Eigenaar Stephan de Leur schenkt een glas witte wijn in aan de bar" loading="lazy"></div>
+    <div>
+      <p class="since">Sinds 28 december 2013</p>
+      <h2>Familiebedrijf Hartig</h2>
+      <p>Op 28 december 2013 openden de deuren van Gastrobar Hartig aan de Hartmansstraat in Rotterdam. Opgericht door Stephan de Leur en zijn schoonfamilie. Als familie met een groot horecahart ontvangen we onze gasten altijd met open armen.</p>
+      <p>We zijn klein begonnen en inmiddels uitgegroeid tot een bekende gastrobar in Rotterdam met hoge waarderingen op onder meer TripAdvisor en Google. We varen onze eigen koers en verrassen onze gasten met onze eigen kijk op horeca, ingrediënten en sfeer.</p>
+      <p>We houden rekening met allergieën en dieetwensen, gaan voedselverspilling tegen en hebben altijd plek voor onze zakelijke gasten.</p>
+      <div class="awards">
+        <a class="award" href="https://restaurantguru.com/HARTIG-Rotterdam" target="_blank" rel="noopener"><b>Recommended 2026</b>Restaurant Guru</a>
+        <div class="award"><b>Travellers' Choice 2023</b>Tripadvisor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="groups" id="groepen">
+  <div class="wrap">
+    <h2>Met een groep, voor zaken of als cadeau</h2>
+    <div class="groups-grid">
+      <div class="col">
+        <h3>Groepen</h3>
+        <p>Hartig is als warm familiebedrijf een zeer geschikte locatie voor groepsdiners, verjaardagen en bedrijfsuitjes. Shared dining is juist ideaal voor groepen: samen proeven en delen.</p>
+        <p>Komt u met een grotere groep? Neem dan contact op via <a href="mailto:info@gastrobarhartig.nl">info@gastrobarhartig.nl</a> of bel <a href="tel:+31102367548">010-2367548</a> (ma t/m za 14:00 - 17:00). We maken graag een voorstel op maat, passend bij uw wensen en budget. Op zondag zijn we te boeken voor groepen.</p>
+      </div>
+      <div class="col">
+        <h3>Zakelijk</h3>
+        <p>Komt u zakelijk, bijvoorbeeld voor een bedrijfsdiner, vergadering of borrel met collega's of relaties? Dan maken we graag aparte afspraken over het menu, de tijden en de ruimte.</p>
+        <p>Ook voor besloten lunches, diners of speciale gelegenheden kunt u altijd contact met ons opnemen. Overdag zijn we beschikbaar voor groepsreserveringen.</p>
+      </div>
+      <div class="col">
+        <h3>Giftcard</h3>
+        <p>Wilt u ook een Gift Card van Hartig? Vraag deze bij uw eerstvolgende bezoek aan en u heeft een heel leuk cadeau. Wij kunnen de Gift Card ook voor u opsturen: stuur ons een <a href="mailto:reserveringen@gastrobarhartig.nl?subject=Giftcard">mail</a> en wij sturen deze naar u op.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserveren">
+  <div class="wrap reserve-grid">
+    <div>
+      <h2>Reserveer uw tafel</h2>
+      <p class="lede">Kies het aantal personen, de datum en het tijdstip. Na uw reservering ontvangt u een bevestiging per e-mail. Online volgeboekt? Neem gerust contact op, want er is vaak nog plek.</p>
+      <form id="resform" novalidate>
+        <label>Personen<select name="p"><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+        <label>Datum<input type="date" name="d"></label>
+        <label>Tijd<select name="t"><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option></select></label>
+        <label class="wide" style="grid-column:1/-1">Naam<input type="text" name="n" autocomplete="name"></label>
+        <button class="btn btn-red" type="submit">Reservering plaatsen</button>
+        <p class="formnote" role="status"></p>
+      </form>
+      <p class="reserve-alt">Liever bellen of mailen? <a href="tel:+31102367548">010-2367548</a> of <a href="mailto:reserveringen@gastrobarhartig.nl">reserveringen@gastrobarhartig.nl</a>. Telefonisch bereikbaar ma t/m vr 13:00 - 23:00 en za 11:00 - 23:00.</p>
+    </div>
+    <div class="hours" id="contact">
+      <h3>Openingstijden</h3>
+      <table>
+        <tr><td>Maandag</td><td>17.00 – 00.00</td></tr>
+        <tr><td>Dinsdag</td><td>17.00 – 00.00</td></tr>
+        <tr><td>Woensdag</td><td>17.00 – 00.00</td></tr>
+        <tr><td>Donderdag</td><td>17.00 – 00.00</td></tr>
+        <tr><td>Vrijdag</td><td>17.00 – 00.00</td></tr>
+        <tr><td>Zaterdag</td><td>12.00 – 00.00</td></tr>
+        <tr class="closed"><td>Zondag</td><td>gesloten, groepen op aanvraag</td></tr>
+      </table>
+      <div class="notes">
+        <p>Op doordeweekse dagen is de keuken open tot 21:30. Op verzoek kan de keuken langer open blijven.</p>
+        <p>Iedere vrijdag en zaterdag late night dinner: de keuken is dan open tot 23:00.</p>
+        <p>Lunch serveren we op zaterdag vanaf 12:00.</p>
+      </div>
+      <details id="feestdagen">
+        <summary>Feestdagen 19 december t/m 3 januari</summary>
+        <table>
+          <tr><td>Za 19 december</td><td>12.00 – 00.00, keuken tot 23.00</td></tr>
+          <tr><td>Zo 20 december</td><td>17.00 – 00.00, keuken tot 21.30</td></tr>
+          <tr><td>Ma 21 t/m do 24 december</td><td>17.00 – 00.00, keuken tot 21.30</td></tr>
+          <tr class="closed"><td>Vr 25 december</td><td>gesloten (1e Kerstdag)</td></tr>
+          <tr class="closed"><td>Za 26 december</td><td>gesloten (2e Kerstdag)</td></tr>
+          <tr><td>Zo 27 december</td><td>17.00 – 00.00, keuken tot 21.30</td></tr>
+          <tr><td>Ma 28 t/m wo 30 december</td><td>17.00 – 00.00, keuken tot 21.30</td></tr>
+          <tr class="closed"><td>Do 31 december</td><td>gesloten (Oudjaarsdag)</td></tr>
+          <tr class="closed"><td>Vr 1 januari</td><td>gesloten (Nieuwjaarsdag)</td></tr>
+          <tr><td>Za 2 januari</td><td>12.00 – 00.00, keuken tot 23.00</td></tr>
+          <tr><td>Zo 3 januari</td><td>17.00 – 00.00, keuken tot 21.30</td></tr>
+        </table>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="locatie">
+  <div class="wrap loc-grid">
+    <div>
+      <h2>Hartmansstraat 20A</h2>
+      <div class="loc-block"><h3>Adres</h3><p>Hartmansstraat 20A, 3012 VA Rotterdam. Direct om de hoek van de Witte de Withstraat.</p></div>
+      <div class="loc-block"><h3>Met het openbaar vervoer</h3><p>Metrostation Eendrachtsplein en station Beurs liggen op ongeveer 5 minuten lopen, tramhalte Museumpark om de hoek. Vanaf Beurs rijdt metro D of E zonder overstap naar Zuidplein: zo bent u in ongeveer 10 minuten bij Rotterdam Ahoy. De Doelen ligt op ongeveer 10 minuten lopen.</p></div>
+      <div class="loc-block"><h3>Parkeren</h3><p>U kunt aan de overkant van het restaurant parkeren, maar het is goedkoper in Parkeergarage Lijnbaan, op slechts 5 minuten lopen.</p></div>
+      <div class="loc-block"><h3>Betalen</h3><p>Pin, contant en creditcard. U kunt bij ons ook met Bitcoin betalen: vermeld dit dan vooraf bij uw reservering.</p></div>
+    </div>
+    <div class="map"><iframe title="Kaart: Hartmansstraat 20A, Rotterdam" loading="lazy" src="https://maps.google.com/maps?q=Hartmansstraat%2020A%2C%203012%20VA%20Rotterdam&z=16&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <h2>Veelgestelde vragen</h2>
+    <div>
+      <details><summary>Wat houdt shared dining bij Hartig in?</summary>
+        <p>Alles draait om samen genieten en verschillende smaken ontdekken. In plaats van een traditioneel voor-, hoofd- en nagerecht kiest u samen meerdere koude en warme gerechten om te delen aan tafel. De koude gerechten zijn te vergelijken met een voorgerecht, de warme hebben het formaat van een hoofdgerecht.</p>
+        <p>Uit eten gaan draait niet alleen om eten, maar om de totale beleving: samen delen, proeven, ontdekken en genieten. Ons team adviseert u graag over de juiste combinatie en het aantal gerechten per persoon.</p></details>
+      <details><summary>Welke gerechten staan er op de kaart?</summary>
+        <p>Een ruime variatie aan vlees-, vis- en vegetarische gerechten. Naast de gerechten om te delen serveren we verfijnde appetizers voor bij de borrel en ambachtelijke desserts als afsluiting. Onze chefs werken met verse seizoensproducten; de kaart wordt twee keer per jaar vernieuwd.</p></details>
+      <details><summary>Kan ik bij jullie lunchen?</summary>
+        <p>Zeker! Elke zaterdag vanaf 12:00 uur serveren wij een uitgebreide lunch, met hartige gerechten en lichte bites. Ideaal tijdens een dagje uit in het centrum van Rotterdam.</p></details>
+      <details><summary>Wat voor dranken en cocktails serveren jullie?</summary>
+        <p>Een zorgvuldige selectie van wijnen, lokale speciaalbieren en signature cocktails. Of u nu komt voor een uitgebreid diner of een gezellige borrel met bites: er is een passende pairing voor elk gerecht.</p></details>
+      <details><summary>Is Hartig geschikt voor een groepsdiner of bedrijfsuitje?</summary>
+        <p>Zeker. Groepsdiners, verjaardagen, bedrijfsuitjes en andere gelegenheden zijn van harte welkom. Voor groepen maken wij graag een voorstel op maat. Neem contact op via <a href="mailto:info@gastrobarhartig.nl">info@gastrobarhartig.nl</a> of <a href="tel:+31102367548">010-2367548</a>, zodat we uw wensen en eventuele allergieën goed kunnen afstemmen.</p></details>
+      <details><summary>Hoe reserveer ik een tafel?</summary>
+        <p>Voor kleine gezelschappen reserveert u eenvoudig online. Voor groepen vragen we u contact met ons op te nemen per e-mail of telefoon.</p></details>
+      <details><summary>Kan ik met Bitcoin betalen?</summary>
+        <p>Ja, wij zijn een van de weinige restaurants in Rotterdam waar u met Bitcoin (BTC) kunt betalen. Uiteraard accepteren wij ook pin, contant geld en creditcards. Wilt u met Bitcoin betalen? Vermeld dit dan bij uw reservering, zodat we het goed kunnen voorbereiden.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="jobs" id="vacatures">
+  <div class="wrap jobs-grid">
+    <div>
+      <h2>Werken bij Hartig</h2>
+      <p>Gastrobar Hartig is geen doorsnee restaurant. Wij zijn een shared dining gastrobar in hartje Rotterdam waar gastvrijheid, kwaliteit, sfeer en beleving samenkomen.</p>
+      <p class="quote">Wij zoeken geen "uurtjes-vullers". Wij zoeken talent met energie.</p>
+      <ul class="roles">
+        <li><b>Bediening / gastheer / gastvrouw</b><span>Voor mensen met gevoel voor service, gastvrijheid en sfeer.</span></li>
+        <li><b>Floormanager / rechterhand ondernemer</b><span>Je denkt mee, houdt overzicht, werkt direct samen met de eigenaar en helpt bouwen aan de zaak.</span></li>
+        <li><b>Allround horeca (bar, service, organisatie)</b><span>Voor de allrounders die energie krijgen van een volle, dynamische zaak.</span></li>
+      </ul>
+      <ul class="why">
+        <li>Je leert hier écht het horecavak op niveau.</li>
+        <li>Je krijgt snel verantwoordelijkheid en toont initiatief.</li>
+        <li>Je denkt actief mee over de zaak en ontwikkelt jezelf sneller dan in een standaard café of keten.</li>
+        <li>Korte lijnen: je werkt direct samen met de eigenaar.</li>
+      </ul>
+      <p>Bij Hartig doen we het samen. Je bent betrouwbaar, communiceert duidelijk en komt afspraken na. Je krijgt er een hecht team voor terug, ruimte voor jouw ideeën, flexibiliteit waar mogelijk en een plek waar je écht gezien wordt.</p>
+    </div>
+    <form id="jobform" novalidate>
+      <h3>Solliciteer direct</h3>
+      <p class="full" style="color:#cbbfab;font-size:15.5px;margin:0">Geen perfecte motivatiebrief nodig. Vertel wie je bent, wat je zoekt en waarom jij bij de Hartig-familie past.</p>
+      <label>Naam<input type="text" autocomplete="name"></label>
+      <label>Telefoon<input type="tel" autocomplete="tel"></label>
+      <label class="wide" style="grid-column:1/-1">E-mail<input type="email" autocomplete="email"></label>
+      <label class="wide" style="grid-column:1/-1">Functie<select><option>Bediening / gastheer / gastvrouw</option><option>Floormanager / rechterhand</option><option>Allround horeca</option><option>Zelfstandig werkende kok</option></select></label>
+      <label class="wide" style="grid-column:1/-1">Bericht<textarea rows="4"></textarea></label>
+      <button class="btn btn-red" type="submit">Verstuur sollicitatie</button>
+      <p class="formnote" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="logo" href="#home"><img src="img/001.png" alt="Gastrobar Hartig"></a><p>Wereldse shared dining gerechten in hartje Rotterdam. Sinds 2013.</p></div>
+      <div><h4>Contact</h4><p>Hartmansstraat 20A<br>3012 VA Rotterdam</p><p><a href="tel:+31102367548">010-2367548</a><br><a href="mailto:reserveringen@gastrobarhartig.nl">reserveringen@gastrobarhartig.nl</a></p></div>
+      <div><h4>Open</h4><p>Ma t/m vr 17.00 – 00.00<br>Zaterdag 12.00 – 00.00<br>Zondag: groepen op aanvraag</p></div>
+      <div><h4>Volg ons</h4><div class="socials"><a href="https://www.instagram.com/gastrobar_hartig/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/gastrobarhartig/" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@gastrobarhartig" target="_blank" rel="noopener">TikTok</a><a href="https://x.com/bistrohartig" target="_blank" rel="noopener">X</a></div></div>
+    </div>
+    <div class="legal"><span>© Gastrobar Hartig 2026</span><span>KvK 58980059</span></div>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Gastrobar%20Hartig%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),b=document.getElementById('burger');
+  b.addEventListener('click',function(){var o=document.body.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+  var f=function(){top.classList.toggle('solid',window.scrollY>40)};window.addEventListener('scroll',f,{passive:true});f();
+
+  var tabs=[].slice.call(document.querySelectorAll('.tabbar [role=tab]'));
+  function select(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();t.scrollIntoView({block:'nearest',inline:'nearest'});}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){select(t)});t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();select(tabs[(i+k+tabs.length)%tabs.length],true);}});});
+  document.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(){var t=document.getElementById('t-'+a.dataset.tab);if(t)select(t);});});
+  document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(){var d=document.getElementById(a.dataset.open);if(d)d.open=true;});});
+
+  document.querySelectorAll('form').forEach(function(fm){fm.addEventListener('submit',function(e){e.preventDefault();fm.querySelector('.formnote').textContent='Dit is een voorbeeld: er is niets verstuurd.';});});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

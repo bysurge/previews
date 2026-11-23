@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pizza Taxi da Paolo e Seba, De Pijp Amsterdam</title>
+<meta name="description" content="Pizza Taxi da Paolo e Seba aan de Ceintuurbaan in De Pijp: originele Italiaanse pizza en pasta, al sinds 1993. Reserveren, afhalen of laten bezorgen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B5301F'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' font-weight='700' fill='%23F6EBD2' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;0,6..96,800;1,6..96,500;1,6..96,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --intonaco:#F6EBD2;   /* warme pleisterkleur, als de gele zaal */
+  --ocra:#DDA032;
+  --ocra-diep:#B97E1C;
+  --pomodoro:#B5301F;
+  --pomodoro-diep:#8E2416;
+  --basilico:#3F6B3A;
+  --lavagna:#1F2A26;    /* krijtbord */
+  --lavagna-2:#28352F;
+  --gesso:#EFEAE0;      /* krijt */
+  --inkt:#2A1D16;
+  --serif:'Bodoni Moda', 'Didot', Georgia, serif;
+  --sans:'Karla', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--intonaco);color:var(--inkt);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ocra);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.05;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.3rem,5.4vw,3.9rem)}
+p{margin:0 0 1em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* knoppen */
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:.85em 1.35em;border-radius:999px;background:var(--pomodoro);color:#fff;text-decoration:none;font-weight:700;font-size:.98rem;border:2px solid var(--pomodoro);transition:background .2s,border-color .2s,color .2s}
+.btn:hover{background:var(--pomodoro-diep);border-color:var(--pomodoro-diep)}
+.btn-line{background:transparent;color:var(--inkt);border-color:currentColor}
+.btn-line:hover{background:var(--inkt);color:var(--intonaco);border-color:var(--inkt)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;height:68px;display:flex;align-items:center;gap:24px;padding:0 max(20px,calc((100% - 1160px)/2));background:rgba(246,235,210,.97);border-bottom:1px solid rgba(42,29,22,.1)}
+.mark{text-decoration:none;display:flex;flex-direction:column;line-height:1;margin-right:auto}
+.mark b{font:800 1.55rem/1 var(--serif);color:var(--pomodoro);letter-spacing:-.02em}
+.mark i{font:italic 500 .95rem/1.2 var(--serif);color:var(--inkt)}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--ocra)}
+.top .btn{padding:.6em 1.05em;font-size:.92rem}
+.menu-btn{display:none;width:46px;height:46px;border:0;background:transparent;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:11px;right:11px;height:2px;background:var(--inkt);transition:transform .25s,opacity .2s}
+.menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:27px}
+.menu-btn[aria-expanded=true] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded=true] span:nth-child(2){transform:translateY(-5px) rotate(-45deg)}
+
+/* hero */
+.hero{padding:110px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero-name{font-family:var(--serif);font-weight:800;font-size:clamp(4.2rem,11.5vw,9.4rem);line-height:.86;letter-spacing:-.035em;color:var(--pomodoro);margin:0}
+.hero-name .da{display:block;font-style:italic;font-weight:500;font-size:.36em;letter-spacing:-.01em;color:var(--inkt);margin-top:.28em;line-height:1}
+.hero-lede{font-size:1.16rem;max-width:30em;margin:28px 0 26px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.vandaag{margin-top:26px;display:flex;align-items:center;gap:10px;font-weight:500}
+.vandaag .dot{width:10px;height:10px;border-radius:50%;background:var(--basilico);box-shadow:0 0 0 4px rgba(63,107,58,.18)}
+.vandaag.dicht .dot{background:var(--pomodoro);box-shadow:0 0 0 4px rgba(181,48,31,.15)}
+.hero-photo{margin:0;position:relative}
+.hero-photo img{width:100%;aspect-ratio:1/1;max-height:600px;object-fit:cover;border-radius:4px}
+.hero-photo::before{content:"";position:absolute;inset:22px -22px -22px 22px;background:var(--ocra);border-radius:4px;z-index:-1}
+.sinds{position:absolute;left:-26px;bottom:34px;background:var(--lavagna);color:var(--gesso);padding:16px 20px;border-radius:4px;font:italic 500 1.05rem/1.25 var(--serif)}
+.sinds b{display:block;font:800 2.2rem/1 var(--serif);font-style:normal;color:var(--ocra)}
+
+/* tafelkleed */
+.tovaglia{height:22px;margin-top:84px;background:
+  repeating-linear-gradient(90deg,rgba(181,48,31,.85) 0 22px,transparent 22px 44px),
+  repeating-linear-gradient(0deg,rgba(181,48,31,.55) 0 11px,transparent 11px 22px),#fff}
+
+/* verhaal */
+.verhaal{padding:110px 0 100px}
+.verhaal-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.verhaal figure{margin:0}
+.verhaal figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.verhaal h2{margin-bottom:28px}
+.verhaal .groot{font:italic 500 clamp(1.3rem,2.2vw,1.6rem)/1.45 var(--serif);margin-bottom:24px}
+.verhaal .ondertekend{font:italic 600 1.15rem var(--serif);color:var(--pomodoro)}
+.feiten{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border-top:2px solid var(--inkt)}
+.feiten div{padding:18px 18px 0 0}
+.feiten b{display:block;font:700 1.2rem/1.2 var(--serif);margin-bottom:4px}
+.feiten span{font-size:.95rem;color:#5a4a3e}
+
+/* menu op het krijtbord */
+.menu{background:var(--lavagna);color:var(--gesso);padding:100px 0 110px;position:relative}
+.menu::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.05),transparent 60%),radial-gradient(ellipse at 90% 100%,rgba(255,255,255,.04),transparent 55%);pointer-events:none}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;margin-bottom:40px;position:relative}
+.menu-head h2{color:var(--gesso)}
+.menu-head p{max-width:34em;color:#c9c4b8;margin:0}
+.menu-head .legend{display:inline-flex;align-items:center;gap:8px}
+.v{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--basilico);color:#fff;font:700 .7rem/1 var(--sans);vertical-align:2px;margin-left:6px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:44px;position:relative;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;font:500 1rem var(--sans);color:var(--gesso);background:transparent;border:1.5px solid rgba(239,234,224,.3);border-radius:999px;padding:.62em 1.2em;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.tab:hover{border-color:var(--gesso)}
+.tab[aria-selected=true]{background:var(--ocra);border-color:var(--ocra);color:var(--lavagna);font-weight:700}
+.panel{position:relative}
+.panel[hidden]{display:none}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.course{margin-bottom:40px;break-inside:avoid}
+.course-spacer{height:4.1rem}
+.course h3{font:italic 600 1.9rem/1.1 var(--serif);color:var(--ocra);margin-bottom:6px}
+.course .sub{font-size:.92rem;color:#a9a497;margin:0 0 14px}
+.dishes{list-style:none;margin:0;padding:0}
+.dishes li{padding:13px 0;border-bottom:1px dashed rgba(239,234,224,.2)}
+.dishes .row{display:flex;align-items:baseline;gap:12px}
+.dishes .naam{font:600 1.22rem/1.25 var(--serif);text-transform:lowercase}
+.dishes .naam::first-letter{text-transform:uppercase}
+.dishes .lijn{flex:1;border-bottom:1px dotted rgba(239,234,224,.28);transform:translateY(-4px)}
+.dishes .prijs{font-weight:700;font-variant-numeric:tabular-nums;color:var(--gesso);white-space:nowrap}
+.dishes .wat{display:block;font-size:.95rem;color:#bdb8ac;margin-top:3px;max-width:34em}
+.pizza-list{columns:2;column-gap:64px}
+.pizza-list li{break-inside:avoid}
+.menu-foto{margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.menu-foto img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
+.note{border:1.5px solid rgba(239,234,224,.25);border-radius:6px;padding:18px 22px;color:#d6d1c5;max-width:46em}
+.menu-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;margin-top:20px;color:#a9a497;font-size:.95rem;position:relative}
+.menu-foot a{color:var(--gesso)}
+
+/* afhalen */
+.afhalen{padding:110px 0;background:var(--ocra);position:relative;overflow:hidden}
+.afhalen-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.afhalen h2{color:var(--inkt);margin-bottom:22px}
+.afhalen p{font-size:1.12rem;max-width:32em}
+.afhalen .btn-line{border-color:var(--inkt)}
+.afhalen figure{margin:0}
+.afhalen figure img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 14px rgba(255,255,255,.18)}
+.bezorgers{margin-top:18px;font-size:.98rem}
+
+/* reserveren */
+.reserveren{padding:110px 0}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.res-grid h2{margin-bottom:22px}
+.manieren{display:grid;gap:14px;margin:28px 0}
+.manier{display:flex;gap:18px;align-items:flex-start;padding:20px 22px;background:#fffaf0;border-radius:6px;border-left:4px solid var(--pomodoro);text-decoration:none}
+.manier b{display:block;font:700 1.25rem/1.2 var(--serif)}
+.manier span{color:#5a4a3e;font-size:.97rem}
+a.manier:hover{background:#fff}
+.groepen{list-style:none;padding:0;margin:0}
+.groepen li{padding:16px 0;border-bottom:1px solid rgba(42,29,22,.14);display:grid;grid-template-columns:150px 1fr;gap:16px}
+.groepen li b{font:700 1.05rem/1.4 var(--serif);color:var(--pomodoro)}
+.sfeer{margin:34px 0 0}
+.sfeer img{width:100%;height:150px;object-fit:cover;object-position:center 40%;border-radius:4px;filter:saturate(.85)}
+.sfeer figcaption{font-size:.9rem;color:#6b5a4c;margin-top:8px}
+
+/* contact */
+.contact{background:var(--lavagna);color:var(--gesso);padding:100px 0 90px}
+.contact-grid{display:grid;grid-template-columns:.8fr .8fr 1.2fr;gap:48px}
+.contact h2{color:var(--gesso);font-size:clamp(2rem,4vw,2.8rem);margin-bottom:22px}
+.uren{list-style:none;margin:0;padding:0}
+.uren li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(239,234,224,.2);font-variant-numeric:tabular-nums}
+.uren li.nu{color:var(--ocra);font-weight:700}
+.uren li.gesloten span:last-child{color:#a9a497}
+.adres{font-style:normal;font-size:1.08rem;line-height:1.7}
+.adres a{color:var(--gesso)}
+.kaart{border-radius:6px;overflow:hidden;min-height:320px;background:var(--lavagna-2)}
+.kaart iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(.3)}
+.betalen{margin-top:22px;font-size:.96rem;color:#c9c4b8}
+footer{background:#161e1b;color:#a9a497;padding:40px 0 30px;font-size:.95rem}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--gesso)}
+.foot .op{display:flex;gap:18px;flex-wrap:wrap}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:100;height:34px;background:var(--inkt);color:var(--intonaco);text-align:center;font:500 13px/34px var(--sans);border-top:2px solid var(--ocra)}
+
+/* één binnenkomst-moment */
+@media (prefers-reduced-motion:no-preference){
+  .hero-name{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+  .hero-lede,.hero-actions,.vandaag{animation:rise .55s .1s cubic-bezier(.2,.7,.2,1) both}
+  .hero-photo img{animation:settle 1.2s cubic-bezier(.2,.7,.2,1) both}
+  .panel:not([hidden]){animation:fade .3s ease both}
+}
+@keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes settle{from{transform:scale(1.04)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+@media (max-width:960px){
+  .hero-grid,.verhaal-grid,.afhalen-grid,.res-grid{grid-template-columns:1fr;gap:44px}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .kaart{grid-column:1/-1}
+  .verhaal figure{order:2}
+  .afhalen figure{max-width:340px}
+}
+@media (max-width:820px){
+  .nav{position:fixed;top:68px;left:0;right:0;background:var(--intonaco);flex-direction:column;gap:0;padding:8px 20px 22px;border-bottom:1px solid rgba(42,29,22,.12);transform:translateY(-110%);visibility:hidden;transition:transform .3s,visibility .3s;z-index:-1}
+  .nav.open{transform:none;visibility:visible}
+  .nav a{padding:14px 0;font-size:1.15rem;border-bottom:1px solid rgba(42,29,22,.1)}
+  .menu-btn{display:block}
+  .top{gap:8px}
+  .top .btn span{display:none}
+  .top .btn{padding:.6em .8em}
+  .panel-grid{grid-template-columns:1fr}
+  .pizza-list{columns:1}
+  .course-spacer{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .hero{padding-top:96px}
+  .hero-photo::before{inset:14px -10px -14px 14px}
+  .sinds{left:-6px;bottom:18px;padding:12px 15px}
+  .sinds b{font-size:1.7rem}
+  .feiten{grid-template-columns:1fr}
+  .feiten div{padding:14px 0;border-bottom:1px solid rgba(42,29,22,.14)}
+  .contact-grid{grid-template-columns:1fr}
+  .groepen li{grid-template-columns:1fr;gap:2px}
+  .verhaal,.reserveren,.afhalen{padding:80px 0}
+  .menu{padding:80px 0}
+  .menu-foto{grid-template-columns:1fr 1fr;gap:10px}
+  .hero-actions .btn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="mark" href="#top" aria-label="Pizza Taxi da Paolo e Seba, naar boven"><b>Pizza Taxi</b><i>da Paolo e Seba</i></a>
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href="#menu">Menu</a>
+    <a href="#afhalen">Afhalen</a>
+    <a href="#reserveren">Reserveren</a>
+    <a href="#contact">Openingstijden</a>
+  </nav>
+  <a class="btn" href="tel:+31206715735" aria-label="Bel 020 67 15 735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>020 67 15 735</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span></span><span></span><span class="sr">Menu openen</span></button>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="hero-name">Pizza Taxi <span class="da">da Paolo e Seba</span></h1>
+      <p class="hero-lede">Originele Italiaanse pizza en pasta aan de Ceintuurbaan, midden in De Pijp. Met de lekkerste ingrediënten, met liefde gekookt, en het brood bakken we zelf.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#reserveren">Reserveer een tafel</a>
+        <a class="btn btn-line" href="#menu">Bekijk het menu</a>
+      </div>
+      <p class="vandaag" id="vandaag"><span class="dot" aria-hidden="true"></span><span id="vandaag-tekst">Ma, di, do en zo 17:00 tot 22:00, vr en za vanaf 14:00</span></p>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/stock-margherita.jpg" width="1600" height="1200" alt="">
+      <p class="sinds"><b>1993</b>al sinds</p>
+    </figure>
+  </div>
+  <div class="tovaglia" aria-hidden="true"></div>
+</section>
+
+<section class="verhaal" id="verhaal">
+  <div class="wrap verhaal-grid">
+    <figure><img src="img/stock-deegbal.jpg" width="1400" height="2114" loading="lazy" alt=""></figure>
+    <div>
+      <h2>Iedereen welkom, al sinds 1993</h2>
+      <p class="groot">Pizza Taxi da Paolo e Seba staat bekend om zijn Italiaanse sfeer en eten. Met meer dan twintig jaar ervaring maken de pizzaioli Paolo en Sebastiano hier de lekkerste pizza's van Nederland.</p>
+      <p>Bij ons is iedereen welkom voor een originele Italiaanse pizza of pasta. We gebruiken de lekkerste ingrediënten, koken met liefde en het brood bakken we zelf. Heb je lekker en gezellig gegeten? Laat het anderen weten, bijvoorbeeld via Facebook, Iens of Tripadvisor. En heb je verbeterpunten, laat het ons dan vooral ook weten.</p>
+      <p class="ondertekend">Eet smakelijk!</p>
+      <div class="feiten">
+        <div><b>Pizza &amp; pasta</b><span>20 pizza's, 11 pasta's en lasagne</span></div>
+        <div><b>Veganistisch</b><span>Gerechten met een V zijn vegan</span></div>
+        <div><b>Groepen</b><span>Van 5 tot 32 personen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>Il menù</h2>
+      <p>Alles wat er op de kaart staat. <span class="legend">Gerechten met een <span class="v" aria-label="V">V</span> zijn veganistisch.</span> Heb je een allergie? We helpen je graag bij je keuze.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Menukaart">
+      <button class="tab" role="tab" id="t-pizze" aria-controls="p-pizze" aria-selected="true">Pizze</button>
+      <button class="tab" role="tab" id="t-paste" aria-controls="p-paste" aria-selected="false" tabindex="-1">Pasta &amp; lasagne</button>
+      <button class="tab" role="tab" id="t-anti" aria-controls="p-anti" aria-selected="false" tabindex="-1">Antipasti &amp; salades</button>
+      <button class="tab" role="tab" id="t-dolci" aria-controls="p-dolci" aria-selected="false" tabindex="-1">Dolci &amp; koffie</button>
+      <button class="tab" role="tab" id="t-bar" aria-controls="p-bar" aria-selected="false" tabindex="-1">Bar &amp; wijn</button>
+    </div>
+
+    <div class="panel" id="p-pizze" role="tabpanel" aria-labelledby="t-pizze">
+      <div class="course">
+        <h3>Pizze</h3>
+        <ul class="dishes pizza-list">
+          <li><div class="row"><span class="naam">Marinara<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">11,-</span></div><span class="wat">tomatensaus, knoflook en oregano</span></li>
+          <li><div class="row"><span class="naam">Margherita</span><span class="lijn"></span><span class="prijs">12,-</span></div><span class="wat">tomatensaus, mozzarella en basilicum</span></li>
+          <li><div class="row"><span class="naam">Capricciosa</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, ham, olijven, champignons en oregano</span></li>
+          <li><div class="row"><span class="naam">Attila</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">pesto, mozzarella, champignons, aubergine, verse tomaten en rucola</span></li>
+          <li><div class="row"><span class="naam">Isabella</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, spianata salami, chilipeper, knoflook, ui en paprika</span></li>
+          <li><div class="row"><span class="naam">Quattro formaggi</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, ricotta, gorgonzola en parmezaanse kaas</span></li>
+          <li><div class="row"><span class="naam">Napoletana</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, ansjovis, olijven en kappertjes</span></li>
+          <li><div class="row"><span class="naam">Silvio</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, gorgonzola, aubergine, ham, coppa di parma en rucola</span></li>
+          <li><div class="row"><span class="naam">Taxi</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, verse tomaat, aubergine en basilicum</span></li>
+          <li><div class="row"><span class="naam">Quattro stagioni</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, paprika, ham, champignons en olijven</span></li>
+          <li><div class="row"><span class="naam">Pizza di mare</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella en zeevruchten met kruiden</span></li>
+          <li><div class="row"><span class="naam">Tricolore</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, pesto, mozzarella, parmaham, parmezaanse kaas en rucola</span></li>
+          <li><div class="row"><span class="naam">Siciliana</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, tonijn, champignons, olijven en ui</span></li>
+          <li><div class="row"><span class="naam">Titta</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, verse tomaten, buffelmozzarella, parmaham en basilicum</span></li>
+          <li><div class="row"><span class="naam">Bufalina</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, buffelmozzarella, verse tomaten, rucola en parmezaanse kaas</span></li>
+          <li><div class="row"><span class="naam">Salsiccia</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, champignons, saucijs, rucola en chilipeper</span></li>
+          <li><div class="row"><span class="naam">Del salumiere</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, napoletaanse salami, spianata salami en coppa di parma</span></li>
+          <li><div class="row"><span class="naam">Vegetariana<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">verse tomaten, champignons, courgette, aubergine en paprika (geen kaas)</span></li>
+          <li><div class="row"><span class="naam">Calzone vesuvio</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, ricotta, ham, oregano en basilicum</span></li>
+          <li><div class="row"><span class="naam">Calzone vegetariano</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">tomatensaus, mozzarella, ricotta, courgettes, champignons en oregano</span></li>
+          <li><div class="row"><span class="naam">Extra garnering</span><span class="lijn"></span><span class="prijs">3,-</span></div><span class="wat">per extra topping</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel" id="p-paste" role="tabpanel" aria-labelledby="t-paste" hidden>
+      <div class="menu-foto"><img src="img/stock-pasta.jpg" width="900" height="900" loading="lazy" alt=""><img src="img/stock-pizza-tafel.jpg" width="1000" height="667" loading="lazy" alt=""></div>
+      <div class="panel-grid">
+        <div class="course">
+          <h3>Pasta</h3>
+          <p class="sub">Naar keuze met spaghetti of penne</p>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Mediterraneo</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">tomatensaus, aubergines, mozzarella en basilicum</span></li>
+            <li><div class="row"><span class="naam">Salsiccia e melanzane</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">tomatensaus, aubergine, saucijs en chilipeper</span></li>
+            <li><div class="row"><span class="naam">Funghi e gorgonzola</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">champignons en gorgonzola in roomsaus</span></li>
+            <li><div class="row"><span class="naam">Bolognese</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">tomatensaus met gehakt</span></li>
+            <li><div class="row"><span class="naam">Zucchine e gamberetti</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">courgettes en garnalen in tomatensaus</span></li>
+            <li><div class="row"><span class="naam">Ortofresco<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">groenten in tomatensaus</span></li>
+          </ul>
+        </div>
+        <div class="course">
+          <div class="course-spacer" aria-hidden="true"></div>
+          
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Tonno</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">tomatensaus, tonijn, ui, kappertjes en olijven</span></li>
+            <li><div class="row"><span class="naam">Puttanesca</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">tomatensaus, olijven, kappertjes en ansjovis</span></li>
+            <li><div class="row"><span class="naam">Frutti di mare</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">met zeevruchtensaus</span></li>
+            <li><div class="row"><span class="naam">Gnocchi provola e basilico al forno</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">gnocchi uit de oven met provola kaas en basilicum</span></li>
+            <li><div class="row"><span class="naam">Veggi ravioli</span><span class="lijn"></span><span class="prijs">16,50</span></div><span class="wat">ravioli met gorgonzola en rucola in roomsaus</span></li>
+          </ul>
+        </div>
+        <div class="course">
+          <h3>Lasagne</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Lasagne di carne</span><span class="lijn"></span><span class="prijs">16,-</span></div><span class="wat">lasagne met bolognesesaus, béchamel en kaas</span></li>
+            <li><div class="row"><span class="naam">Lasagne vegetariana</span><span class="lijn"></span><span class="prijs">16,-</span></div><span class="wat">lasagne met ricotta, champignons, paprika, courgette en tomaten</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-anti" role="tabpanel" aria-labelledby="t-anti" hidden>
+      <div class="menu-foto"><img src="img/stock-antipasti.jpg" width="1400" height="933" loading="lazy" alt=""><img src="img/stock-focaccia.jpg" width="1600" height="1067" loading="lazy" alt=""></div>
+      <div class="panel-grid">
+        <div class="course">
+          <h3>Antipasti</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Bruschetta pomodori<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">8,-</span></div><span class="wat">geroosterd broodje met tomaten, olijfolie, basilicum, oregano en knoflook</span></li>
+            <li><div class="row"><span class="naam">Focaccia al rosmarino<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">9,-</span></div><span class="wat">focaccia met rozemarijn</span></li>
+            <li><div class="row"><span class="naam">Focaccia al prosciutto di parma e mozzarella</span><span class="lijn"></span><span class="prijs">13,-</span></div><span class="wat">focaccia met parmaham en mozzarella</span></li>
+            <li><div class="row"><span class="naam">Focaccia cipolla rossa e carciofi<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">10,50</span></div><span class="wat">focaccia met rode ui en artisjokken</span></li>
+            <li><div class="row"><span class="naam">Brucaccia<span class="v" aria-label="veganistisch">V</span></span><span class="lijn"></span><span class="prijs">11,-</span></div><span class="wat">focaccia met tomaten, basilicum, oregano, knoflook en rucola</span></li>
+            <li><div class="row"><span class="naam">Gamberetti al vino bianco</span><span class="lijn"></span><span class="prijs">11,-</span></div><span class="wat">gebakken garnalen in knoflook, kruiden en witte wijn</span></li>
+            <li><div class="row"><span class="naam">Fungitello</span><span class="lijn"></span><span class="prijs">11,-</span></div><span class="wat">gebakken aubergine, tomatensaus, basilicum en parmezaanse kaas</span></li>
+            <li><div class="row"><span class="naam">Funghi trifolati</span><span class="lijn"></span><span class="prijs">11,-</span></div><span class="wat">gebakken champignons in knoflook, peterselie en olijfolie</span></li>
+            <li><div class="row"><span class="naam">Prosciutto di parma e mozzarella</span><span class="lijn"></span><span class="prijs">13,-</span></div><span class="wat">parmaham met buffelmozzarella</span></li>
+            <li><div class="row"><span class="naam">Tagliere di salumi, formaggio e olive</span><span class="lijn"></span><span class="prijs">15,50</span></div><span class="wat">een selectie Italiaanse vleeswaren, kaas en olijven</span></li>
+            <li><div class="row"><span class="naam">Carpaccio di manzo</span><span class="lijn"></span><span class="prijs">15,-</span></div><span class="wat">dun gesneden ossenhaas met parmezaanse kaas, rucola, olijfolie en balsamico</span></li>
+          </ul>
+        </div>
+        <div class="course">
+          <h3>Salades</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Rucolona</span><span class="lijn"></span><span class="prijs">9,-</span></div><span class="wat">sla, rucola, tomaten, komkommer en parmezaanse kaas</span></li>
+            <li><div class="row"><span class="naam">Di tonno</span><span class="lijn"></span><span class="prijs">10,-</span></div><span class="wat">sla, rucola, tomaten, olijven, komkommer, tonijn en uien</span></li>
+            <li><div class="row"><span class="naam">Caprese</span><span class="lijn"></span><span class="prijs">11,50</span></div><span class="wat">sla, rucola, tomaten, buffelmozzarella en basilicum</span></li>
+            <li><div class="row"><span class="naam">Insalata di pomodori e carciofi</span><span class="lijn"></span><span class="prijs">10,-</span></div><span class="wat">sla, tomaten, artisjokken, komkommer, olijven en oregano</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-dolci" role="tabpanel" aria-labelledby="t-dolci" hidden>
+      <div class="panel-grid">
+        <div class="course">
+          <h3>Dolci</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Gelato</span><span class="lijn"></span><span class="prijs">2,50</span></div><span class="wat">bolletje ijs</span></li>
+            <li><div class="row"><span class="naam">Torta del giorno</span><span class="lijn"></span><span class="prijs">7,50</span></div><span class="wat">taart van de dag</span></li>
+            <li><div class="row"><span class="naam">Sgroppino</span><span class="lijn"></span><span class="prijs">10,-</span></div><span class="wat">citroensorbet met vodka en prosecco</span></li>
+            <li><div class="row"><span class="naam">Tiramelosù</span><span class="lijn"></span><span class="prijs">7,50</span></div><span class="wat">huisgemaakt toetje met lange vingers, mascarpone, slagroom, amaretto, espresso en cacao</span></li>
+          </ul>
+          <div class="menu-foto" style="grid-template-columns:1fr;margin-top:30px"><img src="img/stock-tiramisu.jpg" width="1400" height="1866" loading="lazy" alt="" style="aspect-ratio:16/10"></div>
+        </div>
+        <div class="course">
+          <h3>Koffie &amp; thee</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Espresso</span><span class="lijn"></span><span class="prijs">2,75</span></div></li>
+            <li><div class="row"><span class="naam">Espresso doppio</span><span class="lijn"></span><span class="prijs">4,75</span></div></li>
+            <li><div class="row"><span class="naam">Cappuccino</span><span class="lijn"></span><span class="prijs">3,75</span></div></li>
+            <li><div class="row"><span class="naam">Caffè latte</span><span class="lijn"></span><span class="prijs">3,75</span></div></li>
+            <li><div class="row"><span class="naam">Caffè corretto alla grappa</span><span class="lijn"></span><span class="prijs">6,75</span></div><span class="wat">koffie met grappa</span></li>
+            <li><div class="row"><span class="naam">Affogato</span><span class="lijn"></span><span class="prijs">4,75</span></div><span class="wat">bolletje ijs met espresso overgoten</span></li>
+            <li><div class="row"><span class="naam">Thee</span><span class="lijn"></span><span class="prijs">3,50</span></div></li>
+            <li><div class="row"><span class="naam">Verse muntthee</span><span class="lijn"></span><span class="prijs">4,-</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-bar" role="tabpanel" aria-labelledby="t-bar" hidden>
+      <div class="panel-grid">
+        <div class="course">
+          <h3>Bar</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Frisdranken</span><span class="lijn"></span><span class="prijs">3,-</span></div><span class="wat">coca cola, coca cola zero, fanta orange, ice tea sparkling, sprite, cassis, bitter lemon, tonic, appelsap, mineraalwater</span></li>
+            <li><div class="row"><span class="naam">Mineraalwater 0,75 l</span><span class="lijn"></span><span class="prijs">6,-</span></div></li>
+            <li><div class="row"><span class="naam">Spritz aperol</span><span class="lijn"></span><span class="prijs">9,-</span></div></li>
+            <li><div class="row"><span class="naam">Italiaans bier</span><span class="lijn"></span><span class="prijs">4,50</span></div></li>
+            <li><div class="row"><span class="naam">Italiaans alcoholvrij bier</span><span class="lijn"></span><span class="prijs">4,50</span></div></li>
+            <li><div class="row"><span class="naam">Italiaans speciaal bier</span><span class="lijn"></span><span class="prijs">6,50</span></div></li>
+          </ul>
+        </div>
+        <div class="course">
+          <h3>Wijnen</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Glas wijn</span><span class="lijn"></span><span class="prijs">5,-</span></div><span class="wat">rood, wit of rosé</span></li>
+            <li><div class="row"><span class="naam">Fles wijn</span><span class="lijn"></span><span class="prijs">24,-</span></div><span class="wat">rood, wit of rosé</span></li>
+            <li><div class="row"><span class="naam">Glas prosecco</span><span class="lijn"></span><span class="prijs">6,50</span></div></li>
+            <li><div class="row"><span class="naam">Fles prosecco</span><span class="lijn"></span><span class="prijs">25,-</span></div></li>
+          </ul>
+        </div>
+        <div class="course">
+          <h3>Gedistilleerd</h3>
+          <ul class="dishes">
+            <li><div class="row"><span class="naam">Limoncello</span><span class="lijn"></span><span class="prijs">4,-</span></div></li>
+            <li><div class="row"><span class="naam">Amaro, grappa, sambuca, amaretto</span><span class="lijn"></span><span class="prijs">6,-</span></div></li>
+            <li><div class="row"><span class="naam">Vecchia Romagna</span><span class="lijn"></span><span class="prijs">6,-</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      <p class="note">Heb je een allergie of een dieetwens? Zeg het ons, dan helpen we je graag bij je keuze.</p>
+      <p>Liever de menukaart als bestand? <a href="http://www.pizzataxidapaoloeseba.nl/wp-content/uploads/menu.pdf">Download de pdf (NL/EN)</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="afhalen" id="afhalen">
+  <div class="wrap afhalen-grid">
+    <div>
+      <h2>Thuis eten? Dat kan</h2>
+      <p>Zin in een pizza, pasta of gewoon een overheerlijke tiramisu tijdens het kijken van Netflix? Haal hem bij ons op: geef ons even een belletje en we zetten hem klaar.</p>
+      <p>Ben je wat luier en heb je geen zin om op te staan? We bezorgen ook via Uber Eats en Thuisbezorgd. Alvast buon appetito!</p>
+      <div class="hero-actions">
+        <a class="btn" href="tel:+31206715735">Bel om af te halen</a>
+        <a class="btn btn-line" href="https://www.thuisbezorgd.nl/pizza-taxi">Bestel via Thuisbezorgd</a>
+      </div>
+      <p class="bezorgers">Ook te vinden op Uber Eats.</p>
+    </div>
+    <figure><img src="img/stock-pizza-tafel.jpg" width="1000" height="667" loading="lazy" alt=""></figure>
+  </div>
+</section>
+
+<section class="reserveren" id="reserveren">
+  <div class="wrap res-grid">
+    <div>
+      <h2>Een tafel reserveren</h2>
+      <p>Bel ons of reserveer online via Bookdinners. Met een groep? Laat het ons weten, dan maken we er samen iets moois van.</p>
+      <div class="manieren">
+        <a class="manier" href="tel:+31206715735"><div><b>Bel 020 67 15 735</b><span>Tijdens openingstijden staan we je graag te woord.</span></div></a>
+        <a class="manier" href="https://www.bookdinners.nl/restaurants/amsterdam/pizza-taxi-da-paolo-en-seba"><div><b>Reserveer via Bookdinners</b><span>Online een tafel vastleggen, wanneer het jou uitkomt.</span></div></a>
+        <a class="manier" href="mailto:info@pizzataxidapaoloeseba.nl"><div><b>Mail ons</b><span>info@pizzataxidapaoloeseba.nl</span></div></a>
+      </div>
+    </div>
+    <div>
+      <ul class="groepen">
+        <li><b>Groepen</b><span>Graag reserveren voor groepen tussen de 5 en 32 personen.</span></li>
+        <li><b>Lunch</b><span>Lunchen kan uitsluitend op afspraak, met een minimum van 10 personen.</span></li>
+        <li><b>Betalen</b><span>Met pin of contant. Betalen met een creditcard is helaas niet mogelijk.</span></li>
+        <li><b>Allergie</b><span>Geef het door bij je reservering of aan tafel, we helpen je graag.</span></li>
+      </ul>
+      <figure class="sfeer">
+        <img src="img/eigen-gasten.jpg" width="1140" height="399" loading="lazy" alt="Een lange tafel vol gasten in de gele zaal van Pizza Taxi">
+        <figcaption>Aan tafel bij Pizza Taxi</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Openingstijden</h2>
+      <ul class="uren" id="uren">
+        <li data-d="1"><span>Maandag</span><span>17:00 – 22:00</span></li>
+        <li data-d="2"><span>Dinsdag</span><span>17:00 – 22:00</span></li>
+        <li data-d="3" class="gesloten"><span>Woensdag</span><span>gesloten</span></li>
+        <li data-d="4"><span>Donderdag</span><span>17:00 – 22:00</span></li>
+        <li data-d="5"><span>Vrijdag</span><span>14:00 – 22:00</span></li>
+        <li data-d="6"><span>Zaterdag</span><span>14:00 – 22:00</span></li>
+        <li data-d="0"><span>Zondag</span><span>17:00 – 22:00</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Kom langs</h2>
+      <address class="adres">
+        Ceintuurbaan 121<br>1072 GA Amsterdam<br>
+        <a href="tel:+31206715735">020 67 15 735</a><br>
+        <a href="mailto:info@pizzataxidapaoloeseba.nl">info@pizzataxidapaoloeseba.nl</a>
+      </address>
+      <p class="betalen">Kom een keertje langs en proef Italië op zijn best!</p>
+    </div>
+    <div class="kaart">
+      <iframe title="Kaart: Ceintuurbaan 121, Amsterdam" loading="lazy" src="https://maps.google.com/maps?q=Ceintuurbaan%20121%2C%201072%20GA%20Amsterdam&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>Pizza Taxi da Paolo e Seba, Ceintuurbaan 121, Amsterdam</p>
+    <p class="op">Ook te vinden op <a href="https://www.facebook.com/pizzataxiAmsterdam/">Facebook</a> <a href="https://www.bookdinners.nl/restaurants/amsterdam/pizza-taxi-da-paolo-en-seba">Bookdinners</a> <a href="https://www.thuisbezorgd.nl/pizza-taxi">Thuisbezorgd</a> <span>Iens en Tripadvisor</span></p>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Pizza%20Taxi%20Da%20Paolo%20%26%20Seba%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+// mobiel menu
+const btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}));
+
+// tabs
+const tabs=[...document.querySelectorAll('.tab')];
+function kies(t,focus){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus()}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>kies(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight')kies(tabs[(i+1)%tabs.length],true);if(e.key==='ArrowLeft')kies(tabs[(i-1+tabs.length)%tabs.length],true)})});
+
+// vandaag open?
+const uren={0:[17,22],1:[17,22],2:[17,22],3:null,4:[17,22],5:[14,22],6:[14,22]};
+const nu=new Date(),d=nu.getDay(),h=nu.getHours()+nu.getMinutes()/60,u=uren[d];
+const el=document.getElementById('vandaag'),tx=document.getElementById('vandaag-tekst');
+const li=document.querySelector('#uren li[data-d="'+d+'"]');if(li)li.classList.add('nu');
+const f=x=>String(x).padStart(2,'0')+':00';
+if(!u){tx.textContent='Vandaag (woensdag) zijn we gesloten. Morgen vanaf 17:00 weer open.';el.classList.add('dicht')}
+else if(h<u[0]){tx.textContent='Vandaag open van '+f(u[0])+' tot '+f(u[1])}
+else if(h<u[1]){tx.textContent='Nu open, tot '+f(u[1])}
+else{tx.textContent='Voor vandaag gesloten.';el.classList.add('dicht')}
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

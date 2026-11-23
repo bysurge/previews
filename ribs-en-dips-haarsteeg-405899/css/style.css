@@ -1,0 +1,225 @@
+:root {
+  --lak: #3f160d;        /* diep gelakt mahonie */
+  --lak-2: #57200f;
+  --gloed: #a8261a;      /* rood uit hun logo */
+  --honing: #e8a83e;     /* glans op de lak */
+  --papier: #efe2cb;     /* slagerspapier */
+  --papier-2: #e4d2b3;
+  --inkt: #2a160f;
+  --zacht: #6d5446;
+  --serif: "Zilla Slab", Georgia, serif;
+  --sans: "Figtree", system-ui, sans-serif;
+  --max: 1160px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--papier); color: var(--inkt); font: 400 17px/1.6 var(--sans); padding-bottom: 34px; }
+img { max-width: 100%; display: block; }
+a { color: var(--gloed); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--honing); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.08; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: clamp(32px, 4.4vw, 52px); }
+h3 { font-size: 22px; }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.small { font-size: 15px; }
+.muted { color: var(--zacht); }
+
+/* knoppen */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: var(--gloed); color: #fff; font: 600 16px var(--sans); text-decoration: none; border: 2px solid var(--gloed); transition: background .2s, border-color .2s; }
+.btn:hover { background: #8d1d13; border-color: #8d1d13; }
+.btn-line { background: transparent; border-color: rgba(239,226,203,.55); color: var(--papier); }
+.btn-line:hover { background: rgba(239,226,203,.1); border-color: var(--papier); }
+.btn-line-dark { background: transparent; border-color: var(--inkt); color: var(--inkt); }
+.btn-line-dark:hover { background: var(--inkt); color: var(--papier); border-color: var(--inkt); }
+.btn-small { min-height: 42px; padding: 0 18px; font-size: 15px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
+
+/* header (geen backdrop-filter) */
+.top { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 68px; display: flex; align-items: center; gap: 24px; padding: 0 24px; background: var(--papier); border-bottom: 1px solid var(--papier-2); }
+.brand img { height: 40px; width: auto; }
+.nav { display: flex; gap: 26px; margin-left: auto; }
+.nav a { color: var(--inkt); text-decoration: none; font-weight: 600; font-size: 16px; }
+.nav a:hover { color: var(--gloed); }
+.nav .nav-cta { display: none; }
+.menu-btn { display: none; }
+
+/* hero */
+.hero { background: var(--lak); color: var(--papier); padding: 132px 24px 0; position: relative; }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: var(--papier); }
+.hero-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+.hero-where { color: var(--honing); font-weight: 600; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(44px, 7.4vw, 96px); line-height: .98; }
+.lede { font-size: 19px; max-width: 600px; margin: 24px auto 0; color: #ead7bd; }
+.hero .hero-actions { justify-content: center; }
+.hero-open { margin: 22px 0 0; font-size: 15px; color: #d7bfa1; }
+.hero-photo { position: relative; z-index: 1; max-width: 1080px; margin: 56px auto 0; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(42,22,15,.8); }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 1000/376; object-fit: cover; }
+
+@media (min-width: 961px) {
+  .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; padding: 120px max(32px, calc((100vw - var(--max)) / 2 + 24px)) 0; }
+  .hero::after { height: 90px; }
+  .hero-inner { text-align: left; margin: 0; padding-bottom: 120px; }
+  .hero h1 { font-size: clamp(52px, 5.6vw, 84px); }
+  .lede { margin-left: 0; }
+  .hero .hero-actions { justify-content: flex-start; }
+  .hero-photo { margin: 0; align-self: end; }
+  .hero-photo img { aspect-ratio: 5/4; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo img { animation: glans 1.2s ease-out both; }
+  @keyframes glans { from { transform: scale(1.06); filter: saturate(.7) brightness(.85); } to { transform: none; filter: none; } }
+}
+
+/* aanbiedingen */
+.deals { padding: 56px 0 24px; }
+.deals-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 18px; }
+.deal { background: var(--lak-2); color: var(--papier); border-radius: 18px; padding: 22px 24px; position: relative; }
+.deal::before, .deal::after { content: ""; position: absolute; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; background: var(--papier); }
+.deal::before { left: -9px; } .deal::after { right: -9px; }
+.deal-day { color: var(--honing); font-weight: 600; margin: 0; }
+.deal-what { font: 700 24px/1.15 var(--serif); margin: 4px 0 6px; }
+.deal-price { font: 700 34px/1 var(--serif); margin: 0; }
+.deal-note { background: transparent; color: var(--inkt); border: 2px dashed var(--papier-2); display: flex; align-items: center; }
+.deal-note::before, .deal-note::after { display: none; }
+.deal-note p { margin: 0; font-size: 16px; }
+
+/* smaken: het herkenbare stuk */
+.smaken { padding: 72px 0 88px; }
+.smaken-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: start; }
+.smaken-text h2 { margin-bottom: 20px; }
+.lak { background: var(--lak); color: var(--papier); border-radius: 26px; padding: 30px; }
+.lak-chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.chip { display: flex; flex-direction: column; align-items: center; gap: 8px; background: transparent; border: 2px solid transparent; border-radius: 16px; padding: 12px 4px 10px; color: var(--papier); font: 600 15px var(--sans); cursor: pointer; transition: border-color .2s, background .2s; }
+.chip i { width: 54px; height: 54px; border-radius: 50%; background: radial-gradient(circle at 34% 28%, rgba(255,255,255,.75) 0 7%, transparent 18%), radial-gradient(circle at 50% 55%, var(--c1), var(--c2)); box-shadow: inset 0 -6px 10px rgba(0,0,0,.25), 0 4px 10px rgba(0,0,0,.3); transition: transform .25s; }
+.chip:hover i { transform: scale(1.06); }
+.chip[aria-selected="true"] { border-color: var(--honing); background: rgba(232,168,62,.08); }
+.lak-panel { margin-top: 22px; padding: 22px 0 6px; border-top: 1px solid rgba(239,226,203,.18); min-height: 150px; }
+.lak-name { font: 700 30px/1 var(--serif); margin: 0 0 6px; color: var(--honing); }
+.lak-beer-intro { margin: 0 0 8px; color: #d7bfa1; }
+.lak-beers { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.lak-beers li { background: rgba(239,226,203,.1); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+.lak-beers li b { font-weight: 600; }
+.lak-beers li span { color: var(--honing); margin-left: 6px; }
+.mixen { margin-top: 18px; padding-top: 20px; border-top: 1px solid rgba(239,226,203,.18); }
+.mixen h3 { font-size: 20px; margin-bottom: 10px; }
+.mixen ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.mixen b { color: var(--honing); font-weight: 600; margin-right: 8px; }
+.mixen li { font-size: 16px; }
+
+/* kaart */
+.kaart { background: #f7eedf; padding: 88px 0 96px; border-top: 1px solid var(--papier-2); }
+.kaart-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 28px; }
+.kaart-head p { max-width: 420px; margin: 0; color: var(--zacht); font-size: 16px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 2px solid var(--papier-2); margin-bottom: 34px; }
+.tabs button { background: none; border: 0; padding: 12px 16px; margin-bottom: -2px; border-bottom: 3px solid transparent; font: 700 19px var(--serif); color: var(--zacht); cursor: pointer; }
+.tabs button[aria-selected="true"] { color: var(--inkt); border-bottom-color: var(--gloed); }
+.panel h3 { margin: 0 0 10px; color: var(--gloed); }
+.panel h3 + .menu { margin-bottom: 30px; }
+.h-sub { font: 500 15px var(--sans); color: var(--zacht); margin-left: 6px; }
+.panel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.panel-cols-3 { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.menu { list-style: none; margin: 0 0 18px; padding: 0; }
+.menu li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px dotted #cdb38e; }
+.menu .d { font-weight: 600; }
+.menu small { display: block; font-weight: 400; color: var(--zacht); font-size: 15px; margin-top: 2px; }
+.menu .p { font: 700 18px var(--serif); white-space: nowrap; }
+.tip { font: italic 500 19px/1.4 var(--serif); color: var(--lak-2); border-left: 4px solid var(--honing); padding: 4px 0 4px 16px; margin-top: 20px; max-width: 560px; }
+.panel-photo { margin: 0; border-radius: 18px; overflow: hidden; align-self: start; }
+.panel-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.panel-photo-tall { margin-top: 10px; }
+.panel-photo-tall img { aspect-ratio: 3/2; }
+
+/* afhalen */
+.afhalen { background: var(--honing); padding: 88px 0; }
+.afhalen-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+.afhalen h2 { margin-bottom: 18px; }
+.afhalen-text p { max-width: 520px; }
+.afhalen .small a { color: var(--inkt); }
+.afhalen-text .small { margin-top: 22px; }
+.afhaal-card { background: var(--papier); border-radius: 22px; padding: 28px 30px 14px; box-shadow: 0 20px 40px -24px rgba(63,22,13,.6); }
+.afhaal-card h3 { color: var(--gloed); margin-bottom: 6px; }
+.afhaal-card .menu li { padding: 8px 0; }
+
+/* over */
+.over { padding: 96px 0; }
+.over-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 56px; }
+.over-grid h2 { grid-column: 1 / -1; max-width: 760px; margin-bottom: 10px; }
+.over-text p { font-size: 18px; }
+.plaatsen p { font-weight: 600; margin-bottom: 12px; }
+.plaatsen ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.plaatsen li { border: 1.5px solid #cdb38e; border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+
+/* contact */
+.contact { background: var(--lak); color: var(--papier); padding: 88px 0; }
+.contact a { color: var(--honing); }
+.contact .btn { color: #fff; }
+.contact .btn-line { color: var(--papier); }
+.contact-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: stretch; }
+.contact h2 { margin-bottom: 16px; }
+.contact-info > p { color: #ead7bd; max-width: 520px; }
+.info-cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-top: 40px; }
+.info-cols h3 { color: var(--honing); margin-bottom: 10px; font-size: 20px; }
+.hours { border-collapse: collapse; width: 100%; font-size: 16px; }
+.hours th { text-align: left; font-weight: 400; padding: 5px 12px 5px 0; }
+.hours td { text-align: right; padding: 5px 0; white-space: nowrap; }
+.hours tr.vandaag th, .hours tr.vandaag td { color: var(--honing); font-weight: 600; }
+.map { border-radius: 22px; overflow: hidden; min-height: 380px; background: var(--lak-2); }
+.map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; filter: sepia(.25) saturate(.9); }
+
+/* footer + ribbon */
+.foot { background: var(--papier); padding: 44px 0 40px; text-align: center; }
+.foot img { height: 44px; width: auto; margin: 0 auto 14px; }
+.foot p { margin: 0 0 6px; font-size: 15px; color: var(--zacht); }
+.foot a { color: var(--inkt); }
+.sep { color: #cdb38e; margin: 0 6px; }
+.ribbon { position: fixed; left: 0; right: 0; bottom: 0; z-index: 100; height: 34px; background: var(--inkt); color: var(--papier); text-align: center; font: 500 13px/34px var(--sans); border-top: 2px solid var(--honing); }
+
+/* tablet / telefoon */
+@media (max-width: 960px) {
+  .smaken-grid, .afhalen-grid, .contact-grid, .over-grid { grid-template-columns: 1fr; gap: 36px; }
+  .deals-grid { grid-template-columns: 1fr 1fr; }
+  .deal-note { grid-column: 1 / -1; }
+  .panel-cols-3 { grid-template-columns: 1fr 1fr; }
+  .kaart-head { flex-direction: column; align-items: start; gap: 10px; }
+}
+@media (max-width: 820px) {
+  .top { height: 62px; padding: 0 16px; gap: 12px; }
+  .brand img { height: 32px; }
+  .top-cta { margin-left: auto; min-height: 38px; padding: 0 14px; }
+  .menu-btn { display: inline-flex; flex-direction: column; justify-content: center; gap: 6px; width: 44px; height: 44px; background: none; border: 0; padding: 10px; cursor: pointer; }
+  .menu-btn span:not(.sr) { display: block; height: 2px; background: var(--inkt); border-radius: 2px; transition: transform .2s; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+  .nav { position: fixed; top: 62px; left: 0; right: 0; bottom: 0; flex-direction: column; gap: 0; padding: 18px 24px 60px; background: var(--papier); margin: 0; transform: translateX(100%); visibility: hidden; transition: transform .25s, visibility .25s; overflow-y: auto; }
+  .nav.open { transform: none; visibility: visible; }
+  .nav a { font: 700 26px var(--serif); padding: 14px 0; border-bottom: 1px solid var(--papier-2); }
+  .nav .nav-cta { display: block; color: var(--gloed); border-bottom: 0; }
+  html { scroll-padding-top: 66px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 20px; }
+  .hero { padding: 104px 20px 0; }
+  .hero::after { height: 56px; }
+  .lede { font-size: 17px; }
+  .hero-photo { margin-top: 38px; border-radius: 16px; }
+  .hero-photo img { aspect-ratio: 4/3; }
+  .hero .btn { flex: 1 1 100%; }
+  .deals { padding-top: 36px; }
+  .deals-grid { grid-template-columns: 1fr; gap: 14px; }
+  .smaken, .kaart, .afhalen, .over, .contact { padding: 64px 0; }
+  .lak { padding: 20px 14px; border-radius: 20px; }
+  .lak-chips { gap: 4px; }
+  .chip { font-size: 13px; padding: 10px 2px 8px; }
+  .chip i { width: 44px; height: 44px; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -20px 28px; padding: 0 20px; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { white-space: nowrap; font-size: 17px; padding: 10px 12px; }
+  .panel-cols, .panel-cols-3 { grid-template-columns: 1fr; gap: 10px; }
+  .afhaal-card { padding: 22px 18px 8px; }
+  .info-cols { grid-template-columns: 1fr; gap: 24px; }
+  .map, .map iframe { min-height: 300px; }
+  .ribbon { font-size: 12px; }
+}

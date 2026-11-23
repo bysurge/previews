@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eetcafé 't Dörp · Hooge Mierde</title>
+<meta name="description" content="Eetcafé, feestzaal en cafetaria in Hooge Mierde. Steengrillen, reuzekoekenpan, stokbroodjes, catering en een gezellig terras.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232e4339'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='34' font-weight='700' text-anchor='middle' fill='%23f2a93b'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e4339; --green-2:#3b5548; --sage:#9bb3a1; --mist:#eef1ea; --paper:#fbfcf9;
+  --brick:#9a4128; --brick-2:#7d321e; --amber:#f2a93b; --ink:#1f2a24; --muted:#5b6a61; --line:#d5ddd3;
+  --serif:'Bree Serif',Georgia,serif; --sans:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--mist);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--brick)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0 0 .5em;color:var(--green)}
+h2{font-size:clamp(2rem,4.4vw,3rem)}
+h3{font-size:1.45rem}
+p{margin:0 0 1em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-weight:800;font-size:1rem;text-decoration:none;border-radius:999px;padding:.85em 1.4em;border:2px solid transparent;cursor:pointer;font-family:var(--sans);transition:background .2s,color .2s}
+.btn-amber{background:var(--amber);color:#2a1a05}
+.btn-amber:hover{background:#ffbf5c}
+.btn-ghost{border-color:rgba(255,255,255,.75);color:#fff;background:rgba(0,0,0,.15)}
+.btn-ghost:hover{background:#fff;color:var(--green)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-2)}
+.btn-line{border-color:var(--green);color:var(--green);background:transparent}
+.btn-line:hover{background:var(--green);color:#fff}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s,box-shadow .25s}
+.top.solid{background:var(--green);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{text-decoration:none;color:#fff;display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-weight:400;font-size:1.6rem}
+.brand small{font-size:.68rem;letter-spacing:.04em;opacity:.85;margin-top:3px}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:.5em .7em;border-radius:8px}
+.nav a:hover{background:rgba(255,255,255,.12)}
+.nav a.cta{background:var(--amber);color:#2a1a05;margin-left:8px;padding:.55em 1em;border-radius:999px}
+.burger{display:none;background:none;border:0;color:#fff;width:46px;height:46px;cursor:pointer;border-radius:10px}
+.burger span{display:block;width:24px;height:2px;background:#fff;margin:5px auto;transition:transform .25s,opacity .2s}
+@media (max-width:960px){
+  .burger{display:block}
+  .nav{position:fixed;inset:68px 0 auto 0;background:var(--green);flex-direction:column;align-items:stretch;padding:10px 18px 22px;gap:0;transform:translateY(-130%);transition:transform .3s;box-shadow:0 12px 24px rgba(0,0,0,.25);max-height:calc(100vh - 68px);overflow:auto}
+  .nav{visibility:hidden;transition:transform .3s,visibility .3s}
+  .nav.open{transform:none;visibility:visible}
+  .nav a{padding:.85em .4em;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.05rem}
+  .nav a.cta{margin:14px 0 0;text-align:center;border:0}
+  .top.menu-open{background:var(--green)}
+  .burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded=true] span:nth-child(2){opacity:0}
+  .burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--green)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.hero-img img.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,38,31,.92) 0%,rgba(25,38,31,.72) 38%,rgba(25,38,31,.1) 70%),linear-gradient(0deg,rgba(25,38,31,.75),rgba(25,38,31,0) 45%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:64px}
+.hero-sub{font-weight:700;font-size:1.05rem;color:#e9efe6;margin:0 0 .4em}
+.hero h1{color:#fff;font-size:clamp(3.4rem,9vw,7.2rem);line-height:.95;margin:0;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.bulbs{display:flex;gap:clamp(14px,2.6vw,26px);margin:26px 0 24px;padding:0;list-style:none;position:relative;width:min(520px,90%)}
+.bulbs::before{content:"";position:absolute;left:-6px;right:-6px;top:-7px;height:14px;border-top:2px solid rgba(255,255,255,.45);border-radius:0 0 50% 50%/0 0 100% 100%}
+.bulbs li{width:11px;height:15px;border-radius:50% 50% 45% 45%;background:#ffd38a;box-shadow:0 0 12px 3px rgba(242,169,59,.7);animation:glow .5s ease both}
+.bulbs li:nth-child(2){animation-delay:.06s}.bulbs li:nth-child(3){animation-delay:.12s}.bulbs li:nth-child(4){animation-delay:.18s}.bulbs li:nth-child(5){animation-delay:.24s}.bulbs li:nth-child(6){animation-delay:.3s}.bulbs li:nth-child(7){animation-delay:.36s}.bulbs li:nth-child(8){animation-delay:.42s}.bulbs li:nth-child(9){animation-delay:.48s}
+@keyframes glow{from{background:#7d7466;box-shadow:none}to{}}
+.hero-lead{font-size:1.2rem;max-width:30em;color:#f1f4ef;margin-bottom:1.4em}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.today{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.today span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:.5em .9em;font-size:.95rem}
+.today b{color:var(--amber)}
+@media (max-width:700px){
+  .hero{min-height:auto;display:block}
+  .hero-img{position:relative;height:46svh;min-height:280px}
+  .hero::after{background:linear-gradient(180deg,rgba(25,38,31,.35) 0%,rgba(25,38,31,0) 22%,rgba(46,67,57,0) 34%,rgba(46,67,57,1) 46%)}
+  .hero .wrap{padding-top:0;margin-top:-90px;padding-bottom:40px}
+  .hero-lead{font-size:1.05rem}
+  .hero-btns .btn{flex:1 1 100%;justify-content:center}
+}
+
+/* sections */
+section{padding:90px 0}
+.intro{max-width:40em;color:var(--muted);font-size:1.1rem}
+.kicker{font-weight:800;color:var(--brick);font-size:.95rem;margin:0 0 .4em}
+
+/* twee ingangen */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.door{background:var(--paper);border-radius:22px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.door-img{aspect-ratio:16/9;overflow:hidden}
+.door-img img{width:100%;height:100%;object-fit:cover}
+.door-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+.door ul{margin:0 0 1.2em;padding-left:1.1em}
+.door .hours{background:var(--mist);border-radius:12px;padding:.8em 1em;margin:auto 0 1.2em;font-size:.97rem}
+.door .btn{align-self:flex-start}
+@media (max-width:820px){.doors{grid-template-columns:1fr}}
+
+/* steengrill */
+.grill{background:var(--green);color:#e8eee6}
+.grill h2,.grill h3{color:#fff}
+.grill .kicker{color:var(--amber)}
+.grill-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.video{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#1b2822}
+.video button{all:unset;cursor:pointer;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:#fff;font-weight:800}
+.video button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.video .play{position:relative;width:78px;height:78px;border-radius:50%;background:var(--amber);display:grid;place-items:center;box-shadow:0 6px 30px rgba(0,0,0,.35)}
+.video .play::after{content:"";border-left:24px solid #2a1a05;border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
+.video .vt{position:relative;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.video button:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.quote-en{font-family:var(--serif);font-size:1.3rem;color:var(--amber);margin:22px 0 0}
+.prices{list-style:none;padding:0;margin:0 0 1.2em}
+.prices li{display:flex;justify-content:space-between;gap:16px;padding:.6em 0;border-bottom:1px dashed rgba(255,255,255,.22)}
+.prices li b{white-space:nowrap;color:#fff}
+.prices small{display:block;color:#b9c8bd;font-size:.88rem}
+.note{font-size:.93rem;color:#c3d0c6}
+.pan{margin-top:64px;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;padding-top:56px;border-top:1px solid rgba(255,255,255,.15)}
+.pan .big{font-family:var(--serif);font-size:clamp(3.5rem,8vw,6rem);color:var(--amber);line-height:1}
+@media (max-width:880px){.grill-grid,.pan{grid-template-columns:1fr;gap:32px}}
+
+/* menu */
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 26px}
+.tabs button{font:700 .95rem var(--sans);border:2px solid var(--line);background:var(--paper);color:var(--green);border-radius:999px;padding:.55em 1.05em;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:#fff}
+@media (max-width:640px){
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin-left:-22px;margin-right:-22px;padding:0 22px 6px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{flex:0 0 auto}
+}
+.panel{background:var(--paper);border-radius:22px;border:1px solid var(--line);padding:34px 36px}
+.panel[hidden]{display:none}
+.cols{columns:2;column-gap:56px}
+.grp{break-inside:avoid;margin-bottom:28px}
+.grp h3{border-bottom:2px solid var(--sage);padding-bottom:.3em;margin-bottom:.4em}
+.grp .gnote{font-size:.9rem;color:var(--muted);margin:-.1em 0 .6em}
+.item{display:flex;justify-content:space-between;gap:14px;padding:.42em 0;border-bottom:1px solid #edf0eb}
+.item:last-child{border-bottom:0}
+.item b{font-weight:700}
+.item small{display:block;color:var(--muted);font-size:.88rem;line-height:1.4}
+.item .p{white-space:nowrap;font-weight:800;color:var(--brick)}
+@media (max-width:760px){.cols{columns:1}.panel{padding:24px 20px}}
+.keuze{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;background:var(--brick);color:#fff;border-radius:22px;padding:30px 34px;margin-top:26px}
+.keuze h3{color:#fff;margin:0}
+.keuze .k-price{font-family:var(--serif);font-size:3.4rem;line-height:1;color:#ffd38a}
+.keuze .k-price small{display:block;font-family:var(--sans);font-size:.9rem;color:#f3d9cf;margin-top:6px}
+.keuze ol{margin:.4em 0 0;padding-left:1.2em}
+.keuze li{margin:.25em 0}
+@media (max-width:700px){.keuze{grid-template-columns:1fr;gap:12px;padding:24px 22px}}
+.extra-info{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:20px;color:var(--muted);font-size:.95rem}
+
+/* gedicht */
+.poem{position:relative;color:#fff;padding:110px 0;overflow:hidden}
+.poem img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poem::before{content:"";position:absolute;inset:0;background:rgba(28,40,33,.72);z-index:1}
+.poem .wrap{position:relative;z-index:2;display:grid;grid-template-columns:.75fr 1.25fr;gap:48px}
+.poem h2{color:#fff}
+.poem .verses{font-family:var(--serif);font-size:1.05rem;line-height:1.6;columns:2;column-gap:44px}
+.poem .verses p{break-inside:avoid}
+@media (max-width:900px){.poem .wrap{grid-template-columns:1fr}.poem .verses{columns:1}}
+
+/* cafetaria */
+.caf-top{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+.caf-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/3}
+.caf-photo img{width:100%;height:100%;object-fit:cover}
+.callout{display:flex;gap:14px;align-items:center;background:#fff4df;border:1px solid #f1d39b;border-radius:14px;padding:14px 18px;margin:18px 0}
+.callout b{color:var(--brick)}
+@media (max-width:820px){.caf-top{grid-template-columns:1fr}}
+.tip{background:var(--mist);border-radius:14px;padding:16px 18px;margin-top:6px;font-size:.95rem}
+
+/* stokbrood */
+.stok{background:var(--paper)}
+.stok-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.stok-photo{border-radius:22px;overflow:hidden;aspect-ratio:1/1;margin-bottom:22px}
+.stok-photo img{width:100%;height:100%;object-fit:cover}
+.card{background:var(--mist);border-radius:18px;padding:22px 24px;margin-bottom:16px}
+.card h3{margin-bottom:.3em}
+@media (max-width:880px){.stok-grid{grid-template-columns:1fr}.stok-photo{aspect-ratio:16/10}}
+
+/* kerst */
+.kerst{background:var(--brick);color:#f8e9e2}
+.kerst h2,.kerst h3{color:#fff}
+.kerst .kicker{color:#ffd38a}
+.kerst-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px}
+.kerst-card{background:var(--brick-2);border-radius:22px;padding:30px 32px;display:flex;flex-direction:column}
+.kerst-card .kp{font-family:var(--serif);font-size:2.4rem;color:#ffd38a;line-height:1;margin:.2em 0 .5em}
+.kerst-card .kp small{font-family:var(--sans);font-size:.9rem;color:#f3d9cf}
+.kerst-card ul{padding-left:1.1em;margin:0 0 1.2em}
+.kerst-card .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:820px){.kerst-grid{grid-template-columns:1fr}.kerst-card{padding:24px 22px}}
+
+/* catering & zaal */
+.cz-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;margin-top:36px}
+.buffet{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px}
+.buffet-opts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 24px}
+.bopt{border:2px solid var(--line);border-radius:16px;padding:18px}
+.bopt.best{border-color:var(--amber);background:#fff8ea}
+.bopt .bp{font-family:var(--serif);font-size:2rem;color:var(--brick);line-height:1.1}
+.bopt .tag{display:inline-block;background:var(--amber);color:#2a1a05;font-weight:800;font-size:.8rem;border-radius:999px;padding:.15em .7em;margin-bottom:6px}
+.zaal{background:var(--green);color:#e8eee6;border-radius:22px;padding:32px;display:flex;flex-direction:column}
+.zaal h3{color:#fff}
+.zaal .big{font-family:var(--serif);font-size:4.5rem;line-height:1;color:var(--amber)}
+.zaal .btn{margin-top:auto;align-self:flex-start}
+details.more{border-top:1px solid var(--line);padding-top:12px}
+details.more summary{cursor:pointer;font-weight:800;color:var(--green)}
+.two{columns:2;column-gap:36px;margin-top:12px}
+@media (max-width:880px){.cz-grid{grid-template-columns:1fr}.buffet{padding:24px 20px}.buffet-opts{grid-template-columns:1fr}.two{columns:1}}
+
+/* gasten */
+.guests{background:var(--paper)}
+.g-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-top:36px}
+.g{background:var(--mist);border-radius:20px;padding:26px;margin:0}
+.g p{margin-bottom:.8em}
+.g.lead{grid-row:span 2;background:var(--green);color:#eef2ec}
+.g.lead p{font-family:var(--serif);font-size:1.12rem;line-height:1.55}
+.g cite{font-style:normal;font-weight:800;color:var(--brick)}
+.g.lead cite{color:var(--amber)}
+@media (max-width:900px){.g-grid{grid-template-columns:1fr}.g.lead{grid-row:auto}}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.hours-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.hours-table th,.hours-table td{text-align:left;padding:.5em .4em;border-bottom:1px solid var(--line);vertical-align:top}
+.hours-table th{font-family:var(--serif);font-weight:400;color:var(--green);font-size:1.05rem}
+.hours-table tr.now td{background:#fff4df;font-weight:700}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;margin-top:20px;background:#dfe5dc}
+.map iframe{width:100%;height:100%;border:0}
+form{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px}
+label{display:block;font-weight:700;font-size:.95rem;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:.7em .8em;border:1.5px solid #c8d2c6;border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-msg{display:none;margin-top:14px;background:#e4efe3;border-radius:10px;padding:12px 14px;font-weight:700;color:var(--green)}
+.form-msg.show{display:block}
+.small{font-size:.9rem;color:var(--muted)}
+@media (max-width:880px){.contact-grid{grid-template-columns:1fr}form{padding:22px 18px}}
+
+footer{background:var(--green);color:#cfdad1;padding:54px 0 90px;font-size:.95rem}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
+footer a{color:#fff}
+footer h4{color:#fff;font-size:1.2rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+.ribbon{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:60;background:rgba(31,42,36,.9);color:#fff;font-size:.8rem;padding:.45em 1em;border-radius:999px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#home"><b>'t Dörp</b><small>Eetcafé · Feestzaal · Cafetaria</small></a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#eetcafe">Eetcafé</a>
+      <a href="#steengrillen">Steengrillen</a>
+      <a href="#menukaart">Menukaart</a>
+      <a href="#cafetaria">Cafetaria</a>
+      <a href="#stokbroodjes">Stokbroodjes</a>
+      <a href="#kerst">Kerst</a>
+      <a href="#catering">Catering &amp; zaal</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#reserveren">Reserveren</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero" style="padding:0">
+  <div class="hero-img" aria-hidden="false">
+    <img class="on" src="img/terras-overkapping.jpg" alt="Het overdekte terras van Eetcafé 't Dörp met houten tafels, bloemen en lichtjes">
+    <img src="img/terras-bloemen.jpg" alt="" loading="lazy">
+    <img src="img/terras-bloesem.jpg" alt="" loading="lazy">
+  </div>
+  <div class="wrap">
+    <p class="hero-sub">Kerkstraat 5, Hooge Mierde</p>
+    <h1>Eetcafé<br>'t Dörp</h1>
+    <ul class="bulbs" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+    <p class="hero-lead">Eetcafé, feestzaal en cafetaria onder één dak. Niet te chique, gewoon gezellig: van een frietje om mee te nemen tot onbeperkt steengrillen met de hele familie.</p>
+    <div class="hero-btns">
+      <a class="btn btn-amber" href="#reserveren">Reserveer een tafel</a>
+      <a class="btn btn-ghost" href="tel:0135091605">Bestel bij de cafetaria: 013 509 1605</a>
+    </div>
+    <div class="today" id="today" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="eetcafe">
+  <div class="wrap">
+    <p class="kicker">Twee ingangen, één huis</p>
+    <h2>Links het eetcafé, rechts de cafetaria</h2>
+    <p class="intro">Wie over het terras loopt, ziet het meteen: aan de ene kant de ingang van eetcafé en feestzaal, aan de andere kant de cafetaria. Kom gezellig eten, of haal iets lekkers op voor thuis.</p>
+    <div class="doors">
+      <article class="door">
+        <div class="door-img"><img src="img/voorgevel.jpg" alt="Voorkant van 't Dörp met terras, ingang eetcafé en de cafetaria" loading="lazy"></div>
+        <div class="door-body">
+          <h3>Eetcafé</h3>
+          <p>Kies iets van de menukaart, met voor ieder wat wils, of ga voor het speciale keuzemenu. Iets te vieren, of gewoon omdat het weer kan? Kom 3 uur lang onbeperkt steengrillen met het steengrillen all-inclusive.</p>
+          <ul>
+            <li>Menukaart met lunch, salades, vlees, vis en vega</li>
+            <li>Steengrillen en de reuzekoekenpan</li>
+            <li>Gezellig aan de bar, met live-muziek of karaoke</li>
+          </ul>
+          <div class="hours"><b>Open:</b> wo t/m za vanaf 16.30 uur, zo vanaf 12.00 uur. Ma en di gesloten.<br>Voor een bezoek aan het eetcafé graag reserveren.</div>
+          <a class="btn btn-green" href="#reserveren">Reserveer in het eetcafé</a>
+        </div>
+      </article>
+      <article class="door">
+        <div class="door-img"><img src="img/terras-bloesem.jpg" alt="De cafetaria van 't Dörp, met het terras onder de bloesem" loading="lazy"></div>
+        <div class="door-body">
+          <h3>Cafetaria</h3>
+          <p>Lekkere zelfgebakken friet, veel zelfgemaakte snacks en sauzen. Ook voor stokbroodjes, burgers, milkshakes en softijs, het hele jaar door.</p>
+          <ul>
+            <li>Snacks uit eigen keuken, zoals joepkroket en nasibal</li>
+            <li>Belegde stokbroodjes met spaarkaart</li>
+            <li>Vegetarische en glutenvrije snacks</li>
+          </ul>
+          <div class="hours"><b>Open:</b> wo t/m zo 11.30 tot 20.00 uur. Ma en di gesloten.<br>Om uw wachttijd te beperken: bestel liefst vooraf telefonisch.</div>
+          <a class="btn btn-line" href="#cafetaria">Bekijk de cafetariakaart</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="grill" id="steengrillen">
+  <div class="wrap">
+    <div class="grill-grid">
+      <div>
+        <p class="kicker">Steengrillen</p>
+        <h2>Word uw eigen steengrill-chef</h2>
+        <p>In ons eetcafé kunt u heerlijk en gezellig steengrillen. U bakt zelf uw kwaliteitsvlees op een steen die in een speciale oven verhit wordt tot 500 graden Celsius. U bakt hierop zonder boter of vet.</p>
+        <p>Op tafel: hamburger, kipfilet, varkensfilet, varkenshaas en biefstuk. Met koude en warme sauzen, gemengde salade, uien, champignons, paprika's, stokbrood en kruidenboter, frietjes en aardappelkroketjes. Alles wordt onbeperkt bijgevuld, zodat u voluit kunt genieten.</p>
+        <div class="video" id="video">
+          <button type="button" aria-label="Speel de steengrill-film af (YouTube)">
+            <img src="img/terras-bloemen.jpg" alt="" loading="lazy">
+            <span class="play"></span>
+            <span class="vt">Bekijk onze steengrill-film</span>
+          </button>
+        </div>
+        <p class="quote-en">"Be the chef of your own, on our hot sizzling cooking stone!"</p>
+      </div>
+      <div>
+        <h3>Mogelijkheden</h3>
+        <ul class="prices">
+          <li><span>Onbeperkt steengrillen</span><b>€ 26,95 p.p.</b></li>
+          <li><span>Met soep vooraf en ijs na</span><b>€ 33,50 p.p.</b></li>
+          <li><span>Optie vis erbij<small>zalm, kabeljauw, garnalen</small></span><b>+ € 2,50 p.p.</b></li>
+          <li><span>All-inclusive<small>onbeperkt steengrillen met soep vooraf en ijs na, inclusief drank (fris, tapbier, wijn), 3 uur lang</small></span><b>€ 49,75 p.p.</b></li>
+        </ul>
+        <p class="note"><b>Kinderen:</b> onbeperkt steengrillen leeftijd × € 1,60; met soep en ijs leeftijd × € 2,00; all-inclusive leeftijd × € 2,75.</p>
+        <p class="note">Tijdig reserveren is noodzakelijk: minimaal 24 uur van tevoren.</p>
+        <a class="btn btn-amber" href="#reserveren">Reserveer om te steengrillen</a>
+      </div>
+    </div>
+
+    <div class="pan" id="reuzekoekenpan">
+      <div>
+        <p class="kicker">Reuzekoekenpan</p>
+        <div class="big">ruim 1 meter</div>
+        <p style="margin-top:.6em">Zo groot is de pan waar u met uw gezelschap omheen staat. U bakt uw vlees en groenten zelf, en alles wordt onbeperkt bijgevuld. Gezelligheid gegarandeerd.</p>
+      </div>
+      <div>
+        <p>Kwaliteitsvlees: kipfiletreepjes, varkensvleesreepjes, shoarmareepjes en biefstukreepjes. Om te roerbakken: uienringen, champignons, taugé en paprika. In buffetvorm: rauwkostsalades en koude schotel, stokbrood en kruidenboter, diverse sauzen en frites.</p>
+        <ul class="prices">
+          <li><span>Eten uit de reuzekoekenpan</span><b>€ 27,95 p.p.</b></li>
+          <li><span>Met soep vooraf en ijs na</span><b>€ 34,50 p.p.</b></li>
+          <li><span>All-inclusive<small>soep vooraf, ijs na, inclusief drank (fris, tapbier, wijn), 3 uur</small></span><b>€ 50,75 p.p.</b></li>
+        </ul>
+        <p class="note">Voor groepen vanaf 15 personen. Reserveren noodzakelijk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menukaart">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="kicker">Eetcafé</p>
+        <h2>De menukaart</h2>
+        <p class="intro" style="margin:0">Voor ieder wat wils. Alle hoofdgerechten worden geserveerd met frites, rauwkost en mayonaise. Vegetarische gerechten staan bij Vega.</p>
+      </div>
+      <a class="btn btn-green" href="#reserveren">Tafel reserveren</a>
+    </div>
+    <div class="tabs" role="tablist" data-group="eet"></div>
+    <div data-panels="eet"></div>
+
+    <div class="keuze">
+      <div class="k-price">€ 26,50<small>3-gangen keuzemenu, p.p.</small></div>
+      <div>
+        <h3>Ons speciale keuzemenu</h3>
+        <ol>
+          <li><b>Soep:</b> tomatensoep of bospaddenstoelensoep, met stokbrood en kruidenboter</li>
+          <li><b>Hoofdgerecht</b> (met frites, rauwkost en mayonaise): Frites 't Dörp I of II (prijs − € 2,50), varkenshaasje met saus, runder- en varkenslapjes met saus, schnitzel met saus, of Noorse zalmfilet in vissaus (prijs + € 2,50). Saus naar keuze: champignon, jäger, zigeuner, stroganoff of peper.</li>
+          <li><b>IJsje:</b> Sundae Sweet Apple Pie of Sundae Caramel/Daim</li>
+        </ol>
+      </div>
+    </div>
+    <div class="extra-info">
+      <span>Kinderstoelen aanwezig</span>
+      <span>Kleurplaten en potloden aan de bar</span>
+      <span>Catering: flyer met meer info aan de bar</span>
+    </div>
+  </div>
+</section>
+
+<section class="poem">
+  <img src="img/terras-bloemen.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <div>
+      <p class="kicker" style="color:var(--amber)">Team 't Dörp</p>
+      <h2>Ergens in Hooge Mierde vind je een gezellig eetcafé</h2>
+    </div>
+    <div class="verses">
+      <p>Ergens in Hooge Mierde vind je een gezellig eetcafé<br>Daar is de sfeer goed en nog heel gedwee<br>Waar gezelligheid en lekker eten<br>Nog hoog in het vaandel staan<br>Daar zou je echt eens naar toe moeten gaan.</p>
+      <p>Terwijl gezellige deuntjes klinken<br>Kun je aan de bar ook lekker wat drinken<br>Met live-muziek of karaoke<br>Brengen wij het feestgehalte aan de kook.</p>
+      <p>Niet te chique, maar gewoon op je gemak<br>Gaan wij in de keuken voor jou uit ons dak<br>Met steengrillen of gewoon uit de pan<br>Maak je er een culinair uitje van.</p>
+      <p>Wij hebben een sfeervol buitenterras<br>Dat komt bij goed weer wel van pas<br>Zo maken we van elk uitje een smakelijk feest<br>Zodat je na afloop kunt zeggen<br>'Wat was het weer gezellig geweest…'</p>
+    </div>
+  </div>
+</section>
+
+<section id="cafetaria">
+  <div class="wrap">
+    <div class="caf-top">
+      <div>
+        <p class="kicker">Cafetaria, familie Lavrijsen</p>
+        <h2>Zelfgebakken friet en snacks uit eigen keuken</h2>
+        <p class="intro">In onze cafetaria kunt u terecht voor lekkere zelfgebakken friet, veel zelfgemaakte snacks en sauzen. Open woensdag tot en met zondag van 11.30 tot 20.00 uur.</p>
+        <div class="callout"><span>☎</span><span>Graag uw bestelling vooraf telefonisch doorgeven: <b><a href="tel:0135091605">013 509 1605</a></b>. Afhaalbestellingen niet per e-mail.</span></div>
+        <p class="small">Probeer eens iets anders: vraag naar de maandkraker van het moment. <a href="https://eetcafe-dorp.nl/wp-content/uploads/2022/05/Cafetaria-Flyer-2026.pdf">Cafetaria-flyer 2026 (PDF)</a></p>
+      </div>
+      <div class="caf-photo"><img src="img/stock-friet.jpg" alt="" loading="lazy"></div>
+    </div>
+    <div class="tabs" role="tablist" data-group="caf"></div>
+    <div data-panels="caf"></div>
+    <div class="tip"><b>Tip!</b> Probeert u maar eens een nasibal, joepkroket, saté, shaslick, gehaktbal of hamburger uit eigen keuken.</div>
+  </div>
+</section>
+
+<section class="stok" id="stokbroodjes">
+  <div class="wrap stok-grid">
+    <div>
+      <div class="stok-photo"><img src="img/stock-broodje.jpg" alt="" loading="lazy"></div>
+      <div class="card">
+        <h3>Spaarkaart</h3>
+        <p style="margin:0">Bij ieder gekocht stokbroodje ontvangt u 1 spaarzegel voor op uw spaarkaart. Tegen inlevering van een volle spaarkaart krijgt u 1 stokbroodje naar keuze gratis.</p>
+      </div>
+      <div class="card">
+        <h3>Bezorging voor bedrijven</h3>
+        <p>Genieten op het werk van een lekker vers broodje. Bezorging op vrijdagmiddag vanaf 7 stokbroodjes, tussen 11.00 en 13.00 uur op een afgesproken tijdstip. Bezorgkosten € 2,00 per bestelling.</p>
+        <p style="margin:0">Bestellen: bel <a href="tel:0135091605">013 509 1605</a> (vanaf 10.30 uur) of WhatsApp <a href="https://wa.me/31642994978">06 42 99 49 78</a>; u ontvangt een bevestiging. <a href="https://eetcafe-dorp.nl/wp-content/uploads/2025/06/Bestellijst-stokbroodjes-bedrijven.pdf">Bestellijst bedrijven (PDF)</a></p>
+      </div>
+    </div>
+    <div>
+      <p class="kicker">Stokbroodjes</p>
+      <h2>De lekkerste stokbroodjes</h2>
+      <p class="intro">Opgemaakt met sla, tomaat, komkommer en ei. Ook als waldkornbol te bestellen.</p>
+      <div class="panel" style="margin-top:22px"><div id="stoklist"></div>
+        <p class="small" style="margin:14px 0 0">Iets anders? Vraag gerust, bijvoorbeeld een smoske met 2× viandel en curry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="kerst" id="kerst">
+  <div class="wrap">
+    <p class="kicker">Kerstmis 2026</p>
+    <h2>Kerst bij 't Dörp, of 't Dörp bij u thuis</h2>
+    <p style="max-width:40em">Op zowel 1e als 2e kerstdag kunt u reserveren voor het kerststeengrillen. Viert u kerst thuis? Maak het u gemakkelijk met ons kerstdiner voor thuis.</p>
+    <div class="kerst-grid">
+      <article class="kerst-card">
+        <h3>Kerststeengrillen</h3>
+        <div class="kp">€ 47,75 <small>p.p.</small></div>
+        <p>1e en 2e kerstdag, enkel op reservering, open vanaf 15.30 uur.</p>
+        <ul>
+          <li><b>Vooraf:</b> kaaskroketjes met rucola en truffelmayo</li>
+          <li><b>Tussen:</b> zoete tomatensoep</li>
+          <li><b>Steengrillen:</b> verschillende soorten vlees op een steen van 500 °C, met warme en koude sauzen, stokbrood en kruidenboter, gemengde sla, uien, champignons, paprika's, frietjes en aardappelkroketjes</li>
+          <li><b>Na:</b> heerlijk kerstdessert. Laat je verrassen!</li>
+        </ul>
+        <p class="small" style="color:#f3d9cf">Kinderen t/m 17 jaar: leeftijd × € 2,75.</p>
+        <a class="btn btn-amber" href="#reserveren">Reserveer voor kerst</a>
+      </article>
+      <article class="kerst-card">
+        <h3>Kerstdiner voor thuis</h3>
+        <div class="kp">€ 26,95 <small>p.p.</small></div>
+        <p>Huisgemaakt, per persoon te bestellen. Koud af te halen op 1e of 2e kerstdag tussen 11.30 en 13.00 uur, met opwarminstructie. Bestelling vóór 21 december doorgeven.</p>
+        <ul>
+          <li>Tomatensoep</li>
+          <li>Huzarensalade, koolsalade, gemengde sla, gevuld ei, stokbrood en kruidenboter</li>
+          <li>Rijst (ham/ei/prei), rösti rondjes, varkenshaas in champignonsaus, runderbiefreepjes in stroganoffsaus, zalmfilet in saus</li>
+          <li>Chocolademousse</li>
+        </ul>
+        <a class="btn btn-amber" href="https://wa.me/31642994978">Bestel via WhatsApp</a>
+        <p class="small" style="color:#f3d9cf;margin:10px 0 0">Of bel 013 509 1605, of mail info@eetcafe-dorp.nl.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="catering">
+  <div class="wrap">
+    <p class="kicker">Catering en feestzaal</p>
+    <h2>Uw feest door ons verzorgd</h2>
+    <p class="intro">Wij bezorgen koude en warme buffetten aan huis of op locatie, vanaf 15 personen. Eventueel ook in een andere samenstelling. Of vier uw feest bij ons in de zaal.</p>
+    <div class="cz-grid">
+      <div class="buffet">
+        <h3>Buffetten aan huis</h3>
+        <p class="small">Alles is huisgemaakt! Borden en bestek worden meegeleverd. Tijdstip van bezorging in overleg.</p>
+        <div class="buffet-opts">
+          <div class="bopt">
+            <div class="bp">€ 18,95 <small style="font-size:.9rem">p.p.</small></div>
+            <b>Basisbuffet</b>
+            <p class="small" style="margin:.4em 0 0">Huzarensalade, koolsalade, gemengde sla, gevuld ei, stokbrood, kruidenboter, rijst (ham/ei/prei), rösti rondjes, kipsaté in satésaus, babi pangang, varkenshaas in champignonsaus.</p>
+          </div>
+          <div class="bopt best">
+            <span class="tag">Best choice</span>
+            <div class="bp">€ 24,75 <small style="font-size:.9rem">p.p.</small></div>
+            <b>Basisbuffet uitgebreid</b>
+            <p class="small" style="margin:.4em 0 0">Het basisbuffet, plus pittige tomatensoep en chocolademousse.</p>
+          </div>
+        </div>
+        <details class="more">
+          <summary>Uit te breiden met (prijzen per persoon)</summary>
+          <div class="two">
+            <p><b>Warm</b></p>
+            <div class="item"><span>Soep naar keuze</span><span class="p">3,50</span></div>
+            <div class="item"><span>Varkensreepjes, ananas, wortel in saus</span><span class="p">2,25</span></div>
+            <div class="item"><span>Varkensreepjes met taugé</span><span class="p">2,25</span></div>
+            <div class="item"><span>Varkenshaas met spekjes en uitjes</span><span class="p">2,50</span></div>
+            <div class="item"><span>Varkensvlees in stroganoffsaus</span><span class="p">2,25</span></div>
+            <div class="item"><span>Kipfilet met spekjes en uitjes</span><span class="p">2,25</span></div>
+            <div class="item"><span>Drumstick</span><span class="p">2,50</span></div>
+            <div class="item"><span>Kalkoensatévlees in ketjapsaus</span><span class="p">2,50</span></div>
+            <div class="item"><span>Runderreepjes in stroganoffsaus</span><span class="p">2,50</span></div>
+            <div class="item"><span>Noorse zalmfilet in saus</span><span class="p">3,50</span></div>
+            <p style="margin-top:1em"><b>Koud</b></p>
+            <div class="item"><span>Gerookte zalm met cocktailsaus</span><span class="p">2,75</span></div>
+            <div class="item"><span>Haring met uitjes</span><span class="p">2,50</span></div>
+            <div class="item"><span>Meloen met ham</span><span class="p">1,75</span></div>
+            <div class="item"><span>Asperges met ham</span><span class="p">1,25</span></div>
+          </div>
+        </details>
+        <p class="small" style="margin-top:16px"><b>Bezorgen:</b> binnen de gemeente Reusel-De Mierden gratis, daarbuiten € 15,-. Na afloop brengt u de buffetspullen zelf terug; schoon teruggebracht betekent géén afwaskosten, vuil teruggebracht € 15,- afwaskosten. Minder dan 15 personen? Informeer naar een gevacumeerd koud buffet om af te halen en thuis te verwarmen.</p>
+      </div>
+      <div class="zaal" id="feestzaal">
+        <h3>Feestzaal</h3>
+        <div class="big">120</div>
+        <p>personen maximaal. Elk soort feest kan bij ons gevierd worden. Ook voor een koffietafel, diner of buffet kunt u bij ons terecht. Samen bespreken we uw wensen en kijken we naar de mogelijkheden.</p>
+        <a class="btn btn-amber" href="#reserveren">Vraag naar de mogelijkheden</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guests">
+  <div class="wrap">
+    <p class="kicker">Gasten over 't Dörp</p>
+    <h2>"Wat was het weer gezellig"</h2>
+    <div class="g-grid">
+      <figure class="g lead">
+        <p>"Enigszins verstopt in hartje Kempen ligt eetcafé 't Dorp in Hooge Mierde. Een heuse parel om te eten. Met ons personeelsuitje hebben we eerst aan de overzijde een boogschietworkshop gedaan bij vereniging Taxandria en aansluitend hadden we een steengrill-menu. De gastvrijheid, de uitmuntende kwaliteit van zowel de salades als het vlees, tot het stokbrood, de groentes, de frietjes en de gevarieerde sausjes aan toe: alles was vers en uitstekend van kwaliteit. Zelden zo'n top-avond gehad. Een serieuze aanrader, wij komen zeker terug!"</p>
+        <cite>Irma</cite>
+      </figure>
+      <figure class="g"><p>"Heerlijk gegeten bij Eetcafé 't Dorp! Zeker een aanrader en ik zal terugkomen met mijn gezin!"</p><cite>Gino van Winkel</cite></figure>
+      <figure class="g"><p>"Echt een top tent dit. Wij komen hier geregeld en dat zal voorlopig ook niet veranderen! Het eten is goed, de sfeer is super en de mensen zijn aardig."</p><cite>Sandra de Bruyn</cite></figure>
+      <figure class="g" style="grid-column:span 2"><p>"Super leuke activiteiten! Een familiedag was hier helemaal super!"</p><cite>Tom de With</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker">Openingstijden en contact</p>
+      <h2>Kom langs in Hooge Mierde</h2>
+      <table class="hours-table" id="hours">
+        <thead><tr><th>Dag</th><th>Cafetaria</th><th>Eetcafé</th></tr></thead>
+        <tbody>
+          <tr data-d="1"><td>Maandag</td><td>gesloten</td><td>gesloten</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>gesloten</td><td>gesloten</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>11.30 – 20.00</td><td>vanaf 16.30</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>11.30 – 20.00</td><td>vanaf 16.30</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>11.30 – 20.00</td><td>vanaf 16.30</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>11.30 – 20.00</td><td>vanaf 16.30</td></tr>
+          <tr data-d="0"><td>Zondag</td><td>11.30 – 20.00</td><td>vanaf 12.00</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Voor een afhaalbestelling in de cafetaria graag vooraf telefonisch bestellen. Voor een bezoek aan het eetcafé graag reserveren. Kerst: steengrillen op 1e en 2e kerstdag vanaf 15.30 uur.</p>
+      <p><b>Eetcafé 't Dörp</b><br>Kerkstraat 5, 5095 AE Hooge Mierde<br>
+      Telefoon <a href="tel:0135091605">013 509 1605</a><br>
+      WhatsApp <a href="https://wa.me/31642994978">06 42 99 49 78</a> (stokbroodjes en kerstdiner)<br>
+      <a href="mailto:info@eetcafe-dorp.nl">info@eetcafe-dorp.nl</a></p>
+      <p class="small">Altijd al eens binnen willen kijken? Met Google Business View loopt u zelf door de zaak, zoals in Streetview. <a href="https://maps.app.goo.gl/WAzuaUucAYZaN9Dg7">Open in Google Maps</a></p>
+      <p class="small">Overnachten met een groep? Daarvoor kunt u terecht bij accommodatie 'Op de Akkers' in Hooge Mierde.</p>
+      <div class="map"><iframe title="Kaart: Kerkstraat 5, Hooge Mierde" src="https://maps.google.com/maps?q=Kerkstraat%205%2C%205095%20AE%20Hooge%20Mierde&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+    <div id="reserveren">
+      <form id="resform" novalidate>
+        <h3>Reserveer nu</h3>
+        <p class="small">Geef duidelijk aan waarvoor u wilt reserveren: eetcafé, steengrillen, reuzekoekenpan, feestzaal of catering. Controleer in afwachting van een reactie ook uw spamfolder.</p>
+        <label for="f-naam">Naam</label><input id="f-naam" autocomplete="name">
+        <div class="row2">
+          <div><label for="f-tel">Telefoon</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+          <div><label for="f-mail">E-mail</label><input id="f-mail" type="email" autocomplete="email"></div>
+        </div>
+        <div class="row2">
+          <div><label for="f-wat">Waarvoor</label>
+            <select id="f-wat"><option>Eetcafé (à la carte of keuzemenu)</option><option>Steengrillen</option><option>Steengrillen all-inclusive</option><option>Reuzekoekenpan (vanaf 15 pers.)</option><option>Kerststeengrillen</option><option>Feestzaal</option><option>Catering / buffet</option></select></div>
+          <div><label for="f-pers">Aantal personen</label><input id="f-pers" type="number" min="1" inputmode="numeric"></div>
+        </div>
+        <label for="f-datum">Datum en tijd</label><input id="f-datum" placeholder="bijv. zaterdag 12 december, 18.00 uur">
+        <label for="f-msg">Bericht</label><textarea id="f-msg"></textarea>
+        <p class="small" style="margin-top:10px">Afhaalbestellingen voor de cafetaria niet per e-mail; die kunt u telefonisch doorgeven.</p>
+        <button class="btn btn-green" type="submit" style="margin-top:6px">Verstuur reservering</button>
+        <div class="form-msg" id="formmsg" role="status">Dit is een voorbeeldsite: er is niets verstuurd. Bel 013 509 1605 om te reserveren.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Eetcafé 't Dörp</h4>
+      <p>Eetcafé · Feestzaal · Cafetaria<br>Familie Lavrijsen<br>Kerkstraat 5, 5095 AE Hooge Mierde</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><a href="tel:0135091605">013 509 1605</a><br><a href="https://wa.me/31642994978">WhatsApp 06 42 99 49 78</a><br><a href="mailto:info@eetcafe-dorp.nl">info@eetcafe-dorp.nl</a></p>
+    </div>
+    <div>
+      <h4>Gegevens</h4>
+      <p>KvK 97723274<br>BTW NL 868202563 B 01</p>
+    </div>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Eetcaf%C3%A9%20't%20D%C3%B6rp%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+/* ---------- menu data (prijzen letterlijk van eetcafe-dorp.nl en hun PDF's) ---------- */
+const EET = [
+ {tab:'Lunch', groups:[
+  {t:'Lunchsuggesties', items:[['Kipsaté','4 stuks, met satésaus, stokbrood en rauwkost','7,95'],['Kwekkeboomkroketten','2 stuks, met waldkornbol, mosterd en rauwkost','7,95'],['Kippenpasteitje','huisgemaakte kippenragout met champignons','11,50']]},
+  {t:'Uitsmijters', items:[['Uitsmijter','ham, kaas, 3 eieren','7,50'],['Dubbele uitsmijter','ham, kaas, 4 eieren','9,50'],["Uitsmijter 't Dörp",'ham, kaas, ui, spekjes, champignons, 3 eieren','9,75']]},
+  {t:"Tosti's", items:[['Ham-kaas','','5,50'],['Ham-kaas-ananas','','6,50']]},
+  {t:'Hamburgers', note:'Prijzen: zie de kaart in het eetcafé of de cafetariakaart.', items:[['Hamburger speciaal','frituur',''],['Hamburger van de grill','',''],['Hawaiburger','grill, ananas',''],['McRoyburger','frituur, cheddar, bacon, ui',''],['Cheeseburger','frituur, cheddar',''],['Irish Beefburger','180 gram Irish Beef, cheddar, ui',''],['Kipfiletburger','kipburger, sla, tomaat, rode ui, tartaarsaus','']]},
+  {t:'Stokbroodjes', note:'Zie de stokbroodjeslijst hieronder op de pagina.', items:[]}
+ ]},
+ {tab:'Voorgerechten', groups:[
+  {t:'Voorgerechten', note:'Geserveerd met stokbrood en kruidenboter. Prijzen: zie de kaart in het eetcafé.', items:[['Tomatensoep','',''],['Groentesoep','',''],['Bospaddenstoelensoep','',''],['Seizoensoep','',''],['Rundercarpaccio','',''],['Kipcocktail','',''],['Zalmcocktail','',''],['Mini pasteitje met kippenragout','',''],['Kaaskroketjes','',''],['Mandje stokbrood met kruidenboter','','']]},
+  {t:'Salades', note:'Met stokbrood en kruidenboter.', items:[["Salade 't Dörp",'kipfilet, gebakken ui, champignons, spekjes','16,95'],['Groene salade','kaas, gebakken ui, champignons, paprika','16,95'],['Salade rundercarpaccio','','16,95'],['Salade gerookte zalm','','17,50'],['Supplement: schaaltje frites met mayo','','2,95']]}
+ ]},
+ {tab:'Vlees, vis & vega', groups:[
+  {t:'Van de boer', items:[['Schnitzel','200 gram','15,50'],['Reuzeschnitzel','375 gram','19,25'],['Biefstuk van de haas','','26,50'],['Saus naar keuze','champignon, jäger, zigeuner, stroganoff of peper','2,50'],['Boerenvariant','gebakken ui, spekjes en champignons','3,75']]},
+  {t:'Uit de zee', items:[['Zalm in lente-ui roomsaus','','24,50'],['Vispannetje','zalm, victoriabaars, mosselen, garnalen','23,95'],['Fish & chips','kabeljauw, frites, sausjes','23,95']]},
+  {t:'Vega', items:[['Groentekroketten met stokbrood','','11,95'],['Vega schnitzel','','15,50'],['Vega burger','170 gram burger, cheddar, ui, hamburgersaus','17,25']]},
+  {t:'Specialiteiten', note:'Prijzen: zie de kaart in het eetcafé.', items:[['Biefreepjes in stroganoffsaus','',''],['Gepaneerde kiphaasjes met kerriesausje','',''],['Spareribs','',''],['Stoofpotje van hachee','',''],['Hazenpeper','',''],['Kalkoensaté in ketjapsaus','',''],['Irish Beefburger','180 gram Irish Beef, cheddar, ui, hamburgersaus',''],['Kipfiletpotje','kipfilet in jus, ui, spekjes, champignons',''],['Varkenshaaspotje','varkenshaas in jus, ui, spekjes, champignons',''],['Frites warm vlees','reepjesvlees, ananas, worteltjes',''],["Frites 't Dörp I",'stukjes kipfilet, champignons, ui, taugé',''],["Frites 't Dörp II",'stukjes kipfilet, champignons, ui, spekjes','']]}
+ ]},
+ {tab:'Kinderen', groups:[
+  {t:"Kindermenu's", note:'Prijzen: zie de kaart in het eetcafé.', items:[['Smulbox','frietjes, mayo, ketchup, frikandelletje, bitterbal, kipnugget, Capri-Sun en een verrassing in een vrolijk doosje',''],['Friet met snack en een verrassing','frietjes, mayo, ketchup en keuze uit frikandel, kroket, kaassoufflé, knakworst, kipnuggets of bitterballen',''],['Poffertjes','met chocopasta, poedersuiker, slagroom en een verrassing','']]},
+  {t:'Nagerechten', items:[['Kindercoupe','ijs, mandarijntjes, slagroom','4,95'],['Chocoladecoupe','','6,25'],['Coupe caramel','','6,50'],['Coupe advocaat','','6,50'],['Coupe aardbei','alleen in het seizoen','7,75'],['Sorbet','vruchtjes','6,25'],['Chocomousse','','7,50'],['Frozen frappé','ijskoffie met topping en slagroom','5,25'],['Of ga voor een Supercone of Sundae Extra','zie IJs & shakes bij de cafetaria','']]}
+ ]},
+ {tab:'Dranken', groups:[
+  {t:'Warme dranken', items:[['Koffie','','2,75'],['Dörpse koffie','met slagroom','3,50'],['Cappuccino','','3,00'],['Latte macchiato','','4,00'],['Koffie verkeerd','','3,00'],['Wiener melange','','3,25'],['Warme chocomelk','','3,50'],['Slagroom extra','','0,75'],['Thee','English Breakfast, Earl Grey, citroen, rooibos, bosvrucht, groene thee','2,75'],['French coffee','Grand Marnier','6,95'],['Irish coffee','Irish whiskey','6,95'],['Spanish coffee','Tia Maria','6,95']]},
+  {t:'Lekker erbij', items:[['Appelgebak','','3,25'],['Met slagroom','','+ 0,75'],['Mini snacks XL','8 stuks, voor bij de borrel','6,50']]},
+  {t:'Frisdranken', items:[['Cola, Cola Zero, Fanta, Sprite, Cassis, Ice Tea, Ice Tea Green','',"2,95"],['Chaudfontaine blauw/rood, appelsap, jus d\'orange','','2,95'],['Tonic, Bitter Lemon, Rivella, Chocomel, Fristi','','2,95'],['Ranja','','1,25']]},
+  {t:'Bieren', items:[['Dommelsch van de tap','25 cl, 5,0%','3,25'],['Jupiler / Jupiler 0,0%','5,2%','3,25'],['Palm','5,2%','3,75'],['Hoegaarden wit','4,9%','3,95'],['Liefmans Fruitesse / 0,0%','3,8%','4,00'],['Lindemans Kriek','3,5%','4,00'],['Leffe Blond / 0,0%','6,6%','4,75'],['Leffe Bruin / 0,0%','6,5%','4,75'],['Amstel Radler / 0,0%','2,0%','3,75'],['Duvel','8,5%','4,95'],['Hertog Jan Weizener','5,7%','4,00'],['Hertog Jan Grand Prestige','10%','4,95'],['Karmeliet Tripel','8,4%','4,95']]},
+  {t:'Wijnen', items:[['Droge witte wijn','','4,00'],['Zoete witte wijn','','4,00'],['Rosé','','4,00'],['Rode wijn','','4,25']]}
+ ]}
+];
+const FS = (a,b)=>a+' / '+b;
+const CAF = [
+ {tab:'Frites', groups:[
+  {t:'Frites', note:'Klein / groot', items:[['Frites','',FS('2,50','3,70')],['Met mayo, curry of ketchup','',FS('2,90','4,10')],['Met tartaar, joppie of Belgische mayo','',FS('3,00','4,20')],['Speciaal','',FS('3,60','4,80')],['Satésaus','',FS('3,60','4,80')],['Stoofvlees','',FS('4,60','5,80')],['Babi pangang','',FS('4,60','5,80')],['Champignonroomsaus','',FS('3,60','4,80')]]},
+  {t:'Gezinszak frites', items:[['2 personen','','4,00'],['3 personen','','5,75'],['4 personen','','7,50'],['5 personen','','9,50']]},
+  {t:'Rauwkost', items:[['Klein','','2,75'],['Groot','','3,95']]},
+  {t:'Ook te bestellen', items:[['Huisgemaakte nasischotel','met kipsaté of babi pangang',''],['Huisgemaakte bamischotel','met kipsaté of babi pangang',''],['Frites shoarma','met rauwkost en knoflooksaus','']]}
+ ]},
+ {tab:'Snacks', groups:[
+  {t:'Snacks uit eigen keuken', items:[['Joepkroket','','2,65'],['Nasibal','','2,65'],['Gehaktbal (jus)','','3,00'],['Kipsaté + satésaus','','4,25'],['Shaslick','','3,50'],['Slaatje','','2,75']]},
+  {t:'Overige snacks', items:[['Frikandel','','2,20'],['Frikandel speciaal','','2,60'],['Gepaneerde frikandel','','2,60'],['Kroket','','2,20'],['Goulashkroket','','2,50'],['Kwekkeboomkroket','','2,50'],['Kalfskroket / satékroket','','2,50'],['Groentekroket / kaaskroket','','2,50'],['Gehaktbal (vet)','','2,50'],['Gehaktbal speciaal','','2,90'],['Bamiblok / bamischijf','','2,50'],['Sitostick','','2,85'],['Viandel','','2,65'],['Kipkorn','','2,65'],['Visstick','','2,90'],['Kaassoufflé','','2,20'],['Saterol / smulrol','','2,85'],['Shoarmarol','','2,85'],['Gehaktstaaf','','2,70'],['Mexicano','','2,70'],['Kipnuggets','6 stuks','2,75'],['Kipfingers','6 stuks','2,75'],['Bitterballen','7 stuks','2,65'],['Megamix','8 stuks','3,00'],['Knakworst','','1,50'],['Vietnamese loempia','2 stuks','2,25'],['Loempia','','3,75'],['Zigeunerstick','','2,85'],['Crizly','','3,00'],['Belgische saté','','3,75'],['Ragoezi','','2,65'],['Loempidel','','2,85']]}
+ ]},
+ {tab:'Burgers', groups:[
+  {t:'Hamburgers', items:[['Hamburger speciaal','frituur, rauwkost, mayo, curry, uitjes','4,75'],['Hamburger van de grill','grill, rauwkost, gebakken ui, hamburgersaus','5,25'],['Hawaiburger','grill, rauwkost, gebakken ui, ananas, hamburgersaus','5,95'],['McRoyburger','frituur, rauwkost, bacon, cheddar, gebakken ui, curry','5,95'],['Cheeseburger','frituur, rauwkost, cheddar, mayo, curry, uitjes','5,50'],['Irish Beefburger','180 gram Irish Beef, rauwkost, cheddar, gebakken ui, hamburgersaus','7,50'],['Kipfiletburger','kipburger, sla, tomaat, rode ui, tartaarsaus','5,25']]}
+ ]},
+ {tab:'Sauzen', groups:[
+  {t:'Sauzen in een beker', note:'Klein / groot', items:[['Mayonaise / curry / ketchup','',FS('1,25','2,50')],['Joppiesaus / Belgische mayonaise','',FS('2,00','4,00')],['Tartaarsaus / hamburgersaus','',FS('2,00','4,00')],['Knoflooksaus / cocktailsaus','',FS('2,00','4,00')],['Plezantsaus','',FS('2,00','4,00')],['Satésaus / champignonroomsaus','',FS('2,25','4,50')],['Stoofvlees / babi pangang','',FS('2,50','5,00')]]}
+ ]},
+ {tab:'IJs & shakes', groups:[
+  {t:'Softijs, het hele jaar door', items:[['Hoorntje','','1,50'],['Vierkante beker','','1,75'],['Reuzebeker','','2,00'],['IJswafel','','2,25'],['Kleine oubliehoorn','','1,75'],['Grote oubliehoorn','','2,25'],['IJsbeker klein / normaal','',FS('1,50','2,50')],['IJsbeker 300 / 400 / 500 ml','','4,00 / 5,00 / 6,00'],['Toppings','aardbei, banaan, chocolade, caramel, kersen, advocaat','0,30'],['Dips en garnering','chocodip, discodip, nootjes, blue monsterdip, spekkies, speculoos crunch, caramelblokjes, chocoparels, caramelparels, Daim-stukjes, Oreo crunch, stroopwafelstukjes, KitKat crunch, mini Smarties','0,30']]},
+  {t:'Sundae', items:[['Sundae','aardbei, caramel of chocolade','2,75'],['Sundae Extra','advocaat/Lotus crunch, kers/chocoparels, caramel/Daim, chocolade/Daim of caramello','3,25']]},
+  {t:'Super Cone', items:[['Vanille','','2,75'],['Chocoladesensatie','','3,25'],['Aardbei/marshmallow','','3,25'],['Caramel/nootjes','','3,25'],['Sweet apple pie','','3,50']]},
+  {t:'Milkshakes', note:'Vanille, aardbei, banaan, kersen, chocolade of caramel.', items:[['Klein','300 ml','3,00'],['Middel','400 ml','3,75'],['Groot','500 ml','4,50'],['Frozen frappé','ijskoffie, topping en slagroom','5,25']]}
+ ]},
+ {tab:'Vega & glutenvrij', groups:[
+  {t:'Vegetarische snacks', note:'Vermeld bij het bestellen de vega-variant.', items:[['Loempia (vega)','',''],['Bamischijf (vega)','',''],['Kaassoufflé','',''],['Groentekroket','',''],['Kaaskroket','',''],['Vietnamese loempiaatjes','2 stuks',''],['Vega burger speciaal','',''],['Vega burger','met hamburgersaus en gebakken ui',''],['Vega cheeseburger','',''],['Vega burger Hawaï','hamburgersaus, gebakken ui, ananas','']]},
+  {t:'Glutenvrije snacks', note:'Vermeld het bij uw bestelling.', items:[['Frikandel','',''],['Kroket','',''],['Kaassoufflé','',''],['Bami','',''],['Shaslick','',''],['Kipnuggets','','']]}
+ ]}
+];
+const STOK = [['Kaas','','5,25'],['Ham','','5,25'],['Eiersalade','','6,75'],['Krabsalade','','7,00'],['Tonijnsalade','','7,00'],['Pittige kipsalade','','6,75'],['Gepluisde kip','','6,75'],['Gerookte zalm','','7,50'],['Brie','','6,75'],['Filet americain','','6,75'],['Gezond','','7,00'],['Carpaccio','','8,25'],["Mierds Breúke",'geroosterd stokbrood met ham, kaas, ui, champignons, tomaat en kruiden','7,75'],['Spek','sla, tomaat, komkommer, ei, spek en plezantsaus','7,50'],['Shoarma','sla, shoarma en knoflooksaus','7,50'],["'t Dörp I",'sla, gebakken kipfilet, uitjes, taugé, champignons en een kerriesausje','7,50'],["'t Dörp II",'sla, gebakken kipfilet, uitjes, spekjes, champignons en kerriesausje','7,50'],['Warm vlees','sla, gekruide varkensreepjes, ananas, worteltjes en sausje','7,50'],['Tandem','sla, tomaat, augurk, ei, 2 hamburgers, Belgische mayonaise en uitjes','7,75'],['Beenham','sla, beenham en mosterd-honingdressing','7,50'],['Kip Hawaï','sla, tomaat, komkommer, ei, plakjes kipfilet, ananas en cocktailsaus','7,50']];
+
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const itemHTML = ([n,d,p]) => `<div class="item"><span><b>${esc(n)}</b>${d?`<small>${esc(d)}</small>`:''}</span>${p?`<span class="p">${p}</span>`:''}</div>`;
+function build(group, data){
+  const tl = document.querySelector(`.tabs[data-group=${group}]`), pw = document.querySelector(`[data-panels=${group}]`);
+  data.forEach((tab,i)=>{
+    const id = `${group}-${i}`;
+    const b = document.createElement('button');
+    b.type='button'; b.role='tab'; b.id='t-'+id; b.textContent=tab.tab;
+    b.setAttribute('aria-selected', i===0); b.setAttribute('aria-controls','p-'+id);
+    tl.appendChild(b);
+    const p = document.createElement('div');
+    p.className='panel'; p.id='p-'+id; p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby','t-'+id);
+    if(i) p.hidden = true;
+    p.innerHTML = `<div class="cols">${tab.groups.map(g=>`<div class="grp"><h3>${esc(g.t)}</h3>${g.note?`<p class="gnote">${esc(g.note)}</p>`:''}${g.items.map(itemHTML).join('')}</div>`).join('')}</div>`;
+    pw.appendChild(p);
+    b.addEventListener('click',()=>{
+      tl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected', x===b));
+      pw.querySelectorAll('.panel').forEach(x=>x.hidden = x!==p);
+    });
+  });
+}
+build('eet', EET); build('caf', CAF);
+document.getElementById('stoklist').innerHTML = `<div class="cols">${STOK.map(itemHTML).join('')}</div>`;
+
+/* header + menu */
+const hdr = document.getElementById('top'), burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+const onScroll = () => hdr.classList.toggle('solid', scrollY > 40);
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+burger.addEventListener('click', () => {
+  const open = burger.getAttribute('aria-expanded') !== 'true';
+  burger.setAttribute('aria-expanded', open); nav.classList.toggle('open', open); hdr.classList.toggle('menu-open', open);
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.setAttribute('aria-expanded', false); nav.classList.remove('open'); hdr.classList.remove('menu-open'); }));
+
+/* vandaag open */
+const d = new Date().getDay();
+const caf = (d===1||d===2) ? 'gesloten' : '11.30 – 20.00';
+const eet = (d===1||d===2) ? 'gesloten' : (d===0 ? 'vanaf 12.00' : 'vanaf 16.30');
+document.getElementById('today').innerHTML = `<span>Vandaag eetcafé: <b>${eet}</b></span><span>Vandaag cafetaria: <b>${caf}</b></span>`;
+const row = document.querySelector(`#hours tr[data-d="${d}"]`); if(row) row.classList.add('now');
+
+/* hero: rustige wissel tussen eigen terrasfoto's */
+const imgs = document.querySelectorAll('.hero-img img');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && imgs.length > 1) {
+  let i = 0; setInterval(() => { imgs[i].classList.remove('on'); i = (i+1) % imgs.length; imgs[i].classList.add('on'); }, 6000);
+}
+
+/* video pas laden na klik */
+document.querySelector('#video button').addEventListener('click', function(){
+  this.parentNode.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/iLGRWqk4W10?autoplay=1" title="Steengrillen bij Eetcafé \'t Dörp" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+});
+
+/* formulier: voorbeeld */
+document.getElementById('resform').addEventListener('submit', e => { e.preventDefault(); document.getElementById('formmsg').classList.add('show'); });
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
