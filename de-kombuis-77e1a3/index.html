@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eetcafé De Kombuis · Haven van Oudeschild, Texel</title>
+<meta name="description" content="Eetcafé De Kombuis ligt in de vissershaven van Oudeschild op Texel. Terras op het zuiden, vis van eigen vloot, lunch en diner.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314384f'/%3E%3Cpath d='M10 40c6-6 12-6 18 0s12 6 18 0 8-5 8-5' fill='none' stroke='%23f3c55b' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M18 28h28' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --haven:#14384f;      /* diep havenwater */
+  --haven-2:#1d5170;
+  --dak:#b8492b;        /* rode dakpannen */
+  --touw:#f3c55b;       /* geel scheepstouw */
+  --kade:#f1ece2;       /* lichte kadesteen */
+  --zout:#fbfaf7;
+  --inkt:#1c2a33;
+  --grijs:#5d6b74;
+  --lijn:#d9d2c3;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--zout);color:var(--inkt);font:400 17px/1.6 "Figtree",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:"Zilla Slab",Georgia,serif;font-weight:700;line-height:1.08;margin:0}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);color:var(--haven)}
+h3{font-size:1.35rem;font-weight:600}
+p{margin:0 0 1em}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--touw);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.top.solid{background:var(--haven);box-shadow:0 2px 14px rgba(10,30,45,.25)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.merk{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.merk svg{width:38px;height:38px;flex:none}
+.merk b{font:700 1.45rem/1 "Zilla Slab",serif;letter-spacing:.01em}
+.merk small{display:block;font:500 .72rem/1.2 "Figtree",sans-serif;opacity:.8;margin-top:3px}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{color:#fff;text-decoration:none;font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--touw)}
+.nav .bel{background:var(--touw);color:var(--haven);padding:9px 16px;border-radius:999px;font-weight:600}
+.nav .bel:hover{color:var(--haven);background:#fff}
+.burger{display:none;background:none;border:0;color:#fff;width:46px;height:46px;cursor:pointer;padding:10px}
+.burger span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--haven)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;animation:zoom 1.6s ease-out both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,34,48,.55) 0%,rgba(12,34,48,0) 26%,rgba(12,34,48,.1) 48%,rgba(12,34,48,.86) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:0 0 64px}
+.hero h1{font-size:clamp(3.4rem,11vw,8.4rem);letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero .sub{font:500 clamp(1.15rem,2.4vw,1.6rem)/1.35 "Zilla Slab",serif;max-width:30ch;margin:14px 0 28px}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px}
+.knop{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;border:2px solid transparent;transition:background .2s,color .2s}
+.knop.geel{background:var(--touw);color:var(--haven)}
+.knop.geel:hover{background:#fff}
+.knop.rand{border-color:rgba(255,255,255,.8);color:#fff}
+.knop.rand:hover{background:#fff;color:var(--haven)}
+.knop svg{width:18px;height:18px}
+@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+
+/* bord: zoals het witte kadebord met blauwe golf */
+.bord{position:relative;z-index:3;margin-top:-34px}
+.bord .plaat{background:#fff;border:3px solid var(--haven);border-radius:var(--radius);box-shadow:0 14px 34px rgba(20,56,79,.18);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;padding:18px 26px;max-width:860px}
+.bord .golf{width:54px;height:30px;color:var(--haven-2)}
+.bord .vandaag{font:600 1.3rem/1.25 "Zilla Slab",serif;color:var(--haven)}
+.bord .vandaag span{display:block;font:400 .95rem/1.4 "Figtree",sans-serif;color:var(--grijs)}
+.bord a{color:var(--dak);font-weight:600;white-space:nowrap}
+
+section{padding:96px 0}
+
+/* over */
+.over .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.over .lead{font:500 1.5rem/1.4 "Zilla Slab",serif;color:var(--haven);margin-bottom:.8em}
+.over .tekst p{max-width:60ch}
+.kenmerken{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.kenmerken li{display:flex;gap:12px;align-items:center;font-weight:500}
+.kenmerken svg{width:34px;height:34px;flex:none;padding:7px;border-radius:50%;background:var(--kade);color:var(--dak)}
+.over figure{margin:0;position:relative}
+.over figure img{border-radius:var(--radius);aspect-ratio:4/5;object-fit:cover;width:100%}
+.over figure img.klein{position:absolute;width:46%;aspect-ratio:1;left:-12%;bottom:-8%;border:6px solid var(--zout)}
+
+/* foto-strook */
+.strook{padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:var(--zout)}
+.strook img{width:100%;height:280px;object-fit:cover}
+.strook img:nth-child(1){grid-column:span 2}
+
+/* kaart */
+.kaart{background:var(--kade)}
+.kaart .kop{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.kaart .kop p{max-width:46ch;color:var(--grijs);margin:12px 0 0}
+.tabs{display:inline-flex;background:#fff;border:2px solid var(--haven);border-radius:999px;padding:4px}
+.tabs button{font:600 1rem "Figtree",sans-serif;border:0;background:none;color:var(--haven);padding:11px 22px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--haven);color:#fff}
+.paneel{background:#fff;border-radius:var(--radius);padding:44px 48px;box-shadow:0 1px 0 var(--lijn)}
+.paneel .stempel{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;align-items:baseline;border-bottom:2px solid var(--haven);padding-bottom:16px;margin-bottom:30px}
+.paneel .stempel h3{font-size:1.9rem;color:var(--haven)}
+.paneel .stempel span{color:var(--grijs);font-size:.95rem}
+.kolommen{columns:2;column-gap:56px}
+.groep{break-inside:avoid;margin-bottom:34px}
+.groep h4{font:600 1.3rem/1.2 "Zilla Slab",serif;color:var(--dak);margin:0 0 4px}
+.groep .noot{font-size:.92rem;color:var(--grijs);margin:0 0 10px}
+.item{padding:8px 0;border-bottom:1px dashed var(--lijn)}
+.item:last-child{border-bottom:0}
+.item .r{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.item .n{font-weight:600}
+.item .p{font-variant-numeric:tabular-nums;font-weight:600;color:var(--haven);white-space:nowrap}
+.item .o{font-size:.93rem;color:var(--grijs);margin-top:1px}
+.item .v{display:inline-block;font-size:.75rem;font-weight:600;background:#e4efe0;color:#2e5a2a;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.wistje{break-inside:avoid;background:var(--haven);color:#fff;border-radius:var(--radius);padding:22px 24px;margin-bottom:34px}
+.wistje b{font:600 1.2rem "Zilla Slab",serif;color:var(--touw);display:block;margin-bottom:4px}
+.wistje p{margin:0}
+.pdf{margin-top:8px;font-size:.95rem;color:var(--grijs)}
+.pdf a{color:var(--haven);font-weight:600}
+
+/* reserveren */
+.reserveren{background:var(--haven);color:#fff;position:relative;overflow:hidden}
+.reserveren .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.reserveren h2{color:#fff}
+.reserveren p{color:#d8e3ea;max-width:50ch}
+.reserveren .blok{background:var(--haven-2);border-radius:var(--radius);padding:30px}
+.reserveren .blok h3{color:var(--touw);margin-bottom:8px}
+.reserveren .blok+.blok{margin-top:16px}
+.reserveren a.lnk{color:#fff;font-weight:600}
+
+/* contact */
+.contact .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
+.tijden{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:1.05rem}
+.tijden td{padding:12px 0;border-bottom:1px solid var(--lijn)}
+.tijden td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.tijden tr.nu td{color:var(--dak)}
+.adres{font-style:normal;line-height:1.7}
+.adres a{color:var(--haven);font-weight:600}
+.map{border-radius:var(--radius);overflow:hidden;border:2px solid var(--haven);min-height:420px;height:100%;background:var(--kade)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+.route{display:inline-block;margin-top:14px;color:var(--haven);font-weight:600}
+
+footer{background:#0f2b3c;color:#b9c8d1;padding:44px 0 90px;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer b{color:#fff;font:700 1.3rem "Zilla Slab",serif}
+footer a{color:#fff}
+
+.lint{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(28,42,51,.92);color:#fff;font-size:.8rem;padding:7px 14px;border-radius:999px;white-space:nowrap;pointer-events:none}
+
+@media (max-width:900px){
+  section{padding:72px 0}
+  .over .grid,.reserveren .grid,.contact .grid{grid-template-columns:1fr;gap:40px}
+  .over figure{order:-1;margin:0 0 30px}
+  .over figure img{aspect-ratio:4/3}
+  .over figure img.klein{display:none}
+  .kolommen{columns:1}
+  .paneel{padding:28px 20px}
+  .strook{grid-template-columns:repeat(2,1fr)}
+  .strook img{height:180px}
+  .strook img:nth-child(n){grid-column:auto}
+  .strook img:nth-child(1){grid-column:span 2;height:230px}
+}
+@media (max-width:820px){
+  .burger{display:block}
+  .nav{position:fixed;inset:68px 0 auto 0;background:var(--haven);flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 22px;transform:translateY(-12px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.1rem}
+  .nav .bel{margin-top:16px;text-align:center;border:0;padding:13px}
+  .menu-open .nav{opacity:1;visibility:visible;transform:none}
+  .menu-open .top{background:var(--haven)}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .hero{min-height:92svh}
+  .hero img{object-position:58% 50%}
+  .hero .wrap{padding-bottom:58px}
+  .knop{padding:13px 18px}
+  .bord .plaat{grid-template-columns:auto 1fr;gap:12px 16px;padding:16px 18px}
+  .bord .golf{width:40px}
+  .bord a{grid-column:1/-1}
+  .tabs{display:flex;width:100%}
+  .tabs button{flex:1;padding:11px 8px}
+  .kenmerken{grid-template-columns:1fr}
+  .map,.map iframe{min-height:320px}
+  .lint{font-size:.72rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="merk" href="#start" aria-label="De Kombuis, naar boven">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#fff"/><path d="M7 24c4-4 8-4 12 0s9 4 14-1" fill="none" stroke="#1d5170" stroke-width="3" stroke-linecap="round"/><path d="M8 29c4-3 8-3 12 0s8 3 12 0" fill="none" stroke="#f3c55b" stroke-width="2.5" stroke-linecap="round"/><path d="M13 16h14" stroke="#14384f" stroke-width="3" stroke-linecap="round"/></svg>
+      <span><b>De Kombuis</b><small>Eetcafé · Oudeschild, Texel</small></span>
+    </a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#over">Over ons</a>
+      <a href="#kaart">Menukaart</a>
+      <a href="#reserveren">Reserveren</a>
+      <a href="#contact">Openingstijden &amp; route</a>
+      <a class="bel" href="tel:+31222313108">Bel 0222-313108</a>
+    </nav>
+  </div>
+</header>
+
+<main id="start">
+  <section class="hero" style="padding:0">
+    <img src="img/pand-terras.jpg" alt="De Kombuis aan de kade van Oudeschild, met vol terras in de zon" fetchpriority="high">
+    <div class="wrap">
+      <h1>De Kombuis</h1>
+      <p class="sub">Eetcafé in de vissershaven van Oudeschild. Uit de wind op het terras, met uitzicht over het water.</p>
+      <div class="knoppen">
+        <a class="knop geel" href="#kaart">Bekijk de menukaart</a>
+        <a class="knop rand" href="tel:+31222313108"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Reserveren: 0222-313108</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="bord">
+    <div class="wrap">
+      <div class="plaat">
+        <svg class="golf" viewBox="0 0 54 30" aria-hidden="true"><path d="M2 12c6-7 12-7 18 0s12 7 18 0 10-6 14-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M2 22c6-6 12-6 18 0s12 6 18 0 10-5 14-2" fill="none" stroke="#f3c55b" stroke-width="3" stroke-linecap="round"/></svg>
+        <p class="vandaag" id="vandaag" style="margin:0">Ma t/m do 10:00 - 17:00, vr t/m zo 10:00 - 20:00<span>Haven 10, Oudeschild</span></p>
+        <a href="#contact">Alle tijden &amp; route</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="over" id="over">
+    <div class="wrap grid">
+      <div class="tekst">
+        <h2>Aan de haven, uit de wind</h2>
+        <p class="lead" style="margin-top:18px">Eetcafé De Kombuis ligt sfeervol in de vissershaven van Oudeschild.</p>
+        <p>Het terras ligt op het zuiden, waardoor je bijna altijd uit de wind zit. Zo kun je al vroeg in het voorjaar ontspannen buiten zitten! Terwijl je geniet van een drankje en/of hapje, kijk je uit over de zee. Dat nodigt natuurlijk uit om een visgerecht te proeven.</p>
+        <p>De vis is afkomstig van eigen vloot. Ook de andere ingrediënten zijn zo veel mogelijk van lokale leveranciers. Bij De Kombuis eet je daarom altijd vers!</p>
+        <ul class="kenmerken">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12c3-5 8-6 12-3l6-3-2 6 2 6-6-3c-4 3-9 2-12-3z"/><circle cx="8" cy="11" r=".8" fill="currentColor"/></svg>Vis van eigen vloot</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21c-5-3-8-7-8-11a8 8 0 0 1 16 0c0 4-3 8-8 11z"/><path d="M12 7v7M9 10l3 3 3-3"/></svg>Lokale ingrediënten</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="4.5" r="1.5"/><path d="M10 7v6h6l2 6M10 10h5"/><path d="M8 10.5a5 5 0 1 0 6 7"/></svg>Rolstoelvriendelijk</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>Gratis wifi</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/binnen.jpg" alt="Binnen bij De Kombuis: houten bar aan het raam met zicht op terras en haven" loading="lazy">
+        <img class="klein" src="img/gerechten.jpg" alt="Gerechten van De Kombuis op een houten tafel, met sliptongetjes en gamba's" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <div class="strook" aria-label="Foto's van De Kombuis">
+    <img src="img/haven-schip.jpg" alt="De Kombuis gezien vanaf een schip in de haven van Oudeschild" loading="lazy">
+    <img src="img/bitterballen.jpg" alt="Bitterballen en een glas wijn aan het raam" loading="lazy">
+    <img src="img/tx-bier.jpg" alt="Texels bier aan tafel, met de haven op de achtergrond" loading="lazy">
+    <img src="img/avond.jpg" alt="Het terras van De Kombuis op een zomeravond, met lichtjes onder de luifel" loading="lazy">
+    <img src="img/uitzicht.jpg" alt="Uitzicht over de haven van Oudeschild naar zee" loading="lazy">
+  </div>
+
+  <section class="kaart" id="kaart">
+    <div class="wrap">
+      <div class="kop">
+        <div>
+          <h2>Menukaart</h2>
+          <p>Lunch en diner, met zoveel mogelijk lokale ingrediënten. Voor bieren, wijnen en theeën ligt er een aparte kaart op tafel.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Kies een kaart">
+          <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunchkaart</button>
+          <button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Dinerkaart</button>
+        </div>
+      </div>
+
+      <!-- LUNCH -->
+      <div class="paneel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch">
+        <div class="stempel"><h3>Lunchkaart</h3><span>Kaart van 30 september 2026</span></div>
+        <div class="kolommen">
+          <div class="groep">
+            <h4>Huisgemaakte soepen</h4>
+            <p class="noot">Geserveerd met brood</p>
+            <div class="item"><div class="r"><span class="n">Mosterdsoep</span><span class="p">8,00</span></div><div class="o">Huisgemaakt en heerlijk romig</div></div>
+            <div class="item"><div class="r"><span class="n">Vissoep</span><span class="p">8,50</span></div><div class="o">Gevuld met vis uit de zee</div></div>
+          </div>
+          <div class="groep">
+            <h4>Broodjes</h4>
+            <p class="noot">Keuze tussen vers afgebakken wit of bruin brood. Glutenvrij brood beschikbaar.</p>
+            <div class="item"><div class="r"><span class="n">Carpaccio, klassieker</span><span class="p">15,00</span></div><div class="o">Gerookt rundvlees met pesto, balsamico, kaas en frisse sla</div></div>
+            <div class="item"><div class="r"><span class="n">Huisgemaakte tonijnsalade</span><span class="p">14,50</span></div><div class="o">Kappertjes, rode ui en een frisse touch van limoen</div></div>
+            <div class="item"><div class="r"><span class="n">Avocado <span class="v">vega</span></span><span class="p">13,50</span></div><div class="o">Smashed avocado en gepocheerd ei</div></div>
+            <div class="item"><div class="r"><span class="n">Het pannetje van de week!</span><span class="p">19,50</span></div><div class="o">Onze wisselende dagspecial, vraag ons team</div></div>
+          </div>
+          <div class="groep">
+            <h4>Warme broodjes en gerechten</h4>
+            <div class="item"><div class="r"><span class="n">Brioche pulled spareribs</span><span class="p">15,00</span></div><div class="o">Zacht gegaard, met huisgemaakte chimichurri-mayonaise en sla</div></div>
+            <div class="item"><div class="r"><span class="n">Flatbread Texels lamsvlees</span><span class="p">14,80</span></div><div class="o">Met huisgemaakte knoflooksaus en sla</div></div>
+            <div class="item"><div class="r"><span class="n">Kombuis burger</span><span class="p">15,00</span></div><div class="o">Sappige rundvleesburger, met oude kaas, huisgemaakte zoetzure saus en sla. Friet bijbestellen + 5,00</div></div>
+            <div class="item"><div class="r"><span class="n">Portobello burger <span class="v">vega</span></span><span class="p">14,00</span></div><div class="o">Smeuïge burger van champignons en noten. Friet bijbestellen + 5,00</div></div>
+            <div class="item"><div class="r"><span class="n">Broodje kip (Kombuis klassieker)</span><span class="p">15,00</span></div><div class="o">Gemarineerde kippendij met spek-ui mix, cashews en huisgemaakte harissa-mayonaise</div></div>
+            <div class="item"><div class="r"><span class="n">Beenham</span><span class="p">13,00</span></div><div class="o">Malse beenham met honing-mosterdsaus en sla</div></div>
+          </div>
+          <div class="groep">
+            <h4>Uit de zee &amp; van de plank</h4>
+            <div class="item"><div class="r"><span class="n">Gamba's</span><span class="p">19,50</span></div><div class="o">Gebakken in olie, knoflook, peper, geserveerd met vers brood</div></div>
+            <div class="item"><div class="r"><span class="n">Gebakken mosselen</span><span class="p">19,50</span></div><div class="o">Gebakken met knoflook, rode peper en ui, geserveerd met vers brood</div></div>
+          </div>
+          <div class="groep">
+            <h4>Panini's</h4>
+            <div class="item"><div class="r"><span class="n">Tuna melt</span><span class="p">14,00</span></div><div class="o">Huisgemaakte tonijnsalade met oude kaas en paprika</div></div>
+            <div class="item"><div class="r"><span class="n">Kombuis</span><span class="p">15,00</span></div><div class="o">Champignon-ui mix, oude kaas, tomaat en ham</div></div>
+          </div>
+          <div class="groep">
+            <h4>Hollandse favorieten</h4>
+            <div class="item"><div class="r"><span class="n">Uitsmijter ham of kaas</span><span class="p">12,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Uitsmijter ham &amp; kaas</span><span class="p">12,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">2 runderkroketten op brood</span><span class="p">11,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">2 groentekroketten op brood</span><span class="p">11,50</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Grote trek</h4>
+            <div class="item"><div class="r"><span class="n">Zeebaars</span><span class="p">27,50</span></div><div class="o">Gebakken zeebaarsfilet met friet, salade en remouladesaus</div></div>
+            <div class="item"><div class="r"><span class="n">Kipsaté</span><span class="p">24,50</span></div><div class="o">Gemarineerde kippendij met pindasaus, friet en salade</div></div>
+            <div class="item"><div class="r"><span class="n">Het pannetje van de week!</span><span class="p">19,50</span></div><div class="o">Onze wisselende dagspecial, vraag ons team</div></div>
+          </div>
+          <div class="groep">
+            <h4>Salades</h4>
+            <p class="noot">Geserveerd met toast</p>
+            <div class="item"><div class="r"><span class="n">Carpaccio</span><span class="p">18,50</span></div><div class="o">Gerookt rundvlees, pesto, balsamico, Parmezaanse kaas, tomaat en pepitapitten</div></div>
+            <div class="item"><div class="r"><span class="n">Geitenkaas</span><span class="p">18,50</span></div><div class="o">Warme geitenkaas, honing en cranberry</div></div>
+            <div class="item"><div class="r"><span class="n">Avocado <span class="v">vega</span></span><span class="p">17,50</span></div><div class="o">Avocadosticks, guacamole en gepocheerd ei</div></div>
+          </div>
+          <div class="groep">
+            <h4>Hapjes</h4>
+            <div class="item"><div class="r"><span class="n">Broodplank</span><span class="p">9,50</span></div><div class="o">Met dips</div></div>
+            <div class="item"><div class="r"><span class="n">Garnalenkroketjes</span><span class="p">9,50</span></div><div class="o">6 stuks</div></div>
+            <div class="item"><div class="r"><span class="n">Bitterballen</span><span class="p">8,00</span></div><div class="o">8 stuks, rundvlees</div></div>
+            <div class="item"><div class="r"><span class="n">Pulled ribs nacho's</span><span class="p">13,50</span></div><div class="o">Salsa, rode ui en cheddar kaas</div></div>
+            <div class="item"><div class="r"><span class="n">Bittergarnituur</span><span class="p">13,50</span></div><div class="o">Gemengd, 14 stuks</div></div>
+            <div class="item"><div class="r"><span class="n">Kip gyoza's</span><span class="p">10,00</span></div><div class="o">6 stuks</div></div>
+            <div class="item"><div class="r"><span class="n">Kaastengels</span><span class="p">9,50</span></div><div class="o">8 stuks</div></div>
+          </div>
+          <div class="groep">
+            <h4>Gebak en zoet</h4>
+            <div class="item"><div class="r"><span class="n">Appelgebak</span><span class="p">5,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Dagtaart (wisselend)</span></div><div class="o">Zolang de voorraad strekt</div></div>
+            <div class="item"><div class="r"><span class="n">Warme wafel</span></div><div class="o">Met poedersuiker. Kersen? + 0,70. Slagroom? + 0,70</div></div>
+          </div>
+          <div class="groep">
+            <h4>Warme dranken</h4>
+            <div class="item"><div class="r"><span class="n">Koffie, espresso, espresso macchiato</span><span class="p">3,80</span></div></div>
+            <div class="item"><div class="r"><span class="n">Cappuccino</span><span class="p">4,10</span></div></div>
+            <div class="item"><div class="r"><span class="n">Koffie verkeerd</span><span class="p">4,25</span></div></div>
+            <div class="item"><div class="r"><span class="n">Latte macchiato</span><span class="p">4,25</span></div></div>
+            <div class="item"><div class="r"><span class="n">Flat white</span><span class="p">4,80</span></div></div>
+            <div class="item"><div class="r"><span class="n">Warme chocolademelk</span><span class="p">4,00</span></div><div class="o">Slagroom + 0,70</div></div>
+            <div class="item"><div class="r"><span class="n">Verse thee</span><span class="p">3,70</span></div></div>
+            <div class="item"><div class="r"><span class="n">Verse munt- of gemberthee</span><span class="p">4,20</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Speciale koffie's</h4>
+            <div class="item"><div class="r"><span class="n">Texelse koffie (Jutter), Irish, Spanish, French, Italian</span><span class="p">9,85</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Frisdranken</h4>
+            <div class="item"><div class="r"><span class="n">Pepsi, Pepsi Max, 7 Up, Sisi, Cassis, Sourcy still, Sourcy sparkling, Ice tea sparkling, Ice tea green, appelsap, Rivella, Bitter lemon, Ginger ale</span><span class="p">3,70</span></div></div>
+            <div class="item"><div class="r"><span class="n">Ginger beer</span><span class="p">4,30</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Aperitieven &amp; digestieven</h4>
+            <div class="item"><div class="r"><span class="n">Sangria</span><span class="p">9,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Sangria, 1 liter</span><span class="p">19,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Vieux, Berenburg, Jutter, bessenjenever, jonge of oude jenever</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Malibu, Campari, Bacardi, Baileys, Amaretto, Tia Maria, Grand Marnier, Cointreau, Licor 43</span><span class="p">5,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Famous Grouse blend</span><span class="p">6,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">TX gin</span><span class="p">6,50</span></div></div>
+          </div>
+        </div>
+        <p class="pdf">Ontdek onze favoriete bieren, wijnen en theeën op de aparte kaarten op tafel. Liever de originele kaart? <a href="https://irp.cdn-website.com/30971d0c/files/uploaded/2026+Lunch+Kombuis+30-09-2026.pdf" target="_blank" rel="noopener">Lunchkaart als PDF</a></p>
+      </div>
+
+      <!-- DINER -->
+      <div class="paneel" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden>
+        <div class="stempel"><h3>Dinerkaart</h3><span>Zomerkaart van 13 augustus 2026, kan per seizoen wisselen</span></div>
+        <div class="kolommen">
+          <div class="groep">
+            <h4>Maak een combi</h4>
+            <p class="noot">Perfect om te delen!</p>
+            <div class="item"><div class="r"><span class="n">Broodplank 'Kombuis'</span><span class="p">9,50</span></div><div class="o">Vers brood met drie verschillende dips</div></div>
+            <div class="item"><div class="r"><span class="n">Carpaccio klassiek</span><span class="p">14,50</span></div><div class="o">Filterdun gerookte ossenhaas, pesto, balsamico, kaas, geroosterde pitten</div></div>
+            <div class="item"><div class="r"><span class="n">Gamba's</span><span class="p">25,00</span></div><div class="o">Kruidenolie, knoflook-peper en vers brood</div></div>
+          </div>
+          <div class="groep">
+            <h4>Soepen</h4>
+            <div class="item"><div class="r"><span class="n">Romige vissoep</span><span class="p">8,50</span></div><div class="o">Met brood</div></div>
+            <div class="item"><div class="r"><span class="n">Mosterdsoep</span><span class="p">8,00</span></div><div class="o">Huisgemaakte mosterdsoep met brood</div></div>
+            <div class="item"><div class="r"><span class="n">Dagsoep van de chef</span><span class="p">8,00</span></div><div class="o">Elke dag vers bereid, met brood</div></div>
+          </div>
+          <div class="groep">
+            <h4>Kombuis favorieten</h4>
+            <p class="noot">Geserveerd met verse friet en seizoensgroenten (pasta- en rijstgerechten niet). Frisse salade erbij? + 6,50</p>
+            <div class="item"><div class="r"><span class="n">Kombuis burger</span><span class="p">24,00</span></div><div class="o">Sappige rundvleesburger, oude kaas, huisgemaakte zoetzure saus en sla. + spek 1,50</div></div>
+            <div class="item"><div class="r"><span class="n">Chicken bowl</span><span class="p">25,50</span></div><div class="o">Rijst met pittige gemarineerde kippendij, spek-ui mix, cashews en huisgemaakte harissa-mayo</div></div>
+            <div class="item"><div class="r"><span class="n">Sliptongetjes</span><span class="p">31,00</span></div><div class="o">3 verse sliptongetjes, klassiek geserveerd met remouladesaus</div></div>
+          </div>
+          <div class="groep">
+            <h4>Zee klassiekers</h4>
+            <p class="noot">Geserveerd met verse friet en seizoensgroenten. Frisse salade erbij? + 6,50</p>
+            <div class="item"><div class="r"><span class="n">Zeebaarsfilet</span><span class="p">29,50</span></div><div class="o">Geserveerd met remouladesaus</div></div>
+            <div class="item"><div class="r"><span class="n">Schol</span><span class="p">28,50</span></div><div class="o">Vers gebakken schol geserveerd met remouladesaus</div></div>
+          </div>
+          <div class="groep">
+            <h4>Ambachtelijk bereid</h4>
+            <p class="noot">Geserveerd met verse friet en seizoensgroenten. Frisse salade erbij? + 6,50</p>
+            <div class="item"><div class="r"><span class="n">Kipsaté van kippendij</span><span class="p">25,00</span></div><div class="o">Met pindasaus, atjar, kroepoek en gebakken ui</div></div>
+            <div class="item"><div class="r"><span class="n">Spare ribs</span><span class="p">29,50</span></div><div class="o">Langzaam gegaard vlees, met knoflook- en chilisaus</div></div>
+            <div class="item"><div class="r"><span class="n">Flat iron steak</span><span class="p">32,50</span></div><div class="o">Mals stuk vlees met champignonroomsaus</div></div>
+          </div>
+          <div class="groep">
+            <h4>Groen &amp; smaakvol</h4>
+            <div class="item"><div class="r"><span class="n">Groenten bowl</span><span class="p">23,50</span></div><div class="o">Seizoensgroenten geserveerd met rijst</div></div>
+            <div class="item"><div class="r"><span class="n">Ravioli</span><span class="p">24,50</span></div><div class="o">Gevuld met spinazie en ricotta</div></div>
+            <div class="item"><div class="r"><span class="n">Portobello burger</span><span class="p">24,00</span></div><div class="o">Smeuïge burger van champignons en noten</div></div>
+          </div>
+          <div class="groep">
+            <h4>Rijkgevulde salade</h4>
+            <div class="item"><div class="r"><span class="n">Carpaccio klassiek</span><span class="p">18,50</span></div><div class="o">Gerookte ossenhaas, pesto, balsamico, kaas, geroosterde pitten</div></div>
+            <div class="item"><div class="r"><span class="n">Geitenkaas</span><span class="p">18,50</span></div><div class="o">Warme geitenkaas, honing en cranberry</div></div>
+            <div class="item"><div class="r"><span class="n">Avocado</span><span class="p">17,50</span></div><div class="o">Avocado, guacamole en gepocheerd ei</div></div>
+          </div>
+          <div class="groep">
+            <h4>Kleine Kapiteins</h4>
+            <p class="noot">Geserveerd met appelmoes en mayonaise</p>
+            <div class="item"><div class="r"><span class="n">Kroket met frietjes</span><span class="p">9,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Frikandel met frietjes</span><span class="p">8,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Saté met frietjes</span><span class="p">10,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Poffertjes</span><span class="p">6,00</span></div></div>
+          </div>
+          <div class="wistje">
+            <b>Wist je dat...</b>
+            <p>... er in de lente meer schapen op het eiland zijn dan inwoners? Vanwege de lammerij groeit dit aantal naar ca. 17.000.</p>
+          </div>
+          <div class="groep">
+            <h4>Zoete finale</h4>
+            <div class="item"><div class="r"><span class="n">Tiramisu</span><span class="p">9,50</span></div><div class="o">Lange vingers gedipt in koffie, cacao, mascarponecrème en zabaione</div></div>
+            <div class="item"><div class="r"><span class="n">Coupe à la Sander</span><span class="p">8,50</span></div><div class="o">Drie verschillende ijssmaken met slagroom</div></div>
+            <div class="item"><div class="r"><span class="n">Lemon cheesecake</span><span class="p">10,50</span></div><div class="o">Romige cheesecake met ijs</div></div>
+            <div class="item"><div class="r"><span class="n">Oud maar goud <span class="v" style="background:#fbe9c4;color:#7a4b00">favoriet!</span></span><span class="p">9,50</span></div><div class="o">Vanille-ijs, boerenjongens, advocaat</div></div>
+          </div>
+          <div class="groep">
+            <h4>Klein dessert</h4>
+            <p class="noot">Hoe groot wordt jouw ijs? Maak 'm extra lekker met saus: aardbei, chocolade of caramel.</p>
+            <div class="item"><div class="r"><span class="n">1 bolletje</span><span class="p">3,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">2 bolletjes</span><span class="p">4,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">3 bolletjes</span><span class="p">5,00</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Warme afsluiter</h4>
+            <div class="item"><div class="r"><span class="n">Texelse koffie</span><span class="p">9,95</span></div><div class="o">Met Jutter</div></div>
+            <div class="item"><div class="r"><span class="n">Irish coffee</span><span class="p">9,95</span></div><div class="o">Met Irish whiskey</div></div>
+            <div class="item"><div class="r"><span class="n">Spanish coffee</span><span class="p">9,95</span></div><div class="o">Met Licor 43</div></div>
+            <div class="item"><div class="r"><span class="n">French coffee</span><span class="p">9,95</span></div><div class="o">Met Grand Marnier</div></div>
+            <div class="item"><div class="r"><span class="n">Italian coffee</span><span class="p">9,95</span></div><div class="o">Met Amaretto. Of maak je eigen mix!</div></div>
+          </div>
+          <div class="groep">
+            <h4>Texels van 't vat</h4>
+            <div class="item"><div class="r"><span class="n">Skuumkoppe 30 cl</span><span class="p">6,20</span></div></div>
+            <div class="item"><div class="r"><span class="n">Skuumkoppe 50 cl</span><span class="p">11,70</span></div></div>
+            <div class="item"><div class="r"><span class="n">Drie wisseltaps</span></div><div class="o">Steeds wisselend, soms van het eiland, soms van verder weg</div></div>
+          </div>
+          <div class="groep">
+            <h4>Heineken van 't vat</h4>
+            <div class="item"><div class="r"><span class="n">Small 25 cl</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Medium 35 cl</span><span class="p">4,90</span></div></div>
+            <div class="item"><div class="r"><span class="n">Large 50 cl</span><span class="p">7,80</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Zomer favorieten</h4>
+            <div class="item"><div class="r"><span class="n">Sangria, glas</span><span class="p">9,50</span></div><div class="o">Zomers, fris en perfect om samen te delen</div></div>
+            <div class="item"><div class="r"><span class="n">Sangria, karaf 1 liter</span><span class="p">18,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Stelz mango, peach of lemon</span><span class="p">5,60</span></div></div>
+            <div class="item"><div class="r"><span class="n">Mojito of Mojito 0%</span><span class="p">11,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Pornstar martini</span><span class="p">12,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Espresso martini</span><span class="p">12,50</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Zin in een bakkie?</h4>
+            <div class="item"><div class="r"><span class="n">Koffie, espresso, espresso macchiato</span><span class="p">3,80</span></div></div>
+            <div class="item"><div class="r"><span class="n">Cappuccino, warme chocolademelk</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Koffie verkeerd, latte macchiato, flat white</span><span class="p">4,80</span></div><div class="o">+ slagroom 0,70, + rum 3,00</div></div>
+            <div class="item"><div class="r"><span class="n">Chai latte</span><span class="p">4,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Matcha latte</span><span class="p">4,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Dirty chai latte</span><span class="p">5,20</span></div></div>
+            <div class="item"><div class="r"><span class="n">Verse gemberthee</span><span class="p">4,30</span></div></div>
+            <div class="item"><div class="r"><span class="n">Verse muntthee</span><span class="p">4,30</span></div><div class="o">Meer gedroogde theesoorten op de drankenkaart</div></div>
+          </div>
+          <div class="groep">
+            <h4>Fris</h4>
+            <div class="item"><div class="r"><span class="n">Pepsi, Pepsi Zero, Lipton, Lipton sparkling, Sourcy still of sparkling, 7 Up, Sisi, Cassis, Rivella, Bitter lemon, Tonic, Ginger ale, appelsap, Fristi, chocolademelk, melk, karnemelk</span><span class="p">3,70</span></div></div>
+            <div class="item"><div class="r"><span class="n">Limonade</span><span class="p">3,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Jus d'orange</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Apfelschorle</span><span class="p">4,10</span></div></div>
+            <div class="item"><div class="r"><span class="n">Ginger beer</span><span class="p">4,50</span></div></div>
+            <div class="item"><div class="r"><span class="n">Sourcy still of sparkling 0,75 l</span><span class="p">11,00</span></div></div>
+          </div>
+          <div class="groep">
+            <h4>Sterk</h4>
+            <div class="item"><div class="r"><span class="n">Vieux, Berenburg</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Texelse likeuren: Jutter (populair!), jonge jenever, oude jenever, bessenjenever, Texelstroompje</span><span class="p">4,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Bacardi, Malibu, Amaretto, Baileys, Tia Maria, Grand Marnier, Cointreau, Licor 43, Campari</span><span class="p">5,00</span></div></div>
+            <div class="item"><div class="r"><span class="n">Famous Grouse, Gordon's</span><span class="p">6,00</span></div></div>
+          </div>
+        </div>
+        <p class="pdf">Liever de originele kaart? <a href="https://irp.cdn-website.com/30971d0c/files/uploaded/Diner+2026+Nederlands-+Kombuis+zomer+13-08-2026.pdf" target="_blank" rel="noopener">Dinerkaart als PDF</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserveren" id="reserveren">
+    <div class="wrap grid">
+      <div>
+        <h2>Een tafel aan de haven</h2>
+        <p style="margin-top:18px">Wil je zeker zijn van een plek, binnen of op het terras? Bel ons even, dan zetten we een tafel voor je klaar.</p>
+        <div class="knoppen" style="margin-top:26px">
+          <a class="knop geel" href="tel:+31222313108">Bel 0222-313108</a>
+          <a class="knop rand" href="mailto:info@kombuistexel.nl">Mail ons</a>
+        </div>
+      </div>
+      <div>
+        <div class="blok">
+          <h3>Reserveren</h3>
+          <p style="margin:0">Bel <a class="lnk" href="tel:+31222313108">0222-313108</a>.</p>
+        </div>
+        <div class="blok">
+          <h3>Met een groep?</h3>
+          <p style="margin:0">Groepsaanvragen nemen we alleen in het laagseizoen aan. Stuur een mail naar <a class="lnk" href="mailto:info@kombuistexel.nl">info@kombuistexel.nl</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap grid">
+      <div>
+        <h2>Openingstijden &amp; route</h2>
+        <table class="tijden" aria-label="Openingstijden">
+          <tr data-d="1,2,3,4"><td>Maandag t/m donderdag</td><td>10:00 - 17:00</td></tr>
+          <tr data-d="5,6,0"><td>Vrijdag t/m zondag</td><td>10:00 - 20:00</td></tr>
+        </table>
+        <address class="adres">
+          <strong>Eetcafé De Kombuis</strong><br>
+          Haven 10<br>
+          1792 AE Oudeschild, Texel<br>
+          Tel: <a href="tel:+31222313108">0222-313108</a><br>
+          E-mail: <a href="mailto:info@kombuistexel.nl">info@kombuistexel.nl</a>
+        </address>
+        <a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Haven+10+1792+AE+Oudeschild" target="_blank" rel="noopener">Plan je route</a>
+      </div>
+      <div class="map">
+        <iframe title="Kaart van de haven van Oudeschild" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=4.8380%2C53.0335%2C4.8640%2C53.0435&amp;layer=mapnik"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>De Kombuis</b><br>Eetcafé in de vissershaven van Oudeschild, Texel</div>
+    <div>Haven 10, 1792 AE Oudeschild<br><a href="tel:+31222313108">0222-313108</a> · <a href="mailto:info@kombuistexel.nl">info@kombuistexel.nl</a></div>
+  </div>
+</footer>
+
+<div class="lint">Voorbeeld door Kievits Webdesign, nog niet online</div>
+
+<script>
+(function(){
+  var top=document.getElementById('top'), burger=document.querySelector('.burger'), nav=document.getElementById('nav');
+  function solid(){top.classList.toggle('solid', scrollY>40)}
+  solid(); addEventListener('scroll',solid,{passive:true});
+  burger.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded',open); burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');
+  });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')){document.body.classList.remove('menu-open');burger.setAttribute('aria-expanded','false')} });
+
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function kies(t){
+    tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=!on});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){kies(t)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];kies(n);n.focus();}
+    });
+  });
+
+  var d=new Date().getDay(), weekend=(d===5||d===6||d===0), sluit=weekend?'20:00':'17:00';
+  var h=new Date().getHours()+new Date().getMinutes()/60, eind=weekend?20:17, el=document.getElementById('vandaag');
+  var regel = h<10 ? 'Vandaag open 10:00 - '+sluit : (h<eind ? 'Nu open, tot '+sluit : 'Morgen weer open vanaf 10:00');
+  el.innerHTML = regel + '<span>Haven 10, Oudeschild</span>';
+  document.querySelectorAll('.tijden tr').forEach(function(r){ if(r.dataset.d.split(',').indexOf(String(d))>-1) r.classList.add('nu') });
+})();
+</script>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Kombuis%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

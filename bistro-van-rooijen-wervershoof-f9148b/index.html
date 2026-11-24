@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Café/Bistro Van Rooijen · Wervershoof</title>
+<meta name="description" content="Café/Bistro Van Rooijen in Wervershoof: het gezelligste eetcafé van Wervershoof, feestlocatie en podium voor live muziek.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='%231f4a40'/%3E%3Ctext x='16' y='21.5' font-family='Georgia,serif' font-size='14' fill='%23e9c46a' text-anchor='middle'%3EVR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1f4a40; --green-d:#16362f; --green-l:#2d6355;
+  --cognac:#a65a2e; --cognac-d:#8a4723;
+  --plaster:#ecebe4; --paper:#f7f6f1;
+  --ink:#1d2622; --muted:#5b6660;
+  --brass:#d6a94c;
+  --glass-r:#b8402f; --glass-b:#2f5d9e; --glass-a:#e3a62f; --glass-g:#5d8f5a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--plaster);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:40px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.15;margin:0}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+
+/* glas-in-lood strook: verwijst naar de ramen van de bistro */
+.glass{height:14px;background:
+  linear-gradient(90deg,
+   var(--glass-g) 0 9%, #1d2622 9% 9.6%, var(--glass-a) 9.6% 21%, #1d2622 21% 21.6%,
+   var(--glass-b) 21.6% 30%, #1d2622 30% 30.6%, #e8e2cf 30.6% 44%, #1d2622 44% 44.6%,
+   var(--glass-r) 44.6% 55.4%, #1d2622 55.4% 56%, #e8e2cf 56% 69.4%, #1d2622 69.4% 70%,
+   var(--glass-b) 70% 78.4%, #1d2622 78.4% 79%, var(--glass-a) 79% 90.4%, #1d2622 90.4% 91%,
+   var(--glass-g) 91% 100%);
+  border-block:2px solid #1d2622}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;background:var(--green-d);color:#f3efe4}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand b{font:400 21px/1 "Young Serif",serif;letter-spacing:.01em}
+.brand small{display:block;font:500 12px/1.2 Figtree,sans-serif;color:#b9c7bf;margin-top:3px}
+.links{display:flex;gap:26px;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:15px;color:#dfe6e1}
+.links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:4px;background:var(--cognac);color:#fff;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--cognac-d)}
+.btn.ghost{background:transparent;border:1.5px solid currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.links .btn{padding:9px 16px;font-size:15px;color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:transform .25s,opacity .2s}
+@media (max-width:880px){
+  .burger{display:block}
+  .links{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--green-d);flex-direction:column;align-items:flex-start;padding:28px 24px;gap:20px;transform:translateX(100%);transition:transform .3s;visibility:hidden}
+  .links a{font-size:22px;font-family:"Young Serif",serif}
+  .links .btn{font-family:Figtree,sans-serif;font-size:17px;padding:13px 22px}
+  body.menu-open .links{transform:none;visibility:visible}
+  body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.menu-open .burger span:nth-child(2){opacity:0}
+  body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* hero */
+.hero{padding-top:64px;background:var(--green);color:#f3efe4}
+.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;min-height:min(720px,calc(100vh - 64px))}
+.hero-text{padding:clamp(40px,7vw,96px) clamp(20px,5vw,72px) 56px max(20px,calc((100vw - 1160px)/2));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(38px,4.6vw,66px);letter-spacing:-.01em;animation:rise .5s ease-out both}
+.hero h1 span{display:block;font-size:.42em;color:var(--brass);margin-top:14px;letter-spacing:0}
+.hero p.lead{font-size:clamp(18px,1.7vw,21px);max-width:30em;color:#d9e2dc;margin:22px 0 30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hours-chip{margin-top:34px;display:flex;gap:14px;align-items:flex-start;border-top:1px solid rgba(255,255,255,.18);padding-top:20px;font-size:15px;color:#cbd6cf;max-width:30em}
+.hours-chip strong{color:#fff;font-weight:600}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:saturate(1.05) contrast(1.03)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,74,64,.35),transparent 35%)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:880px){
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;height:34vh;min-height:220px}
+  .hero-text{padding-top:26px}
+  .hero-photo::after{background:linear-gradient(0deg,rgba(31,74,64,.55),transparent 40%)}
+  .hero-text{padding:30px 20px 44px}
+}
+
+/* sections */
+section{padding:clamp(64px,9vw,112px) 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(32px,4.2vw,50px);color:var(--green)}
+.sec-head p{color:var(--muted);margin:14px 0 0;font-size:18px}
+
+/* welkom */
+.welcome{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+.welcome p{max-width:36em}
+.welcome .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.welcome .pics img{border-radius:3px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.welcome .pics img:last-child{aspect-ratio:3/4;margin-bottom:40px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:10px 36px;margin-top:28px;padding-top:24px;border-top:1px solid #cfd2c8;justify-content:start}
+.facts b{display:block;font:400 30px/1 "Young Serif",serif;color:var(--cognac)}
+.facts span{font-size:14px;color:var(--muted)}
+@media (max-width:880px){.welcome{grid-template-columns:1fr}.facts{grid-template-columns:repeat(3,1fr);gap:10px 14px}.facts b{font-size:24px}}
+
+/* menu */
+#menu{background:var(--paper)}
+.menu-top{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:end;margin-bottom:34px}
+.menu-top img{border-radius:3px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--green);margin-bottom:30px}
+.tabs button{font:600 15px/1 Figtree,sans-serif;padding:13px 18px;border:0;background:transparent;color:var(--green);cursor:pointer;border-radius:4px 4px 0 0}
+.tabs button[aria-selected="true"]{background:var(--green);color:#fff}
+.panel{display:none}
+.panel.on{display:block}
+.panel .note{color:var(--muted);font-style:italic;margin:0 0 20px}
+.panel h3.sub{font-size:24px;color:var(--green);margin:34px 0 6px}
+.panel h3.sub:first-child{margin-top:0}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.dish{padding:16px 0;border-bottom:1px dashed #cbcfc4}
+.dish .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.dish h4{margin:0;font-size:17px;font-weight:600}
+.dish .price{font:400 18px/1 "Young Serif",serif;color:var(--cognac);white-space:nowrap}
+.dish p{margin:4px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+.veg{display:inline-block;font-size:12px;font-weight:600;color:var(--glass-g);border:1px solid var(--glass-g);border-radius:20px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+@media (max-width:880px){.menu-top{grid-template-columns:1fr;gap:24px}.menu-top img{aspect-ratio:16/9}.dishes{grid-template-columns:1fr}.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.tabs button{white-space:nowrap;padding:12px 14px}}
+
+/* open */
+.open{background:var(--green);color:#eef2ee}
+.open-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.open h2{color:#fff}
+.hours{list-style:none;margin:0;padding:0;font-size:19px}
+.hours li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.hours li span:last-child{font-family:"Young Serif",serif;color:var(--brass)}
+.hours li.closed span:last-child{color:#9fb3a9;font-family:Figtree,sans-serif;font-size:16px}
+.callout{margin-top:22px;padding:16px 18px;background:rgba(0,0,0,.18);border-left:3px solid var(--brass);font-size:15.5px;color:#d7e0da}
+@media (max-width:880px){.open-grid{grid-template-columns:1fr}}
+
+/* evenementen */
+#evenementen{background:var(--ink);color:#e8ebe6}
+#evenementen .sec-head h2{color:#fff}
+#evenementen .sec-head p{color:#aab5ae}
+.ev-grid{display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:start}
+.events{list-style:none;margin:0;padding:0}
+.event{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.event .date{font:400 15px/1.25 Figtree,sans-serif;color:#aab5ae}
+.event .date b{display:block;font:400 30px/1 "Young Serif",serif;color:var(--brass)}
+.event h3{font-size:23px;color:#fff}
+.event p{margin:3px 0 0;color:#aab5ae;font-size:15px}
+.event .tix{font-weight:600;font-size:15px;color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);padding:9px 14px;border-radius:4px;white-space:nowrap}
+.event .tix:hover{border-color:var(--brass);color:var(--brass)}
+.event .soon{font-size:14px;color:#aab5ae;white-space:nowrap}
+.month{font:600 14px/1 Figtree,sans-serif;color:var(--brass);margin:30px 0 4px;letter-spacing:.02em}
+.month:first-child{margin-top:0}
+.ev-side img{border-radius:3px;aspect-ratio:1/1;object-fit:cover;width:100%}
+.ev-side .rule{margin-top:20px;padding:18px;border:1px solid rgba(255,255,255,.16);border-radius:3px;font-size:15px;color:#c6cfc9}
+.ev-side .rule strong{color:#fff}
+.ev-side .big{margin-top:20px;font:400 22px/1.3 "Young Serif",serif;color:#fff}
+@media (max-width:880px){.ev-grid{grid-template-columns:1fr}.event{grid-template-columns:72px 1fr;gap:6px 14px}.event .tix,.event .soon{grid-column:2;justify-self:start;margin-top:8px}.event .date b{font-size:26px}.event h3{font-size:20px}.ev-side{order:-1}.ev-side img{aspect-ratio:16/10}}
+
+/* feesten */
+.party{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.occasions{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px;padding:0;list-style:none}
+.occasions li{background:#fff;border:1px solid #d3d6cc;border-radius:30px;padding:7px 14px;font-size:15px}
+.party-card{background:var(--green);color:#eef2ee;padding:clamp(26px,4vw,40px);border-radius:3px;position:relative;overflow:hidden}
+.party-card h3{font-size:28px;color:#fff;margin-bottom:12px}
+.party-card p{margin:0 0 20px;color:#d2ddd6}
+.party-card .ways{display:flex;flex-direction:column;gap:10px}
+.party-card .ways a{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 16px;background:rgba(0,0,0,.2);border-radius:3px;text-decoration:none;color:#fff;font-weight:600}
+.party-card .ways a span{font-weight:400;color:#b9c9c0;font-size:14px}
+.party-card .ways a:hover{background:rgba(0,0,0,.32)}
+@media (max-width:880px){.party{grid-template-columns:1fr}.party-card .ways a{flex-direction:column;align-items:flex-start;gap:2px}}
+
+/* vacature */
+#vacatures{background:var(--paper)}
+.vac{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px)}
+.vac h3{font-size:22px;color:var(--green);margin:0 0 10px}
+.vac ul{margin:0 0 24px;padding-left:20px}
+.vac li{margin:4px 0}
+@media (max-width:880px){.vac{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 26px;font-size:17px}
+.contact dt{color:var(--muted);font-size:15px;padding-top:2px}
+.contact dd{margin:0}
+.contact dd a{color:var(--green);font-weight:600}
+.route{background:var(--green);color:#fff;border-radius:3px;padding:30px;display:flex;flex-direction:column;gap:16px;min-height:260px;justify-content:space-between;background-image:radial-gradient(circle at 80% 20%,rgba(214,169,76,.25),transparent 45%)}
+.route b{font:400 30px/1.2 "Young Serif",serif}
+.socials{display:flex;gap:12px;flex-wrap:wrap}
+.socials a{color:var(--green);font-weight:600}
+@media (max-width:880px){.contact{grid-template-columns:1fr}}
+
+footer{background:var(--green-d);color:#b9c7bf;padding:34px 0 30px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:#e7ece8}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#1d2622;color:#f1ede2;text-align:center;font:500 13px/1 Figtree,sans-serif;padding:12px 10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Van Rooijen, naar boven">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="none" stroke="#d6a94c" stroke-width="2"/></svg>
+      <span><b>Van Rooijen</b><small>Café/Bistro in Wervershoof</small></span>
+    </a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+    <nav class="links" id="links">
+      <a href="#menu">Menukaart</a>
+      <a href="#evenementen">Evenementen</a>
+      <a href="#feesten">Feesten &amp; partijen</a>
+      <a href="#vacatures">Vacatures</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="https://nappkin.nl/widget.html?13589" target="_blank" rel="noopener">Reserveren</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-bottom:0">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <h1>Het gezelligste eetcafé van Wervershoof<span>Café/Bistro Van Rooijen</span></h1>
+      <p class="lead">Huisgemaakte gerechten, een goed glas en een warm welkom. Een avondje lekker dineren, een feest of live muziek: u bent bij het juiste adres.</p>
+      <div class="ctas">
+        <a class="btn" href="https://nappkin.nl/widget.html?13589" target="_blank" rel="noopener">Reserveer een tafel</a>
+        <a class="btn ghost" href="#menu">Bekijk de menukaart</a>
+      </div>
+      <div class="hours-chip">
+        <span>Bistro open <strong>donderdag t/m zondag vanaf 17:00</strong>. Door de drukte is het verstandig om tijdig te reserveren.</span>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="img/bistro.jpg" alt="De bistro van Van Rooijen met houten tafels, leren bank en glas-in-loodramen"></div>
+  </div>
+  <div class="glass" aria-hidden="true"></div>
+</section>
+
+<section id="welkom">
+  <div class="wrap welcome">
+    <div>
+      <div class="sec-head" style="margin-bottom:22px">
+        <h2>Welkom bij Van Rooijen</h2>
+        <p>Het begrip van Wervershoof en omstreken.</p>
+      </div>
+      <p>Café/Bistro Van Rooijen is een bruisende ontmoetingsplek waar smaak, gezelligheid en vermaak samenkomen. Sinds 2019 zijn we een baken van gastvrijheid en culinaire verwennerij.</p>
+      <p>In onze bistro geniet u van huisgemaakte gerechten en een selectie van verfijnde drankjes. Daarnaast zijn we de ideale locatie voor feesten, partijen en evenementen, en bieden we een podium aan lokale en nationale artiesten: van intieme optredens tot livemuziek van bekende namen.</p>
+      <div class="facts">
+        <div><b>2019</b><span>sinds</span></div>
+        <div><b>900</b><span>gasten in de grote zaal</span></div>
+        <div><b>do t/m zo</b><span>bistro vanaf 17:00</span></div>
+      </div>
+    </div>
+    <div class="pics">
+      <img src="img/rose.jpg" alt="Een glas rosé met het Van Rooijen-logo op tafel" loading="lazy">
+      <img src="img/grammofoon.jpg" alt="Een oude grammofoon in het café" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-top">
+      <div class="sec-head" style="margin-bottom:0">
+        <h2>De menukaart</h2>
+        <p>Alle hoofdgerechten worden geserveerd met friet en salade. Vegetarische gerechten zijn gemarkeerd.</p>
+      </div>
+      <img src="img/biefstuk.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Menukaart">
+      <button role="tab" aria-selected="true" aria-controls="p-voor" id="t-voor">Voorgerechten</button>
+      <button role="tab" aria-selected="false" aria-controls="p-soep" id="t-soep" tabindex="-1">Salades &amp; soepen</button>
+      <button role="tab" aria-selected="false" aria-controls="p-hoofd" id="t-hoofd" tabindex="-1">Hoofdgerechten</button>
+      <button role="tab" aria-selected="false" aria-controls="p-des" id="t-des" tabindex="-1">Desserts</button>
+      <button role="tab" aria-selected="false" aria-controls="p-kind" id="t-kind" tabindex="-1">Kindermenu</button>
+    </div>
+
+    <div class="panel on" role="tabpanel" id="p-voor" aria-labelledby="t-voor">
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Rundercarpaccio</h4><span class="price">€ 13,50</span></div><p>Licht gerookt, truffeldressing, pijnboompitten en oude kaas</p></div>
+        <div class="dish"><div class="row"><h4>Carpaccio van rode biet en bloemkool <span class="veg">vega</span></h4><span class="price">€ 12,50</span></div><p>Truffeldressing, gegrilde bloemkool, pijnboompitten en oude kaas</p></div>
+        <div class="dish"><div class="row"><h4>Start-sharing (2 pers.)</h4><span class="price">€ 27,50</span></div><p>Laat u verrassen met een luxe selectie voorgerechtjes van de chef</p></div>
+        <div class="dish"><div class="row"><h4>Gegratineerde champignons</h4><span class="price">€ 11,00</span></div><p>In knoflookroom gemarineerd en gegratineerd met kaas</p></div>
+        <div class="dish"><div class="row"><h4>Scampi</h4><span class="price">€ 12,50</span></div><p>Gamba's in knoflooksaus, geserveerd met stokbrood</p></div>
+        <div class="dish"><div class="row"><h4>Pizza breekbrood <span class="veg">vega</span></h4><span class="price">€ 12,50</span></div><p>Met tomaat, oregano, basilicum, cheddar, pepper jack en mozzarella</p></div>
+        <div class="dish"><div class="row"><h4>Nacho's <span class="veg">vega</span></h4><span class="price">€ 10,00</span></div><p>Salsa met cheddar, gouda en pepper jack, guacamole en crème fraîche</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-soep" aria-labelledby="t-soep">
+      <h3 class="sub">Maaltijdsalades</h3>
+      <p class="note">Met brood en kruidenboter</p>
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Rundercarpaccio</h4><span class="price">€ 18,50</span></div><p>Licht gerookt, truffeldressing, pijnboompitten en oude kaas</p></div>
+        <div class="dish"><div class="row"><h4>Carpaccio van rode biet en bloemkool <span class="veg">vega</span></h4><span class="price">€ 17,50</span></div><p>Balsamico- en truffeldressing, pijnboompitten en oude kaas</p></div>
+      </div>
+      <h3 class="sub">Soepen</h3>
+      <p class="note">Alle soepen zijn vegetarisch en huisgemaakt, en worden geserveerd met brood en kruidenboter</p>
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Italiaanse tomatensoep</h4><span class="price">€ 7,50</span></div><p>Van pomodori en room</p></div>
+        <div class="dish"><div class="row"><h4>Franse uiensoep</h4><span class="price">€ 8,50</span></div></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-hoofd" aria-labelledby="t-hoofd">
+      <p class="note">Alle hoofdgerechten worden geserveerd met friet en salade</p>
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Biefstuk traditional</h4><span class="price">€ 23,90</span></div><p>Met brood en jus</p></div>
+        <div class="dish"><div class="row"><h4>Biefstuk chili</h4><span class="price">€ 24,90</span></div><p>Met brood en pikante jus</p></div>
+        <div class="dish"><div class="row"><h4>Biefstuk van de grill</h4><span class="price">€ 25,90</span></div><p>Keuze uit peper-, stroganoff- of rodewijnsaus</p></div>
+        <div class="dish"><div class="row"><h4>Sateh ayam</h4><span class="price">€ 19,50</span></div><p>Gegrilde kipsaté met satésaus en kroepoek</p></div>
+        <div class="dish"><div class="row"><h4>Beren burger</h4><span class="price">€ 21,50</span></div><p>Ambachtelijke burger, bacon, gouda, cheddar, tomaat, sla en truffelsaus. Vegetarische optie: burger van kikkererwten en couscous</p></div>
+        <div class="dish"><div class="row"><h4>Rendang</h4><span class="price">€ 19,50</span></div><p>Gestoofd rundvlees in kokosmelk en diverse kruiden, geserveerd met witte rijst</p></div>
+        <div class="dish"><div class="row"><h4>Oosterse ossenhaaspuntjes</h4><span class="price">€ 24,50</span></div><p>Gewokt met groenten in een pikante ketjapsaus</p></div>
+        <div class="dish"><div class="row"><h4>Entrecote van de grill</h4><span class="price">€ 26,50</span></div><p>Met bearnaisesaus</p></div>
+        <div class="dish"><div class="row"><h4>Spare-ribs</h4><span class="price">€ 23,50</span></div><p>Eigen gemarineerde ribs met knoflooksaus</p></div>
+        <div class="dish"><div class="row"><h4>Gebakken kabeljauw</h4><span class="price">€ 24,90</span></div><p>Met remouladesaus</p></div>
+        <div class="dish"><div class="row"><h4>Vis van de week</h4><span class="price">dagprijs</span></div><p>Vraag de bediening of kijk op het krijtbord</p></div>
+        <div class="dish"><div class="row"><h4>Pasta pesto <span class="veg">vega</span></h4><span class="price">€ 19,90</span></div><p>Huisgemaakte pasta met pesto, parmezaan en pijnboompitten</p></div>
+        <div class="dish"><div class="row"><h4>Risotto al funghi <span class="veg">vega</span></h4><span class="price">€ 19,90</span></div><p>Met diverse paddenstoelen en parmezaan</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-des" aria-labelledby="t-des">
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Chocoladesoufflé</h4><span class="price">€ 9,00</span></div><p>Met bosvruchtenijs en slagroom</p></div>
+        <div class="dish"><div class="row"><h4>Cheesecake</h4><span class="price">€ 9,00</span></div><p>Met 1 bol vanille-ijs, chocoladesaus en slagroom</p></div>
+        <div class="dish"><div class="row"><h4>Dame blanche</h4><span class="price">€ 8,50</span></div><p>2 bollen vanille-ijs met chocoladesaus en slagroom</p></div>
+        <div class="dish"><div class="row"><h4>Vanille-ijs</h4><span class="price">€ 6,25</span></div><p>2 bollen vanille-ijs met slagroom</p></div>
+        <div class="dish"><div class="row"><h4>Affogato</h4><span class="price">€ 6,00</span></div><p>Espresso met 1 bol vanille-ijs</p></div>
+        <div class="dish"><div class="row"><h4>Grand Café</h4><span class="price">€ 6,50</span></div><p>Keuze uit Irish (Jameson), Spanish (Tia Maria) of French (Cointreau)</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-kind" aria-labelledby="t-kind">
+      <p class="note">Alle kindergerechten worden geserveerd met appelmoes, mayonaise en ketchup</p>
+      <div class="dishes">
+        <div class="dish"><div class="row"><h4>Patat met frikandel</h4><span class="price">€ 6,50</span></div></div>
+        <div class="dish"><div class="row"><h4>Patat met kroket</h4><span class="price">€ 6,50</span></div></div>
+        <div class="dish"><div class="row"><h4>Patat met 5 kipnuggets</h4><span class="price">€ 6,50</span></div></div>
+        <div class="dish"><div class="row"><h4>Patat met kaassoufflé</h4><span class="price">€ 6,50</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="open" id="open">
+  <div class="wrap open-grid">
+    <div>
+      <div class="sec-head" style="margin-bottom:20px">
+        <h2>Wanneer is de bistro open?</h2>
+        <p style="color:#c6d3cb">Wilt u eens lekker bij ons komen eten met familie, vrienden of kennissen? Reserveer dan op tijd, het is vaak druk.</p>
+      </div>
+      <a class="btn" href="https://nappkin.nl/widget.html?13589" target="_blank" rel="noopener">Reserveer een tafel</a>
+    </div>
+    <div>
+      <ul class="hours">
+        <li><span>Donderdag</span><span>vanaf 17:00</span></li>
+        <li><span>Vrijdag</span><span>vanaf 17:00</span></li>
+        <li><span>Zaterdag</span><span>vanaf 17:00*</span></li>
+        <li><span>Zondag</span><span>vanaf 17:00</span></li>
+      </ul>
+      <p class="callout">* Door de vele aanvragen voor feesten en partijen, en door evenementen, kan het zijn dat de bistro op zaterdag gesloten is.</p>
+    </div>
+  </div>
+</section>
+
+<section id="evenementen">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Het uitgaanscentrum van Wervershoof</h2>
+      <p>Het hele jaar door optredens, van opkomende artiesten tot shows van bekende namen, in onze grote zaal met podium.</p>
+    </div>
+    <div class="ev-grid">
+      <div>
+        <p class="month">December</p>
+        <ul class="events">
+          <li class="event"><div class="date"><b>11–13</b>weekend</div><div><h3>Winterkermis bij Van Rooijen</h3><p>Weekend van 11 tot en met 13 december</p></div><a class="tix" href="https://weeztix.shop/m9btqb5d" target="_blank" rel="noopener">Tickets</a></li>
+          <li class="event"><div class="date"><b>26</b>vrijdag</div><div><h3>De Escalatie Ploeg</h3><p>2de kerstavond</p></div><a class="tix" href="https://weeztix.shop/m9btqb5d" target="_blank" rel="noopener">Tickets</a></li>
+        </ul>
+        <p class="month">Januari</p>
+        <ul class="events">
+          <li class="event"><div class="date"><b>9–10</b>za en zo</div><div><h3>Wervershover playback show</h3></div><span class="soon">Kaarten binnenkort</span></li>
+          <li class="event"><div class="date"><b>30</b>zaterdag</div><div><h3>Winterstop pop</h3></div><span class="soon">Kaarten binnenkort</span></li>
+        </ul>
+        <p class="month">Februari</p>
+        <ul class="events">
+          <li class="event"><div class="date"><b>13</b>zaterdag</div><div><h3>Poekies verjaardagsfeestje</h3></div><a class="tix" href="https://weeztix.shop/m9btqb5d" target="_blank" rel="noopener">Tickets</a></li>
+          <li class="event"><div class="date"><b>20</b>zaterdag</div><div><h3>Jan Smit</h3></div><a class="tix" href="https://weeztix.shop/m9btqb5d" target="_blank" rel="noopener">Tickets</a></li>
+        </ul>
+        <p class="month">Maart</p>
+        <ul class="events">
+          <li class="event"><div class="date"><b>6</b>zaterdag</div><div><h3>Jan Smit</h3></div><a class="tix" href="https://weeztix.shop/m9btqb5d" target="_blank" rel="noopener">Tickets</a></li>
+        </ul>
+      </div>
+      <aside class="ev-side">
+        <img src="img/grammofoon.jpg" alt="" loading="lazy">
+        <p class="big">Een grote zaal met podium en plek voor 900 gasten.</p>
+        <div class="rule"><strong>Alle evenementen zijn 18+.</strong> Bij een bezoek ben je verplicht je legitimatie te tonen aan de beveiliging.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="feesten">
+  <div class="wrap party">
+    <div>
+      <div class="sec-head" style="margin-bottom:0">
+        <h2>Iets te vieren?</h2>
+        <p>Een feestje geven doe je bij Van Rooijen. Van een intiem feest met vrienden tot een groot evenement: wij zorgen ervoor dat het een geslaagd feest wordt voor u en uw genodigden. Niets is ons te gek en alles is bespreekbaar.</p>
+      </div>
+      <ul class="occasions">
+        <li>Verjaardag</li><li>Jubileum</li><li>Bedrijfsfeest</li><li>Personeelsfeest</li><li>Vrijgezellenfeest</li><li>Bruiloft</li><li>Afstudeerfeest</li><li>Themafeest</li>
+      </ul>
+    </div>
+    <div class="party-card">
+      <h3>Vertel ons uw wensen</h3>
+      <p>Stuur een mail met uw wensen en mogelijkheden, of bel Peter Dekker. Wij nodigen u daarna uit voor een gesprek over het feest.</p>
+      <div class="ways">
+        <a href="mailto:info@cafevanrooijen.nl?subject=Feest%20bij%20Van%20Rooijen">info@cafevanrooijen.nl <span>mail uw wensen</span></a>
+        <a href="tel:+31648384421">06 48 38 44 21 <span>Peter Dekker, feesten en partijen</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vacatures">
+  <div class="wrap vac">
+    <div class="sec-head" style="margin-bottom:0">
+      <h2>Werken bij Van Rooijen</h2>
+      <p>Op dit moment zoeken wij een zelfstandig hulpkok. Heb jij iets met lekker eten? Sta je graag in de keuken of wil je het koksvak juist leren? Dan zoeken wij jou!</p>
+    </div>
+    <div>
+      <h3>Wat zoeken wij?</h3>
+      <ul>
+        <li>Je hebt passie voor eten en koken.</li>
+        <li>Je kunt zelfstandig werken of wilt dit graag leren.</li>
+        <li>Je volgt een koksopleiding of hebt gewoon veel interesse in het vak.</li>
+        <li>Je bent beschikbaar van vrijdag tot en met zondag.</li>
+      </ul>
+      <h3>Wat bieden wij?</h3>
+      <ul>
+        <li>Werken in een gezellig eetcafé met een leuk team.</li>
+        <li>Een paar uurtjes per dag, ideaal naast je opleiding of andere bezigheden.</li>
+        <li>De kans om ervaring op te doen en jezelf verder te ontwikkelen in de keuken.</li>
+        <li>Een fijne werksfeer en lekker bezig zijn met eten.</li>
+      </ul>
+      <p>Je hoeft echt niet alles al te kunnen: motivatie, enthousiasme en zin om te leren vinden we minstens zo belangrijk. Stuur ons een berichtje of kom gezellig even langs.</p>
+      <a class="btn" href="mailto:info@cafevanrooijen.nl?subject=Vacature%20hulpkok">Reageer op de vacature</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="sec-head" style="margin-bottom:28px">
+        <h2>Wees niet verlegen, we bijten niet</h2>
+      </div>
+      <dl>
+        <dt>Adres</dt><dd>De Hoek 6<br>1693 AA Wervershoof</dd>
+        <dt>E-mail</dt><dd><a href="mailto:info@cafevanrooijen.nl">info@cafevanrooijen.nl</a></dd>
+        <dt>Bistro</dt><dd>Donderdag t/m zondag vanaf 17:00</dd>
+        <dt>Volg ons</dt><dd class="socials"><a href="https://www.facebook.com/cafevanrooijen/" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/cafevanrooijen/" target="_blank" rel="noopener">Instagram</a></dd>
+      </dl>
+    </div>
+    <div class="route">
+      <b>De Hoek 6, Wervershoof</b>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=De+Hoek+6+1693+AA+Wervershoof" target="_blank" rel="noopener">Plan uw route</a>
+        <a class="btn ghost" href="https://nappkin.nl/widget.html?13589" target="_blank" rel="noopener">Reserveren</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="glass" aria-hidden="true" style="margin:-34px 0 30px"></div>
+  <div class="wrap">
+    <span>Café/Bistro Van Rooijen · De Hoek 6, 1693 AA Wervershoof</span>
+    <a href="mailto:info@cafevanrooijen.nl">info@cafevanrooijen.nl</a>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Bistro%20Van%20Rooijen%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var b=document.querySelector('.burger');
+  b.addEventListener('click',function(){
+    var o=document.body.classList.toggle('menu-open');
+    b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');
+  });
+  document.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){
+    document.body.classList.remove('menu-open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Menu openen');
+  });});
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+    document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on);});}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t);});
+    t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(d){var n=tabs[(i+d+tabs.length)%tabs.length];sel(n);n.focus();e.preventDefault();}});
+  });
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

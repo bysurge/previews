@@ -1,0 +1,117 @@
+// Afhaalkaart Dynasty, "Nederland Oktober 2026" (nummers en prijzen zoals op hun PDF)
+window.KAART = [
+  { id: 'rijsttafels', name: 'Rijsttafels', items: [
+    ['M5', 'Chinese rijsttafel', 'Tomatensoep, mini loempia\'s, kroepoek, babi pangang, foe yong hai, tjap tjoy, koe loe yuk en saté', '2 pers. 30,50 · 4 pers. 58,50'],
+    ['M6', 'Indische rijsttafel', 'Kroepoek, gebakken banaan, babi pangang, kip kerrie, daging roedjak, tjap tjoy, ajam pangang, saté, gado gado, pinda\'s, atjar', '2 pers. 32,50 · 4 pers. 61,50'],
+    ['M7', 'Rijsttafel speciaal', 'Mini loempia\'s, zha siu mai, kroepoek, babi pangang, kipfilet met oestersaus, cha siew en saté', '2 pers. 24,90 · 4 pers. 47,50'],
+    ['M8', 'Rijsttafel "Dynasty"', 'Wan tan soep, kroepoek, gebakken garnalen, kipfilet met zoetzure saus, runderhaas met zwarte pepersaus en babi spek', '4 pers. 67,00']
+  ]},
+  { id: 'soepen', name: 'Soepen', items: [
+    ['1', 'Kippensoep', '', '4,50'],
+    ['2', 'Tomatensoep', '', '4,50'],
+    ['4', 'Haaienvinnensoep', '', '5,00'],
+    ['6', 'Sun la soep', 'Zuur en pikante smaak met diverse groenten en kipfilet', '7,50'],
+    ['7', 'Kippensoep "Dynasty"', 'Met diverse groenten, champignons en kipfilet', '7,50'],
+    ['8', 'Wan tan soep', 'Met vlees gerold in luchtig deeg', '7,00']
+  ]},
+  { id: 'voor', name: 'Voorgerechten en bijgerechten', items: [
+    ['9', 'Loempia', '', '5,60'],
+    ['10', 'Kip loempia', '', '5,60'],
+    ['11', 'Loempia met babi pangang', '', '10,70'],
+    ['12', 'Loempia met daging roedjak', '', '10,70'],
+    ['13', 'Mini loempia\'s (6 st.) met saus', '', '2,80'],
+    ['14', 'Chinese loempia\'s met saus (4 st.)', '', '6,70'],
+    ['15', 'Kroepoek', '', '3,00'],
+    ['16', 'Kerrie ko (6 st.) met saus', '', '3,00'],
+    ['17', 'Gebakken banaan (6 st.)', '', '4,50'],
+    ['18', 'Pangsit goreng (6 st.) met saus', '', '4,80'],
+    ['19', 'Ananas goreng (6 st.)', '', '4,50'],
+    ['20', 'Kip-saté (4 st.)', '', '6,90'],
+    ['21', 'Inktvisringen (8 st.)', '', '5,00'],
+    ['24', 'Gebakken garnalen met saus (4 st.)', '', '5,00'],
+    ['25', 'Witte rijst', '', '3,00'],
+    ['26', 'Patat', '', '2,80'],
+    ['27', 'Frikandel', '', '2,70'],
+    ['28', 'Kroket', '', '2,70'],
+    ['29', 'Atjar', '', '2,80'],
+    ['30', 'Diverse saus (250 g of 500 g)', '', 'vanaf 2,50']
+  ]},
+  { id: 'nasi', name: 'Nasi en bami', items: [
+    ['31', 'Nasi of bami goreng', 'Met ei en ham', '6,50'],
+    ['32', 'Nasi of bami goreng speciaal', 'Met kip en 2 st. saté', '13,20'],
+    ['33', 'Nasi of bami goreng compleet', 'Met babi pangang, 1 st. saté, ¼ kip en foe yong hai', '19,20'],
+    ['40', 'Nasi of bami goreng "Dynasty"', 'Met babi pangang, koe loe yuk, 6x mini loempia\'s, ¼ kip en 1x saté', '21,00'],
+    ['53', 'Nasi of bami rames', 'Met kipkerrie, daging roedjak, pinda\'s, atjar, 1 st. ei', '14,20'],
+    ['54', 'Nasi of bami rames speciaal', 'Met kipkerrie, daging roedjak, 1 stokje saté en ¼ kip', '17,50'],
+    ['55', 'Nasi of bami rames "Dynasty"', 'Met kipkerrie, daging roedjak, babi pangang, foe yong hai, 1 st. saté, ¼ kip', '26,30'],
+    ['56', 'Gado gado', 'Taugé met pindasaus en ei', '9,00'],
+    ['57', 'Daging roedjak', 'Rundervlees met roedjaksaus', '17,50']
+  ]},
+  { id: 'mihoen', name: 'Mihoen en Chinese bami', items: [
+    ['93', 'Mihoen of Chinese bami (vegetarisch)', '', '10,00'],
+    ['41', 'Mihoen of Chinese bami met kipfilet', '', '12,50'],
+    ['44', 'Mihoen of Chinese bami met Chinese garnalen', '', '15,00'],
+    ['45', 'Mihoen of Chinese bami "Singapore"', 'Met cha siew, garnalen en kerrie', '16,50'],
+    ['47', 'Mihoen of Chinese bami "Dynasty"', 'Met babi pangang, koe loe yuk, ¼ kip, 1x saté en 6x mini loempia\'s', '28,50']
+  ]},
+  { id: 'kip', name: 'Kip en varkensvlees', items: [
+    ['58', 'Kipfilet of varkenshaas met kerriesaus', '', '15,50'],
+    ['450', 'Kipfilet of varkenshaas met zoetzure saus', '', '15,50'],
+    ['59', 'Kipfilet of varkenshaas met zoetpikante saus', '', '15,50'],
+    ['60', 'Kipfilet of varkenshaas met ketjapsaus', '', '15,50'],
+    ['61', 'Kipfilet of varkenshaas met champignons', '', '15,50'],
+    ['62', 'Kipfilet of varkenshaas met Chinese champignons', '', '16,90'],
+    ['64', 'Koe loe kai', 'Gepaneerde kipfilet-balletjes met zoetzure saus', '15,50'],
+    ['65', 'Koe loe yuk', 'Gepaneerde vleesballetjes met zoetzure saus', '15,90'],
+    ['66', 'Babi pangang (varkensvlees)', '', '16,50'],
+    ['67', 'Babi pangang "Dynasty"', 'Met babi pangang, babi spek en cha siew', '20,30'],
+    ['68', 'Ajam pangang (kipfilet)', '', '16,50'],
+    ['69', 'Babi spek', 'Geroosterde varkensspek', '17,70'],
+    ['70', 'Cha siew', 'Geroosterde varkenshaas met honing bereid', '17,70'],
+    ['71', 'Babi ketjap', 'Babi pangang met ketjapsaus', '18,00'],
+    ['114', 'Gon bao kai', 'Kipfilet met gon bao saus en groenten', '17,00'],
+    ['120', 'Cheng chao kai', 'Droog gebakken kipfilet in pittige chilisaus', '17,00'],
+    ['123', 'He jiao kai', 'Kipfilet met zwarte pepersaus', '17,50'],
+    ['490', 'Dao si kai', 'Kipfilet met zwarte bonensaus', '17,50'],
+    ['124', 'Yu xing kai', 'Kipfilet met licht-pikante saus', '17,50'],
+    ['116', 'Sze chuan yuk', 'Varkensvlees met scherpe sze chuan saus en ui', '17,90']
+  ]},
+  { id: 'rund', name: 'Rund, eend, vis en garnalen', items: [
+    ['78', 'Runderhaas met kerriesaus', '', '20,50'],
+    ['118', 'Hao yau niu yuk', 'Rundvlees met oestersaus', '20,50'],
+    ['122', 'He jiao niu yuk', 'Rundvlees met zwarte pepersaus', '20,50'],
+    ['129', 'Tau si niu yuk', 'Rundvlees met zwarte bonensaus', '20,50'],
+    ['82', 'Peking eend met hai xing-saus', '', '15,90'],
+    ['83', 'Peking eend met pikante saus', '', '15,90'],
+    ['84', 'Peking eend met zoetzure saus', '', '15,90'],
+    ['131', 'Gon bao ap', 'Eend met scherpe gon bao saus', '17,30'],
+    ['119', 'Hao yau ha', 'Garnalen met oestersaus en groenten', '20,50'],
+    ['121', 'Cheng chao ha', 'Garnalen met pittige chilisaus', '20,50'],
+    ['127', 'Dau si yu', 'Gebakken visfilet met zwarte bonensaus', '17,50'],
+    ['127a', 'Zha yu', 'Gebakken visfilet met zoetzure saus', '16,80']
+  ]},
+  { id: 'vega', name: 'Foe yong hai, tjap tjoy en vegetarisch', items: [
+    ['72', 'Foe yong hai met kipfilet', '', '13,00'],
+    ['92', 'Foe yong hai (vegetarisch)', '', '12,00'],
+    ['75', 'Tjap tjoy met kipfilet', '', '13,00'],
+    ['91', 'Tjap tjoy (vegetarisch)', '', '12,00'],
+    ['95', 'Vegetarische schotel "Dynasty"', 'Met verschillende soorten groenten en tofu', '14,80']
+  ]},
+  { id: 'combi', name: 'Combinaties', items: [
+    ['96', 'Foe yong hai en tjap tjoy', '', '11,50'],
+    ['97', 'Babi pangang en foe yong hai', '', '12,30'],
+    ['98', 'Babi pangang en tjap tjoy', '', '12,30'],
+    ['99', 'Babi pangang en koe loe yuk', '', '12,50'],
+    ['100', 'Babi pangang en kip kerrie', '', '12,90'],
+    ['101', 'Babi pangang en 2 stokjes saté', '', '12,20'],
+    ['102', 'Babi pangang en babi spek', '', '13,50'],
+    ['103', 'Babi pangang en daging roedjak', '', '13,50'],
+    ['104', 'Foe yong hai, tjap tjoy en 2 st. saté', '', '17,50'],
+    ['105', 'Babi pangang, foe yong hai en 2 st. saté', '', '18,20'],
+    ['106', 'Babi pangang, tjap tjoy en 2 st. saté', '', '18,20'],
+    ['107', 'Babi pangang, koe loe yuk en 2 st. saté', '', '18,50'],
+    ['108', 'Babi pangang, kip kerrie en 2 st. saté', '', '18,80'],
+    ['109', 'Babi pangang, babi spek en 2 st. saté', '', '19,20'],
+    ['110', 'Babi pangang, daging roedjak en 2 st. saté', '', '19,20']
+  ]}
+];

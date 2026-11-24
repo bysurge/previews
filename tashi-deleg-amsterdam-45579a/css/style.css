@@ -1,0 +1,195 @@
+﻿:root {
+  --maroon: #6e1d22;
+  --maroon-deep: #4a1216;
+  --ink: #2b1513;
+  --saffron: #e3a92b;
+  --butter: #f3e3c3;
+  --paper: #fbf4e6;
+  --lapis: #2f5fa8;
+  --flagred: #c8362f;
+  --green: #2f7a52;
+  --muted: #7a5f55;
+  --serif: "Young Serif", Georgia, serif;
+  --sans: "Figtree", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--paper); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; }
+
+/* header */
+.top { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 64px; display: flex; align-items: center; gap: 24px; padding: 0 28px; background: var(--maroon-deep); color: var(--butter); box-shadow: 0 1px 0 rgba(243,227,195,.12); }
+.brand { font-family: var(--serif); font-size: 1.45rem; text-decoration: none; margin-right: auto; }
+.nav { display: flex; gap: 22px; }
+.nav a { text-decoration: none; font-size: .95rem; font-weight: 500; opacity: .88; }
+.nav a:hover { opacity: 1; color: var(--saffron); }
+.call-pill { text-decoration: none; font-weight: 600; font-size: .95rem; background: var(--saffron); color: var(--ink); padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+.menu-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
+.menu-toggle span:not(.sr) { display: block; height: 2px; background: var(--butter); margin: 6px 0; transition: transform .2s; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+
+/* prayer flags */
+.flags { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: space-between; padding: 14px 3% 0; z-index: 2; pointer-events: none; }
+.flags::before { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 2px; background: rgba(243,227,195,.85); }
+.flags i { display: block; width: clamp(18px, 4.2vw, 46px); height: clamp(24px, 5vw, 54px); box-shadow: 0 4px 10px rgba(0,0,0,.25); transform-origin: top center; }
+.flags i:nth-child(odd) { transform: rotate(-3deg); }
+.flags i:nth-child(even) { transform: rotate(2.5deg); }
+.f0 { background: var(--lapis); } .f1 { background: #f6efe0; } .f2 { background: var(--flagred); } .f3 { background: var(--green); } .f4 { background: var(--saffron); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); min-height: 100svh; padding-top: 64px; background: var(--maroon); color: var(--butter); }
+.hero-photo { position: relative; order: 2; overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.hero-text { order: 1; align-self: center; padding: 56px 7% 64px 9%; animation: rise .55s ease-out both; }
+.hero-kind { font-weight: 500; color: var(--saffron); margin: 0 0 14px; font-size: 1.02rem; }
+.hero h1 { font-size: clamp(3.4rem, 8.5vw, 7rem); line-height: .95; letter-spacing: -.01em; color: #fbf1dc; }
+.hero-greet { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 18px 0 22px; color: var(--butter); }
+.hero-sub { max-width: 34em; margin: 0 0 30px; opacity: .9; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; padding: 14px 24px; border-radius: 999px; border: 2px solid transparent; }
+.btn-saffron { background: var(--saffron); color: var(--ink); }
+.btn-saffron:hover { background: #f0bb45; }
+.btn-line { border-color: rgba(243,227,195,.6); color: var(--butter); }
+.btn-line:hover { border-color: var(--butter); }
+@keyframes rise { from { opacity: .2; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* over */
+.over { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; max-width: 1200px; margin: 0 auto; padding: 110px 28px; align-items: center; }
+.over h2 { color: var(--maroon); margin-bottom: 22px; }
+.over h3 { font-size: 1.4rem; color: var(--maroon); margin: 28px 0 10px; }
+.over p { max-width: 36em; }
+.lead { font-size: 1.15rem; }
+blockquote { margin: 32px 0 0; padding: 4px 0 4px 22px; border-left: 4px solid var(--saffron); font-family: var(--serif); font-size: 1.2rem; color: var(--maroon-deep); }
+blockquote p { margin: 0; }
+.over-photos { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: auto auto; gap: 14px; }
+.over-photos figure { margin: 0; overflow: hidden; border-radius: 6px; }
+.over-photos img { width: 100%; height: 100%; object-fit: cover; }
+.ph-a { grid-column: 1 / 3; aspect-ratio: 710 / 384; }
+.ph-b { aspect-ratio: 4 / 5; }
+.ph-c { aspect-ratio: 4 / 5; align-self: end; }
+
+/* menukaart */
+.kaart { background: var(--butter); padding: 100px 28px 110px; }
+.kaart-head, .tabs, .panel { max-width: 1160px; margin-left: auto; margin-right: auto; }
+.kaart-head h2 { color: var(--maroon); }
+.kaart-head p { max-width: 40em; margin: 12px 0 30px; color: var(--muted); }
+.tabs { display: flex; gap: 8px; border-bottom: 2px solid rgba(110,29,34,.2); margin-bottom: 40px; }
+.tabs button { font: 600 1.05rem var(--sans); background: none; border: 0; padding: 12px 20px; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tabs button[aria-selected="true"] { color: var(--maroon); border-bottom-color: var(--maroon); }
+.cols { columns: 2; column-gap: 64px; }
+.group { break-inside: avoid; margin-bottom: 44px; }
+.group h3 { font-size: 1.6rem; color: var(--maroon); margin-bottom: 6px; padding-bottom: 8px; border-bottom: 1px solid rgba(110,29,34,.25); }
+.group-note { font-size: .92rem; color: var(--muted); margin: 6px 0 0; font-style: italic; }
+.dishes { list-style: none; margin: 0; padding: 0; }
+.dish { padding: 13px 0; border-bottom: 1px dotted rgba(110,29,34,.18); }
+.dish:last-child { border-bottom: 0; }
+.dish-line { display: flex; align-items: baseline; gap: 10px; }
+.dish h4 { font-family: var(--sans); font-weight: 700; font-size: 1.02rem; }
+.dots { flex: 1; }
+.price { font-weight: 600; white-space: nowrap; color: var(--maroon); font-variant-numeric: tabular-nums; }
+.dish .nl { margin: 3px 0 0; font-size: .97rem; }
+.dish .en { margin: 1px 0 0; font-size: .88rem; color: var(--muted); font-style: italic; }
+.heat { font-family: var(--sans); font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; vertical-align: 2px; margin-left: 4px; }
+.heat-mild { background: #e3ecd9; color: #2f5a2a; }
+.heat-medium { background: #f6dfae; color: #7a4a06; }
+.heat-pittig { background: #f2cbc5; color: #8d1f18; }
+.compact .dish { padding: 8px 0; }
+.compact .dish h4 { font-weight: 500; }
+
+/* menus */
+.menus { position: relative; background: var(--maroon); color: var(--butter); padding: 120px 28px 100px; }
+.menus .flags { padding-top: 0; }
+.menus .flags::before { top: 0; }
+.menus-head, .menus-sub, .sets { max-width: 1160px; margin-left: auto; margin-right: auto; }
+.menus-head h2 { color: #fbf1dc; }
+.menus-head p { max-width: 38em; opacity: .88; margin: 12px 0 10px; }
+.menus-sub { font-size: 1.5rem; color: var(--saffron); margin-top: 48px; margin-bottom: 18px; }
+.sets { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; align-items: start; }
+.set { background: var(--paper); color: var(--ink); border-radius: 6px; padding: 26px 26px 22px; border-top: 6px solid var(--saffron); }
+.set:nth-child(5n+1) { border-top-color: var(--lapis); } .set:nth-child(5n+2) { border-top-color: var(--saffron); } .set:nth-child(5n+3) { border-top-color: var(--flagred); } .set:nth-child(5n+4) { border-top-color: var(--green); } .set:nth-child(5n+5) { border-top-color: #d8ccb4; }
+.set header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.set h4 { font-size: 1.35rem; color: var(--maroon); }
+.set-price { font-weight: 700; color: var(--maroon); white-space: nowrap; }
+.set-sub { margin: 6px 0 4px; color: var(--muted); font-size: .95rem; }
+.set-label { font-weight: 700; font-size: .85rem; color: var(--maroon); margin: 14px 0 4px; }
+.set-app, .set-incl { margin: 0; font-size: .93rem; }
+.set-list { list-style: none; margin: 0 0 8px; padding: 0 0 8px; font-size: .93rem; border-bottom: 1px dotted rgba(110,29,34,.2); }
+.set-list:last-of-type { border-bottom: 0; }
+.set-list li { padding: 2px 0; }
+.set-list b { font-weight: 600; }
+
+/* photo band */
+.gerechten-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; background: var(--ink); color: var(--butter); }
+.gerechten-band img { width: 100%; height: 100%; max-height: 460px; object-fit: cover; }
+.gerechten-band p { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 2.1rem); padding: 40px 9%; margin: 0; }
+
+/* dranken */
+.dranken { max-width: 1160px; margin: 0 auto; padding: 110px 28px 80px; }
+.dranken > h2 { color: var(--maroon); margin-bottom: 30px; }
+.huiswijn { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; background: var(--butter); padding: 32px 36px; border-radius: 6px; margin-bottom: 56px; }
+.huiswijn h3 { font-size: 1.6rem; color: var(--maroon); margin-bottom: 10px; }
+.huiswijn p { margin: 0 0 12px; font-size: .97rem; }
+.huis-prijs { list-style: none; margin: 0; padding: 0; align-self: center; }
+.huis-prijs li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(110,29,34,.2); font-size: 1.1rem; }
+.huis-prijs b { color: var(--maroon); }
+.wines { columns: 3; column-gap: 48px; margin-bottom: 30px; }
+.drinks { columns: 3; column-gap: 48px; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); background: var(--maroon-deep); color: var(--butter); }
+.contact-info { padding: 90px 8% 90px 9%; }
+.contact h2 { color: #fbf1dc; margin-bottom: 14px; }
+.contact dl { margin: 34px 0 20px; }
+.contact dl div { display: grid; grid-template-columns: 110px 1fr; padding: 12px 0; border-top: 1px solid rgba(243,227,195,.18); }
+.contact dt { color: var(--saffron); font-weight: 600; }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+.route { color: var(--saffron); font-weight: 600; }
+.map { min-height: 420px; }
+.map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; filter: sepia(.25); }
+
+.foot { background: var(--ink); color: rgba(243,227,195,.8); text-align: center; padding: 36px 20px 70px; font-size: .92rem; }
+.foot-name { font-family: var(--serif); font-size: 1.5rem; color: var(--butter); margin: 0 0 6px; }
+.foot p { margin: 0; }
+.ribbon { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--ink); color: var(--butter); text-align: center; font-size: .8rem; padding: 6px 10px; border-top: 2px solid var(--saffron); }
+
+/* responsive */
+@media (max-width: 1020px) {
+  .nav { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--maroon-deep); padding: 8px 28px 20px; display: none; }
+  .nav.open { display: flex; }
+  .nav a { padding: 14px 0; border-bottom: 1px solid rgba(243,227,195,.14); font-size: 1.05rem; }
+  .menu-toggle { display: block; }
+  .over { grid-template-columns: 1fr; gap: 40px; padding: 80px 22px; }
+  .cols, .wines, .drinks { columns: 1; }
+  .huiswijn { grid-template-columns: 1fr; gap: 16px; }
+  .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .top { padding: 0 12px 0 18px; gap: 10px; }
+  .call-pill { font-size: .85rem; padding: 7px 12px; }
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-photo { order: 1; height: 44svh; min-height: 260px; }
+  .hero-text { order: 2; padding: 30px 22px 46px; }
+  .hero-kind { font-size: .95rem; margin-bottom: 8px; }
+  .hero-greet { margin: 12px 0 14px; font-size: 1.2rem; }
+  .hero-sub { margin-bottom: 22px; }
+  .kaart { padding: 70px 18px 80px; }
+  .tabs button { padding: 12px 14px; }
+  .menus { padding: 90px 18px 70px; }
+  .sets { grid-template-columns: 1fr; }
+  .set { padding: 22px 18px 18px; }
+  .gerechten-band { grid-template-columns: 1fr; }
+  .gerechten-band img { max-height: 300px; }
+  .dranken { padding: 80px 18px 60px; }
+  .huiswijn { padding: 24px 20px; }
+  .contact-info { padding: 70px 22px 50px; }
+  .contact dl div { grid-template-columns: 88px 1fr; }
+}
+@media (max-width: 380px) { .brand { font-size: 1.2rem; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }

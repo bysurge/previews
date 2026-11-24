@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>IJsboerderij IJscowd · Hattem</title>
+<meta name="description" content="Ambachtelijk roomijs van verse melk, ijstaarten, boerderijwinkel en terras bij IJsboerderij IJscowd in Hattem. Het hele jaar geopend.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M20 30 L32 60 L44 30Z' fill='%23d9a36a'/%3E%3Ccircle cx='32' cy='22' r='15' fill='%23f6d3d6'/%3E%3Ccircle cx='32' cy='22' r='15' fill='none' stroke='%23233f73' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --melk:#FBFAF5;
+  --room:#F3EEE2;
+  --blauw:#233F73;
+  --blauw-d:#172B50;
+  --gras:#4F7A32;
+  --gras-l:#E4ECD8;
+  --aardbei:#F2C9CB;
+  --hoorn:#C98F55;
+  --inkt:#1D2433;
+  --grijs:#5B6272;
+  --lijn:#E2DDCF;
+  --serif:"Young Serif", Georgia, serif;
+  --sans:"Figtree", system-ui, -apple-system, Segoe UI, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--melk);color:var(--inkt);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blauw)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;margin:0;color:var(--blauw-d)}
+h2{font-size:clamp(2rem,4.2vw,3.1rem);letter-spacing:-.01em}
+h3{font-size:1.4rem}
+p{margin:0 0 1em}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--hoorn);outline-offset:3px;border-radius:4px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(251,250,245,.97);border-bottom:1px solid var(--lijn)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.merk{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--blauw-d)}
+.merk svg{width:34px;height:34px;flex:none}
+.merk b{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1}
+.merk small{display:block;font-size:.78rem;color:var(--grijs);font-weight:500;margin-top:3px}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;color:var(--inkt);font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--gras)}
+.nav .bel{background:var(--blauw);color:#fff;padding:9px 16px;border-radius:999px}
+.nav .bel:hover{background:var(--blauw-d);color:#fff}
+.menu-toggle{display:none;background:none;border:1px solid var(--lijn);border-radius:10px;width:46px;height:42px;cursor:pointer;color:var(--blauw-d)}
+.menu-toggle span{display:block;width:20px;height:2px;background:currentColor;margin:4px auto;transition:transform .2s}
+@media (max-width:900px){
+  .menu-toggle{display:block}
+  .nav{position:fixed;top:68px;left:0;right:0;background:var(--melk);flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 20px;border-bottom:1px solid var(--lijn);display:none;box-shadow:0 18px 30px rgba(23,43,80,.12)}
+  .nav.open{display:flex}
+  .nav a{padding:13px 4px;border-bottom:1px solid var(--lijn);font-size:1.05rem}
+  .nav .bel{margin-top:14px;text-align:center;border:0}
+}
+
+/* hero */
+.hero{padding:108px 0 0;background:var(--melk);position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.6rem);letter-spacing:-.015em}
+.hero .lead{font-size:1.18rem;color:var(--grijs);max-width:34ch;margin:22px 0 26px}
+.vandaag{display:inline-flex;align-items:center;gap:10px;background:var(--gras-l);color:#2E4D1C;padding:8px 14px 8px 12px;border-radius:999px;font-weight:600;font-size:.95rem;margin-bottom:22px}
+.vandaag i{width:10px;height:10px;border-radius:50%;background:var(--gras);flex:none}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px}
+.knop{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;border:2px solid var(--blauw);color:var(--blauw);background:transparent;font-size:1rem;cursor:pointer;font-family:inherit}
+.knop.vol{background:var(--blauw);color:#fff}
+.knop.vol:hover{background:var(--blauw-d);border-color:var(--blauw-d)}
+.knop:hover{background:var(--blauw);color:#fff}
+.hero-foto{position:relative}
+.hero-foto img{width:100%;aspect-ratio:1012/540;object-fit:cover;object-position:50% 45%;border-radius:220px 220px 18px 18px;animation:in .5s ease-out both}
+.hero-foto .bord{position:absolute;left:-22px;bottom:26px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px rgba(23,43,80,.14);font-size:.9rem;line-height:1.35;max-width:220px}
+.hero-foto .bord b{font-family:var(--serif);font-weight:400;color:var(--blauw-d);font-size:1.05rem;display:block}
+@keyframes in{from{opacity:.2;transform:scale(1.015)}to{opacity:1;transform:none}}
+.weide{height:70px;margin-top:-1px;display:block;width:100%}
+
+/* sections */
+section{padding:88px 0}
+.kop{max-width:640px;margin-bottom:40px}
+.kop p{color:var(--grijs);font-size:1.1rem;margin-top:14px}
+
+/* ijs */
+#ijs{background:var(--room);padding-top:30px}
+.vitrine{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.smaak{background:#fff;border-radius:18px;overflow:hidden;margin:0}
+.smaak img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.smaak figcaption{padding:12px 16px 14px;font-family:var(--serif);font-size:1.15rem;color:var(--blauw-d)}
+.smaak.tekst{display:flex;flex-direction:column;justify-content:center;padding:22px;background:var(--blauw);color:#fff}
+.smaak.tekst h3{color:#fff;margin-bottom:10px}
+.smaak.tekst p{font-size:.95rem;margin:0;color:#DCE4F2}
+.ijsinfo{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;margin-top:48px}
+.smaken{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.smaken span{background:#fff;border:1px solid var(--lijn);border-radius:999px;padding:5px 13px;font-size:.95rem}
+.bakken{background:#fff;border-radius:18px;padding:26px}
+.bakken ul{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end}
+.bakken li{text-align:center;font-size:.85rem;color:var(--grijs)}
+.bakken li i{display:block;margin:0 auto 6px;background:var(--aardbei);border:2px solid var(--blauw);border-radius:6px 6px 10px 10px}
+.bakken li:first-child i{border-radius:50%}
+
+/* taarten */
+.taart-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.taart-foto img{border-radius:18px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.taartlijst{columns:2;column-gap:28px;padding:0;margin:20px 0;list-style:none}
+.taartlijst li{padding:9px 0;border-bottom:1px dashed var(--lijn);break-inside:avoid}
+.notitie{background:var(--aardbei);border-radius:14px;padding:16px 20px;margin:22px 0}
+.notitie b{color:var(--blauw-d)}
+.klein{font-size:.9rem;color:var(--grijs)}
+
+/* ijskar */
+.ijskar{background:var(--blauw);color:#fff;border-radius:26px;padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.ijskar h2{color:#fff}
+.ijskar p{color:#DCE4F2}
+.prijs{display:grid;gap:12px}
+.prijs div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:10px}
+.prijs strong{font-family:var(--serif);font-weight:400;font-size:1.3rem;white-space:nowrap}
+
+/* winkel */
+#winkel{background:var(--gras-l)}
+.winkel-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.winkel-fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.winkel-fotos img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.winkel-fotos{grid-template-columns:1fr}
+.schap{list-style:none;padding:0;margin:0}
+.schap li{padding:16px 0;border-bottom:1px solid #C9D6B6}
+.schap b{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--blauw-d)}
+.schap span{color:#3E4A36;font-size:.98rem}
+
+/* terras */
+.terras{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.terras img{border-radius:18px;width:100%;aspect-ratio:7/5;object-fit:cover}
+
+/* boerderij */
+#boerderij{background:var(--blauw-d);color:#E6ECF6}
+#boerderij h2,#boerderij h3{color:#fff}
+#boerderij .kop p{color:#B9C6DD}
+.dieren{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-bottom:48px}
+.dieren img{border-radius:16px;width:100%;height:100%;aspect-ratio:7/5;object-fit:cover}
+.feiten{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.feiten div{border-top:2px solid var(--hoorn);padding-top:16px}
+.feiten b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#fff;margin-bottom:6px}
+.feiten p{font-size:.98rem;margin:0;color:#C7D2E5}
+
+/* arrangementen */
+.arr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.arr article{background:#fff;border:1px solid var(--lijn);border-radius:20px;padding:28px;display:flex;flex-direction:column}
+.arr article h3{margin-bottom:10px}
+.arr .tarief{margin-top:auto;padding-top:16px;border-top:1px dashed var(--lijn)}
+.arr .tarief div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}
+.arr .tarief strong{white-space:nowrap;color:var(--blauw-d)}
+.arr img{border-radius:14px;margin:-8px -8px 18px;width:calc(100% + 16px);aspect-ratio:7/4;object-fit:cover}
+
+/* over */
+#over{background:var(--room)}
+.over{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:center}
+.over img{border-radius:200px 200px 18px 18px;width:100%;max-width:400px;aspect-ratio:382/500;object-fit:cover}
+.over .namen{font-family:var(--serif);font-size:1.3rem;color:var(--blauw-d);margin:8px 0 18px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.tijden{width:100%;border-collapse:collapse;margin:10px 0 6px}
+.tijden td{padding:9px 0;border-bottom:1px solid var(--lijn)}
+.tijden td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.tijden tr.nu td{font-weight:700;color:var(--gras)}
+.adres{font-size:1.1rem;margin:18px 0}
+.kaart{border:0;width:100%;height:300px;border-radius:18px;background:var(--room)}
+details{border-bottom:1px solid var(--lijn);padding:12px 0}
+summary{cursor:pointer;font-weight:600;color:var(--blauw-d)}
+details p{margin:10px 0 4px;color:var(--grijs)}
+form{background:#fff;border:1px solid var(--lijn);border-radius:20px;padding:26px;margin-top:28px}
+label{display:block;font-weight:600;font-size:.95rem;margin:12px 0 6px}
+input,textarea{width:100%;font:inherit;padding:11px 13px;border:1px solid #CFC9B8;border-radius:10px;background:var(--melk)}
+textarea{min-height:110px;resize:vertical}
+.bevestig{display:none;margin-top:14px;background:var(--gras-l);padding:12px 14px;border-radius:10px;color:#2E4D1C}
+
+footer{background:var(--blauw-d);color:#B9C6DD;padding:48px 0 90px;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer a{color:#fff}
+footer b{font-family:var(--serif);font-weight:400;color:#fff;font-size:1.3rem;display:block;margin-bottom:6px}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(29,36,51,.92);color:#fff;font-size:.8rem;padding:7px 14px;border-radius:999px;white-space:nowrap}
+
+@media (max-width:900px){
+  .hero{padding-top:92px}
+  .hero-grid,.ijsinfo,.taart-grid,.winkel-grid,.terras,.over,.contact,.ijskar{grid-template-columns:1fr}
+  .hero-grid{gap:28px}
+  .hero-foto{order:-1}
+  .hero-foto img{aspect-ratio:4/3;object-position:62% 60%}
+  .hero h1{font-size:clamp(2.1rem,9vw,2.8rem)}
+  .hero .lead{font-size:1.05rem;margin:16px 0 20px}
+  .vandaag{margin-bottom:14px}
+  .hero-foto .bord{left:10px;bottom:10px;padding:7px 11px;font-size:.78rem;max-width:180px}
+  .hero-foto .bord b{font-size:.92rem}
+  .vitrine{grid-template-columns:repeat(2,1fr);gap:12px}
+  .arr{grid-template-columns:1fr}
+  .dieren{grid-template-columns:1fr 1fr}
+  .dieren img:first-child{grid-column:1/-1}
+  .feiten{grid-template-columns:1fr}
+  .ijskar{padding:30px 22px}
+  .taart-foto{max-width:420px}
+  .over img{max-width:300px}
+  section{padding:64px 0}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .taartlijst{columns:1}
+  .smaak figcaption{font-size:1rem;padding:10px 12px}
+  .bakken{padding:20px}
+  .bakken li{font-size:.75rem}
+  .ribbon{font-size:.72rem}
+  .hero-foto img{border-radius:120px 120px 14px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="merk" href="#top" aria-label="IJsboerderij IJscowd, naar boven">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30 L32 60 L44 30Z" fill="#C98F55"/><circle cx="32" cy="22" r="15" fill="#F2C9CB"/><circle cx="32" cy="22" r="15" fill="none" stroke="#233F73" stroke-width="3"/></svg>
+      <span><b>IJscowd</b><small>IJsboerderij in Hattem</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#ijs">IJs</a>
+      <a href="#taarten">IJstaarten</a>
+      <a href="#winkel">Winkel</a>
+      <a href="#boerderij">Boerderij</a>
+      <a href="#arrangementen">Arrangementen</a>
+      <a href="#contact">Contact</a>
+      <a class="bel" href="tel:+31384446114">038 - 444 61 14</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Welkom">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="vandaag" id="vandaag"><i></i><span>Het hele jaar geopend</span></p>
+      <h1>Roomijs van verse melk, gewoon op de boerderij.</h1>
+      <p class="lead">Ambachtelijk ijs, ijstaarten en de lekkerste streekproducten bij IJsboerderij IJscowd in Hattem. Op een kilometer van de Veluwe en de IJssel.</p>
+      <div class="knoppen">
+        <a class="knop vol" href="#ijs">Bekijk de smaken</a>
+        <a class="knop" href="#contact">Route en openingstijden</a>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="img/familie.jpg" alt="Het team van IJscowd met ijsjes, een ijstaart, een boerenkaas en een mand streekproducten" width="1012" height="500">
+      <p class="bord"><b>Het team van IJscowd</b>Al meer dan 25 jaar ijs van eigen melk</p>
+    </div>
+  </div>
+  <svg class="weide" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 V38 C140 18 260 52 420 36 C600 18 720 54 900 38 C1080 22 1220 50 1440 30 V70Z" fill="#F3EEE2"/></svg>
+</section>
+
+<section id="ijs">
+  <div class="wrap">
+    <div class="kop">
+      <h2>Ons ijs</h2>
+      <p>Op onze ijsboerderij maken wij voornamelijk roomijs van verse melk. U heeft keuze uit een groot aantal smaken.</p>
+    </div>
+    <div class="vitrine">
+      <figure class="smaak"><img src="img/foto-stroopwafel.jpg" alt="Roomijs stroopwafel" loading="lazy" width="416" height="312"><figcaption>Stroopwafel</figcaption></figure>
+      <figure class="smaak"><img src="img/foto-vanille.jpg" alt="Roomijs vanille" loading="lazy" width="416" height="312"><figcaption>Vanille</figcaption></figure>
+      <figure class="smaak"><img src="img/ijs-after-eight.jpg" alt="Roomijs after eight" loading="lazy" width="416" height="312"><figcaption>After eight</figcaption></figure>
+      <figure class="smaak"><img src="img/ijs-boerenjongens.jpg" alt="Roomijs boerenjongens" loading="lazy" width="416" height="312"><figcaption>Boerenjongens</figcaption></figure>
+      <figure class="smaak"><img src="img/ijs-stracciatella.jpg" alt="Roomijs stracciatella" loading="lazy" width="416" height="312"><figcaption>Stracciatella</figcaption></figure>
+      <figure class="smaak"><img src="img/ijs-unicorn.jpg" alt="Roomijs unicorn" loading="lazy" width="416" height="312"><figcaption>Unicorn</figcaption></figure>
+      <figure class="smaak"><img src="img/ijs-smurf.jpg" alt="Roomijs smurf" loading="lazy" width="416" height="312"><figcaption>Smurf</figcaption></figure>
+      <div class="smaak tekst">
+        <h3>En nog veel meer</h3>
+        <p>Ook chocolade en citroen, plus sorbetijs, suikervrij ijs en yoghurtijs.</p>
+      </div>
+    </div>
+
+    <div class="ijsinfo">
+      <div>
+        <h3>Meer smaken</h3>
+        <div class="smaken">
+          <span>Aardbei</span><span>Appeltaart</span><span>Banaan</span><span>Bosvruchten</span><span>Chocola</span><span>Citroen</span><span>Cranberry</span><span>Framboos</span><span>Hazelnoot</span><span>After eight</span><span>Oma citroentaart</span><span>Oreo</span><span>Mon chou</span><span>Zomervruchten</span><span>enzovoort</span>
+        </div>
+        <p style="margin-top:20px">Naast ons roomijs maken wij ook sorbetijs, suikervrij ijs en yoghurtijs. Voor elk dieet en elke allergie proberen wij ons recept aan te passen. Heeft u speciale wensen? Neem dan gerust <a href="#contact">contact</a> met ons op.</p>
+      </div>
+      <div class="bakken">
+        <h3>Per bolletje of per bak</h3>
+        <p class="klein" style="margin:8px 0 0">Neem ons ijs mee naar huis in een bak naar keuze.</p>
+        <ul aria-label="Verkrijgbaar per">
+          <li><i style="width:26px;height:26px"></i>bolletje</li>
+          <li><i style="width:30px;height:22px"></i>½ liter</li>
+          <li><i style="width:36px;height:28px"></i>1 liter</li>
+          <li><i style="width:44px;height:36px"></i>2½ liter</li>
+          <li><i style="width:52px;height:44px"></i>5 liter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="taarten">
+  <div class="wrap taart-grid">
+    <div class="taart-foto"><img src="img/ijstaart-boomstam.jpg" alt="IJstaart van IJscowd" loading="lazy" width="400" height="599"></div>
+    <div>
+      <h2>IJstaarten voor 8 personen</h2>
+      <p style="margin-top:14px">Onze ijstaarten zijn verkrijgbaar in verschillende smaken:</p>
+      <ul class="taartlijst">
+        <li>Vanille / aardbei</li>
+        <li>Vanille / bosvruchten</li>
+        <li>Vanille / mon chou</li>
+        <li>Vanille / stroopwafel</li>
+        <li>Vanille / citroentaart</li>
+        <li>Vanille / stracciatella</li>
+        <li>Puntjes als ijstaart, in verschillende smaken</li>
+        <li>Vanille boomstam</li>
+      </ul>
+      <p class="notitie"><b>Kerst-ijstaarten</b> Voor de feestdagen maken wij ook kerst-ijstaarten. Vraag gerust naar de mogelijkheden.</p>
+      <p>Geef uw bestelling door via <a href="mailto:info@ijscowd.nl">info@ijscowd.nl</a> of <a href="tel:+31384446114">038 - 444 61 14</a>.</p>
+      <div class="knoppen">
+        <a class="knop vol" href="mailto:info@ijscowd.nl?subject=Bestelling%20ijstaart">IJstaart bestellen</a>
+        <a class="knop" href="tel:+31384446114">Bel 038 - 444 61 14</a>
+      </div>
+      <p class="klein" style="margin-top:14px">De taarten kunnen iets afwijken van de foto.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ijskar" style="padding-top:0">
+  <div class="wrap">
+    <div class="ijskar">
+      <div>
+        <h2>IJskar huren</h2>
+        <p style="margin-top:14px">Tot ons assortiment behoort ook een leuke ijskar. De ijskar past door een standaard deur, dus voor iedere gelegenheid geschikt. U kunt de ijskar met of zonder een medewerker van IJscowd huren.</p>
+        <p>U haalt 70 tot 80 bolletjes ijs uit een bak van 5 liter. Een bak van 2½ liter kan ook. De kar wordt compleet geleverd met ijshoorntjes, bakjes en ijsscheppen.</p>
+        <a class="knop vol" style="background:#fff;color:var(--blauw-d);border-color:#fff" href="mailto:info@ijscowd.nl?subject=IJskar%20huren">IJskar aanvragen</a>
+      </div>
+      <div class="prijs">
+        <div><span>Huur ijskar</span><strong>€ 50,00</strong></div>
+        <div><span>Vervoer buiten Hattem</span><strong>€ 0,35 p/km</strong></div>
+        <div><span>Met of zonder medewerker</span><strong>in overleg</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="winkel">
+  <div class="wrap winkel-grid">
+    <div>
+      <div class="kop" style="margin-bottom:24px">
+        <h2>Boerderijwinkel</h2>
+        <p>In onze boerderijwinkel verkopen wij ons ambachtelijke ijs, producten van onze eigen boerderij en verschillende producten uit de regio.</p>
+      </div>
+      <ul class="schap">
+        <li><b>Boerenkaas</b><span>Gemaakt van verse, ongepasteuriseerde melk.</span></li>
+        <li><b>Boerenzuivel</b><span>Zuivel die echt op de boerderij bereid is.</span></li>
+        <li><b>Streekproducten</b><span>Zuivel, sappen, jams, bakmeel en nog veel meer uit de regio.</span></li>
+        <li><b>Meel en bakproducten</b><span>Voor het bakken van brood, cake, pannenkoeken en banket.</span></li>
+        <li><b>Vlees en gevogelte</b><span>Een diepvries met diverse soorten vlees en gevogelte, ook vlees van onze eigen koeien.</span></li>
+        <li><b>Vruchtensappen en jams</b><span>Pure appelsap en perensap, verschillende dubbelsappen en jams.</span></li>
+        <li><b>Cadeaus en pakketten</b><span>Voor iedere gelegenheid een pakket of cadeau, ook met kerst.</span></li>
+      </ul>
+    </div>
+    <div class="winkel-fotos">
+      <img src="img/slide-kaas.jpg" alt="Boerenkaas met streekproducten" loading="lazy" width="416" height="312">
+      <img src="img/banner-boerenzuivel.jpg" alt="Boerenzuivel" loading="lazy" width="416" height="312">
+      
+    </div>
+  </div>
+</section>
+
+<section id="terras">
+  <div class="wrap terras">
+    <img src="img/ijs-boerenjongens.jpg" alt="Roomijs boerenjongens" loading="lazy" width="416" height="312">
+    <div>
+      <h2>Terras en prieel</h2>
+      <p style="margin-top:14px">Lekker uitrusten tijdens een fietstocht kan op ons gezellige boerderijterras en in ons prieel. Tijdens openingstijden kunt u genieten van een kopje verse koffie met een stukje ijsgebak, een ijsje op een hoorntje of in een bakje, of een heerlijke zomerse ijscoupe.</p>
+      <p>Wij liggen aan het fietsknooppuntennetwerk, langs het spoor tussen knooppunt 90 en 99. U bent van harte welkom!</p>
+    </div>
+  </div>
+</section>
+
+<section id="boerderij">
+  <div class="wrap">
+    <div class="kop">
+      <h2>Op de boerderij</h2>
+      <p>Loop door de stallen en neem een kijkje bij de koeien en kalfjes, terwijl u geniet van een ijsje. Voor de kinderen staan er skelters en een trampoline klaar.</p>
+    </div>
+    <div class="dieren">
+      <img src="img/stal.jpg" alt="Koeien in de stal" loading="lazy" width="695" height="500" style="object-position:30% 60%">
+      <img src="img/lammetje.jpg" alt="Een jongen geeft een lammetje de fles" loading="lazy" width="698" height="500">
+      <img src="img/kip.jpg" alt="Een peuter bij een kip in het gras" loading="lazy" width="697" height="500" style="object-position:70% 50%">
+    </div>
+    <div class="feiten">
+      <div><b>85 melkkoeien en 60 stuks jongvee</b><p>Sinds 2022 worden de koeien gemolken met een melkrobot. In de zomer genieten ze van vers gras in de wei.</p></div>
+      <div><b>Vijftig hectare land</b><p>Voor de teelt van gras en maïs. Van een deel van de melk maken we ons eigen ijs, de rest leveren we aan Lactalis.</p></div>
+      <div><b>Ruimte voor weidevogels</b><p>Twaalf hectare ligt in de uiterwaarden. Een plasdraspomp zet een deel van het land onder water, zodat weidevogels extra voedsel vinden.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="arrangementen">
+  <div class="wrap">
+    <div class="kop">
+      <h2>Arrangementen</h2>
+      <p>Een feestje, een schoolreisje of een familiedag op de boerderij. Neem contact op om iets af te spreken.</p>
+    </div>
+    <div class="arr">
+      <article>
+        <h3>Kinderfeestje</h3>
+        <p>Eerst lekker uitleven op de trampoline en de vele skelters. Daarna halen de kinderen samen met de boerin de ingrediënten voor de pannenkoeken op de boerderij: de eieren van de kippen en de melk van de koeien. Dan begint het mixen en bakken. Als toetje een lekker ijsje, of samen een ijsbeertje versieren.</p>
+        <div class="tarief">
+          <div><span>Onbeperkt pannenkoeken, ranja en ijsje</span><strong>€ 10,- p.p.</strong></div>
+          <div><span>IJsbeer voor ± 10 personen</span><strong>€ 17,00</strong></div>
+        </div>
+      </article>
+      <article>
+        <h3>Rondleiding groepen</h3>
+        <p>IJscowd is deelnemer van de stichting Boerenwijs, die onderwijs en boeren bij elkaar brengt onder het motto ‘leren is leuk op de boerderij’. Kinderen leren niet alleen met hun hoofd, maar beleven het in de praktijk door te voelen en te proeven.</p>
+        <p>Met een schoolklas, ouderenbond of ander gezelschap bent u altijd van harte welkom.</p>
+        <div class="tarief"><div><span>Alleen op afspraak</span><strong><a href="mailto:info@ijscowd.nl?subject=Rondleiding">Afspraak maken</a></strong></div></div>
+      </article>
+      <article>
+        <h3>Zaaltje huren</h3>
+        <p>Een gezellig zaaltje voor ongeveer 50 personen. Ideaal voor een feestje, familiedag, vergadering of workshop.</p>
+        <p>Arrangementen naar keuze, onder andere een barbecue, pannenkoeken bakken, een Chinees buffet of een warm-koud buffet.</p>
+        <div class="tarief">
+          <div><span>Huur zaaltje, 5 uur</span><strong>€ 95,-</strong></div>
+          <div><span>Per extra uur</span><strong>€ 25,-</strong></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="over">
+  <div class="wrap over">
+    <img src="img/willemien.jpg" alt="In de koeienstal van IJscowd" loading="lazy" width="382" height="500">
+    <div>
+      <h2>Wij zijn de familie Van de Worp</h2>
+      <p class="namen">Arie, Willemien, Gerben en Tessa</p>
+      <p>Ons bedrijf, Mts. Van de Worp – IJsboerderij IJscowd, ligt vlak bij de oude Hanzestad Hattem, op slechts een kilometer van de Veluwe en een kilometer van de IJssel. Inmiddels werken de derde en vierde generatie samen op het bedrijf.</p>
+      <p>Oorspronkelijk waren we een gemengd bedrijf met fokzeugen en melkkoeien. In 1999 zijn we gestopt met de varkenstak en gestart met IJscowd. We begonnen met het maken en verkopen van ons eigen ijs. Al snel breidden we dit uit met andere streekproducten, waardoor onze winkel steeds verder werd gevuld. Inmiddels bestaat IJscowd al meer dan 25 jaar en is het uitgegroeid tot een begrip in de regio.</p>
+      <a class="knop" href="https://www.youtube.com/watch?v=cnWd0qvZaZA" target="_blank" rel="noopener">Bekijk ons filmpje</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2>Kom langs</h2>
+      <p class="adres">Hilsdijk 100<br>8051 KE Hattem</p>
+      <h3>Openingstijden oktober tot en met april</h3>
+      <table class="tijden" id="tijden">
+        <tr data-d="1"><td>Maandag</td><td>13.00 – 17.30</td></tr>
+        <tr data-d="3"><td>Woensdag</td><td>10.30 – 17.30</td></tr>
+        <tr data-d="4"><td>Donderdag</td><td>10.30 – 17.30</td></tr>
+        <tr data-d="5"><td>Vrijdag</td><td>9.00 – 17.30</td></tr>
+        <tr data-d="6"><td>Zaterdag</td><td>9.00 – 17.00</td></tr>
+      </table>
+      <p class="klein">Wij zijn het hele jaar geopend. Voor de zomertijden kunt u ons bellen.</p>
+      <p><a href="tel:+31384446114">038 - 444 61 14</a><br><a href="mailto:info@ijscowd.nl">info@ijscowd.nl</a></p>
+
+      <h3 style="margin-top:30px">Route</h3>
+      <details>
+        <summary>Vanaf de A28 richting A50 (Apeldoorn)</summary>
+        <p>Vanaf carpoolplaats A50 afslag Hattem richting Hattem. Bij de bebouwde kom linksaf, de Vuursteenberg gaat over in de Oude Kerkweg. Einde weg rechts, dan links: dit is de Scherenenkweg. Einde weg links.</p>
+      </details>
+      <details>
+        <summary>Vanuit Zwolle via de Oude IJsselbrug</summary>
+        <p>Vanaf de Oude IJsselbrug richting Wezep, afslag Netelhorst, over de spoorlijn links.</p>
+      </details>
+      <details>
+        <summary>Vanuit Hattem</summary>
+        <p>Vanaf het Toeristen Informatie Punt op de Markt, die overgaat in de Kerkstraat en Dorpsweg. Het rode fietspad volgen, dat overgaat in de Waalstraat en daarna de Hilsdijk.</p>
+      </details>
+      <details>
+        <summary>Vanuit Heerde</summary>
+        <p>Vanaf Heerde het fietspad over de oude spoorbaan volgen. In Hattem overgaand in de Oude Kerkweg. Einde weg rechts (opnieuw Oude Kerkweg), einde weg rechts en dan links: dit is de Scherenenkweg. Einde weg links.</p>
+      </details>
+      <details>
+        <summary>Op de fiets</summary>
+        <p>Wij liggen aan het knooppuntennetwerk, langs het spoor tussen knooppunt 90 en 99.</p>
+      </details>
+    </div>
+    <div>
+      <iframe class="kaart" title="Kaart: Hilsdijk 100, Hattem" loading="lazy" src="https://maps.google.com/maps?q=Hilsdijk%20100%2C%208051%20KE%20Hattem&amp;z=14&amp;output=embed"></iframe>
+      <form id="form">
+        <h3>Stuur ons een bericht</h3>
+        <p class="klein" style="margin-top:6px">Heeft u een vraag of opmerking? U ontvangt zo snel mogelijk een reactie.</p>
+        <label for="naam">Naam</label><input id="naam" name="naam" autocomplete="name">
+        <label for="mail">E-mailadres</label><input id="mail" name="mail" type="email" autocomplete="email">
+        <label for="bericht">Bericht</label><textarea id="bericht" name="bericht"></textarea>
+        <button class="knop vol" type="submit" style="margin-top:16px">Bericht versturen</button>
+        <p class="bevestig" id="bevestig" role="status">Dit is een voorbeeld: er is niets verstuurd.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>IJsboerderij IJscowd</b>Mts. Van de Worp<br>Hilsdijk 100, 8051 KE Hattem</div>
+    <div><a href="tel:+31384446114">038 - 444 61 14</a><br><a href="mailto:info@ijscowd.nl">info@ijscowd.nl</a></div>
+    <div><a href="#ijs">IJs</a><br><a href="#taarten">IJstaarten</a><br><a href="#ijskar">IJskar huren</a></div>
+    <div><a href="#winkel">Boerderijwinkel</a><br><a href="#arrangementen">Arrangementen</a><br><a href="#over">Over ons</a></div>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20IJsboerderij%20IJscowd%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-toggle'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+
+  // Vandaag: alleen de bekende wintertijden (okt t/m apr)
+  var tijden={1:['13.00','17.30'],3:['10.30','17.30'],4:['10.30','17.30'],5:['9.00','17.30'],6:['9.00','17.00']};
+  var n=new Date(),m=n.getMonth(),d=n.getDay(),winter=(m>=9||m<=3),el=document.querySelector('#vandaag span');
+  if(winter&&tijden[d]){
+    el.textContent='Vandaag open van '+tijden[d][0]+' tot '+tijden[d][1];
+    var r=document.querySelector('#tijden tr[data-d="'+d+'"]');if(r)r.className='nu';
+  }
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('bevestig').style.display='block';});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

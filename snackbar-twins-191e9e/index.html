@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Snackbar Twins · Biddinghuizen</title>
+<meta name="description" content="Snackbar Twins aan de Dreef in Biddinghuizen: patat, snacks, burgers, broodjes en maaltijden. Afhalen of online bestellen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23b3302a%22%2F%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2232%22%20rx%3D%2225%22%20ry%3D%2217%22%20fill%3D%22none%22%20stroke%3D%22%23fff4dc%22%20stroke-width%3D%223%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2240%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff4dc%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Pinyon+Script&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ketchup:#b3302a; --ketchup-d:#8f241f;
+  --mosterd:#f0b23a;
+  --mayo:#fff4dc; --mayo-2:#f8e6bf;
+  --bord:#33201a; --bord-2:#432a21;
+  --ink:#2a1a14; --muted:#6d5546;
+  --line:rgba(255,244,220,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--mayo);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.08;margin:0;letter-spacing:-.01em}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--mosterd);outline-offset:3px;border-radius:4px}
+
+/* logo: their oval, rebuilt in type */
+.oval{display:inline-grid;place-items:center;text-align:center;border:2px solid currentColor;border-radius:50%;padding:.18em 1em .28em;line-height:1}
+.oval .s{font-family:"Pinyon Script",cursive;font-size:.42em;line-height:1}
+.oval .t{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:.06em;font-size:1em;line-height:.95}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:var(--mayo);border-bottom:1px solid rgba(42,26,20,.12)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:68px}
+.brand{text-decoration:none;color:var(--ketchup);font-size:26px}
+.brand .oval{border-width:1.5px;padding:.14em .8em .22em}
+.nav{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav a{text-decoration:none;font-weight:600;font-size:15.5px}
+.nav a:hover{color:var(--ketchup)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-red{background:var(--ketchup);color:#fff}
+.btn-red:hover{background:var(--ketchup-d)}
+.btn-yellow{background:var(--mosterd);color:var(--ink)}
+.btn-yellow:hover{background:#ffc552}
+.btn-line{border-color:currentColor;color:inherit;background:transparent}
+.nav .btn{padding:9px 18px;font-size:15px}
+.menu-toggle{display:none;margin-left:auto;background:none;border:0;padding:10px;cursor:pointer;color:var(--ink)}
+.menu-toggle span{display:block;width:24px;height:2.5px;background:currentColor;border-radius:2px;margin:5px 0;transition:transform .25s,opacity .2s}
+body.nav-open .menu-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.nav-open .menu-toggle span:nth-child(2){opacity:0}
+body.nav-open .menu-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100svh - 68px);max-height:860px;background:var(--ketchup);color:var(--mayo)}
+.hero-text{padding:clamp(40px,6vw,84px) clamp(20px,5vw,72px);display:flex;flex-direction:column;justify-content:center;gap:26px;position:relative}
+.hero-logo{font-size:clamp(58px,8.4vw,108px);color:var(--mayo);align-self:flex-start;animation:pop .55s ease-out both}
+.hero-logo.oval{border-width:3px;padding:.16em .9em .3em}
+.hero h1{font-size:clamp(34px,4.4vw,58px);font-weight:800;max-width:15ch}
+.hero p.lead{margin:0;font-size:clamp(17px,1.5vw,19px);max-width:42ch;color:#ffe9c4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn-line{color:var(--mayo)}
+.hero .btn-line:hover{background:rgba(255,244,220,.12)}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15.5px;background:rgba(0,0,0,.18);border-radius:999px;padding:7px 16px 7px 12px;align-self:flex-start}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--mosterd);flex:none}
+.status.open i{background:#7fd37a;box-shadow:0 0 0 4px rgba(127,211,122,.25)}
+.hero-photo{position:relative;overflow:hidden;background:var(--bord)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+@keyframes pop{from{opacity:.2;transform:scale(.94)}to{opacity:1;transform:none}}
+
+/* quick facts strip */
+.strip{background:var(--mosterd);color:var(--ink)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strip div{padding:18px 20px;font-weight:600;font-size:15.5px;display:flex;gap:12px;align-items:center}
+.strip div+div{border-left:1px solid rgba(42,26,20,.2)}
+.strip svg{flex:none}
+.strip a{text-decoration-thickness:1.5px;text-underline-offset:3px}
+
+/* section heads */
+section{padding:clamp(64px,8vw,104px) 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:34px;flex-wrap:wrap}
+.head h2{font-size:clamp(36px,5vw,60px)}
+.head p{margin:8px 0 0;color:var(--muted);max-width:46ch}
+
+/* menubord */
+.kaart{background:var(--bord);color:var(--mayo);position:relative}
+.kaart .head p{color:#d9c2a0}
+.kaart .head h2{color:var(--mayo)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{font:600 15.5px Figtree,sans-serif;color:var(--mayo);background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:9px 17px;cursor:pointer}
+.tabs button:hover{border-color:var(--mosterd)}
+.tabs button[aria-selected=true]{background:var(--mosterd);border-color:var(--mosterd);color:var(--ink)}
+.board{background:var(--bord-2);border-radius:18px;padding:clamp(22px,4vw,44px);box-shadow:inset 0 0 0 1px rgba(255,244,220,.07)}
+.panel[hidden]{display:none}
+.panel{animation:show .3s ease-out}
+@keyframes show{from{opacity:0}to{opacity:1}}
+.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.cols.three{grid-template-columns:repeat(3,1fr)}
+.group h3{font-size:24px;color:var(--mosterd);margin:0 0 6px}
+.group .note{color:#d9c2a0;font-size:15px;margin:0 0 12px}
+.group+.group{margin-top:30px}
+.cols>.group+.group{margin-top:0}
+ul.prices{list-style:none;margin:0;padding:0}
+ul.prices li{display:flex;align-items:baseline;gap:10px;padding:7px 0;font-size:17px}
+ul.prices li::after{content:"";order:2;flex:1;border-bottom:2px dotted rgba(255,244,220,.25);transform:translateY(-4px)}
+ul.prices li span{order:1}
+ul.prices li b{order:3;font-family:Fraunces,Georgia,serif;font-weight:700;font-variant-numeric:tabular-nums;color:var(--mayo);white-space:nowrap}
+.tbl-wrap{overflow-x:auto}
+table.luxe{width:100%;border-collapse:collapse;font-size:17px}
+table.luxe th{font:600 14.5px Figtree,sans-serif;color:var(--mosterd);text-align:right;padding:0 0 12px 14px;vertical-align:bottom}
+table.luxe th:first-child{text-align:left;padding-left:0}
+table.luxe td{padding:8px 0 8px 14px;text-align:right;border-top:1px dotted rgba(255,244,220,.2);font-family:Fraunces,Georgia,serif;font-weight:700;font-variant-numeric:tabular-nums}
+table.luxe td:first-child{text-align:left;padding-left:0;font-family:Figtree,sans-serif;font-weight:400}
+table.luxe td.na{color:rgba(255,244,220,.35);font-weight:400}
+.kids{display:grid;grid-template-columns:auto 1fr;gap:20px 34px;align-items:center}
+.kids .price{font-family:Fraunces,Georgia,serif;font-size:64px;font-weight:800;color:var(--mosterd);line-height:1}
+.kids ul{margin:0;padding:0;list-style:none;font-size:18px}
+.kids li{padding:6px 0;border-top:1px dotted rgba(255,244,220,.2)}
+.kids li:first-child{border-top:0}
+.board-foot{margin:26px 0 0;color:#d9c2a0;font-size:15px}
+
+/* maaltijden */
+.meals{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.meals figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3.4;background:#000}
+.meals figure img{width:100%;height:100%;object-fit:cover}
+.meal-list{list-style:none;margin:0;padding:0}
+.meal-list li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:18px 0;border-top:1.5px solid rgba(42,26,20,.14)}
+.meal-list li:last-child{border-bottom:1.5px solid rgba(42,26,20,.14)}
+.meal-list strong{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:700;line-height:1.15}
+.meal-list small{grid-column:1;color:var(--muted);font-size:15.5px}
+.meal-list b{grid-row:1 / span 2;grid-column:2;align-self:center;font-family:Fraunces,Georgia,serif;font-size:26px;color:var(--ketchup);font-variant-numeric:tabular-nums}
+
+/* aanbiedingen */
+.deals{background:var(--mayo-2)}
+.deal-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deal{background:#fff;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(42,26,20,.08)}
+.deal img{width:100%;height:auto;aspect-ratio:700/450;object-fit:contain;background:#fff}
+.deal div{padding:20px 24px 24px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid rgba(42,26,20,.08)}
+.deal h3{font-size:24px}
+.deal b{font-family:Fraunces,Georgia,serif;font-size:24px;color:var(--ketchup);white-space:nowrap}
+.deal p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* bezoek */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.hours{list-style:none;margin:0 0 28px;padding:0;font-size:17.5px}
+.hours li{display:flex;justify-content:space-between;padding:10px 14px;border-radius:10px}
+.hours li:nth-child(odd){background:rgba(42,26,20,.04)}
+.hours li.today{background:var(--ketchup);color:#fff;font-weight:700}
+.hours .closed{color:var(--muted)}
+.hours li.today .closed{color:#fff}
+.contact-list{display:grid;gap:12px;font-size:17.5px;margin-bottom:28px}
+.contact-list a{font-weight:600;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.contact-list div{display:flex;gap:12px;align-items:flex-start}
+.contact-list svg{flex:none;margin-top:4px;color:var(--ketchup)}
+.map{border-radius:20px;overflow:hidden;min-height:300px;border:1px solid rgba(42,26,20,.12);background:#eadbc0}
+.map iframe{width:100%;height:100%;min-height:300px;border:0;display:block}
+.form{margin-top:56px;background:#fff;border-radius:22px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1.4fr;gap:30px}
+.form h3{font-size:30px}
+.form p{color:var(--muted);margin:10px 0 0}
+.form form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{display:grid;gap:6px;font-weight:600;font-size:15px}
+.form .full{grid-column:1/-1}
+.form input,.form textarea{font:inherit;padding:12px 14px;border:1.5px solid rgba(42,26,20,.2);border-radius:12px;background:var(--mayo);color:var(--ink);width:100%}
+.form textarea{min-height:120px;resize:vertical}
+.form .msg{grid-column:1/-1;margin:0;font-weight:600;color:var(--ketchup)}
+
+footer{background:var(--bord);color:#d9c2a0;padding:48px 0 90px;font-size:15.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between}
+footer .oval{color:var(--mayo);font-size:30px}
+footer a{color:var(--mayo)}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--mayo);font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+
+@media (max-width:960px){
+  .menu-toggle{display:block}
+  .nav{position:fixed;inset:68px 0 auto 0;background:var(--mayo);flex-direction:column;align-items:stretch;gap:0;padding:8px 16px 20px;border-bottom:1px solid rgba(42,26,20,.15);box-shadow:0 18px 30px rgba(42,26,20,.12);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  body.nav-open .nav{opacity:1;visibility:visible;transform:none}
+  .nav a{padding:14px 4px;border-bottom:1px solid rgba(42,26,20,.08);font-size:18px}
+  .nav .btn{margin-top:14px;padding:14px;font-size:17px;border-bottom:0}
+  .hero{grid-template-columns:1fr;max-height:none;min-height:0}
+  .hero-photo{height:300px;order:2}
+  .cols,.cols.three{grid-template-columns:1fr}
+  .cols>.group+.group{margin-top:30px}
+  .meals,.deal-grid,.visit-grid,.form{grid-template-columns:1fr}
+  .meals figure{aspect-ratio:16/10}
+  .strip .wrap{grid-template-columns:1fr}
+  .strip div{padding:12px 4px}
+  .strip div+div{border-left:0;border-top:1px solid rgba(42,26,20,.2)}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .hero-text{gap:20px;padding:34px 20px 36px}
+  .hero-logo{font-size:50px}
+  .brand{font-size:21px}
+  .hero h1{font-size:32px}
+  .form form{grid-template-columns:1fr}
+  .kids{grid-template-columns:1fr}
+  .kids .price{font-size:52px}
+  table.luxe{font-size:15.5px}
+  table.luxe th{font-size:13px;padding-left:8px}
+  table.luxe td{padding-left:8px}
+  .ribbon{font-size:12px}
+  .meal-list strong{font-size:21px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Snackbar Twins, naar boven"><span class="oval"><span class="s">Snackbar</span><span class="t">TWINS</span><span class="s">Lunchroom</span></span></a>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#prijslijst">Prijslijst</a>
+      <a href="#menus">Menu's</a>
+      <a href="#aanbiedingen">Aanbiedingen</a>
+      <a href="#contact">Contact &amp; adres</a>
+      <a class="btn btn-red" href="https://bistroo.nl/biddinghuizen/restaurants/snackbar-twins?utm_source=snackbar-twins&amp;utm_medium=bestelknop" target="_blank" rel="noopener">Bestel online</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="hero-text">
+      <span class="oval hero-logo" aria-hidden="true"><span class="s">Snackbar</span><span class="t">TWINS</span><span class="s">Lunchroom</span></span>
+      <h1>Patat, snacks en broodjes aan de Dreef</h1>
+      <p class="lead">Welkom bij Snackbar Twins in Biddinghuizen. Gewone of Vlaamse patat, de Twinsburger, luxe broodjes en complete maaltijden. Haal het op of bestel online.</p>
+      <span class="status" id="status"><i></i><span>Di t/m za 11:30–21:00, zo 13:00–20:00, ma gesloten</span></span>
+      <div class="cta">
+        <a class="btn btn-yellow" href="https://bistroo.nl/biddinghuizen/restaurants/snackbar-twins?utm_source=snackbar-twins&amp;utm_medium=bestelknop" target="_blank" rel="noopener">Bestel online</a>
+        <a class="btn btn-line" href="tel:0321330297">Bel 0321-330297</a>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="img/stock-puntzak.jpg" alt="" width="1400" height="2100" fetchpriority="high"></div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Dreef 3, 8256 AW Biddinghuizen</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>Ruime gelegenheid om te parkeren</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.4 10.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg><span>Online bestellen via <a href="https://bistroo.nl/biddinghuizen/restaurants/snackbar-twins?utm_source=snackbar-twins&amp;utm_medium=bestelknop" target="_blank" rel="noopener">Bistroo</a></span></div>
+    </div>
+  </div>
+
+  <section class="kaart" id="prijslijst">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2>Onze prijslijst</h2>
+          <p>Alles van de frituur, de grill en de broodjesbar. Kies een rubriek.</p>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Rubrieken prijslijst">
+        <button role="tab" id="t-patat" aria-controls="p-patat" aria-selected="true">Patat</button>
+        <button role="tab" id="t-snacks" aria-controls="p-snacks" aria-selected="false" tabindex="-1">Snacks</button>
+        <button role="tab" id="t-vega" aria-controls="p-vega" aria-selected="false" tabindex="-1">Vega &amp; bittergarnituur</button>
+        <button role="tab" id="t-broodjes" aria-controls="p-broodjes" aria-selected="false" tabindex="-1">Broodjes &amp; burgers</button>
+        <button role="tab" id="t-luxe" aria-controls="p-luxe" aria-selected="false" tabindex="-1">Luxe broodjes</button>
+        <button role="tab" id="t-kids" aria-controls="p-kids" aria-selected="false" tabindex="-1">Kindermenu</button>
+        <button role="tab" id="t-sauzen" aria-controls="p-sauzen" aria-selected="false" tabindex="-1">Sauzen &amp; salades</button>
+      </div>
+
+      <div class="board">
+        <div class="panel" role="tabpanel" id="p-patat" aria-labelledby="t-patat">
+          <div class="cols">
+            <div class="group">
+              <h3>Patat</h3>
+              <p class="note">Keuze uit gewoon of Vlaams</p>
+              <ul class="prices">
+                <li><span>Kinderpatat</span><b>2,00</b></li>
+                <li><span>Portie patat</span><b>2,50</b></li>
+                <li><span>Puntzak patat</span><b>3,75</b></li>
+                <li><span>Grote patat</span><b>5,00</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>Familiezak</h3>
+              <p class="note">Vanaf 2 personen</p>
+              <ul class="prices">
+                <li><span>2 personen</span><b>5,00</b></li>
+                <li><span>2,5 personen</span><b>6,25</b></li>
+                <li><span>3 personen</span><b>7,50</b></li>
+                <li><span>4 personen</span><b>10,00</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-snacks" aria-labelledby="t-snacks" hidden>
+          <div class="cols three">
+            <div class="group">
+              <h3>Snacks</h3>
+              <ul class="prices">
+                <li><span>Kroket</span><b>2,00</b></li>
+                <li><span>Kwekkeboom kroket</span><b>2,60</b></li>
+                <li><span>Maxx kroket</span><b>2,60</b></li>
+                <li><span>Kalfskroket</span><b>2,50</b></li>
+                <li><span>Satékroket</span><b>2,50</b></li>
+                <li><span>Goulashkroket</span><b>2,50</b></li>
+                <li><span>Kaaskroket</span><b>2,40</b></li>
+                <li><span>Frikandel</span><b>2,20</b></li>
+                <li><span>Kaassoufflé</span><b>2,40</b></li>
+                <li><span>Souflesse Tomaat-Mozzarella</span><b>2,60</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>&nbsp;</h3>
+              <ul class="prices">
+                <li><span>Bamischijf</span><b>2,60</b></li>
+                <li><span>Nasischijf</span><b>2,60</b></li>
+                <li><span>Kipcorn</span><b>2,60</b></li>
+                <li><span>Viandel</span><b>2,60</b></li>
+                <li><span>Mexicano</span><b>2,90</b></li>
+                <li><span>Pikanto</span><b>2,80</b></li>
+                <li><span>Berehap</span><b>3,10</b></li>
+                <li><span>Braadworst</span><b>3,00</b></li>
+                <li><span>Sitostick</span><b>3,20</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>&nbsp;</h3>
+              <ul class="prices">
+                <li><span>Shoarmarol</span><b>3,40</b></li>
+                <li><span>Smulrol</span><b>3,40</b></li>
+                <li><span>Gehaktbal</span><b>3,80</b></li>
+                <li><span>Loempia</span><b>4,30</b></li>
+                <li><span>Kipschnitzel</span><b>6,10</b></li>
+                <li><span>Varkensschnitzel</span><b>6,10</b></li>
+                <li><span>Kipsaté</span><b>6,10</b></li>
+                <li><span>Varkenssaté</span><b>6,10</b></li>
+                <li><span>Halve kip</span><b>6,60</b></li>
+                <li><span>Karbonade</span><b>6,60</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-vega" aria-labelledby="t-vega" hidden>
+          <div class="cols">
+            <div class="group">
+              <h3>Vegetarische snacks</h3>
+              <ul class="prices">
+                <li><span>Kaaskroket</span><b>2,40</b></li>
+                <li><span>Kaassoufflé</span><b>2,40</b></li>
+                <li><span>Vega bamischijf</span><b>2,60</b></li>
+                <li><span>Groentekroket</span><b>2,50</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>Bittergarnituur</h3>
+              <ul class="prices">
+                <li><span>Bitterballen 6 st.</span><b>3,00</b></li>
+                <li><span>Kipnuggets 6 st.</span><b>3,60</b></li>
+                <li><span>Mini kaassoufflés 6 st.</span><b>3,60</b></li>
+                <li><span>Mini bamischijf 6 st.</span><b>3,60</b></li>
+                <li><span>Mini nasischijf 6 st.</span><b>3,60</b></li>
+                <li><span>Vlammetjes 6 st.</span><b>3,60</b></li>
+                <li><span>Chickenwings 5 st.</span><b>4,75</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-broodjes" aria-labelledby="t-broodjes" hidden>
+          <div class="cols">
+            <div class="group">
+              <h3>Broodjes</h3>
+              <ul class="prices">
+                <li><span>Kroket</span><b>2,60</b></li>
+                <li><span>Kwekkeboom kroket</span><b>3,20</b></li>
+                <li><span>Maxx kroket</span><b>3,20</b></li>
+                <li><span>Frikandel</span><b>2,80</b></li>
+                <li><span>Kaassoufflé</span><b>3,00</b></li>
+                <li><span>Los broodje</span><b>0,60</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>Burgers</h3>
+              <ul class="prices">
+                <li><span>Hamburger</span><b>3,70</b></li>
+                <li><span>Cheeseburger</span><b>4,40</b></li>
+                <li><span>Twinsburger</span><b>4,40</b></li>
+                <li><span>Twinsburger kaas</span><b>5,10</b></li>
+                <li><span>Kipburger</span><b>3,70</b></li>
+                <li><span>Pittige kipburger</span><b>3,70</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-luxe" aria-labelledby="t-luxe" hidden>
+          <div class="group">
+            <h3>Luxe broodjes</h3>
+            <p class="note">Op een wit bolletje, een witte pistolet of een meergranen triangel</p>
+            <div class="tbl-wrap">
+              <table class="luxe">
+                <thead><tr><th scope="col">Beleg</th><th scope="col">Wit bolletje</th><th scope="col">Pistolet wit</th><th scope="col">Meergranen triangel</th></tr></thead>
+                <tbody>
+                  <tr><td>Ham</td><td>2,50</td><td>3,50</td><td>4,00</td></tr>
+                  <tr><td>Kaas</td><td>2,50</td><td>3,50</td><td>4,00</td></tr>
+                  <tr><td>Ham en kaas</td><td>2,80</td><td>3,80</td><td>4,30</td></tr>
+                  <tr><td>Ei</td><td>2,50</td><td>3,50</td><td>4,00</td></tr>
+                  <tr><td>Tartaar</td><td>3,40</td><td>4,40</td><td>4,90</td></tr>
+                  <tr><td>Tartaar speciaal</td><td>4,00</td><td>5,00</td><td>5,50</td></tr>
+                  <tr><td>Gezond</td><td>3,60</td><td>4,60</td><td>5,10</td></tr>
+                  <tr><td>Huzaar</td><td class="na">–</td><td>4,30</td><td>4,80</td></tr>
+                  <tr><td>Tonijnsalade</td><td class="na">–</td><td>4,90</td><td>5,40</td></tr>
+                  <tr><td>Gehaktbal</td><td>4,40</td><td>4,90</td><td>5,40</td></tr>
+                  <tr><td>Warm vlees</td><td>4,40</td><td>5,40</td><td>5,90</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-kids" aria-labelledby="t-kids" hidden>
+          <div class="group">
+            <h3>Kindermenu</h3>
+            <div class="kids">
+              <div class="price">7,50</div>
+              <ul>
+                <li>Kinderpatat met mayo</li>
+                <li>Kroket, frikandel of kipnuggets</li>
+                <li>Drinken of ijsje naar keuze, met verrassing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-sauzen" aria-labelledby="t-sauzen" hidden>
+          <div class="cols three">
+            <div class="group">
+              <h3>Sauzen</h3>
+              <ul class="prices">
+                <li><span>Mayonaise</span><b>0,60</b></li>
+                <li><span>Curry</span><b>0,60</b></li>
+                <li><span>Ketchup</span><b>0,60</b></li>
+                <li><span>Chilisaus</span><b>0,70</b></li>
+                <li><span>Appelmoes</span><b>0,70</b></li>
+                <li><span>Satésaus</span><b>0,80</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>&nbsp;</h3>
+              <ul class="prices">
+                <li><span>Speciaal</span><b>0,70</b></li>
+                <li><span>Joppiesaus</span><b>0,70</b></li>
+                <li><span>Twinssaus</span><b>0,70</b></li>
+                <li><span>Oorlog</span><b>0,80</b></li>
+                <li><span>Knoflooksaus</span><b>0,80</b></li>
+                <li><span>Zigeunersaus</span><b>0,80</b></li>
+              </ul>
+            </div>
+            <div class="group">
+              <h3>(Maaltijd)salades</h3>
+              <ul class="prices">
+                <li><span>Slaatje</span><b>3,00</b></li>
+                <li><span>Naturel salade</span><b>4,00</b></li>
+                <li><span>Tonijn salade</span><b>6,00</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="board-foot">Prijzen in euro's. Liever thuis eten? Bestel online via <a href="https://bistroo.nl/biddinghuizen/restaurants/snackbar-twins?utm_source=snackbar-twins&amp;utm_medium=bestelknop" target="_blank" rel="noopener">Bistroo</a> of bel <a href="tel:0321330297">0321-330297</a>.</p>
+    </div>
+  </section>
+
+  <section id="menus">
+    <div class="wrap meals">
+      <div>
+        <div class="head" style="margin-bottom:22px">
+          <div>
+            <h2>Menu's</h2>
+            <p>Voor de lekkere trek. Een complete maaltijd, met gemengde salade en frites.</p>
+          </div>
+        </div>
+        <ul class="meal-list">
+          <li><strong>Kip- of varkensschnitzel</strong><small>met gemengde salade en frites</small><b>13,25</b></li>
+          <li><strong>Kip- of varkenssaté</strong><small>met gemengde salade en frites</small><b>13,25</b></li>
+          <li><strong>Halve kip</strong><small>met gemengde salade en frites</small><b>13,25</b></li>
+          <li><strong>Karbonade</strong><small>met gemengde salade en frites</small><b>13,25</b></li>
+          <li><strong>Super Catamaran</strong><small>&nbsp;</small><b>8,50</b></li>
+        </ul>
+      </div>
+      <figure><img src="img/stock-bakjes.jpg" alt="" loading="lazy" width="1400" height="1295"></figure>
+    </div>
+  </section>
+
+  <section class="deals" id="aanbiedingen">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2>Aanbiedingen</h2>
+          <p>De actuele aanbiedingen van Snackbar Twins.</p>
+        </div>
+      </div>
+      <div class="deal-grid">
+        <article class="deal">
+          <img src="img/winterburger.webp" alt="De Winterburger: burger met gebakken ei en spek" loading="lazy" width="700" height="450">
+          <div><h3>De Winterburger</h3><b>€ 5,10</b></div>
+        </article>
+        <article class="deal">
+          <img src="img/salades-op-bestelling.webp" alt="Salade-schotel op bestelling" loading="lazy" width="700" height="450">
+          <div><h3>Salades op bestelling</h3><p>Wij maken ook heerlijke salades op bestelling. <a href="#contact">Neem contact op</a>.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head"><div><h2>Contact &amp; adres</h2><p>Langskomen, bellen of online bestellen.</p></div></div>
+      <div class="visit-grid">
+        <div>
+          <ul class="hours" id="hours">
+            <li data-d="1"><span>Maandag</span><span class="closed">Gesloten</span></li>
+            <li data-d="2"><span>Dinsdag</span><span>11:30 – 21:00</span></li>
+            <li data-d="3"><span>Woensdag</span><span>11:30 – 21:00</span></li>
+            <li data-d="4"><span>Donderdag</span><span>11:30 – 21:00</span></li>
+            <li data-d="5"><span>Vrijdag</span><span>11:30 – 21:00</span></li>
+            <li data-d="6"><span>Zaterdag</span><span>11:30 – 21:00</span></li>
+            <li data-d="0"><span>Zondag</span><span>13:00 – 20:00</span></li>
+          </ul>
+          <div class="contact-list">
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Dreef 3, 8256 AW Biddinghuizen<br><span style="color:var(--muted)">Er is een ruime gelegenheid om te parkeren.</span></span></div>
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:0321330297">0321-330297</a></div>
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:info@snackbartwins.nl">info@snackbartwins.nl</a></div>
+          </div>
+          <a class="btn btn-red" href="https://bistroo.nl/biddinghuizen/restaurants/snackbar-twins?utm_source=snackbar-twins&amp;utm_medium=bestelknop" target="_blank" rel="noopener">Bestel online</a>
+        </div>
+        <div class="map"><iframe title="Kaart: Dreef 3, Biddinghuizen" src="https://maps.google.com/maps?q=Dreef%203%2C%208256%20AW%20Biddinghuizen&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+
+      <div class="form">
+        <div>
+          <h3>Contact opnemen</h3>
+          <p>Een vraag, of salades op bestelling? Stuur een bericht. Velden met een * zijn verplicht.</p>
+        </div>
+        <form id="cform" novalidate>
+          <label>Naam *<input name="naam" required autocomplete="name"></label>
+          <label>E-mail *<input name="email" type="email" required autocomplete="email"></label>
+          <label class="full">Bericht *<textarea name="bericht" required></textarea></label>
+          <div class="full"><button class="btn btn-red" type="submit">Verstuur bericht</button></div>
+          <p class="msg" id="fmsg" hidden>Dit is een voorbeeld: er is niets verstuurd.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="oval"><span class="s">Snackbar</span><span class="t">TWINS</span><span class="s">Lunchroom</span></span>
+    <div>Dreef 3, 8256 AW Biddinghuizen<br><a href="tel:0321330297">0321-330297</a> &nbsp; <a href="mailto:info@snackbartwins.nl">info@snackbartwins.nl</a></div>
+    <div>Foto's van eten zijn sfeerbeelden (Unsplash),<br>behalve bij de aanbiedingen.</div>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Snackbar%20Twins%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var b=document.body, t=document.querySelector('.menu-toggle');
+  t.addEventListener('click',function(){var o=b.classList.toggle('nav-open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){b.classList.remove('nav-open');t.setAttribute('aria-expanded','false');});});
+
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(tab){tabs.forEach(function(x){var on=x===tab;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(x,i){
+    x.addEventListener('click',function(){sel(x);});
+    x.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!k)return;var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus();});
+  });
+
+  // opening hours: today + open now
+  var H={0:[13*60,20*60],2:[690,1260],3:[690,1260],4:[690,1260],5:[690,1260],6:[690,1260]};
+  var d=new Date(), day=d.getDay(), m=d.getHours()*60+d.getMinutes();
+  var li=document.querySelector('#hours li[data-d="'+day+'"]'); if(li) li.classList.add('today');
+  var s=document.getElementById('status'), txt=s.querySelector('span'), h=H[day];
+  function f(x){return Math.floor(x/60)+':'+('0'+x%60).slice(-2);}
+  if(h&&m>=h[0]&&m<h[1]){s.classList.add('open');txt.textContent='Nu open, vandaag tot '+f(h[1]);}
+  else if(h&&m<h[0]){txt.textContent='Vandaag open vanaf '+f(h[0]);}
+  else{var n=(day+1)%7;while(!H[n])n=(n+1)%7;var names=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];txt.textContent='Nu gesloten, '+(n===(day+1)%7?'morgen':names[n])+' weer open vanaf '+f(H[n][0]);}
+
+  document.getElementById('cform').addEventListener('submit',function(e){e.preventDefault();document.getElementById('fmsg').hidden=false;});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bistro Bar Proef · Gendt · lunch, diner, borrel</title>
+<meta name="description" content="Bistro Bar Proef in het hart van Gendt: lunch, borrel en een dinerconcept met kleine gerechten om samen te delen. Dorpstraat 19, Gendt.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f241c'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='%23e3a857'%3Ep%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#1f241c; --night2:#283024; --sage:#a3b293; --sage-d:#6f7d62;
+  --oat:#efe8da; --paper:#f8f4ea; --amber:#e3a857; --amber-d:#b97a2c;
+  --wine:#8e2b25; --ink:#2b2721; --muted:#6b6458; --line:rgba(43,39,33,.14);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Figtree",system-ui,sans-serif;
+  --hand:"Amatic SC","Bricolage Grotesque",sans-serif;
+  --wrap:min(1180px,100% - 40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--oat);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+h3{font-size:1.45rem;font-weight:700}
+p{margin:0 0 1em}
+.wrap{width:var(--wrap);margin-inline:auto}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.85em 1.4em;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-amber{background:var(--amber);color:var(--night)}
+.btn-amber:hover{background:#efbd74}
+.btn-line{border-color:rgba(248,244,234,.6);color:var(--paper)}
+.btn-line:hover{background:var(--paper);color:var(--night)}
+.btn-dark{background:var(--night);color:var(--paper)}
+.btn-dark:hover{background:var(--sage-d)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.hdr.solid{background:rgba(31,36,28,.97);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{text-decoration:none;color:var(--paper);display:flex;flex-direction:column;line-height:.85}
+.logo small{font-family:var(--body);font-size:.62rem;letter-spacing:.12em;margin-left:.2em;opacity:.85}
+.logo b{font-family:var(--display);font-weight:800;font-size:2rem;letter-spacing:-.04em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{color:var(--paper);text-decoration:none;font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--amber)}
+.nav .btn{padding:.6em 1.15em;color:var(--night)}
+.nav .btn:hover{color:var(--night)}
+.burger{display:none;background:none;border:0;color:var(--paper);width:46px;height:46px;cursor:pointer;padding:10px}
+.burger span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media (max-width:900px){
+  .burger{display:block}
+  .nav{position:fixed;inset:72px 0 0;background:var(--night);flex-direction:column;align-items:flex-start;padding:28px 24px;gap:8px;transform:translateX(100%);transition:transform .3s;visibility:hidden}
+  .nav.open{transform:none;visibility:visible}
+  .nav a{font-family:var(--display);font-size:1.9rem;font-weight:700;padding:4px 0}
+  .nav .btn{font-family:var(--body);font-size:1.05rem;margin-top:16px}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper);background:var(--night);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,36,28,.55) 0%,rgba(31,36,28,0) 28%,rgba(31,36,28,.25) 55%,rgba(31,36,28,.92) 100%)}
+.hero-in{position:relative;z-index:2;width:var(--wrap);margin:0 auto;padding:0 0 56px}
+.hero h1{font-weight:800;line-height:.8;letter-spacing:-.06em;font-size:clamp(6.5rem,22vw,17rem);color:var(--paper);animation:rise .6s ease-out both}
+.hero h1 small{display:block;font-family:var(--body);font-weight:500;letter-spacing:.14em;font-size:clamp(.95rem,1.6vw,1.2rem);margin:0 0 .9rem .35rem;color:var(--amber)}
+.tagline{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.6vw,1.75rem);margin:1.1rem 0 1.6rem .3rem;max-width:30ch;text-shadow:0 1px 14px rgba(20,22,16,.75)}
+.hero h1{text-shadow:0 2px 30px rgba(20,22,16,.35)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-left:.3rem}
+.hero-meta{position:relative;z-index:2;border-top:1px solid rgba(248,244,234,.18);margin-top:34px;padding-top:16px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:.95rem;color:rgba(248,244,234,.85);margin-left:.3rem}
+.hero-meta a{text-decoration:none}
+.today{display:inline-flex;align-items:center;gap:8px}
+.today::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--sage)}
+.today.open::before{background:#8fd18a;box-shadow:0 0 0 4px rgba(143,209,138,.18)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* intro */
+.intro{padding:110px 0 90px}
+.intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.intro h2{margin-bottom:1.2rem}
+.intro p{font-size:1.1rem;max-width:56ch}
+.intro .lead{font-size:1.3rem;font-family:var(--display);font-weight:500;line-height:1.35;color:var(--ink)}
+.intro-photo{position:relative}
+.intro-photo img{border-radius:22px;aspect-ratio:1/1;object-fit:cover;width:100%}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:72px;border-top:1px solid var(--line)}
+.ways div{padding:26px 26px 0 0}
+.ways div+div{padding-left:26px;border-left:1px solid var(--line)}
+.ways h3{font-size:1.3rem;margin-bottom:.4rem}
+.ways p{color:var(--muted);font-size:1rem;margin:0}
+
+/* menu */
+.kaart{background:var(--night);color:var(--paper);padding:100px 0 110px}
+.kaart-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.kaart-head p{max-width:46ch;color:rgba(248,244,234,.78);margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tab{font:600 1rem var(--body);background:transparent;color:var(--paper);border:1.5px solid rgba(248,244,234,.3);border-radius:999px;padding:.6em 1.25em;cursor:pointer}
+.tab small{font-weight:400;opacity:.7;margin-left:.35em}
+.tab[aria-selected="true"]{background:var(--amber);border-color:var(--amber);color:var(--night)}
+.card{background:var(--paper);color:var(--ink);border-radius:28px;padding:52px 56px 40px}
+.card[hidden]{display:none}
+.cols{columns:2;column-gap:64px}
+.grp{break-inside:avoid;margin-bottom:34px}
+.grp h3{font-family:var(--hand);font-weight:700;font-size:2.5rem;letter-spacing:.02em;line-height:1;display:inline-block;padding-bottom:6px;margin-bottom:12px;background:linear-gradient(var(--wine),var(--wine)) left bottom/100% 2px no-repeat}
+.dish{display:grid;grid-template-columns:1fr auto;gap:2px 18px;padding:9px 0;border-bottom:1px dotted var(--line)}
+.dish:last-child{border-bottom:0}
+.dish b{font-weight:600;font-size:1.05rem}
+.dish span{font-variant-numeric:tabular-nums;font-weight:600;color:var(--wine)}
+.dish em{grid-column:1/-1;font-style:normal;color:var(--muted);font-size:.92rem;line-height:1.4}
+.note-box{background:var(--oat);border-radius:18px;padding:22px 26px;margin-bottom:30px;break-inside:avoid}
+.note-box h3{font-family:var(--display);font-size:1.35rem;margin-bottom:.35rem}
+.note-box p{margin:0;color:var(--muted)}
+.note-box .prices{display:flex;gap:28px;flex-wrap:wrap;margin-top:12px;font-weight:600;color:var(--ink)}
+.note-box .prices span{color:var(--wine)}
+.card-foot{border-top:1px solid var(--line);padding-top:18px;margin-top:6px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+.card-foot a{color:var(--wine);font-weight:600}
+.plain li{list-style:none;padding:3px 0;border-bottom:1px dotted var(--line)}
+.plain{padding:0;margin:0}
+.plain li small{display:block;color:var(--muted);font-size:.88rem}
+
+/* strip */
+.strip{height:clamp(220px,34vw,420px);background:url(img/zaal.jpg) center/cover var(--night)}
+
+/* arrangementen */
+.arr{padding:110px 0 70px}
+.sec-head{max-width:640px;margin-bottom:56px}
+.sec-head p{color:var(--muted);font-size:1.1rem;margin-top:1rem}
+.arr-item{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:90px}
+.arr-item:nth-of-type(even) .arr-photo{order:2}
+.arr-photo img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:22px}
+.arr-item h3{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;margin-bottom:1rem}
+.arr-item p{max-width:52ch}
+.price{display:inline-flex;align-items:baseline;gap:.4em;font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--wine);margin:.2rem 0 1rem}
+.price small{font-family:var(--body);font-weight:500;font-size:.95rem;color:var(--muted)}
+.ticks{columns:2;column-gap:28px;padding:0;margin:0 0 1.4rem}
+.ticks li{list-style:none;padding:4px 0 4px 22px;position:relative;break-inside:avoid;font-size:.98rem}
+.ticks li::before{content:"";position:absolute;left:0;top:.85em;width:10px;height:2px;background:var(--wine)}
+.ticks.one{columns:1}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.small-print{font-size:.92rem;color:var(--muted)}
+
+/* agenda */
+.agenda{background:var(--sage);padding:100px 0}
+.agenda h2{color:var(--night)}
+.agenda-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start;margin-top:44px}
+.event{display:grid;grid-template-columns:120px 1fr;gap:26px;padding:28px 0;border-top:1.5px solid rgba(31,36,28,.25)}
+.event:last-child{border-bottom:1.5px solid rgba(31,36,28,.25)}
+.date{font-family:var(--display);font-weight:800;line-height:.95;color:var(--night)}
+.date b{display:block;font-size:2.2rem;letter-spacing:-.03em}
+.date span{font-size:1rem;font-weight:600}
+.event h3{color:var(--night);font-size:1.6rem;margin-bottom:.4rem}
+.event p{margin:.2rem 0 .7rem;color:#27301f}
+.vol{display:inline-block;background:var(--wine);color:var(--paper);font-weight:600;font-size:.85rem;border-radius:999px;padding:.15em .8em;margin-left:.4em;vertical-align:middle;letter-spacing:.02em}
+.event a{font-weight:600;color:var(--night)}
+.holidays{background:var(--night);color:var(--paper);border-radius:24px;padding:32px 30px}
+.holidays h3{font-size:1.5rem;margin-bottom:.3rem}
+.holidays>p{color:rgba(248,244,234,.7);font-size:.95rem}
+.holidays dl{display:grid;grid-template-columns:auto 1fr;gap:9px 22px;margin:18px 0 14px}
+.holidays dt{font-weight:600;color:var(--amber)}
+.holidays dd{margin:0}
+
+/* over */
+.over{padding:110px 0}
+.over-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.over img{border-radius:22px;width:100%;aspect-ratio:1/1;object-fit:cover}
+.over h2{margin-bottom:1.2rem}
+.over h3{margin:1.8rem 0 .6rem}
+.over .sign{font-family:var(--display);font-weight:700;font-size:1.25rem}
+
+/* contact */
+.contact{background:var(--night2);color:var(--paper);padding:100px 0 120px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px}
+.c-block{margin-bottom:30px}
+.c-block h3{font-size:1.2rem;color:var(--amber);margin-bottom:.6rem}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 26px;margin:0}
+.hours dt{font-weight:600}
+.hours dd{margin:0;color:rgba(248,244,234,.85)}
+.hours .closed{color:rgba(248,244,234,.5)}
+.hours .is-today{color:var(--amber)}
+.contact a{text-decoration:none}
+.contact a:hover{color:var(--amber)}
+.big-link{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);display:block;line-height:1.25}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{border:1.5px solid rgba(248,244,234,.3);border-radius:999px;padding:.45em 1.05em;font-weight:500;font-size:.95rem}
+.map{border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--night)}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.35) contrast(.95)}
+.form{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form label{display:flex;flex-direction:column;gap:5px;font-size:.9rem;color:rgba(248,244,234,.8)}
+.form .full{grid-column:1/-1}
+.form input,.form textarea{font:inherit;color:var(--paper);background:rgba(248,244,234,.06);border:1.5px solid rgba(248,244,234,.22);border-radius:12px;padding:.7em .9em}
+.form textarea{min-height:110px;resize:vertical}
+.form button{justify-self:start;cursor:pointer;font-family:var(--body)}
+.form-msg{grid-column:1/-1;color:var(--amber);margin:0;min-height:1.5em}
+footer{background:var(--night);color:rgba(248,244,234,.6);padding:28px 0 70px;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--amber);color:var(--night);text-align:center;font-size:.82rem;font-weight:600;padding:6px 10px}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  .intro{padding:80px 0 70px}
+  .intro-grid,.over-grid,.contact-grid,.agenda-grid{grid-template-columns:1fr;gap:40px}
+  .ways{grid-template-columns:1fr;margin-top:48px}
+  .ways div,.ways div+div{padding:20px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .card{padding:34px 22px 26px;border-radius:22px}
+  .cols{columns:1}
+  .arr{padding:80px 0 30px}
+  .arr-item{grid-template-columns:1fr;gap:26px;margin-bottom:70px}
+  .arr-item:nth-of-type(even) .arr-photo{order:0}
+  .event{grid-template-columns:1fr;gap:8px}
+  .date b{font-size:1.8rem;display:inline}
+  .kaart,.agenda,.over,.contact{padding:80px 0}
+  .hero-in{padding-bottom:40px}
+}
+@media (max-width:520px){
+  .ticks{columns:1}
+  .form{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1 1 auto;justify-content:center}
+  .tab{padding:.55em 1em;font-size:.95rem}
+  .grp h3{font-size:2.2rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Bistro Bar Proef, naar boven"><small>bistro bar</small><b>proef</b></a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#kaart">Menu</a>
+      <a href="#arrangementen">Arrangementen</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-amber" href="tel:+31481424947">Reserveer</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <img src="img/lampen.jpg" alt="Het sfeervol verlichte interieur van Bistro Bar Proef met hoge staande lampen en ronde banken" fetchpriority="high">
+  <div class="hero-in">
+    <h1><small>bistro bar</small>proef</h1>
+    <p class="tagline">lunch, diner, borrel, beleef en geniet!</p>
+    <div class="hero-actions">
+      <a class="btn btn-amber" href="#kaart">Bekijk de kaart</a>
+      <a class="btn btn-line" href="tel:+31481424947">Reserveer: 0481 42 49 47</a>
+    </div>
+    <div class="hero-meta">
+      <span class="today" id="today">Open woensdag t/m zondag vanaf 11:00</span>
+      <a href="#contact">Dorpstraat 19, Gendt</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <h2>Samen proeven, in het hart van Gendt</h2>
+        <p class="lead">In het hart van Gendt geniet je bij Proef van een verrassende lunch, gezellige borrel of ons unieke dinerconcept.</p>
+        <p>Stel zelf je diner samen met verschillende kleine gerechten, kies om te delen of geniet van elk gerecht individueel.</p>
+        <p>Of je nu langskomt met z'n tweeën, een high tea organiseert of iets te vieren hebt, bij Proef staan lekker eten, gastvrijheid en gezelligheid altijd centraal.</p>
+        <p><a class="btn btn-dark" href="#contact">Reserveer een tafel en ervaar het zelf</a></p>
+      </div>
+      <div class="intro-photo">
+        <img src="img/proeftafel.jpg" alt="Een tafel vol kleine gerechten om te delen bij Proef" loading="lazy">
+      </div>
+    </div>
+    <div class="ways">
+      <div><h3>Samen proeven</h3><p>Kleine gerechten op tafel, iedereen schuift aan en proeft mee.</p></div>
+      <div><h3>Stel je eigen menu samen</h3><p>Kies zelf wat je bestelt, of laat ons kiezen met het verrassingsmenu.</p></div>
+      <div><h3>Sfeervol genieten</h3><p>Warm licht, zachte banken: van een kop koffie tot een uitgebreid diner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="kaart" id="kaart">
+  <div class="wrap">
+    <div class="kaart-head">
+      <h2>Menu</h2>
+      <p>Lunch tot 15:00, diner vanaf 17:00 en tussendoor de borrelkaart. Allergieën? Vraag onze bediening naar de mogelijkheden.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Kaarten">
+      <button class="tab" role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch<small>tot 15:00</small></button>
+      <button class="tab" role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Diner<small>vanaf 17:00</small></button>
+      <button class="tab" role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrel</button>
+      <button class="tab" role="tab" id="t-drank" aria-controls="p-drank" aria-selected="false" tabindex="-1">Dranken</button>
+    </div>
+
+    <div class="card" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch">
+      <div class="cols">
+        <div class="grp"><h3>Brood</h3>
+          <div class="dish"><b>Soep van de chef</b><span>7</span><em>Brood</em></div>
+          <div class="dish"><b>Club tosti</b><span>9</span><em>Witbrood, boerenham, belegen kaas, chilimayonaise, ei</em></div>
+          <div class="dish"><b>Boerenomelet</b><span>12</span><em>Witbrood, spek, groenten</em></div>
+          <div class="dish"><b>12-uurtje</b><span>13</span><em>Soepje, kroket, spiegelei, boerenham, kaas</em></div>
+          <div class="dish"><b>Kalfskroketten</b><span>11</span><em>Witbrood, mosterd</em></div>
+          <div class="dish"><b>Hollands rundscarpaccio</b><span>13</span><em>Focaccia, truffelmayonaise, Parmezaan, tomaat, pitten</em></div>
+          <div class="dish"><b>Vitello tonnato</b><span>15</span><em>Focaccia, tonijnmayo, zongedroogde tomaat, kappertjes</em></div>
+          <div class="dish"><b>Grieks kippetje</b><span>14</span><em>Flatbread, feta, tzatziki, tomaat, chilimayonaise</em></div>
+          <div class="dish"><b>Paddenstoelen</b><span>12</span><em>Brioche, truffelmayonaise, Parmezaan, pitten</em></div>
+          <div class="dish"><b>Pokébowl</b><span>13</span><em>Sushirijst, diverse garnituren, kip, zalm</em></div>
+          <div class="dish"><b>Gerookte Noorse zalm</b><span>14</span><em>Brioche, dillemayonaise, Granny Smith, pitten</em></div>
+          <div class="dish"><b>Hollandse runderburger</b><span>15</span><em>Brioche, kaas, bacon, augurk, uienchutney, friet</em></div>
+        </div>
+        <div class="grp"><h3>Salades</h3>
+          <div class="dish"><b>Hollands rundscarpaccio</b><span>13</span><em>Truffelmayonaise, Parmezaan, tomaat, pitten</em></div>
+          <div class="dish"><b>Burrata</b><span>13</span><em>Zongedroogde tomaat, pesto, noten, balsamico</em></div>
+          <div class="dish"><b>Crispy chicken</b><span>14</span><em>Kerriemayonaise, bacon, ei, sesamzaadjes</em></div>
+          <div class="dish"><b>Gerookte Noorse zalm</b><span>14</span><em>Dillemayonaise, Granny Smith, ui, pitten</em></div>
+        </div>
+        <div class="note-box"><h3>Lunch special</h3><p>Zin in iets anders dan wat er op de kaart staat? Vraag onze bediening naar de lunch special, een vaste favoriet buiten de kaart om.</p></div>
+        <div class="grp"><h3>Bijgerecht</h3>
+          <div class="dish"><b>Friet</b><span>4</span><em>Mayonaise</em></div>
+          <div class="dish"><b>Zoete aardappelfriet</b><span>7</span><em>Truffelmayonaise, Parmezaanse kaas</em></div>
+        </div>
+        <div class="grp"><h3>Kids</h3>
+          <div class="dish"><b>Tosti</b><span>6,50</span><em>Witbrood, kaas, ketchup</em></div>
+          <div class="dish"><b>Friet met snack</b><span>6,50</span><em>Kroket, frikandel of kip</em></div>
+          <div class="dish"><b>Poffertjes</b><span>6,50</span><em>Poedersuiker, stroop</em></div>
+          <div class="dish"><b>Tomatensoep</b><span>6</span><em>Brood</em></div>
+        </div>
+      </div>
+      <div class="card-foot"><span>Prijzen in euro's. Allergieën? Vraag onze bediening naar de mogelijkheden.</span></div>
+    </div>
+
+    <div class="card" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden>
+      <div class="cols">
+        <div class="note-box"><h3>Verrassingsmenu</h3><p>Kun je niet kiezen uit al het lekkers? Geen probleem, bij Proef doen wij dat graag voor je. Samen gedeeld smaakt alles nóg lekkerder!</p>
+          <div class="prices"><div>4-gangenmenu <span>44,50</span></div><div>5-gangenmenu <span>54,50</span></div></div></div>
+        <div class="grp"><h3>Vlees</h3>
+          <div class="dish"><b>Carpaccio</b><span>11</span><em>Truffelmayonaise, Parmezaanse kaas, pitten</em></div>
+          <div class="dish"><b>Beef tataki</b><span>13</span><em>Ponzu</em></div>
+          <div class="dish"><b>Biefstukpuntjes</b><span>16</span><em>Truffel-paddenstoelensaus</em></div>
+          <div class="dish"><b>Gekonfijte eend</b><span>12</span><em>Toast, gebakken ui</em></div>
+          <div class="dish"><b>Varkenshaaspuntjes</b><span>14</span><em>Peperroomsaus</em></div>
+          <div class="dish"><b>Koreaanse short ribs</b><span>14</span><em>Teriyaki, bosui</em></div>
+          <div class="dish"><b>Gyoza pork (4 st.)</b><span>9</span><em>Kewpie, teriyakisaus</em></div>
+          <div class="dish"><b>Gevulde kipdij</b><span>13</span><em>Risotto, MonChou, spinazie, spek</em></div>
+        </div>
+        <div class="grp"><h3>Vis</h3>
+          <div class="dish"><b>Gamba's (5 st.)</b><span>13</span><em>Citroen-kruidenolie, toast, mini paprika</em></div>
+          <div class="dish"><b>Heekfilet</b><span>14</span><em>Puree, beurre blanc, zeekraal</em></div>
+          <div class="dish"><b>Warmgerookte zalm</b><span>14</span><em>Crispy rice</em></div>
+        </div>
+        <div class="grp"><h3>Vegetarisch</h3>
+          <div class="dish"><b>Okonomiyaki</b><span>10</span><em>Paddenstoel, kewpie</em></div>
+          <div class="dish"><b>Gnocchi</b><span>10</span><em>Tomaat, mozzarella, basilicum</em></div>
+          <div class="dish"><b>Tortelloni</b><span>13</span><em>Truffel-paddenstoelensaus, feta</em></div>
+          <div class="dish"><b>Dumplings</b><span>11</span><em>Currysaus</em></div>
+        </div>
+        <div class="grp"><h3>Bijgerecht</h3>
+          <div class="dish"><b>Zoete aardappelfriet</b><span>7</span><em>Truffelmayonaise, Parmezaan</em></div>
+          <div class="dish"><b>Friet</b><span>4</span></div>
+          <div class="dish"><b>Groene salade</b><span>4</span></div>
+          <div class="dish"><b>Geroosterde groentes</b><span>5</span></div>
+          <div class="dish"><b>Plankje met brood</b><span>5</span></div>
+        </div>
+        <div class="grp"><h3>Kids</h3>
+          <div class="dish"><b>Friet met snack</b><span>6</span><em>Kroket, frikandel of kip</em></div>
+          <div class="dish"><b>Poffertjes</b><span>6</span><em>Poedersuiker, stroop</em></div>
+          <div class="dish"><b>Marshmallow dessert</b><span>5</span></div>
+        </div>
+        <div class="grp"><h3>Dessert</h3>
+          <div class="dish"><b>Dame blanche</b><span>7</span></div>
+          <div class="dish"><b>Crème brûlée</b><span>9</span><em>Roomijs</em></div>
+          <div class="dish"><b>Chocolade-frambozentaart</b><span>8</span></div>
+          <div class="dish"><b>Appel-Biscoff</b><span>9</span></div>
+          <div class="dish"><b>Alberdeco bonbons</b><span>5</span></div>
+          <div class="dish"><b>Proef plateau</b><span>6 p.p.</span><em>Vanille-ijs, diverse toppings</em></div>
+        </div>
+        <div class="note-box"><h3>Donderdag: daghap</h3><p>Iedere donderdagavond kun je naast de vertrouwde kaart ook kiezen voor een daghap. Lekker uit eten, zonder lang te hoeven wachten.</p></div>
+      </div>
+      <div class="card-foot"><span>Prijzen in euro's. Allergieën? Vraag onze bediening naar de mogelijkheden.</span></div>
+    </div>
+
+    <div class="card" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+      <div class="cols">
+        <div class="grp"><h3>Borrelkaart</h3>
+          <div class="dish"><b>Nacho's</b><span>8</span><em>Truffelmayonaise, tomatensalsa, kaas, rode ui</em></div>
+          <div class="dish"><b>Zoete aardappelfriet</b><span>8</span><em>Truffelmayonaise, Parmezaanse kaas</em></div>
+          <div class="dish"><b>Korean fried chicken</b><span>10</span><em>Koreaanse BBQ-saus, sesamzaad</em></div>
+          <div class="dish"><b>Focaccia brood</b><span>8</span><em>Met verschillende dips</em></div>
+          <div class="dish"><b>Borrelhout</b><span>20</span><em>Kaas, charcuterie, noten, snacks, brood</em></div>
+        </div>
+        <div class="grp"><h3>Uit de pan</h3>
+          <div class="dish"><b>Bourgondiër bitterballen (6/12 st.)</b><span>8 / 14</span><em>Mosterd, mayonaise</em></div>
+          <div class="dish"><b>Bittermix (10 st.)</b><span>10</span><em>Met verschillende dips</em></div>
+          <div class="dish"><b>Stuumpkes (12 st.)</b><span>8</span><em>Mayonaise</em></div>
+          <div class="dish"><b>Risottini's (8 st.)</b><span>10</span><em>Mozzarella, tomaat, truffelmayonaise</em></div>
+        </div>
+        <div class="note-box"><h3>Proefs cocktailmoment</h3><p>Twee cocktails met een bittermix.</p><div class="prices"><div>Samen <span>25,00</span></div></div></div>
+      </div>
+      <div class="card-foot"><span>Prijzen in euro's.</span><a href="https://www.bistrobarproef.nl/_files/ugd/28a223_caa61c78b57b4be8a98a127136fafd7b.pdf" target="_blank" rel="noopener">Drankenkaart en borrelkaart als pdf</a></div>
+    </div>
+
+    <div class="card" role="tabpanel" id="p-drank" aria-labelledby="t-drank" hidden>
+      <div class="cols">
+        <div class="grp"><h3>Tapbieren</h3>
+          <ul class="plain"><li>Heineken</li><li>Texels Skuumkoppe</li><li>Paulaner</li><li>Wisseltap<small>Naast onze 3 vaste favorieten hebben we altijd 4 wisseltaps, gevuld met verrassende, seizoensgebonden bieren.</small></li></ul></div>
+        <div class="grp"><h3>Flesbieren</h3>
+          <ul class="plain"><li>Affligem Blond 0.0</li><li>Amstel Radler 0.0</li><li>Heineken 0.0</li><li>Paulaner 0.0</li><li>Desperados</li><li>Liefmans</li><li>Liefmans 0.0</li><li>Tripel Karmeliet</li><li>Woal Krib 875 Stevig Blond</li><li>Woal Krib 888 Quadruppel</li></ul></div>
+        <div class="grp"><h3>Proefs homemades</h3>
+          <ul class="plain"><li>Shaken iced tea<small>Perzik, framboos of citroen</small></li><li>Lemonade<small>Passievrucht, citroen of aardbei</small></li><li>Vers geperste jus d'orange</li></ul></div>
+        <div class="grp"><h3>Frisdranken</h3>
+          <ul class="plain"><li>Pepsi Regular, Pepsi Max</li><li>Sourcy Blauw, Sourcy Rood (ook 0,75 cl)</li><li>Ice Tea, Ice Tea Green</li><li>Rivella, Cassis</li><li>Sisi Orange, 7Up</li><li>Fristi, Chocomel</li><li>Ranja, appelsap</li><li>Tonic, Bitter Lemon</li><li>Ginger Ale, Ginger Beer</li></ul></div>
+        <div class="grp"><h3>Warme dranken</h3>
+          <ul class="plain"><li>Koffie, cappuccino, espresso</li><li>Koffie verkeerd, latte macchiato, flat white</li><li>Karamel latte, vanille latte</li><li>Verse thee, verse muntthee, verse gemberthee</li><li>Warme chocolademelk</li><li>IJskoffie karamel of vanille</li></ul></div>
+        <div class="grp"><h3>Special coffees</h3>
+          <ul class="plain"><li>Irish coffee<small>Jameson, blended whiskey</small></li><li>Italian coffee<small>Disaronno</small></li><li>Spanish coffee<small>Tia Maria</small></li><li>French coffee<small>Grand Marnier</small></li><li>Iets lekkers bij de koffie?<small>Vraag de bediening!</small></li></ul></div>
+        <div class="grp"><h3>Witte wijn</h3>
+          <ul class="plain"><li>Sauvignon Blanc, Frankrijk<small>Fris, smaakopwekkend, toegankelijk</small></li><li>Bianco Puglia, Italië<small>Aromatisch, zwoel, elegant</small></li><li>Chardonnay, Chili<small>Intens, romig, houtgerijpt</small></li><li>Pinot Grigio, Italië<small>Kruidig, zacht, zuiver</small></li><li>Sonnenstübchen zoet, Duitsland<small>Zoetig, zacht, tropisch fruit</small></li><li>Cava Brut, Spanje<small>Bruisend, fruit</small></li></ul></div>
+        <div class="grp"><h3>Rosé</h3>
+          <ul class="plain"><li>Gamay Rosé, Frankrijk<small>Zacht, fruitig, vriendelijk</small></li><li>Rosé Chic, Frankrijk<small>Fris, evenwichtig, rood fruit</small></li></ul></div>
+        <div class="grp"><h3>Rode wijn</h3>
+          <ul class="plain"><li>Malbec, Frankrijk<small>Vol, donker fruit, doordrinkbaar</small></li><li>Rosso Puglia, Italië<small>Soepel, speels, mediterraans</small></li><li>Tempranillo, Spanje<small>Geconcentreerd, stevig, donker fruit</small></li><li>Cabernet Sauvignon, Californië<small>Krachtig, kruidig, houtgerijpt</small></li></ul></div>
+        <div class="grp"><h3>Alcoholvrij &amp; port</h3>
+          <ul class="plain"><li>Alcoholvrije Chardonnay, Frankrijk<small>Licht zoet, soepel, rond</small></li><li>Witte port, Portugal<small>Zoet, intens, zacht</small></li><li>Tawny port, Portugal<small>Complex, nootachtig, rijk</small></li><li>Ruby port, Portugal<small>Fruitig, tonen van kersen en bessen</small></li></ul></div>
+        <div class="grp"><h3>Gin</h3>
+          <ul class="plain"><li>Gordon's London Dry Gin</li><li>Bobby's London Dry Gin</li><li>Bloom Pink Gin</li></ul></div>
+        <div class="grp"><h3>Sterke drank</h3>
+          <ul class="plain"><li>Bacardi Blanca, Bacardi Lemon</li><li>Baileys, Cointreau, Amaretto</li><li>Grand Marnier, Sambuca, Licor 43</li><li>Malibu, Smirnoff Vodka, Limoncello</li><li>Tia Maria, Advocaat, Apfelkorn</li><li>Jägermeister</li><li>Oude jenever, jonge jenever</li><li>Cognac, Jameson Whiskey</li></ul></div>
+      </div>
+      <div class="card-foot"><span>Vraag de bediening naar de prijzen en de wisseltaps van deze week.</span><a href="https://www.bistrobarproef.nl/_files/ugd/28a223_caa61c78b57b4be8a98a127136fafd7b.pdf" target="_blank" rel="noopener">Drankenkaart als pdf</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" role="img" aria-label="De zaal van Bistro Bar Proef met bar, ronde banken en hanglampen"></div>
+
+<section class="arr" id="arrangementen">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Arrangementen</h2>
+      <p>Iets te vieren, bijpraten of samen creatief bezig zijn: bij Proef denken we graag met je mee.</p>
+    </div>
+
+    <article class="arr-item">
+      <div class="arr-photo"><img src="img/hightea.jpg" alt="Etagère met zoete en hartige lekkernijen van de high tea bij Proef" loading="lazy"></div>
+      <div>
+        <h3>High tea</h3>
+        <p>Geniet van een gezellige high tea bij Proef. Perfect om iets te vieren, bij te praten met vrienden of gewoon lekker te ontspannen. Onze high tea bestaat uit een gevarieerde selectie van hartige en zoete lekkernijen, geserveerd met heerlijke thee. Laat je verwennen en beleef samen een smakelijke middag.</p>
+        <div class="price">27,50 <small>per persoon</small></div>
+        <ul class="ticks">
+          <li>Mini Danish broodjes</li><li>Hartige plaattaart</li><li>Soepje van de chef</li><li>Hoorntje met salade</li><li>Divers belegde broodjes</li><li>Croissant pâtissière</li><li>Verschillende zoetigheden</li><li>Thee naar keuze</li>
+        </ul>
+        <p class="small-print">Reserveer een dag van tevoren.</p>
+        <div class="actions"><a class="btn btn-dark" href="mailto:info@bistrobarproef.nl?subject=High%20tea%20reserveren">High tea reserveren</a><a class="btn btn-ghost" href="https://www.bistrobarproef.nl/_files/ugd/28a223_5b63060cbe244dd18c6ca8c8d3b92202.pdf" target="_blank" rel="noopener">Info (pdf)</a></div>
+      </div>
+    </article>
+
+    <article class="arr-item">
+      <div class="arr-photo"><img src="img/sippaint.jpg" alt="Twee schildersezels klaar voor een Sip &amp; Paint aan tafel bij Proef" loading="lazy"></div>
+      <div>
+        <h3>Sip &amp; Paint</h3>
+        <p>Geniet van een creatieve en gezellige Sip &amp; Paint bij Proef. Perfect voor een uitje met vrienden, familie of collega's. Onder het genot van een drankje ga je aan de slag met verf en doek en maak je stap voor stap je eigen kunstwerk. Ervaring is niet nodig; het draait vooral om ontspanning, plezier en samen iets moois creëren.</p>
+        <p><strong>Hoe werkt het?</strong> Je betaalt 15,- voor de Sip &amp; Paint-ruimte, inclusief alle materialen (kwasten, verf, ezel, palet). Daarna betaal je los voor het product dat je wilt schilderen: de producten in de kast variëren van 5,- tot 20,-.</p>
+        <p>Of kies een arrangement, inclusief toegang en benodigdheden:</p>
+        <ul class="ticks one">
+          <li>Met een heerlijke lunch</li><li>Met een goed gevulde plank vol lekkers</li><li>Met zoete en hartige lekkernijen</li><li>Met een combinatie van 3 cocktails</li>
+        </ul>
+        <p class="small-print">Met je eigen groep, voor een teamuitje of vrijgezellenfeest? Mail ons voor de mogelijkheden.</p>
+        <div class="actions"><a class="btn btn-dark" href="mailto:info@bistrobarproef.nl?subject=Sip%20%26%20Paint">Sip &amp; Paint reserveren</a><a class="btn btn-ghost" href="https://www.bistrobarproef.nl/_files/ugd/28a223_1b2b187d5ea84745b46878ef6b4d042f.pdf" target="_blank" rel="noopener">Info (pdf)</a></div>
+      </div>
+    </article>
+
+    <article class="arr-item">
+      <div class="arr-photo"><img src="img/buffet.jpg" alt="Een buffet met hapjes, salades en vleeswaren" loading="lazy"></div>
+      <div>
+        <h3>Buffetten</h3>
+        <p>Ideaal voor grotere groepen, bedrijfsfeesten, verjaardagen of gewoon als je lekker ongedwongen wilt genieten.</p>
+        <p>Onze buffetten worden met dezelfde aandacht en smaak samengesteld als je van ons gewend bent: verse ingrediënten, verrassende combinaties en voor ieder wat wils. Van warme klassiekers tot frisse salades en seizoensspecials, we denken graag met je mee om het buffet perfect aan te laten sluiten bij jullie gelegenheid.</p>
+        <div class="actions"><a class="btn btn-dark" href="mailto:info@bistrobarproef.nl?subject=Buffet">Buffet aanvragen</a><a class="btn btn-ghost" href="https://www.bistrobarproef.nl/_files/ugd/28a223_547bf42402354240892f610b8c494922.pdf" target="_blank" rel="noopener">Foodbook (pdf)</a></div>
+      </div>
+    </article>
+
+    <article class="arr-item">
+      <div class="arr-photo"><img src="img/raam.jpg" alt="Gezellige zithoek bij het raam van Proef in de avond" loading="lazy"></div>
+      <div>
+        <h3>Feest</h3>
+        <p>Een bedrijfsborrel, een babyshower of een klein familiefeestje, het kan allemaal bij Proef. In overleg is het mogelijk om een borrel of klein feestje te organiseren.</p>
+        <p>Samen met jou kijken wij naar wat jouw wensen zijn en hoe wij jou daarin tegemoet kunnen komen, om er uiteindelijk voor iedereen een leuke en gezellige dag van te maken.</p>
+        <div class="actions"><a class="btn btn-dark" href="#contact">Neem contact op</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <h2>Agenda</h2>
+    <div class="agenda-grid">
+      <div>
+        <div class="event">
+          <div class="date"><b>3 &amp; 10</b> <span>december</span></div>
+          <div>
+            <h3>Christmas Sip &amp; Paint</h3>
+            <p>Schilder je eigen kerstballen onder het genot van een hapje en drankje. Inbegrepen: 3 kerstballetjes om te beschilderen (mini, middel, groot), alle materialen, een kerstcocktail en een kerstborrelplank. Van 19:00 tot 21:00 uur, 27,50 p.p. Extra kerstbal + 3,50.</p>
+            <a href="mailto:info@bistrobarproef.nl?subject=Christmas%20Sip%20%26%20Paint">Reserveer je plek</a>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date"><b>25 &amp; 26</b> <span>december</span></div>
+          <div>
+            <h3>Kerstbrunch <span class="vol">Vol</span></h3>
+            <p>Geniet van een heerlijke brunch tijdens kerst!</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date"><b>14–16</b> <span>januari 2027</span></div>
+          <div>
+            <h3>Wild &amp; wijn</h3>
+            <p>Geniet van een heerlijke avond met wildgerechten en bijpassende wijnen. 15 en 16 januari zijn vol.</p>
+            <a href="mailto:info@bistrobarproef.nl?subject=Wild%20%26%20wijn">Reserveer voor 14 januari</a>
+          </div>
+        </div>
+      </div>
+      <aside class="holidays">
+        <h3>Feestdagen 2026</h3>
+        <p>Ook tijdens de feestdagen ben je welkom. Vanaf 2 januari gelden weer de gewone openingstijden.</p>
+        <dl>
+          <dt>24 dec</dt><dd>11:00 – 17:00</dd>
+          <dt>25 dec</dt><dd>Kerstbrunch (vol)</dd>
+          <dt>26 dec</dt><dd>Kerstbrunch</dd>
+          <dt>27 dec</dt><dd>Besloten feestje / gesloten</dd>
+          <dt>28 dec</dt><dd>Gesloten</dd>
+          <dt>29 dec</dt><dd>Gesloten</dd>
+          <dt>30 dec</dt><dd>11:00 – 17:00</dd>
+          <dt>31 dec</dt><dd>Gesloten</dd>
+          <dt>1 jan</dt><dd>Gesloten</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="over" id="team">
+  <div class="wrap over-grid">
+    <img src="img/team.jpg" alt="Team Proef samen op de foto" loading="lazy">
+    <div>
+      <h2>Over Proef</h2>
+      <p>Proef houdt het graag lokaal, zo veel als mogelijk halen wij onze producten bij lokale ondernemers. Wij willen graag plaats bieden voor mensen die gezellig met een gezelschap willen genieten. Van een kop koffie tot een uitgebreid diner en alles daartussenin.</p>
+      <h3>Ons team</h3>
+      <p>Ons team bestaat uit een groep enthousiaste jonge mensen met ieder een eigen, onmisbare rol. Door de juiste samenwerking tussen de keuken en de bediening doen wij er alles aan om er voor jou een gezellige dag van te maken, met natuurlijk lekker eten.</p>
+      <p class="sign">Alle schakels samen vormen Team Proef.</p>
+      <h3>Vacatures</h3>
+      <p>Wil je ook een schakel van Team Proef worden? Mail naar <a href="mailto:info@bistrobarproef.nl?subject=Vacatures">info@bistrobarproef.nl</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Kom proeven</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="c-block">
+          <h3>Reserveren &amp; contact</h3>
+          <a class="big-link" href="tel:+31481424947">0481 42 49 47</a>
+          <a class="big-link" href="mailto:info@bistrobarproef.nl">info@bistrobarproef.nl</a>
+        </div>
+        <div class="c-block">
+          <h3>Openingstijden</h3>
+          <dl class="hours" id="hours">
+            <dt data-d="1">Maandag</dt><dd class="closed" data-d="1">Gesloten</dd>
+            <dt data-d="2">Dinsdag</dt><dd class="closed" data-d="2">Gesloten</dd>
+            <dt data-d="3">Woensdag</dt><dd data-d="3">11:00 – 17:00</dd>
+            <dt data-d="4">Donderdag</dt><dd data-d="4">11:00 – 21:00</dd>
+            <dt data-d="5">Vrijdag</dt><dd data-d="5">11:00 – 22:00</dd>
+            <dt data-d="6">Zaterdag</dt><dd data-d="6">11:00 – 22:00</dd>
+            <dt data-d="0">Zondag</dt><dd data-d="0">11:00 – 21:00</dd>
+          </dl>
+        </div>
+        <div class="c-block">
+          <h3>Adres</h3>
+          <p>Dorpstraat 19<br>6691 AV Gendt</p>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Dorpstraat%2019%2C%206691%20AV%20Gendt" target="_blank" rel="noopener">Route plannen</a>
+        </div>
+        <div class="c-block">
+          <h3>Volg ons</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/bistrobarproef/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/bistrobarproefgendt" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.tiktok.com/@bistrobarproef" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map"><iframe title="Kaart met de locatie van Bistro Bar Proef, Dorpstraat 19 in Gendt" loading="lazy" src="https://maps.google.com/maps?q=Dorpstraat%2019%2C%206691%20AV%20Gendt&amp;z=16&amp;output=embed"></iframe></div>
+        <form class="form" id="form" novalidate>
+          <label>Naam<input name="naam" autocomplete="given-name" required></label>
+          <label>Achternaam<input name="achternaam" autocomplete="family-name" required></label>
+          <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+          <label>Telefoonnummer<input type="tel" name="tel" autocomplete="tel"></label>
+          <label class="full">Je bericht<textarea name="bericht" required></textarea></label>
+          <button class="btn btn-amber" type="submit">Verstuur bericht</button>
+          <p class="form-msg" id="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Bistro Bar Proef · Dorpstraat 19, Gendt</span>
+    <a href="#top">Naar boven</a>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Bistro%20Bar%20Proef%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var hdr=document.querySelector('.hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var open=burger.getAttribute('aria-expanded')!=='true';
+    burger.setAttribute('aria-expanded',String(open));
+    burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');
+    nav.classList.toggle('open',open);hdr.classList.toggle('solid',open||window.scrollY>40);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    if(nav.classList.contains('open')){burger.click();}
+  })});
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function select(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(d){var n=tabs[(i+d+tabs.length)%tabs.length];select(n);n.focus();}
+    });
+  });
+
+  // open vandaag
+  var hours={0:[11,21],3:[11,17],4:[11,21],5:[11,22],6:[11,22]};
+  var now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,el=document.getElementById('today');
+  document.querySelectorAll('#hours [data-d="'+d+'"]').forEach(function(x){x.classList.add('is-today')});
+  var hh=hours[d];
+  if(hh&&h>=hh[0]&&h<hh[1]){el.textContent='Nu open, vandaag tot '+hh[1]+':00';el.classList.add('open');}
+  else if(hh&&h<hh[0]){el.textContent='Vandaag open van '+hh[0]+':00 tot '+hh[1]+':00';}
+  else{var n=1;while(!hours[(d+n)%7])n++;var names=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    el.textContent='Nu gesloten, '+(n===1?'morgen':names[(d+n)%7])+' weer open vanaf 11:00';}
+
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('form-msg').textContent='Dit is een voorbeeld: het formulier verstuurt nog niets. Bel of mail Proef gerust.';
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
