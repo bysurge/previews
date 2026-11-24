@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lorijn eten | drinken · Leersum, Zuylestein</title>
+<meta name="description" content="Lorijn eten | drinken aan de Rijksstraatweg 3 in Leersum, bij Zuylestein. Lunch, diner, kerstmenu en feestdagen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317352a'/%3E%3Cpath d='M20 50 C18 30 30 14 48 12 C50 32 38 48 20 50Z' fill='%230b7a5a'/%3E%3Cpath d='M20 50 C28 38 36 26 46 15' stroke='%23a9c8b4' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#17352a; --forest-2:#1e4436; --lorijn:#0b7a5a; --leaf:#a9c8b4;
+  --paper:#eef0e9; --paper-2:#e3e8df; --ink:#1b2620; --muted:#55645b;
+  --brick:#a0583c; --gilt:#c2a467;
+  --disp:'Oswald',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.06rem/1.7 var(--serif);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--disp);font-weight:300;line-height:1.1;margin:0}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:.01em}
+:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+
+/* header (geen backdrop-filter) */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.top.solid{background:var(--forest);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.top .bar{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:var(--wrap);margin:0 auto;padding:0 24px;color:#fff}
+.brand{font-family:var(--disp);font-weight:300;font-size:1.7rem;letter-spacing:.12em;text-decoration:none;opacity:0;transition:opacity .3s}
+.top.solid .brand,.top.open .brand{opacity:1}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{font-family:var(--disp);font-weight:400;font-size:1rem;letter-spacing:.04em;text-decoration:none;color:#e8efe9}
+.nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.nav .call{background:var(--lorijn);color:#fff;padding:9px 18px;border-radius:999px}
+.nav .call:hover{text-decoration:none;background:#0d8b67}
+.menu-btn{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer;padding:10px}
+.menu-btn span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+.top.open .menu-btn span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.top.open .menu-btn span:nth-child(2){opacity:0}
+.top.open .menu-btn span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:100vh;min-height:100svh;background:var(--forest);color:#fff}
+.hero-text{position:relative;display:flex;flex-direction:column;justify-content:center;padding:110px 56px 70px max(24px,calc((100vw - var(--wrap))/2 + 24px));overflow:hidden}
+.leaf-art{position:absolute;right:-60px;bottom:-40px;width:340px;opacity:.13;pointer-events:none}
+.word{font-family:var(--disp);font-weight:200;font-size:clamp(4.6rem,11vw,9.5rem);letter-spacing:.06em;line-height:.9;margin-left:-.04em;display:flex}
+.word span{display:inline-block;animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+.word span:nth-child(2){animation-delay:.05s}.word span:nth-child(3){animation-delay:.1s}
+.word span:nth-child(4){animation-delay:.15s}.word span:nth-child(5){animation-delay:.2s}.word span:nth-child(6){animation-delay:.25s}
+@keyframes rise{from{opacity:.15;transform:translateY(18px)}to{opacity:1;transform:none}}
+.sub{font-family:var(--disp);font-weight:300;font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:.08em;margin-top:14px;color:var(--leaf)}
+.sub b{font-weight:200;color:#fff;margin:0 .35em}
+.place{margin:26px 0 0;max-width:30ch;color:#d9e4dc;font-size:1.12rem}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--disp);font-size:1.02rem;letter-spacing:.03em;color:#e8efe9}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(169,200,180,.18)}
+.status.closed i{background:#c9a07a;box-shadow:0 0 0 4px rgba(201,160,122,.18)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:400;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;padding:13px 24px;border-radius:999px;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--lorijn);color:#fff}
+.btn-primary:hover{background:#0d8b67}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-dark{background:var(--forest);color:#fff}
+.btn-dark:hover{background:var(--forest-2)}
+.btn-line{border-color:var(--forest);color:var(--forest)}
+.btn-line:hover{background:var(--forest);color:#fff}
+.btn svg{width:18px;height:18px}
+.hero-photo{position:relative;margin:0}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 50%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,36,28,.7),rgba(15,36,28,0) 22%),linear-gradient(90deg,rgba(23,53,42,.55),rgba(23,53,42,0) 28%)}
+
+/* intro strip */
+.strip{background:var(--paper-2);border-bottom:1px solid #d3dad0}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strip a,.strip div{padding:22px 0;text-decoration:none;font-family:var(--disp);font-size:1.05rem;letter-spacing:.02em;color:var(--forest)}
+.strip small{display:block;font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--muted);letter-spacing:0}
+
+/* sections */
+section{padding:96px 0}
+.lead{max-width:56ch;color:var(--muted);margin:18px 0 0;font-size:1.1rem}
+
+/* kaart */
+#kaart h2{color:var(--forest)}
+.tabs{display:flex;gap:6px;margin:38px 0 8px;border-bottom:1px solid #cfd7cd;overflow-x:auto}
+.tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;padding:12px 18px 12px;font-family:var(--disp);font-size:1.3rem;font-weight:300;letter-spacing:.04em;color:var(--muted);cursor:pointer;white-space:nowrap;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--forest);border-bottom-color:var(--lorijn);font-weight:400}
+.panel{display:none;padding-top:28px}
+.panel.on{display:block;animation:show .35s ease}
+@keyframes show{from{opacity:.3}to{opacity:1}}
+.cols{columns:2 380px;column-gap:72px}
+.group{break-inside:avoid;margin:0 0 38px}
+.group h3{font-family:var(--disp);font-weight:400;font-size:1.35rem;letter-spacing:.03em;color:var(--lorijn);padding-bottom:8px;border-bottom:1px solid #cfd7cd;margin-bottom:6px}
+.group h3 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1rem;color:var(--muted);letter-spacing:0;margin-left:6px}
+.dish{display:grid;grid-template-columns:1fr auto;gap:2px 18px;padding:10px 0}
+.dish b{font-family:var(--disp);font-weight:400;font-size:1.04rem;letter-spacing:.035em;text-transform:uppercase;color:var(--ink)}
+.dish b small{font-family:var(--serif);text-transform:none;font-weight:400;letter-spacing:0;font-size:.95rem;color:var(--muted)}
+.dish .p{font-family:var(--disp);font-weight:400;font-size:1.04rem;color:var(--forest);font-variant-numeric:tabular-nums}
+.dish i{grid-column:1/-1;color:var(--muted);font-size:.98rem;line-height:1.45}
+.kaart-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:10px;padding-top:24px;border-top:1px solid #cfd7cd}
+.kaart-foot p{margin:0;font-style:italic;color:var(--muted)}
+.pdfs{display:flex;flex-wrap:wrap;gap:10px}
+.pdfs a{font-family:var(--disp);font-size:.98rem;letter-spacing:.03em;color:var(--forest);text-decoration:none;border:1px solid #b9c6bb;border-radius:999px;padding:8px 16px}
+.pdfs a:hover{border-color:var(--forest);background:#fff}
+
+/* kerst */
+#kerst{background:#f6f3ec;border-top:1px solid #e2dccf;border-bottom:1px solid #e2dccf}
+.kerst{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:64px;align-items:start}
+.kerst-head .when{font-family:var(--disp);font-size:1.1rem;letter-spacing:.05em;color:var(--lorijn)}
+.kerst-head h2{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--brick);font-size:clamp(3rem,6.5vw,5rem);margin:6px 0 14px}
+.kerst-head p{margin:0 0 6px;color:var(--muted)}
+.prices{display:flex;gap:0;margin:26px 0 10px;border:1px solid #d9cfbd;border-radius:14px;overflow:hidden;background:#fff}
+.prices div{flex:1;padding:16px 18px}
+.prices div+div{border-left:1px solid #e6dccb}
+.prices span{display:block;font-family:var(--disp);font-size:.98rem;color:var(--muted);letter-spacing:.03em}
+.prices strong{font-family:var(--disp);font-weight:300;font-size:2rem;color:var(--forest)}
+.ontvangst{font-family:var(--disp);letter-spacing:.03em;color:var(--forest);margin:14px 0 26px}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;background:#fff;border-radius:18px;padding:36px 40px;border:1px solid #e6dccb}
+.course h3{font-family:var(--disp);font-weight:400;font-size:1.2rem;letter-spacing:.05em;color:var(--brick);margin-bottom:10px}
+.opt{margin:0}
+.opt strong{display:block;font-weight:600;font-size:1.06rem}
+.opt span{color:var(--muted);font-style:italic;font-size:.98rem}
+.of{display:block;font-family:var(--disp);font-size:.9rem;color:#b3a48a;letter-spacing:.08em;margin:6px 0}
+
+/* feest */
+#feest{background:var(--forest);color:#fff;position:relative;overflow:hidden}
+#feest .leaf-art{left:-70px;right:auto;top:-30px;bottom:auto;width:300px;transform:scaleX(-1) rotate(20deg);opacity:.1}
+.feest{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center;position:relative}
+.feest h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2.8rem,6vw,4.6rem);color:#e3b99a}
+.feest p{color:#d6e2da;font-size:1.15rem;max-width:44ch}
+.trio{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 10px;padding:0;list-style:none}
+.trio li{font-family:var(--disp);font-size:1.15rem;letter-spacing:.04em;border:1px solid rgba(169,200,180,.5);color:var(--leaf);border-radius:999px;padding:7px 18px}
+.feest .note{font-style:italic;color:var(--leaf);font-size:1rem}
+.feest figure{margin:0;border-radius:200px 200px 18px 18px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(194,164,103,.35)}
+.feest figure img{width:100%;height:100%;object-fit:cover;object-position:42% 40%}
+
+/* tijden */
+.tijden{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:64px}
+#tijden h2{color:var(--forest)}
+.seasons{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.season{background:#fff;border:1px solid #d8dfd5;border-radius:16px;padding:26px 28px}
+.season.now{border-color:var(--lorijn);box-shadow:inset 0 0 0 1px var(--lorijn)}
+.season h3{font-family:var(--disp);font-weight:400;font-size:1.25rem;letter-spacing:.03em;color:var(--forest)}
+.season .tag{display:inline-block;font-family:var(--disp);font-size:.85rem;letter-spacing:.04em;background:var(--lorijn);color:#fff;border-radius:999px;padding:2px 11px;margin-left:8px;vertical-align:3px}
+.season .range{font-style:italic;color:var(--muted);margin:2px 0 14px;font-size:.98rem}
+.season dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px}
+.season dt{font-family:var(--disp);letter-spacing:.02em}
+.season dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.season .shut{color:var(--muted)}
+.season .today{color:var(--lorijn);font-weight:600}
+.tijden-note{margin-top:22px;color:var(--muted)}
+
+/* contact */
+#contact{background:var(--paper-2);padding-bottom:0}
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:stretch}
+#contact h2{color:var(--forest)}
+.lines{margin:26px 0 30px;padding:0;list-style:none}
+.lines li{padding:14px 0;border-bottom:1px solid #cdd6cb}
+.lines li span{display:block;font-family:var(--disp);font-size:.95rem;letter-spacing:.04em;color:var(--lorijn)}
+.lines a{text-decoration:none}
+.lines a:hover{text-decoration:underline}
+.map{min-height:420px;border-radius:18px 18px 0 0;overflow:hidden;background:#cfd8cd}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:saturate(.8)}
+footer{background:var(--forest);color:#c6d5cb;padding:40px 0 30px;font-size:.98rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer .f-word{font-family:var(--disp);font-weight:200;font-size:2.2rem;letter-spacing:.12em;color:#fff}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#0f241c;color:#e8efe9;text-align:center;font:400 .8rem/1 var(--serif);padding:9px 10px;letter-spacing:.02em}
+
+@media (max-width:900px){
+  .nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--forest);padding:8px 24px 24px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .top.open{background:var(--forest)}
+  .top.open .nav{opacity:1;visibility:visible;transform:none}
+  .nav a{font-size:1.3rem;padding:12px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .call{margin-top:14px;width:auto;border:0;padding:11px 22px}
+  .menu-btn{display:block}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto;min-height:0}
+  .hero-photo{order:-1;height:44vh;min-height:280px}
+  .hero-photo::after{background:linear-gradient(180deg,rgba(23,53,42,.55),rgba(23,53,42,0) 35%,rgba(23,53,42,0) 70%,rgba(23,53,42,1))}
+  .hero-text{padding:6px 24px 56px}
+  .word{font-size:clamp(4.2rem,22vw,6.5rem)}
+  .kerst,.feest,.tijden,.contact{grid-template-columns:1fr;gap:36px}
+  .feest figure{max-width:360px;aspect-ratio:1/1;border-radius:180px 180px 18px 18px}
+  .seasons{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:1fr;}
+  .strip a,.strip div{padding:14px 0;border-bottom:1px solid #d3dad0}
+  .strip .wrap>:last-child{border-bottom:0}
+  section{padding:72px 0}
+  .courses{grid-template-columns:1fr;padding:26px 22px}
+  .map{border-radius:0;margin:0 -24px}
+  .brand{opacity:1}
+}
+@media (max-width:420px){ .wrap{padding:0 20px} .tab{font-size:1.15rem;padding:12px 12px} .cols{column-gap:0} }
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="bar">
+    <a class="brand" href="#start">LORIJN</a>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#kaart">Kaart</a>
+      <a href="#kerst">Kerstmenu</a>
+      <a href="#feest">Feestdagen</a>
+      <a href="#tijden">Openingstijden</a>
+      <a href="#contact">Contact</a>
+      <a class="call" href="tel:+31343235103">Bel 0343 235 103</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="start">
+  <section class="hero" style="padding:0">
+    <div class="hero-text">
+      <svg class="leaf-art" viewBox="0 0 200 260" aria-hidden="true"><g fill="none" stroke="#a9c8b4" stroke-width="2.2"><path d="M30 250 C10 160 60 60 170 10 C190 110 140 210 30 250Z"/><path d="M30 250 C70 180 120 90 168 14"/><path d="M58 200 l-26 -12 M76 170 l-30 -16 M96 138 l-30 -18 M116 106 l-28 -20 M136 74 l-24 -20 M76 172 l30 2 M96 140 l34 0 M116 108 l34 -4 M136 76 l30 -8"/></g></svg>
+      <h1 class="word" aria-label="Lorijn"><span>L</span><span>O</span><span>R</span><span>I</span><span>J</span><span>N</span></h1>
+      <div class="sub">eten<b>|</b>drinken</div>
+      <p class="place">Aan de Rijksstraatweg in Leersum, bij Zuylestein. Voor lunch, diner en alles daartussen.</p>
+      <div class="status" id="status"><i></i><span id="statusText">Woensdag t/m zondag geopend</span></div>
+      <div class="cta">
+        <a class="btn btn-primary" href="tel:+31343235103"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Reserveer: 0343 235 103</a>
+        <a class="btn btn-ghost" href="#kaart">Bekijk de kaart</a>
+      </div>
+    </div>
+    <figure class="hero-photo"><img src="img/zuylestein.jpg" alt="Het gebouw van Lorijn aan de Rijksstraatweg in Leersum" width="1024" height="576" fetchpriority="high"></figure>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <a href="#kaart">Middag en avond<small>de hele kaart, direct te lezen</small></a>
+      <a href="#kerst">Kerstmenu 2026<small>eerste en tweede kerstdag</small></a>
+      <a href="#feest">Feestdagen met elkaar<small>lunch, borrel of diner</small></a>
+    </div>
+  </div>
+
+  <section id="kaart">
+    <div class="wrap">
+      <h2>Onze kaart</h2>
+      <p class="lead">Van een tosti met geitenkaas van Geitenboerderij Zuylestein tot eendenborst met rode port. Wij houden graag rekening met dieetwensen of allergieën.</p>
+
+      <div class="tabs" role="tablist" aria-label="Kaarten">
+        <button class="tab" role="tab" id="t-middag" aria-controls="p-middag" aria-selected="true">Middag</button>
+        <button class="tab" role="tab" id="t-avond" aria-controls="p-avond" aria-selected="false" tabindex="-1">Avond</button>
+        <button class="tab" role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false" tabindex="-1">Desserts</button>
+      </div>
+
+      <div class="panel on" id="p-middag" role="tabpanel" aria-labelledby="t-middag">
+        <div class="cols">
+          <div class="group"><h3>Brood of salade <em>wit of bruin · maaltijdsalade +4,75</em></h3>
+            <div class="dish"><b>Carpaccio</b><span class="p">14,75</span><i>truffelmayonaise, Parmezaanse kaas</i></div>
+            <div class="dish"><b>Gemarineerde zalm</b><span class="p">15,75</span><i>citroengrasmayonaise</i></div>
+            <div class="dish"><b>Geitenkaas <small>(uit de oven)</small></b><span class="p">14,95</span><i>walnoten, appel-perencompôte</i></div>
+            <div class="dish"><b>Belegen kaas</b><span class="p">12,50</span><i>ei, truffelmayonaise</i></div>
+            <div class="dish"><b>Krokante kip</b><span class="p">14,95</span><i>srirachamayonaise</i></div>
+          </div>
+          <div class="group"><h3>Soep</h3>
+            <div class="dish"><b>Tomatensoep</b><span class="p">7,95</span><i>crème fraîche, basilicumolie</i></div>
+            <div class="dish"><b>Soep van de dag</b><span class="p">7,95</span></div>
+          </div>
+          <div class="group"><h3>Tosti <em>wit of bruin</em></h3>
+            <div class="dish"><b>Geitenkaas <small>(Geitenboerderij Zuylestein)</small></b><span class="p">9,95</span><i>appel-perencompôte</i></div>
+            <div class="dish"><b>Kaas</b><span class="p">9,25</span><i>ketchup</i></div>
+            <div class="dish"><b>Ham | kaas</b><span class="p">9,75</span><i>ketchup</i></div>
+          </div>
+          <div class="group"><h3>Kroketten <em>wit of bruin brood</em></h3>
+            <div class="dish"><b>Huisgemaakte garnalenkroketten</b><span class="p">14,75</span><i>chilimayonaise</i></div>
+            <div class="dish"><b>Rundvlees</b><span class="p">12,95</span><i>mosterd</i></div>
+            <div class="dish"><b>Vegetarisch | vegan</b><span class="p">12,95</span><i>mosterd</i></div>
+          </div>
+          <div class="group"><h3>Uitsmijter</h3>
+            <div class="dish"><b>Naturel</b><span class="p">11,75</span><i>ham, kaas of spek +1,50</i></div>
+          </div>
+          <div class="group"><h3>Specials</h3>
+            <div class="dish"><b>Flatbread</b><span class="p">15,95</span><i>buikspek, appelstroop, srirachamayonaise</i></div>
+            <div class="dish"><b>Lorijn lunch bowl</b><span class="p">13,95</span><i>couscous, ingelegde groenten, hummus, kruidenmayonaise en feta (krokante kip +3,75)</i></div>
+            <div class="dish"><b>Lorijn burger <small>(met friet)</small></b><span class="p">19,95</span><i>rund of vegetarisch</i></div>
+          </div>
+          <div class="group"><h3>Warme lunch</h3>
+            <div class="dish"><b>Indische saté <small>(kip of vegetarisch)</small></b><span class="p">19,95</span><i>kroepoek, gebakken uitjes, zoetzuur</i></div>
+            <div class="dish"><b>Vis van de markt</b><span class="p">24,95</span><i>naar aanbod</i></div>
+            <div class="dish"><b>Vegetarische special</b><span class="p">21,50</span><i>wisselende invulling</i></div>
+          </div>
+          <div class="group"><h3>Erbij</h3>
+            <div class="dish"><b>Friet <small>met mayonaise</small></b><span class="p">4,50</span></div>
+            <div class="dish"><b>Brood <small>met lekkers</small></b><span class="p">4,75</span></div>
+            <div class="dish"><b>Gemengde salade</b><span class="p">4,95</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-avond" role="tabpanel" aria-labelledby="t-avond">
+        <div class="cols">
+          <div class="group"><h3>Voorgerechten</h3>
+            <div class="dish"><b>Brood <small>met lekkers</small></b><span class="p">4,75</span><i>wisselende dips</i></div>
+            <div class="dish"><b>Carpaccio</b><span class="p">13,95</span><i>truffelmayonaise, Parmezaanse kaas, rucola</i></div>
+            <div class="dish"><b>Huisgemaakte garnalenkroketten</b><span class="p">14,75</span><i>toast, chilimayonaise</i></div>
+            <div class="dish"><b>Gemarineerde zalmfilet</b><span class="p">14,95</span><i>citroengrasmayonaise</i></div>
+            <div class="dish"><b>Buikspek</b><span class="p">13,95</span><i>Aziatische lak, mango rode pepersalsa</i></div>
+          </div>
+          <div class="group"><h3>Salades <em>als maaltijdsalade +4,75</em></h3>
+            <div class="dish"><b>Carpaccio</b><span class="p">15,75</span><i>truffelmayonaise, Parmezaanse kaas</i></div>
+            <div class="dish"><b>Gemarineerde zalmfilet</b><span class="p">16,50</span><i>citroengrasmayonaise</i></div>
+            <div class="dish"><b>Geitenkaas <small>(uit de oven)</small></b><span class="p">14,95</span><i>walnoten, appel-perencompôte</i></div>
+            <div class="dish"><b>Krokante kip</b><span class="p">14,95</span><i>srirachamayonaise</i></div>
+          </div>
+          <div class="group"><h3>Soep</h3>
+            <div class="dish"><b>Tomatensoep</b><span class="p">7,95</span><i>crème fraîche, basilicumolie</i></div>
+            <div class="dish"><b>Soep van de dag</b><span class="p">7,95</span></div>
+          </div>
+          <div class="group"><h3>Hoofdgerechten</h3>
+            <div class="dish"><b>Eendenborst</b><span class="p">26,95</span><i>rode port sjalottensaus</i></div>
+            <div class="dish"><b>Lorijn burger <small>met friet</small></b><span class="p">19,95</span><i>rund of vegetarisch, belegen kaas, hamburgersaus</i></div>
+            <div class="dish"><b>Indische saté <small>(kip of vegetarisch)</small></b><span class="p">19,95</span><i>kroepoek, gebakken uitjes, zoetzuur</i></div>
+            <div class="dish"><b>Wisselend hoofdgerecht</b><span class="p">dagprijs</span><i>we vertellen je er graag over!</i></div>
+            <div class="dish"><b>Runderentrecôte</b><span class="p">27,95</span><i>bearnaisesaus</i></div>
+            <div class="dish"><b>Vis van de markt</b><span class="p">24,95</span><i>naar aanbod</i></div>
+            <div class="dish"><b>Vegetarische special</b><span class="p">21,50</span><i>wisselende invulling</i></div>
+          </div>
+          <div class="group"><h3>Erbij</h3>
+            <div class="dish"><b>Friet <small>met mayonaise</small></b><span class="p">4,50</span></div>
+            <div class="dish"><b>Ovenaardappels</b><span class="p">4,50</span></div>
+            <div class="dish"><b>Gemengde salade</b><span class="p">4,95</span></div>
+            <div class="dish"><b>Verse groente</b><span class="p">4,95</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-dessert" role="tabpanel" aria-labelledby="t-dessert">
+        <div class="cols">
+          <div class="group"><h3>Desserts</h3>
+            <div class="dish"><b>Fruittaartje</b><span class="p">8,95</span><i>lauwwarm, mangosorbet</i></div>
+            <div class="dish"><b>Suikerbroodparfait</b><span class="p">8,95</span><i>bosvruchtensoep</i></div>
+            <div class="dish"><b>Tiramisu</b><span class="p">9,50</span></div>
+            <div class="dish"><b>Chocolade lava cake</b><span class="p">9,75</span><i>cassissorbetijs</i></div>
+          </div>
+          <div class="group"><h3>Om af te sluiten</h3>
+            <div class="dish"><b>Kaasplankje</b><span class="p">14,95</span><i>tomaatpaprikadip</i></div>
+            <div class="dish"><b>Koffie compleet</b><span class="p">8,50</span><i>met koffie naar keuze</i></div>
+            <div class="dish"><b>Kinderijsje</b><span class="p">6,75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kaart-foot">
+        <p>Wij houden graag rekening met dieetwensen of allergieën.</p>
+        <div class="pdfs">
+          <a href="pdf/lorijn-middagkaart.pdf" target="_blank" rel="noopener">Lunchkaart (pdf)</a>
+          <a href="pdf/lorijn-avondkaart.pdf" target="_blank" rel="noopener">Avondkaart (pdf)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kerst">
+    <div class="wrap kerst">
+      <div class="kerst-head">
+        <div class="when">Eerste &amp; tweede kerstdag</div>
+        <h2>Kerstmenu</h2>
+        <p>Tijdens de lunch en het diner serveren wij ons feestelijke kerstmenu.</p>
+        <div class="prices">
+          <div><span>3 gangen</span><strong>€ 49,75</strong></div>
+          <div><span>4 gangen</span><strong>€ 57,50</strong></div>
+        </div>
+        <div class="ontvangst">Ontvangst lunch 12:00 uur, diner 18:00 uur</div>
+        <div class="cta" style="margin-top:0">
+          <a class="btn btn-dark" href="tel:+31343235103">Reserveer: 0343 235 103</a>
+          <a class="btn btn-line" href="mailto:welkom@lorijnzuylestein.nl?subject=Reservering%20kerstmenu">Mail ons</a>
+        </div>
+        <p style="margin-top:18px"><a href="pdf/lorijn-kerstmenu-2026.pdf" target="_blank" rel="noopener">Kerstmenu als pdf</a></p>
+      </div>
+      <div class="courses">
+        <div class="course"><h3>Voorgerecht</h3>
+          <p class="opt"><strong>Rillette van makreel</strong><span>kappertjes, venkel, srirachamayonaise</span></p><span class="of">of</span>
+          <p class="opt"><strong>Wildpaté</strong><span>coppa di Parma, kweeperencompôte</span></p><span class="of">of</span>
+          <p class="opt"><strong>Parelgortsalade</strong><span>kastanjechampignons, kastanjevinaigrette</span></p>
+        </div>
+        <div class="course"><h3>Tussengerecht</h3>
+          <p class="opt"><strong>Linzensoep</strong><span>gerookte paprikaroom</span></p>
+        </div>
+        <div class="course"><h3>Hoofdgerecht</h3>
+          <p class="opt"><strong>Snoekbaarsfilet</strong><span>witte portsaus, gekonfijte druiven</span></p><span class="of">of</span>
+          <p class="opt"><strong>Sucade en biefstuk van het hert</strong><span>gestoofde witlof, morillesaus</span></p><span class="of">of</span>
+          <p class="opt"><strong>Tartelette</strong><span>pompoencrème, geitenkaas, hazelnoot</span></p>
+        </div>
+        <div class="course"><h3>Dessert</h3>
+          <p class="opt"><strong>Merenguetaartje</strong><span>lemoncurdmascarpone, stoofperenparfait</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="feest">
+    <svg class="leaf-art" viewBox="0 0 200 260" aria-hidden="true"><g fill="none" stroke="#a9c8b4" stroke-width="2.2"><path d="M30 250 C10 160 60 60 170 10 C190 110 140 210 30 250Z"/><path d="M30 250 C70 180 120 90 168 14"/></g></svg>
+    <div class="wrap feest">
+      <div>
+        <h2>Samen is het feest</h2>
+        <p>Vier de feestdagen bij ons. Met collega's, familie of vrienden: wij verzorgen een onvergetelijke middag of avond.</p>
+        <ul class="trio"><li>Lunch</li><li>Borrel</li><li>Diner</li></ul>
+        <p class="note">Zakelijk of privé, helemaal naar jullie wens.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:welkom@lorijnzuylestein.nl?subject=Feestdagen%20bij%20Lorijn">Vraag naar de mogelijkheden</a>
+          <a class="btn btn-ghost" href="tel:+31343235103">0343 235 103</a>
+        </div>
+      </div>
+      <figure><img src="img/poort.jpg" alt="Smeedijzeren hek met kroon bij Lorijn" width="960" height="641" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section id="tijden">
+    <div class="wrap tijden">
+      <div>
+        <h2>Openingstijden</h2>
+        <p class="lead">In de winter zijn we op woensdag t/m vrijdag vanaf de lunch open, in het weekend al vanaf 10:00 uur. Van april tot oktober woensdag t/m zondag vanaf 10:00 uur.</p>
+      </div>
+      <div>
+        <div class="seasons">
+          <div class="season" id="s-winter">
+            <h3>Winter</h3>
+            <p class="range">1 oktober tot 1 april</p>
+            <dl>
+              <dt data-d="1">Maandag</dt><dd class="shut" data-d="1">gesloten</dd>
+              <dt data-d="2">Dinsdag</dt><dd class="shut" data-d="2">gesloten</dd>
+              <dt data-d="3">Woensdag</dt><dd data-d="3">11:30 – 22:00</dd>
+              <dt data-d="4">Donderdag</dt><dd data-d="4">11:30 – 22:00</dd>
+              <dt data-d="5">Vrijdag</dt><dd data-d="5">11:30 – 22:00</dd>
+              <dt data-d="6">Zaterdag</dt><dd data-d="6">10:00 – 22:00</dd>
+              <dt data-d="0">Zondag</dt><dd data-d="0">10:00 – 22:00</dd>
+            </dl>
+          </div>
+          <div class="season" id="s-zomer">
+            <h3>Zomer</h3>
+            <p class="range">1 april tot 1 oktober</p>
+            <dl>
+              <dt data-d="1">Maandag</dt><dd class="shut" data-d="1">gesloten</dd>
+              <dt data-d="2">Dinsdag</dt><dd class="shut" data-d="2">gesloten</dd>
+              <dt data-d="3">Woensdag</dt><dd data-d="3">10:00 – 22:00</dd>
+              <dt data-d="4">Donderdag</dt><dd data-d="4">10:00 – 22:00</dd>
+              <dt data-d="5">Vrijdag</dt><dd data-d="5">10:00 – 22:00</dd>
+              <dt data-d="6">Zaterdag</dt><dd data-d="6">10:00 – 22:00</dd>
+              <dt data-d="0">Zondag</dt><dd data-d="0">10:00 – 22:00</dd>
+            </dl>
+          </div>
+        </div>
+        <p class="tijden-note">Voor feestdagen en groepen: mail naar <a href="mailto:welkom@lorijnzuylestein.nl">welkom@lorijnzuylestein.nl</a> of bel 0343 235 103.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2>Kom langs</h2>
+        <ul class="lines">
+          <li><span>Adres</span>Rijksstraatweg 3<br>3956 CH Leersum / Zuylestein</li>
+          <li><span>Telefoon</span><a href="tel:+31343235103">0343 235 103</a></li>
+          <li><span>E-mail</span><a href="mailto:welkom@lorijnzuylestein.nl">welkom@lorijnzuylestein.nl</a></li>
+        </ul>
+        <div class="cta" style="margin:0 0 56px">
+          <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rijksstraatweg%203%2C%203956%20CH%20Leersum" target="_blank" rel="noopener">Plan je route</a>
+          <a class="btn btn-line" href="tel:+31343235103">Reserveer</a>
+        </div>
+      </div>
+      <div class="map"><iframe title="Kaart met de locatie van Lorijn, Rijksstraatweg 3 in Leersum" loading="lazy" src="https://maps.google.com/maps?q=Rijksstraatweg%203%2C%203956%20CH%20Leersum&amp;z=15&amp;output=embed"></iframe></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-word">LORIJN</div>
+    <div>eten | drinken · Rijksstraatweg 3, Leersum · <a href="tel:+31343235103">0343 235 103</a></div>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Lorijn%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),btn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  function onScroll(){top.classList.toggle('solid',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  btn.addEventListener('click',function(){var o=top.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Menu sluiten':'Menu openen')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){top.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on)})}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t)});
+    t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus()}});
+  });
+  // na 17:00 de avondkaart eerst tonen
+  if(new Date().getHours()>=17) sel(tabs[1]);
+
+  // openingstijden: seizoen en vandaag
+  var now=new Date(),m=now.getMonth(),d=now.getDay(),winter=(m>=9||m<=2);
+  var s=document.getElementById(winter?'s-winter':'s-zomer');
+  s.classList.add('now');s.querySelector('h3').insertAdjacentHTML('beforeend','<span class="tag">nu</span>');
+  [].forEach.call(s.querySelectorAll('[data-d="'+d+'"]'),function(el){el.classList.add('today')});
+  var open=null,close=22*60;
+  if(d>=3&&d<=5) open=winter?11*60+30:10*60; else if(d===6||d===0) open=10*60;
+  var mins=now.getHours()*60+now.getMinutes(),st=document.getElementById('status'),tx=document.getElementById('statusText');
+  function hm(x){return Math.floor(x/60)+':'+('0'+x%60).slice(-2)}
+  if(open!==null&&mins>=open&&mins<close){tx.textContent='Nu open, tot 22:00 uur'}
+  else if(open!==null&&mins<open){tx.textContent='Vandaag open vanaf '+hm(open)+' uur';st.classList.add('closed')}
+  else{tx.textContent='Nu gesloten · open woensdag t/m zondag';st.classList.add('closed')}
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

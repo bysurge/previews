@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bierbistro het Groote Genoegen · 's-Hertogenbosch</title>
+<meta name="description" content="Bierbistro het Groote Genoegen: eten, drinken en feesten in het hartje van Den Bosch.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%236b1a24'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23c9a45c' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' text-anchor='middle' fill='%23f4ede0'%3EGG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bordeaux:#6b1a24;
+  --bordeaux-d:#4e121a;
+  --hout:#2b1d17;
+  --hout-2:#3a2820;
+  --messing:#c9a45c;
+  --schuim:#f4ede0;
+  --papier:#faf6ef;
+  --inkt:#231a16;
+  --grijs:#6d5f56;
+  --lijn:#e2d6c3;
+  --display:'Abril Fatface',Georgia,serif;
+  --sans:'Work Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--papier);color:var(--inkt);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--messing);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(43,29,23,.96);color:var(--schuim);border-bottom:1px solid rgba(201,164,92,.25)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.brand small{font-size:.72rem;letter-spacing:.08em;color:var(--messing);margin-bottom:4px}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.45rem}
+.nav{display:flex;align-items:center;gap:24px}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.88}
+.nav a:hover{opacity:1;color:var(--messing)}
+.nav .call{background:var(--bordeaux);color:#fff;padding:9px 16px;border-radius:4px;opacity:1;border:1px solid rgba(201,164,92,.5)}
+.nav .call:hover{background:var(--bordeaux-d);color:#fff}
+.menu-toggle{display:none;background:none;border:0;color:var(--schuim);width:44px;height:44px;cursor:pointer;padding:10px}
+.menu-toggle span{display:block;height:2px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+body.nav-open .menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .menu-toggle span:nth-child(2){opacity:0}
+body.nav-open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--hout)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 40%;animation:settle 1.8s ease-out both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,18,14,.88) 0%,rgba(30,18,14,.55) 45%,rgba(30,18,14,.1) 75%),linear-gradient(0deg,rgba(30,18,14,.7),transparent 45%)}
+.hero-inner{position:relative;z-index:2;padding:140px 0 clamp(56px,9vh,110px)}
+.hero-kicker{color:var(--messing);font-weight:500;margin:0 0 18px;font-size:1.05rem}
+.hero h1{font-size:clamp(3.2rem,8.5vw,7.4rem);line-height:.95;max-width:9ch}
+.hero-lead{max-width:30em;margin:26px 0 34px;font-size:1.15rem;color:#eee3d2}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;padding:14px 22px;border-radius:4px;text-decoration:none;font-weight:600;border:1px solid transparent;transition:background .2s,color .2s}
+.btn-red{background:var(--bordeaux);color:#fff;border-color:rgba(201,164,92,.6)}
+.btn-red:hover{background:var(--bordeaux-d)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.viltje{position:absolute;z-index:3;right:clamp(20px,6vw,90px);bottom:clamp(60px,12vh,130px);width:172px;height:172px;border-radius:50%;background:var(--schuim);color:var(--bordeaux);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.4);transform:rotate(-8deg);border:6px solid var(--schuim);outline:2px dashed var(--bordeaux);outline-offset:-14px}
+.viltje b{font-family:var(--display);font-weight:400;font-size:1.55rem;line-height:1}
+.viltje span{font-size:.86rem;font-weight:600;color:var(--inkt);margin-top:6px;line-height:1.3}
+
+/* welkom */
+.welkom{padding:clamp(70px,10vw,130px) 0}
+.welkom .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:start}
+.welkom h2,.sec-h{font-size:clamp(2.2rem,4.2vw,3.5rem);color:var(--bordeaux)}
+.welkom h2{margin-bottom:24px}
+.welkom p{margin:0 0 16px;font-size:1.08rem;max-width:34em}
+.rooms{margin-top:34px;padding:26px 28px;background:var(--schuim);border-left:4px solid var(--bordeaux)}
+.rooms h3{font-size:1.5rem;margin-bottom:12px}
+.rooms ol{margin:0;padding-left:1.3em;columns:2;column-gap:28px}
+.rooms li{padding:3px 0;break-inside:avoid}
+.photo-stack{display:grid;grid-template-columns:1fr;gap:16px}
+.photo-stack img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.photo-stack img + img{width:78%;margin:-90px 0 0 auto;border:8px solid var(--papier);box-shadow:0 16px 40px rgba(43,29,23,.18)}
+
+/* menu */
+.menu{background:var(--hout);color:var(--schuim);padding:clamp(70px,10vw,124px) 0}
+.menu .sec-h{color:var(--schuim)}
+.menu-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.menu-top p{margin:10px 0 0;color:#cdbfaa;max-width:36em}
+.menu-top a{color:var(--messing);font-weight:600}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 34px;padding-bottom:10px;border-bottom:1px solid rgba(201,164,92,.25);position:sticky;top:66px;background:var(--hout);z-index:5;padding-top:8px}
+.tabs button{flex:none;font:600 .98rem var(--sans);background:none;border:1px solid transparent;color:#d9ccb8;padding:10px 16px;border-radius:4px;cursor:pointer}
+.tabs button:hover{color:#fff;border-color:rgba(201,164,92,.4)}
+.tabs button[aria-selected=true]{background:var(--bordeaux);color:#fff;border-color:var(--messing)}
+.panel{columns:2;column-gap:60px}
+.panel[hidden]{display:none}
+.cat{break-inside:avoid;margin:0 0 40px}
+.cat h3{font-size:1.7rem;color:var(--messing);margin-bottom:4px}
+.cat .note{color:#b8a991;font-size:.94rem;margin:0 0 10px}
+.cat ul{list-style:none;padding:0;margin:0}
+.cat li{padding:11px 0;border-bottom:1px solid rgba(244,237,224,.12)}
+.cat li:last-child{border-bottom:0}
+.row{display:flex;gap:14px;align-items:baseline}
+.row b{font-weight:600;color:#fff}
+.row .p{margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--messing);font-weight:600}
+.cat li small{display:block;color:#c3b49e;font-size:.93rem;line-height:1.45;margin-top:2px}
+.tip{background:rgba(107,26,36,.55);border:1px solid rgba(201,164,92,.35);padding:18px 20px;border-radius:4px;break-inside:avoid;margin:0 0 40px}
+.tip h3{color:#fff;font-size:1.45rem}
+
+/* pruuverij */
+.pruuf{background:var(--bordeaux);color:#fff;padding:clamp(70px,9vw,116px) 0;position:relative}
+.pruuf-head{max-width:44em;margin-bottom:40px}
+.pruuf h2{font-size:clamp(2.4rem,5vw,4.2rem)}
+.pruuf-head p{color:#f0dcd7;font-size:1.1rem;margin:18px 0 0}
+.gangen{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gang{border:1px solid rgba(201,164,92,.55);padding:28px 26px;border-radius:4px;background:rgba(0,0,0,.12)}
+.gang h3{font-size:2rem}
+.gang .prijs{font-size:1.25rem;color:var(--messing);font-weight:600;margin:6px 0 14px}
+.gang ul{margin:0;padding-left:1.1em;color:#f3e3df}
+.pruuf small{display:block;margin-top:22px;color:#f0dcd7;font-size:.95rem}
+
+/* arrangementen */
+.arr{padding:clamp(70px,10vw,124px) 0}
+.arr-intro{margin:0 0 40px;max-width:40em}
+.arr-intro p{color:var(--grijs);margin:14px 0 0}
+.arr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.arr-item img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;margin-bottom:18px}
+.arr-item h3{font-size:1.75rem;color:var(--bordeaux);margin-bottom:6px}
+.arr-item .sub{font-weight:600;color:var(--inkt);margin:0 0 10px}
+.arr-item p{margin:0 0 12px;color:#3c302a}
+.arr-item a{color:var(--bordeaux);font-weight:600}
+
+/* dakterras */
+.terras{display:grid;grid-template-columns:1.2fr 1fr;background:var(--schuim)}
+.terras img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.terras div{padding:clamp(40px,6vw,80px)}
+.terras h2{font-size:clamp(2rem,3.8vw,3.1rem);color:var(--bordeaux);margin-bottom:16px}
+.terras p{margin:0;max-width:30em}
+
+/* reviews */
+.reviews{padding:clamp(70px,9vw,116px) 0}
+.rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px;margin-top:34px}
+blockquote{margin:0;padding:0 0 0 22px;border-left:3px solid var(--messing)}
+blockquote p{margin:0 0 8px;font-size:1.06rem}
+blockquote cite{font-style:normal;font-weight:600;color:var(--grijs);font-size:.95rem}
+.reviews .src{color:var(--grijs);margin:12px 0 0}
+
+/* bezoek */
+.bezoek{background:var(--hout-2);color:var(--schuim);padding:clamp(70px,9vw,116px) 0}
+.bezoek .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px)}
+.bezoek .sec-h{color:var(--schuim);margin-bottom:24px}
+.bezoek h3{font-size:1.5rem;color:var(--messing);margin:30px 0 10px}
+.hours{width:100%;border-collapse:collapse;font-size:1.05rem}
+.hours td{padding:9px 0;border-bottom:1px solid rgba(244,237,224,.14)}
+.hours td:last-child{text-align:right}
+.hours tr.dicht td:last-child{color:#c9a99c}
+.hours tr.is-today td{color:var(--messing);font-weight:600}
+.bezoek p{margin:0 0 12px;color:#e3d7c4}
+.bezoek a{color:var(--messing);font-weight:600}
+.map{aspect-ratio:16/11;border-radius:4px;overflow:hidden;background:var(--hout)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.adres{font-size:1.15rem;margin-bottom:18px}
+
+footer{background:#1d130f;color:#bfae98;padding:46px 0 92px;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--messing)}
+footer .brand b{color:var(--schuim)}
+
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(29,19,15,.92);color:#fff;font:500 .8rem var(--sans);padding:7px 14px;border-radius:999px;white-space:nowrap;pointer-events:none}
+
+@media (max-width:980px){
+  .panel{columns:1}
+  .arr-grid{grid-template-columns:1fr 1fr}
+  .welkom .wrap,.bezoek .wrap,.terras{grid-template-columns:1fr}
+  .gangen{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .menu-toggle{display:block}
+  .nav{position:fixed;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--hout);padding:8px 20px 24px;transform:translateY(-120%);visibility:hidden;transition:transform .3s ease}
+  body.nav-open .nav{transform:none;visibility:visible}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(244,237,224,.1);font-size:1.1rem}
+  .nav .call{margin-top:16px;text-align:center}
+  .tabs{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}
+}
+@media (max-width:640px){
+  .hero{min-height:92vh}
+  .hero::after{background:linear-gradient(0deg,rgba(30,18,14,.94) 20%,rgba(30,18,14,.62) 65%,rgba(30,18,14,.3))}
+  .hero img{object-position:30% 40%}
+  .hero h1{font-size:clamp(3rem,15vw,4.2rem)}
+  .hero-inner{padding-bottom:64px}
+  .hero-inner{padding-top:200px}
+  .hero-kicker{text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .viltje{width:112px;height:112px;top:80px;right:16px;bottom:auto;outline-offset:-10px;border-width:4px}
+  .viltje b{font-size:1.1rem}
+  .viltje span{font-size:.72rem}
+  .arr-grid,.rev-grid{grid-template-columns:1fr}
+  .rooms ol{columns:1}
+  .photo-stack img + img{margin-top:-50px}
+  .ribbon{font-size:.72rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#welkom"><small>Bierbistro</small><b>het Groote Genoegen</b></a>
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#menukaart">Menukaart</a>
+      <a href="#pruuverij">Bier Pruuverij</a>
+      <a href="#arrangementen">Groepen &amp; feesten</a>
+      <a href="#bezoek">Openingstijden &amp; route</a>
+      <a class="call" href="tel:0736890254">Reserveer: 073-6890254</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="Welkom">
+  <img src="img/tapkranen.jpg" alt="De lange rij tapkranen aan de bar van het Groote Genoegen" width="1920" height="1280" fetchpriority="high">
+  <div class="wrap hero-inner">
+    <p class="hero-kicker">Bierbistro in het hartje van Den Bosch</p>
+    <h1>Eten, drinken, feesten.</h1>
+    <p class="hero-lead">Een gezellig eetcafé achter het Stadhuis, met een ruime kaart vol verse gerechten uit de regio en bijpassende biertjes.</p>
+    <div class="btns">
+      <a class="btn btn-red" href="tel:0736890254">Reserveer: 073-6890254</a>
+      <a class="btn btn-ghost" href="#menukaart">Bekijk de menukaart</a>
+    </div>
+  </div>
+  <div class="viltje" aria-label="Open woensdag tot en met zondag vanaf 12:00 uur"><b>Wo t/m zo</b><span>vanaf 12:00 uur</span></div>
+</section>
+
+<section class="welkom" id="welkom">
+  <div class="wrap">
+    <div>
+      <h2>Welkom bij het Groote Genoegen</h2>
+      <p>Bierbistro het Groote Genoegen, gelegen in het hartje van Den Bosch, is een mooie en gezellige gelegenheid voor een heerlijk avondje uit. Onze keuken biedt u een ruime menukaart met heerlijke verse gerechten uit de regio.</p>
+      <p>Wij zijn geopend van woensdag tot en met zondag vanaf 12:00 uur. U kunt tot 16:00 uur met uw gezelschap bourgondisch lunchen, of schuif 's avonds aan voor een heerlijk diner.</p>
+      <div class="rooms">
+        <h3>Twee verdiepingen, zes ruimtes</h3>
+        <ol>
+          <li>Restaurantgedeelte voorkant</li>
+          <li>Cafégedeelte in het midden</li>
+          <li>Restaurantgedeelte achterkant</li>
+          <li>Private Dining gedeelte</li>
+          <li>Zaal op de 1e verdieping met eigen bar</li>
+          <li>Dakterras</li>
+        </ol>
+      </div>
+    </div>
+    <div class="photo-stack">
+      <img src="img/bar-eetzaal.jpg" alt="De houten bar en de eetzaal van het Groote Genoegen" loading="lazy" width="1400" height="1050">
+      <img src="img/eetzaal.jpg" alt="Gedekte tafels in het restaurant" loading="lazy" width="1400" height="1050">
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menukaart">
+  <div class="wrap">
+    <div class="menu-top">
+      <div>
+        <h2 class="sec-h">Menukaart</h2>
+        <p>Dagelijkse lunch- en menukaart, update september 2026. Prijzen in euro's. Liever de originele kaart? <a href="https://grootegenoegen.nl/wp-content/uploads/2026/09/Groote-Genoegen-Menukaart-September-2026.pdf" rel="noopener">Menukaart als PDF</a></p>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Onderdelen van de menukaart">
+      <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch</button>
+      <button role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Soep &amp; borrel</button>
+      <button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Diner</button>
+      <button role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false" tabindex="-1">Dessert</button>
+      <button role="tab" id="t-groep" aria-controls="p-groep" aria-selected="false" tabindex="-1">Keuzemenu groepen</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch">
+      <div class="cat"><h3>Lunchkaart</h3><p class="note">Tot 16:30 uur</p><ul>
+        <li><div class="row"><b>Croque Monsieur</b><span class="p">10,00</span></div><small>Tosti van 3 sneden brood, ham, kaas, tomaat, gebakken ei, salade</small></li>
+        <li><div class="row"><b>Croque Madame</b><span class="p">12,00</span></div><small>Tosti van 3 sneden brood</small></li>
+        <li><div class="row"><b>Hamburger</b><span class="p">20,00</span></div><small>Brioche broodje, runderburger, truffelkaas, verse friet</small></li>
+        <li><div class="row"><b>Twaalf Uurtje</b><span class="p">15,00</span></div><small>3 sneden brood, ham, kaas, kroket, gebakken ei, tomatensoep</small></li>
+        <li><div class="row"><b>Gerookte Zalm</b><span class="p">16,50</span></div><small>2 sneden brood, gerookte zalm, rode ui, limoenmayonaise, salade</small></li>
+        <li><div class="row"><b>Carpaccio</b><span class="p">15,00</span></div><small>2 sneden brood, dun gesneden ossenhaas, Parmezaanse kaas, pittenmix, spekjes, truffelmayonaise</small></li>
+        <li><div class="row"><b>Tonijnsalade</b><span class="p">13,50</span></div><small>2 sneden brood, tonijnsalade, kappertjes, rode ui, salade</small></li>
+        <li><div class="row"><b>Gerookte Rib-Eye</b><span class="p">15,00</span></div><small>2 sneden brood, gerookte rib-eye, chimichurri, salade</small></li>
+        <li><div class="row"><b>Twee rundvleeskroketten (van De Jong)</b><span class="p">11,50</span></div><small>Salade, 2 kroketten, 2 sneden brood of verse friet + 1,50</small></li>
+        <li><div class="row"><b>Uitsmijter</b><span class="p">13,00</span></div><small>2 sneden brood, 3 eieren, ham, kaas, salade</small></li>
+        <li><div class="row"><b>Salade Geitenkaas uit de oven</b><span class="p">15,00</span></div><small>Jonge pluksla, geitenkaas, noten, biersiroop, brood</small></li>
+        <li><div class="row"><b>Salade Groote Genoegen</b><span class="p">15,00</span></div><small>Pluksla, feta, gerookte kip, noten, spekjes, knoflookdressing, brood</small></li>
+        <li><div class="row"><b>Broodje Groote Genoegen</b><span class="p">13,50</span></div><small>Italiaanse bol, gerookte kip, groene pesto, oude kaas</small></li>
+        <li><div class="row"><b>Huisgemaakte Vegastrudel</b><span class="p">20,00</span></div><small>Linzen, gepofte knoflook, gegrilde courgette, paprika, kruidenolie, verse friet</small></li>
+        <li><div class="row"><b>Gegrilde kipsaté</b><span class="p">20,00</span></div><small>Kippendijen, satésaus, huisgemaakte atjar, verse friet</small></li>
+        <li><div class="row"><b>Gegrilde Hereford biefstuk</b><span class="p">24,50</span></div><small>Met jus en brood, of verse friet + 1,50</small></li>
+        <li><div class="row"><b>Pulled Pork</b><span class="p">20,00</span></div><small>Knoflookbrood, BBQ-saus, verse friet</small></li>
+      </ul></div>
+      <div class="tip"><h3>2 gangen lunchmenu</h3><div class="row" style="margin:6px 0 8px"><b>Tip van het huis</b><span class="p">16,50</span></div>
+        <small style="color:#ecdcd0;display:block">Vooraf: tomatensoep, soep van de chef of Bisque d'Homard (+ 1,50). Daarna: 2 sneden brood met tonijnsalade of rib-eye, of de salade geitenkaas.</small></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+      <div class="cat"><h3>Huisgemaakte soepen</h3><ul>
+        <li><div class="row"><b>Tomatensoep</b><span class="p">8,00</span></div><small>Met gehaktballetjes en room</small></li>
+        <li><div class="row"><b>Soep van de chef</b><span class="p">8,00</span></div></li>
+        <li><div class="row"><b>Bisque d'Homard</b><span class="p">12,50</span></div><small>Mosselen, garnaaltjes, room</small></li>
+      </ul></div>
+      <div class="cat"><h3>Vooraf om te delen</h3><ul>
+        <li><div class="row"><b>Brood</b><span class="p">7,50</span></div></li>
+        <li><div class="row"><b>Knoflookbrood</b><span class="p">7,50</span></div></li>
+        <li><div class="row"><b>Charcuterie</b><span class="p">18,50</span></div><small>Serrano, Coburger ham, copa di parma, fuet, kruidencrostini</small></li>
+      </ul></div>
+      <div class="cat"><h3>Borrelhapjes</h3><ul>
+        <li><div class="row"><b>Puntzak verse frieten met mayonaise</b><span class="p">4,50</span></div></li>
+        <li><div class="row"><b>Frietje bierstoofvlees</b><span class="p">8,50</span></div></li>
+        <li><div class="row"><b>Gemarineerde olijven</b><span class="p">6,00</span></div></li>
+        <li><div class="row"><b>Portie oude kaas</b><span class="p">8,00</span></div></li>
+        <li><div class="row"><b>Knoflookbrood uit de oven met aioli</b><span class="p">7,50</span></div></li>
+        <li><div class="row"><b>Brood met tapenade</b><span class="p">7,50</span></div></li>
+        <li><div class="row"><b>Mini loempia's met chilisaus (10 st)</b><span class="p">8,50</span></div></li>
+        <li><div class="row"><b>Mini frikandelletjes speciaal</b><span class="p">8,00</span></div></li>
+        <li><div class="row"><b>Bitterballen van De Jong (8 st)</b><span class="p">8,00</span></div></li>
+        <li><div class="row"><b>Warm bittergarnituur (12 st)</b><span class="p">10,00</span></div></li>
+        <li><div class="row"><b>Borrelplateau</b><span class="p">18,50</span></div><small>Olijven, worstsoorten, kaas, bittergarnituur</small></li>
+        <li><div class="row"><b>Kaasplateau</b><span class="p">16,50</span></div><small>4 kazen met huisgemaakte biersiroop</small></li>
+      </ul></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden>
+      <div class="cat"><h3>Voorgerechten</h3><ul>
+        <li><div class="row"><b>Salade Carpaccio</b><span class="p">15,00</span></div></li>
+        <li><div class="row"><b>Salade Groote Genoegen</b><span class="p">15,00</span></div></li>
+        <li><div class="row"><b>Gegrilde Rib-Eye</b><span class="p">15,00</span></div><small>Roseval aardappel, basilicum</small></li>
+        <li><div class="row"><b>Huisgerookte tijgerwolf</b><span class="p">15,75</span></div><small>Witvis, safraanmayonaise, pluksla</small></li>
+        <li><div class="row"><b>Salade Geitenkaas uit de oven</b><span class="p">15,00</span></div></li>
+      </ul></div>
+      <div class="cat"><h3>Hoofdgerechten</h3><ul>
+        <li><div class="row"><b>Gegrilde kipsaté</b><span class="p">20,00</span></div></li>
+        <li><div class="row"><b>Gentse Stoverij</b><span class="p">22,50</span></div><small>Rundvlees, steranijs, kaneelstokjes</small></li>
+        <li><div class="row"><b>Visstoof</b><span class="p">22,50</span></div><small>Diverse soorten vis, gegaard in witbier</small></li>
+        <li><div class="row"><b>Maaltijd Groote Genoegen</b><span class="p">18,50</span></div></li>
+        <li><div class="row"><b>Maaltijd Carpaccio</b><span class="p">22,50</span></div></li>
+        <li><div class="row"><b>Varkenshaas</b><span class="p">22,50</span></div><small>Met pepersaus</small></li>
+        <li><div class="row"><b>Mixed grill</b><span class="p">24,00</span></div><small>Runderhaas, kippendij, varkenshaas, saus naar keuze</small></li>
+        <li><div class="row"><b>Zeebaars</b><span class="p">24,00</span></div><small>Witvis, botersaus, seizoensgroenten</small></li>
+        <li><div class="row"><b>Gegrilde Hereford biefstuk</b><span class="p">24,50</span></div><small>Saus naar keuze: bospaddenstoelen, peper, Jack Daniel's of rodewijnjus</small></li>
+        <li><div class="row"><b>Maaltijdsalade geitenkaas</b><span class="p">18,50</span></div></li>
+        <li><div class="row"><b>Huisgemaakte Vegastrudel</b><span class="p">20,00</span></div></li>
+        <li><div class="row"><b>Pasta met bospaddenstoelen</b><span class="p">20,00</span></div><small>Basilicum, Parmezaan, truffelolie, rucola</small></li>
+      </ul></div>
+      <div class="cat"><h3>Bijgerechten</h3><ul>
+        <li><div class="row"><b>Verse friet met mayonaise</b><span class="p">4,50</span></div></li>
+        <li><div class="row"><b>Salade</b><span class="p">4,00</span></div></li>
+      </ul></div>
+      <div class="cat"><h3>Voor de kleintjes</h3><ul>
+        <li><div class="row"><b>Kindermenu</b><span class="p">10,00</span></div><small>Friet, salade, appelmoes, mayonaise en een frikandel, kipnuggets of kroket</small></li>
+      </ul></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-dessert" aria-labelledby="t-dessert" hidden>
+      <div class="cat"><h3>Dessert</h3><ul>
+        <li><div class="row"><b>Aangeklede koffie of thee</b><span class="p">12,50</span></div></li>
+        <li><div class="row"><b>Kletskoppen</b><span class="p">11,50</span></div><small>Vanille- en kaneelijs, karamel, slagroom</small></li>
+        <li><div class="row"><b>Bastogne weckpot</b><span class="p">12,00</span></div></li>
+        <li><div class="row"><b>Speciaalbierijs</b><span class="p">11,50</span></div><small>Crumble, sorbetijs van speciaalbier, slagroom</small></li>
+        <li><div class="row"><b>Appelcrumble</b><span class="p">11,50</span></div></li>
+        <li><div class="row"><b>Kaasplateau</b><span class="p">16,50</span></div></li>
+      </ul></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-groep" aria-labelledby="t-groep" hidden>
+      <div class="cat"><h3>Keuzemenu 35,00 p.p.</h3><p class="note">Voor groepen vanaf 10 personen. Puntzak friet en salade niet inbegrepen.</p><ul>
+        <li><div class="row"><b>Voorgerecht</b></div><small>Tomatensoep, kreeftensoep of soep van de chef</small></li>
+        <li><div class="row"><b>Hoofdgerecht</b></div><small>Gentse stoverij, gegrilde kipsaté, heekfilet uit de oven met witbiersaus en kruidenvinaigrette, of vegastrudel</small></li>
+        <li><div class="row"><b>Nagerecht</b></div><small>Bierijs (huisgedraaid sorbetijs), kletskoppen of Koffie Groot Genoegen (koffie, geheime likeur, slagroom)</small></li>
+      </ul><p class="note" style="margin-top:10px"><a style="color:var(--messing)" href="https://grootegenoegen.nl/wp-content/uploads/2026/01/Keuzemenu-35-2.pdf" rel="noopener">Keuzemenu 35 als PDF</a></p></div>
+      <div class="cat"><h3>Keuzemenu 42,50 p.p.</h3><p class="note">Voor groepen vanaf 10 personen.</p><ul>
+        <li><div class="row"><b>Voorgerecht</b></div><small>Carpaccio, geitenkaas uit de oven of huisgerookte tijgerwolf met safraanmayonaise</small></li>
+        <li><div class="row"><b>Hoofdgerecht</b></div><small>Visstoof, Hereford biefstuk met pepersaus, mixed grill of pasta met bospaddenstoelen</small></li>
+        <li><div class="row"><b>Nagerecht</b></div><small>Kaasplankje, speciaalbierijs of Bastogne weckpot</small></li>
+      </ul><p class="note" style="margin-top:10px"><a style="color:var(--messing)" href="https://grootegenoegen.nl/wp-content/uploads/2026/01/Keuzemenu-42.50.pdf" rel="noopener">Keuzemenu 42,50 als PDF</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pruuf" id="pruuverij">
+  <div class="wrap">
+    <div class="pruuf-head">
+      <h2>Bier Pruuverij</h2>
+      <p>Geniet met uw gezelschap van ons uitgebreide Pruuverij-arrangement. Kies 4, 5 of 6 gangen en laat u verrassen door heerlijke biertjes met bijpassende gerechten, die de smaak van zowel het bier als het gerecht versterken.</p>
+    </div>
+    <div class="gangen">
+      <div class="gang"><h3>4 gangen</h3><p class="prijs">50,00 p.p.</p><ul><li>Koud voorgerecht</li><li>Warm voorgerecht</li><li>Hoofdgerecht</li><li>Dessert</li></ul></div>
+      <div class="gang"><h3>5 gangen</h3><p class="prijs">55,00 p.p.</p><ul><li>Koud voorgerecht</li><li>Soep</li><li>Warm voorgerecht</li><li>Hoofdgerecht</li><li>Dessert</li></ul></div>
+      <div class="gang"><h3>6 gangen</h3><p class="prijs">60,00 p.p.</p><ul><li>Koud voorgerecht</li><li>Soep</li><li>Warm voorgerecht</li><li>Hoofdgerecht</li><li>Kaas</li><li>Dessert</li></ul></div>
+    </div>
+    <small>Te bestellen tot 20:00 uur, per tafel en vanaf 2 personen. Ook mogelijk met uw eigen gezelschap via Private Dining.</small>
+  </div>
+</section>
+
+<section class="arr" id="arrangementen">
+  <div class="wrap">
+    <div class="arr-intro">
+      <h2 class="sec-h">Groepen, feesten en zaalverhuur</h2>
+      <p>De mogelijkheden om met groepen te komen lunchen of dineren zijn onbeperkt. We bespreken graag alle mogelijkheden met u: bel 073-6890254 of mail <a href="mailto:info@grootegenoegen.nl">info@grootegenoegen.nl</a>.</p>
+    </div>
+    <div class="arr-grid">
+      <article class="arr-item">
+        <img src="img/balken.jpg" alt="Een van de ruimtes van het Groote Genoegen met houten balken" loading="lazy" width="700" height="700">
+        <h3>Private Dining</h3>
+        <p class="sub">Vanaf 10 personen</p>
+        <p>Wij reserveren een van onze gezellige ruimtes alleen voor uw gezelschap, zonder dat u gestoord wordt door andere gasten. De tafels zetten we neer zoals u wilt: een lange tafel voor een vergaderdiner, kleine tafeltjes voor een brainstorm, of denk aan uw familiediner of receptie.</p>
+        <p>Kies uit ons à-la-cartemenu of de Bier Pruuverij voor een avondvullend programma met alleen uw eigen gezelschap.</p>
+      </article>
+      <article class="arr-item">
+        <img src="img/euforie.jpg" alt="Zaal met hoge tafels, krukken en ramen met rode gordijnen" loading="lazy" width="700" height="700">
+        <h3>De Euforie</h3>
+        <p class="sub">Zaalverhuur vanaf 30 personen</p>
+        <p>Op de eerste verdieping van ons historische pand vindt u ons sfeervolle café De Euforie, met een eigen bar met tappunten en koelingen, een geluidsinstallatie en een lichtshow. Voor groepen vanaf 30 personen huurt u het café volledig af.</p>
+        <p>Ook geschikt voor bruiloften, (bedrijfs)feesten, informele vergaderingen, bijeenkomsten, babyborrels en gender-reveal parties. Een medewerker verzorgt uw drankjes en hapjes. Even komen kijken? Loop gerust binnen.</p>
+      </article>
+      <article class="arr-item">
+        <img src="img/zaal.jpg" alt="Het interieur van het Groote Genoegen" loading="lazy" width="1000" height="750">
+        <h3>Feesten &amp; bruiloften</h3>
+        <p class="sub">All-in pakket</p>
+        <p>Ook voor uw feest of bruiloft kunt u bij het Groote Genoegen terecht, niet alleen om heerlijk te dineren maar zeker ook om uw feest te geven. Met ons all-in pakket bent u verzekerd van een zorgeloze avond: denk aan afkoop van drank, (borrel)hapjes, diner voor uw gasten en nog veel meer.</p>
+        <p>Parkeergarage De Wolvenhoek ligt op loopafstand, dus ook uw gasten vinden een plek.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="terras" aria-labelledby="terras-h">
+  <img src="img/dakterras.jpg" alt="Tafels en parasols op het dakterras" loading="lazy" width="900" height="600">
+  <div>
+    <h2 id="terras-h">Op het dakterras</h2>
+    <p>Schijnt de zon? Dan lunchen, dineren of borrelen we buiten op ons dakterras, met een biertje erbij.</p>
+  </div>
+</section>
+
+<section class="reviews" aria-labelledby="rev-h">
+  <div class="wrap">
+    <h2 class="sec-h" id="rev-h">Wat onze gasten zeggen</h2>
+    <div class="rev-grid">
+      <blockquote><p>"Heerlijk gegeten op het dakterras. Mooie verzorgde bordjes, bijzondere toetjes (…). Vriendelijk, gastvrij personeel die hun biertjes kennen. (…) Mooi geserveerd met een bijpassend biertje! We komen hier zeker nog eens terug!"</p><cite>Audrey Claes</cite></blockquote>
+      <blockquote><p>"Leuke plek voor een lekker biertje en een hapje. De borrelplank is zeker een aanrader! Als het zonnetje schijnt is het heerlijk toeven op het dakterras."</p><cite>Marcella Verstegen-Schoenmakers</cite></blockquote>
+      <blockquote><p>"Een heerlijke borrelplank met een lekker biertje!"</p><cite>Gerard Kors</cite></blockquote>
+      <blockquote><p>"Heerlijk gegeten, fijne bediening. Zeker aanrader."</p><cite>Bluescape10</cite></blockquote>
+    </div>
+    <p class="src">Reviews van Google.</p>
+  </div>
+</section>
+
+<section class="bezoek" id="bezoek">
+  <div class="wrap">
+    <div>
+      <h2 class="sec-h">Openingstijden &amp; reserveren</h2>
+      <table class="hours" id="hours">
+        <tr data-d="1" class="dicht"><td>Maandag</td><td>gesloten</td></tr>
+        <tr data-d="2" class="dicht"><td>Dinsdag</td><td>gesloten</td></tr>
+        <tr data-d="3"><td>Woensdag</td><td>vanaf 12:00 uur</td></tr>
+        <tr data-d="4"><td>Donderdag</td><td>vanaf 12:00 uur</td></tr>
+        <tr data-d="5"><td>Vrijdag</td><td>vanaf 12:00 uur</td></tr>
+        <tr data-d="6"><td>Zaterdag</td><td>vanaf 12:00 uur</td></tr>
+        <tr data-d="0"><td>Zondag</td><td>vanaf 12:00 uur</td></tr>
+      </table>
+      <h3>Reserveren</h3>
+      <p>Wilt u zeker zijn van een mooie plek voor uw hele gezelschap? Bel <a href="tel:0736890254">073-6890254</a> of mail <a href="mailto:info@grootegenoegen.nl">info@grootegenoegen.nl</a>.</p>
+      <p><a href="https://grootegenoegen.nl/wp-content/uploads/2022/01/Annuleringsvoorwaarden.pdf" rel="noopener">Voorwaarden bij reservering (PDF)</a></p>
+    </div>
+    <div>
+      <p class="adres">Achter het Stadhuis 10<br>5211 HN 's-Hertogenbosch</p>
+      <div class="map"><iframe title="Kaart: Achter het Stadhuis 10, 's-Hertogenbosch" loading="lazy" src="https://maps.google.com/maps?q=Achter%20het%20Stadhuis%2010%2C%205211%20HN%20%27s-Hertogenbosch&amp;z=16&amp;output=embed"></iframe></div>
+      <h3>Parkeren</h3>
+      <p>Parkeergarage De Wolvenhoek ligt bij ons om de hoek, met 467 parkeerplaatsen en 4 gehandicaptenparkeerplaatsen. Vanuit de garage loopt u binnen 2 minuten naar onze bierbistro.</p>
+      <p>De weg kwijt? Bel ons gerust even, we kennen de stad van buiten.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#welkom"><small>Bierbistro</small><b>het Groote Genoegen</b></a>
+      <p style="margin:14px 0 0">Achter het Stadhuis 10, 5211 HN 's-Hertogenbosch<br><a href="tel:0736890254">073-6890254</a> · <a href="mailto:info@grootegenoegen.nl">info@grootegenoegen.nl</a></p>
+    </div>
+    <nav aria-label="Praktisch">
+      <a href="#bezoek">Openingstijden</a>
+      <a href="#bezoek">Adres en parkeren</a>
+      <a href="mailto:info@grootegenoegen.nl?subject=Vacatures">Vacatures</a>
+      <a href="https://grootegenoegen.nl/wp-content/uploads/2022/01/Annuleringsvoorwaarden.pdf" rel="noopener">Voorwaarden bij reservering</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Het%20Groote%20Genoegen%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var body=document.body,toggle=document.querySelector('.menu-toggle');
+  toggle.addEventListener('click',function(){var o=body.classList.toggle('nav-open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){body.classList.remove('nav-open');toggle.setAttribute('aria-expanded','false');});});
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function select(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){select(t);});t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!n)return;var nt=tabs[(i+n+tabs.length)%tabs.length];select(nt);nt.focus();e.preventDefault();});});
+  var row=document.querySelector('#hours tr[data-d="'+new Date().getDay()+'"]');if(row)row.classList.add('is-today');
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brasserie Bon Vivant · Zeist</title>
+<meta name="description" content="Brasserie Bon Vivant aan het Emmaplein in Zeist: koffie, lunch en borrel. Dinsdag t/m zaterdag open.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322201c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23e9d9c4'%3EBV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#22201c;
+  --ink-soft:#4b4640;
+  --sage:#e4e9de;
+  --sage-deep:#c9d3bf;
+  --leaf:#5d6e52;
+  --rose:#b03f5a;
+  --rose-dark:#8f2e46;
+  --wood:#7a5232;
+  --paper:#fbfaf7;
+  --line:#d9d6cf;
+  --serif:"Young Serif",Georgia,serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;margin:0}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(251,250,247,.97);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-weight:400;font-size:25px;letter-spacing:.01em}
+.brand small{font-size:12.5px;color:var(--ink-soft);margin-top:4px;letter-spacing:.04em}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:15.5px}
+.nav a:hover{color:var(--rose)}
+.nav .call{background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px}
+.nav .call:hover{background:var(--rose);color:#fff}
+.burger{display:none;background:none;border:0;width:46px;height:46px;margin-right:-8px;cursor:pointer;color:var(--ink)}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{padding-top:68px;display:grid;grid-template-columns:minmax(380px,5fr) 7fr;min-height:min(92vh,820px);background:var(--sage)}
+.hero-text{padding:clamp(40px,6vw,88px) clamp(24px,4.5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(40px,4.6vw,64px);letter-spacing:-.01em;max-width:11ch}
+.hero .lead{font-size:clamp(17px,1.35vw,19px);color:var(--ink-soft);max-width:34ch;margin:22px 0 28px}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;margin-bottom:22px;color:var(--leaf)}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(93,110,82,.2)}
+.status.closed{color:var(--ink-soft)}
+.status.closed i{background:#9a948b;box-shadow:0 0 0 4px rgba(0,0,0,.07)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:2px solid var(--ink);transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:var(--rose);border-color:var(--rose);color:#fff}
+.btn.primary:hover{background:var(--rose-dark);border-color:var(--rose-dark)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:72% 50%;filter:saturate(1.12) contrast(1.08) brightness(1.04) sepia(.08);animation:settle 1.6s ease-out both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:none}}
+.hero-photo .times{position:absolute;left:20px;bottom:20px;background:rgba(34,32,28,.86);color:#fff;border-radius:14px;padding:14px 18px;font-size:14.5px;line-height:1.5}
+.times b{font-family:var(--serif);font-weight:400;font-size:17px;display:block;margin-bottom:2px}
+
+/* sections */
+section{padding:clamp(64px,9vw,112px) 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(32px,3.6vw,46px)}
+.sec-head p{color:var(--ink-soft);margin:14px 0 0}
+
+/* intro / dagdelen */
+.intro-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(32px,6vw,88px);align-items:end;margin-bottom:56px}
+.intro-grid h2{font-size:clamp(32px,3.6vw,46px)}
+.intro-grid p{margin:0;color:var(--ink-soft);font-size:18px;max-width:54ch}
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.day article{background:#fff;border:1px solid var(--line);border-radius:6px 6px 22px 22px;overflow:hidden;display:flex;flex-direction:column}
+.day figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--sage)}
+.day figure img{width:100%;height:100%;object-fit:cover}
+.day .txt{padding:22px 24px 26px}
+.day .when{font-size:14px;font-weight:600;color:var(--wood)}
+.day h3{font-size:25px;margin:6px 0 10px}
+.day p{margin:0;color:var(--ink-soft);font-size:16px}
+
+/* menu */
+.menu{background:var(--ink);color:#f3efe8}
+.menu .sec-head p{color:#c9c2b8}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:34px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;font:600 15.5px var(--sans);color:#f3efe8;background:transparent;border:1.5px solid #5a544c;border-radius:999px;padding:10px 18px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.tab:hover{border-color:#e9d9c4}
+.tab[aria-selected="true"]{background:#e9d9c4;border-color:#e9d9c4;color:var(--ink)}
+.panel{display:grid;grid-template-columns:1fr 330px;gap:clamp(28px,5vw,64px);align-items:start}
+.panel[hidden]{display:none}
+.panel h3{font-size:30px;margin-bottom:6px}
+.panel .note{color:#c9c2b8;font-size:15px;margin:0 0 18px}
+.items{list-style:none;margin:0;padding:0;columns:2;column-gap:44px}
+.items li{break-inside:avoid;padding:13px 0;border-bottom:1px solid #3d3832}
+.items .row{display:flex;align-items:baseline;gap:10px}
+.items .name{font-weight:600;font-size:17px}
+.items .dots{flex:1;border-bottom:1.5px dotted #6b645b;transform:translateY(-4px);min-width:12px}
+.items .price{font-variant-numeric:tabular-nums;font-weight:600;color:#e9d9c4}
+.items .desc{display:block;color:#bdb5aa;font-size:15px;margin-top:2px}
+.items .tag{display:inline-block;font-size:12.5px;font-weight:600;color:var(--ink);background:#c9d3bf;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.subhead{column-span:all;font-family:var(--serif);font-size:21px;color:#e9d9c4;padding:22px 0 4px}
+.subhead:first-child{padding-top:0}
+.panel aside{position:sticky;top:96px}
+.panel aside img{border-radius:6px 6px 22px 22px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.menu-foot{margin-top:40px;color:#c9c2b8;font-size:15px;max-width:70ch}
+
+/* over ons */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about-photo{position:relative}
+.about-photo img{border-radius:6px 6px 28px 28px;aspect-ratio:5/4;object-fit:cover;object-position:75% 50%;filter:saturate(1.1) contrast(1.06) brightness(1.03)}
+.about blockquote{margin:0;font-family:var(--serif);font-size:clamp(21px,2vw,25px);line-height:1.45}
+.about blockquote p{margin:0 0 16px}
+.sign{font-family:"Caveat",cursive;font-size:34px;color:var(--rose);margin-top:8px;line-height:1}
+.sign small{display:block;font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-top:6px}
+
+/* contact */
+.visit{background:var(--sage)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:24px}
+.card{background:var(--paper);border-radius:6px 6px 22px 22px;padding:28px}
+.card h3{font-size:24px;margin-bottom:14px}
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:7px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{font-weight:700;color:var(--rose)}
+.hours tr.off td:last-child{color:#8b857c}
+.small{font-size:15px;color:var(--ink-soft);margin:14px 0 0}
+.card .btn{width:100%;justify-content:center;margin-top:12px}
+.card address{font-style:normal;line-height:1.7}
+.card address a{text-decoration-color:var(--line);text-underline-offset:3px}
+.map{border-radius:6px 6px 22px 22px;overflow:hidden;min-height:340px;background:#d6dccf}
+.map iframe{border:0;width:100%;height:100%;min-height:340px;display:block}
+
+footer{background:var(--ink);color:#c9c2b8;padding:40px 0 34px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px}
+footer b{font-family:var(--serif);font-weight:400;color:#f3efe8;font-size:20px}
+footer a{color:#e9d9c4}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#2f3a2a;color:#eef1ea;text-align:center;font-size:13px;padding:7px 12px;letter-spacing:.01em}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;height:40vh;min-height:260px}
+  .hero-photo img{object-position:80% 50%}
+  .hero-text{padding:24px 16px 36px}
+  .hero h1{max-width:14ch}
+  .intro-grid,.about-grid{grid-template-columns:1fr;align-items:start}
+  .intro-grid{gap:16px}
+  .day{grid-template-columns:1fr}
+  .day article{display:grid;grid-template-columns:38% 1fr}
+  .day figure{aspect-ratio:auto;height:100%}
+  .day .txt{padding:18px}
+  .day h3{font-size:22px}
+  .panel{grid-template-columns:1fr}
+  .panel aside{display:none}
+  .visit-grid{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .burger{display:block}
+  .nav{position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:12px 16px 40px;display:none}
+  .nav.open{display:flex}
+  .nav a{font-family:var(--serif);font-size:26px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .nav .call{font-family:var(--sans);font-size:17px;text-align:center;margin-top:24px;padding:16px;border:0}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .items{columns:1}
+  .hero-photo .times{left:12px;bottom:12px;padding:10px 14px;font-size:13.5px}
+  .btn{padding:13px 18px}
+  .hero .btns .btn{flex:1 1 100%;justify-content:center}
+  .day article{grid-template-columns:34% 1fr}
+  .day p{font-size:15px}
+  .card{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Brasserie Bon Vivant, naar boven"><b>Bon Vivant</b><small>brasserie in Zeist</small></a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#dagdelen">Koffie, lunch &amp; borrel</a>
+      <a href="#menukaart">Menukaart</a>
+      <a href="#over-ons">Over ons</a>
+      <a href="#reserveren">Reserveren</a>
+      <a class="call" href="tel:+31306923327">Bel 030 692 33 27</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="padding-bottom:0">
+  <div class="hero-text">
+    <p class="status closed" id="status"><i></i><span>Di t/m za geopend</span></p>
+    <h1>Koffie, lunch of een borrel aan het Emmaplein</h1>
+    <p class="lead">Kom gezellig langs in onze brasserie, en geniet van een heerlijke koffie, lunch of borrel!</p>
+    <div class="btns">
+      <a class="btn primary" href="tel:+31306923327"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Bel om te reserveren</a>
+      <a class="btn ghost" href="#menukaart">Bekijk de menukaart</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="img/eigen-interieur.jpg" alt="De brasserie van binnen: houten tafels, kroonluchters en hoge ramen" width="1600" height="900">
+    <div class="times"><b>Di t/m vr 10:00 – 17:00</b>Zaterdag 09:30 – 17:30</div>
+  </div>
+</section>
+
+<section id="dagdelen">
+  <div class="wrap">
+    <div class="intro-grid">
+      <h2>Al ruim 20 jaar een gezellige brasserie in Zeist</h2>
+      <p>Bij Brasserie Bon Vivant in Zeist kan je terecht voor een koffie, een lunch of een borrel. Alle producten van onze kaart worden vers voor je bereid, en service staat bij ons hoog in ’t vaandel.</p>
+    </div>
+    <div class="day">
+      <article>
+        <figure><img src="img/stock-cappuccino.jpg" alt="" loading="lazy"></figure>
+        <div class="txt">
+          <span class="when">Vanaf de ochtend</span>
+          <h3>Heerlijke koffie</h3>
+          <p>Op de meeste dagen kan je al vroeg bij ons terecht voor een heerlijke koffie met iets lekkers.</p>
+        </div>
+      </article>
+      <article>
+        <figure><img src="img/eigen-gerecht.jpg" alt="Een gerecht uit onze keuken" loading="lazy"></figure>
+        <div class="txt">
+          <span class="when">Lunch</span>
+          <h3>Verse broodjes en maaltijden</h3>
+          <p>Ontdek onze verse broodjes en maaltijden. De keuken is dagelijks tot één uur voor sluitingstijd open.</p>
+        </div>
+      </article>
+      <article>
+        <figure><img src="img/eigen-borrel.jpg" alt="Brood, smeersels en hapjes op tafel" loading="lazy"></figure>
+        <div class="txt">
+          <span class="when">Borrel</span>
+          <h3>Gezellig borrelen</h3>
+          <p>Bij Brasserie Bon Vivant kan je ook terecht om gezellig te borrelen. Ontdek onze heerlijke cocktails en borrelhapjes.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menukaart">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Menukaart</h2>
+      <p>Alle producten van onze kaart worden vers voor je bereid. De keuken is open tot een uur voor sluitingstijd.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Onderdelen van de menukaart">
+      <button class="tab" role="tab" id="t-soep" aria-controls="p-soep" aria-selected="true">Soep &amp; salade</button>
+      <button class="tab" role="tab" id="t-ei" aria-controls="p-ei" aria-selected="false" tabindex="-1">Uitsmijters</button>
+      <button class="tab" role="tab" id="t-spec" aria-controls="p-spec" aria-selected="false" tabindex="-1">Specials</button>
+      <button class="tab" role="tab" id="t-brood" aria-controls="p-brood" aria-selected="false" tabindex="-1">Broodjes</button>
+      <button class="tab" role="tab" id="t-tosti" aria-controls="p-tosti" aria-selected="false" tabindex="-1">Tosti’s</button>
+      <button class="tab" role="tab" id="t-kids" aria-controls="p-kids" aria-selected="false" tabindex="-1">Kindermenu</button>
+      <button class="tab" role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrelkaart</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-soep" aria-labelledby="t-soep">
+      <div>
+        <h3>Soepen &amp; salades</h3>
+        <ul class="items" style="columns:1">
+          <li><span class="row"><span class="name">Soep van de week</span><span class="dots"></span><span class="price">8,75</span></span><span class="desc">Ook om mee te nemen</span></li>
+          <li><span class="row"><span class="name">Tomatensoep</span><span class="dots"></span><span class="price">8,75</span></span><span class="desc">Met brood</span></li>
+          <li><span class="row"><span class="name">Maaltijdsalade</span><span class="dots"></span><span class="price">18,50</span></span><span class="desc">Met ossenhaaspuntjes, zalm, tonijn, geitenkaas, carpaccio of kip</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/eigen-borrel.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-ei" aria-labelledby="t-ei" hidden>
+      <div>
+        <h3>Uitsmijters</h3>
+        <ul class="items" style="columns:1">
+          <li><span class="row"><span class="name">Uitsmijter Carpaccio</span><span class="dots"></span><span class="price">15,50</span></span><span class="desc">Met truffelmayo en kaasvlokken</span></li>
+          <li><span class="row"><span class="name">Italiaanse uitsmijter</span><span class="dots"></span><span class="price">12,50</span></span><span class="desc">Kaas, salami, ui en champignons</span></li>
+          <li><span class="row"><span class="name">Boerenomelet</span><span class="dots"></span><span class="price">13,50</span></span><span class="desc">Met groente en kaas</span></li>
+          <li><span class="row"><span class="name">12-uurtje</span><span class="dots"></span><span class="price">14,75</span></span><span class="desc">Tomatensoep, boterham met gebakken ei, boterham met kroket en rundvleessalade</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/eigen-gerecht.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-spec" aria-labelledby="t-spec" hidden>
+      <div>
+        <h3>Specials</h3>
+        <p class="note">Van clubsandwich tot kipsaté, en de Surprise Bon Vivant om samen te delen.</p>
+        <ul class="items">
+          <li><span class="row"><span class="name">Club ocean</span><span class="dots"></span><span class="price">19,50</span></span><span class="desc">Zalm, tonijnsalade en surimisalade op toast</span></li>
+          <li><span class="row"><span class="name">Carpaccio</span><span class="dots"></span><span class="price">15,50</span></span><span class="desc">Op flatbread</span></li>
+          <li><span class="row"><span class="name">Club sandwich</span><span class="dots"></span><span class="price">19,50</span></span><span class="desc">Warm</span></li>
+          <li><span class="row"><span class="name">Bol gehakt</span><span class="dots"></span><span class="price">10,75</span></span><span class="desc">Gebakken ui, paprika en satésaus</span></li>
+          <li><span class="row"><span class="name">Ricky’s hamburger</span><span class="dots"></span><span class="price">19,50</span></span><span class="desc">Met friet</span></li>
+          <li><span class="row"><span class="name">Vegetarische burger</span><span class="dots"></span><span class="price">19,50</span></span><span class="desc">Met friet</span></li>
+          <li><span class="row"><span class="name">Bol ossenhaaspuntjes</span><span class="dots"></span><span class="price">19,95</span></span><span class="desc">Champignons, ui, paprika en friet</span></li>
+          <li><span class="row"><span class="name">Kipsaté</span><span class="dots"></span><span class="price">19,95</span></span><span class="desc">Met friet en salade</span></li>
+          <li><span class="row"><span class="name">2 Kroketten</span><span class="dots"></span><span class="price">12,50</span></span><span class="desc">Met brood of friet</span></li>
+          <li><span class="row"><span class="name">Surprise Bon Vivant</span><span class="dots"></span><span class="price">37,50</span></span><span class="desc">Kleine gerechtjes van de kaart, warm en koud, voor 2 personen</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/stock-club.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-brood" aria-labelledby="t-brood" hidden>
+      <div>
+        <h3>Broodjes</h3>
+        <ul class="items">
+          <li><span class="row"><span class="name">Gezond</span><span class="dots"></span><span class="price">9,75</span></span><span class="desc">Rijkelijk belegd</span></li>
+          <li><span class="row"><span class="name">Hawai</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">Ham, kaas en ananas uit de oven</span></li>
+          <li><span class="row"><span class="name">Zalm</span><span class="dots"></span><span class="price">12,50</span></span><span class="desc">Gerookte zalm en roomkaas</span></li>
+          <li><span class="row"><span class="name">Tonijnsalade</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">Huisgemaakt</span></li>
+          <li><span class="row"><span class="name">Warme beenham</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">Met honing-mosterddressing</span></li>
+          <li><span class="row"><span class="name">Warme geitenkaas</span><span class="dots"></span><span class="price">10,25</span></span><span class="desc">Met honing en pitjes</span></li>
+          <li><span class="row"><span class="name">Warm vlees</span><span class="dots"></span><span class="price">11,25</span></span><span class="desc">Gebakken ei, champignons en satésaus</span></li>
+          <li><span class="row"><span class="name">Eiersalade</span><span class="dots"></span><span class="price">9,50</span></span><span class="desc">Huisgemaakt</span></li>
+          <li><span class="row"><span class="name">Warme brie</span><span class="dots"></span><span class="price">9,25</span></span><span class="desc">Honing en pitjes, uit de oven</span></li>
+          <li><span class="row"><span class="name">Pittige kip</span><span class="dots"></span><span class="price">12,50</span></span></li>
+          <li><span class="row"><span class="name">Ossenworst</span><span class="dots"></span><span class="price">15,50</span></span><span class="desc">Op flatbread met truffelmayo, parmezaan, sla en Amsterdams uitje</span></li>
+          <li><span class="row"><span class="name">Kip/pesto salade</span><span class="dots"></span><span class="price">12,50</span></span><span class="desc">Op flatbread, huisgemaakt</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/stock-club.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-tosti" aria-labelledby="t-tosti" hidden>
+      <div>
+        <h3>Tosti’s</h3>
+        <ul class="items">
+          <li><span class="row"><span class="name">Italiaans</span><span class="dots"></span><span class="price">9,25</span></span><span class="desc">Ham, kaas, salami en ui</span></li>
+          <li><span class="row"><span class="name">Pikante kip</span><span class="dots"></span><span class="price">9,50</span></span><span class="desc">Kaas, prei, paprika en ui</span></li>
+          <li><span class="row"><span class="name">Veggie</span><span class="dots"></span><span class="price">9,50</span></span><span class="desc">Kaas, prei, ui en tomaat</span></li>
+          <li><span class="row"><span class="name">Zalm</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">Met roomkaas</span></li>
+          <li><span class="row"><span class="name">Brie</span><span class="dots"></span><span class="price">8,95</span></span><span class="desc">Tomaat en pesto</span></li>
+          <li><span class="row"><span class="name">Geitenkaas</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">Honing en pitjes</span></li>
+          <li><span class="row"><span class="name">Brie salami</span><span class="dots"></span><span class="price">9,25</span></span></li>
+        </ul>
+      </div>
+      <aside><img src="img/stock-tosti.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-kids" aria-labelledby="t-kids" hidden>
+      <div>
+        <h3>Kindermenu</h3>
+        <ul class="items" style="columns:1">
+          <li><span class="row"><span class="name">Pannenkoek</span><span class="dots"></span><span class="price">7,75</span></span><span class="desc">Naturel, met spek of met appel</span></li>
+          <li><span class="row"><span class="name">Tosti</span><span class="dots"></span><span class="price">6,75</span></span><span class="desc">Ham en kaas</span></li>
+          <li><span class="row"><span class="name">Friet met frikandel</span><span class="dots"></span><span class="price">9,50</span></span></li>
+          <li><span class="row"><span class="name">Friet met vissticks</span><span class="dots"></span><span class="price">9,50</span></span></li>
+          <li><span class="row"><span class="name">Friet met kipnuggets</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">5 stuks</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/stock-tosti.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+      <div>
+        <h3>Borrelkaart</h3>
+        <ul class="items">
+          <li class="subhead">Cocktails</li>
+          <li><span class="row"><span class="name">Bombeya</span><span class="dots"></span><span class="price">11,00</span></span><span class="desc">Rosé gin, rood fruit, lemon en ijs</span></li>
+          <li><span class="row"><span class="name">Mojito</span><span class="dots"></span><span class="price">11,00</span></span><span class="desc">Bacardi, Sprite, munt en limoen</span></li>
+          <li><span class="row"><span class="name">Kimbo slice</span><span class="dots"></span><span class="price">11,00</span></span><span class="desc">Licor 43, ginger-ale en limejuice</span></li>
+          <li><span class="row"><span class="name">Aperol Spritz</span><span class="dots"></span><span class="price">8,95</span></span></li>
+          <li class="subhead">Borrelhapjes</li>
+          <li><span class="row"><span class="name">Broodmandje</span><span class="dots"></span><span class="price">8,50</span></span><span class="desc">Met heerlijke smeersels</span></li>
+          <li><span class="row"><span class="name">Borrelplank</span><span class="dots"></span><span class="price">19,95</span></span><span class="desc">Warm en koud, voor 2 personen</span></li>
+          <li><span class="row"><span class="name">Bittergarnituur</span><span class="dots"></span><span class="price">11,00</span></span><span class="desc">10 stuks</span></li>
+          <li><span class="row"><span class="name">Nacho’s</span><span class="dots"></span><span class="price">12,50</span></span><span class="desc">Uit de oven</span></li>
+          <li><span class="row"><span class="name">Bitterballen</span><span class="dots"></span><span class="price">9,95</span></span><span class="desc">8 stuks</span></li>
+          <li><span class="row"><span class="name">Kaasstengels</span><span class="dots"></span><span class="price">9,00</span></span><span class="desc">8 stuks</span></li>
+        </ul>
+      </div>
+      <aside><img src="img/stock-cocktails.jpg" alt="" loading="lazy"></aside>
+    </div>
+
+    <p class="menu-foot">Prijzen in euro’s. Heb je een wens of een vraag over de kaart? Vraag het gerust, we denken graag met je mee.</p>
+  </div>
+</section>
+
+<section class="about" id="over-ons">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="img/eigen-interieur.jpg" alt="Interieur van Brasserie Bon Vivant met kroonluchters en bloemen" loading="lazy"></div>
+    <div>
+      <h2 style="font-size:clamp(32px,3.6vw,46px);margin-bottom:24px">Kom gezellig een keer langs!</h2>
+      <blockquote>
+        <p>Al ruim 20 jaar zijn we de trotse eigenaren van onze brasserie. Samen met ons team proberen we iedereen een gezellige koffie-, lunch- en borreltijd te bezorgen.</p>
+        <p style="font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--ink-soft)">Alle producten van onze kaart worden vers voor je bereid. Service staat bij ons hoog in ’t vaandel, net als jouw wensen. Waaraan we graag proberen te voldoen! Tot snel?</p>
+      </blockquote>
+      <div class="sign">Bea en Rick<small>Bea en Rick Kaptein, eigenaren</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="reserveren">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Zien we je binnenkort?</h2>
+      <p>Neem gerust contact met ons op voor vragen of om te reserveren. Reserveren is ook mogelijk aan de deur en op zaterdag niet verplicht.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="card">
+        <h3>Reserveren</h3>
+        <p style="margin:0 0 6px;color:var(--ink-soft)">Bel ons gerust, of loop even binnen.</p>
+        <a class="btn primary" href="tel:+31306923327"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>030 692 33 27</a>
+        <a class="btn ghost" href="tel:+31620333161">06 203 331 61</a>
+        <a class="btn ghost" href="mailto:info@brasseriebonvivant.nl">info@brasseriebonvivant.nl</a>
+        <address class="small"><strong style="color:var(--ink)">Brasserie Bon Vivant</strong><br>Emmaplein 1-3<br>3701 DK Zeist</address>
+      </div>
+      <div class="card">
+        <h3>Openingstijden</h3>
+        <table class="hours" id="hours">
+          <tr data-d="1" class="off"><td>Maandag</td><td>gesloten</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>10:00 – 17:00</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>10:00 – 17:00</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>10:00 – 17:00</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>10:00 – 17:00</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>09:30 – 17:30</td></tr>
+          <tr data-d="0" class="off"><td>Zondag</td><td>gesloten</td></tr>
+        </table>
+        <p class="small">De keuken is dagelijks open tot een uur voor sluitingstijd.</p>
+      </div>
+      <div class="map">
+        <iframe title="Kaart: Emmaplein 1-3, Zeist" src="https://maps.google.com/maps?q=Emmaplein%201%2C%203701%20DK%20Zeist&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Brasserie Bon Vivant</b><br>Emmaplein 1-3, 3701 DK Zeist<br><a href="tel:+31306923327">030 692 33 27</a> · <a href="mailto:info@brasseriebonvivant.nl">info@brasseriebonvivant.nl</a></div>
+    <div>Di t/m vr 10:00 – 17:00<br>Za 09:30 – 17:30<br>Zo en ma gesloten</div>
+    <div style="max-width:30ch">Sfeerfoto’s van koffie, clubsandwich, tosti en cocktails: Unsplash. Overige foto’s: Brasserie Bon Vivant.</div>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Brasserie%20Bon%20Vivant%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+  function onScroll(){top.classList.toggle('scrolled',window.scrollY>10)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function setMenu(open){nav.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');document.body.style.overflow=open?'hidden':''}
+  burger.addEventListener('click',function(){setMenu(!nav.classList.contains('open'))});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function select(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();select(n);n.focus()}});
+  });
+
+  // open/gesloten
+  var H={0:null,1:null,2:[600,1020],3:[600,1020],4:[600,1020],5:[600,1020],6:[570,1050]};
+  var names=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  function fmt(m){return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+  var now=new Date(),d=now.getDay(),m=now.getHours()*60+now.getMinutes(),h=H[d];
+  var row=document.querySelector('#hours tr[data-d="'+d+'"]');if(row)row.classList.add('today');
+  var st=document.getElementById('status'),txt=st.querySelector('span');
+  if(h&&m>=h[0]&&m<h[1]){st.classList.remove('closed');txt.textContent='Nu open, tot '+fmt(h[1])}
+  else if(h&&m<h[0]){txt.textContent='Vandaag open vanaf '+fmt(h[0])}
+  else{for(var k=1;k<=7;k++){var nd=(d+k)%7;if(H[nd]){txt.textContent='Nu gesloten, '+(k===1?'morgen':names[nd])+' weer open vanaf '+fmt(H[nd][0]);break}}}
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
