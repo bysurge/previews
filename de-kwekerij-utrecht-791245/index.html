@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>de Kwekerij · coffee, bar &amp; food in Utrecht</title>
+<meta name="description" content="de Kwekerij in Utrecht: ontbijt, lunch, bar bites, diner, high tea en cocktails. Dinsdag t/m zondag open.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231E5A43'/%3E%3Crect x='11' y='11' width='42' height='42' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Ctext x='30' y='46' font-family='Arial' font-weight='700' font-size='34' fill='%23fff' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1E5A43; --green-deep:#123B2C; --mustard:#D9BF1E; --mustard-soft:#F1E7A6;
+  --sage:#8DBCAE; --sage-soft:#DCEBE5; --paper:#F7F8F3; --white:#fff; --ink:#1A2721; --muted:#55665D;
+  --cond:"Barlow Condensed", "Arial Narrow", sans-serif; --body:"Barlow", system-ui, sans-serif; --hand:"Caveat", cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;display:block}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--cond);font-weight:700;line-height:1.02;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(2.3rem,5vw,3.6rem);color:var(--green)}
+.hand{font-family:var(--hand);font-weight:600;color:var(--green);font-size:1.7rem;line-height:1;display:block;margin-bottom:.2rem}
+.lead{font-size:1.12rem;max-width:58ch;color:var(--muted)}
+
+/* logo (their mark, redrawn) */
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo svg{width:44px;height:44px;flex:none}
+.logo .words{display:flex;align-items:center;gap:6px;font-family:var(--cond);line-height:.95}
+.logo .de{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;font-weight:700;letter-spacing:.06em}
+.logo .name b{display:block;font-size:1.55rem;font-weight:700;letter-spacing:.02em}
+.logo .name small{display:block;font-size:.84rem;font-weight:500;letter-spacing:.12em}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid rgba(30,90,67,.14)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.site-head .logo{color:var(--green)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-family:var(--cond);font-weight:600;font-size:1.12rem;text-decoration:none;color:var(--ink)}
+.nav a:hover{color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--cond);font-weight:700;font-size:1.15rem;letter-spacing:.02em;padding:.72em 1.4em;border-radius:999px;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s}
+.btn-mustard{background:var(--mustard);color:var(--green-deep)}
+.btn-mustard:hover{background:#E8D040}
+.btn-line{border-color:currentColor;color:var(--white)}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-deep)}
+.nav .btn{padding:.5em 1.15em;font-size:1.05rem;color:var(--green-deep)}
+.menu-toggle{display:none;background:none;border:0;padding:10px;margin-right:-10px;cursor:pointer;color:var(--green)}
+.menu-toggle span{display:block;width:26px;height:2.5px;background:currentColor;margin:5px 0;border-radius:2px;transition:transform .25s,opacity .2s}
+body.nav-open .menu-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.nav-open .menu-toggle span:nth-child(2){opacity:0}
+body.nav-open .menu-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* hero */
+.hero{background:var(--green);color:#fff;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;min-height:min(640px,calc(100svh - 70px))}
+.hero-text{padding:clamp(40px,6vw,84px) clamp(20px,5vw,64px) 56px max(20px,calc((100vw - 1160px)/2));display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero .hand{color:var(--mustard);font-size:2.1rem;margin-bottom:.6rem}
+.hero h1{font-size:clamp(2.7rem,5.2vw,4.6rem);max-width:14ch}
+.hero p{font-size:1.15rem;max-width:44ch;margin:1.3rem 0 2rem;color:rgba(255,255,255,.88)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-photo{position:relative;min-height:340px}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stamp{position:absolute;left:-58px;bottom:56px;width:178px;height:178px;border-radius:50%;background:var(--mustard);color:var(--green-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3;box-shadow:0 0 0 8px var(--green);animation:pop .55s cubic-bezier(.2,.9,.3,1.3) .15s both}
+.stamp .hand{color:var(--green-deep);font-size:1.6rem;margin:0}
+.stamp strong{font-family:var(--cond);font-size:1.75rem;line-height:1;display:block;margin:.15rem 0}
+.stamp small{font-weight:500;font-size:.88rem;line-height:1.25;padding:0 18px}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.sprig{position:absolute;right:-20px;top:-26px;width:150px;color:var(--sage);opacity:.55;z-index:1;pointer-events:none}
+
+/* day parts */
+.dayparts{background:var(--white);border-bottom:1px solid rgba(30,90,67,.12)}
+.dayparts ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.dayparts li{padding:22px 20px 22px 0;border-right:1px dashed rgba(30,90,67,.25);padding-left:20px}
+.dayparts li:first-child{padding-left:0}
+.dayparts li:last-child{border-right:0}
+.dayparts b{font-family:var(--cond);font-size:1.45rem;color:var(--green);display:block;line-height:1.1}
+.dayparts span{color:var(--muted);font-size:.98rem}
+.dayparts li.now b::after{content:"nu";font-family:var(--body);font-size:.72rem;font-weight:600;background:var(--mustard);color:var(--green-deep);border-radius:99px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+
+/* about */
+.about{padding:clamp(64px,9vw,110px) 0}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about blockquote{margin:0;font-family:var(--cond);font-weight:600;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.12;color:var(--green)}
+.about blockquote::before{content:"";display:block;width:56px;height:6px;background:var(--mustard);border-radius:3px;margin-bottom:22px}
+.about p{margin:0 0 1rem;max-width:60ch}
+.about-pics{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.about-pics img{aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+
+/* menu */
+.menu{padding:clamp(56px,8vw,100px) 0;background:var(--sage-soft)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.menu-head .lead{margin:.7rem 0 0}
+.legend{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.v{display:inline-block;width:18px;height:18px;flex:none;vertical-align:-3px;margin-left:6px;color:#5E9E3A}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font-family:var(--cond);font-weight:600;font-size:1.12rem;border:2px solid var(--green);background:transparent;color:var(--green);padding:.42em 1.05em;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--green);color:#fff}
+.panel{background:var(--white);border:2.5px dashed var(--mustard);border-radius:10px;padding:clamp(22px,4vw,44px)}
+.panel-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 18px;margin-bottom:18px;border-bottom:1px solid rgba(30,90,67,.12);padding-bottom:14px}
+.panel-top h3{font-size:2.1rem;color:var(--green)}
+.panel-top .time{font-family:var(--cond);font-weight:600;font-size:1.3rem;color:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+.dish{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:12px 0;border-bottom:1px dotted rgba(30,90,67,.22);break-inside:avoid}
+.dish h4{margin:0;font-family:var(--cond);font-weight:600;font-size:1.3rem;color:var(--green);line-height:1.15}
+.dish p{grid-column:1;margin:0;font-size:.97rem;color:var(--muted);line-height:1.4}
+.dish .p{grid-row:1;grid-column:2;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dish .tag{font-size:.82rem;color:var(--green);font-weight:600}
+.sub{font-family:var(--cond);font-weight:700;font-size:1.5rem;color:var(--ink);margin:26px 0 2px;grid-column:1/-1}
+.sub:first-child{margin-top:0}
+.panel-note{margin:18px 0 0;font-size:.95rem;color:var(--muted)}
+.pdf-links{margin-top:22px;font-size:.98rem}
+.with-pic{display:grid;grid-template-columns:1fr 300px;gap:44px;align-items:start}
+.with-pic img{border-radius:8px;aspect-ratio:3/4;object-fit:cover}
+
+/* drinks */
+.drinks{background:var(--green-deep);color:#fff;padding:clamp(56px,8vw,100px) 0}
+.drinks h2{color:#fff}
+.drinks .hand{color:var(--mustard)}
+.drinks .lead{color:rgba(255,255,255,.78)}
+.drinks .tabs button{border-color:var(--mustard);color:var(--mustard)}
+.drinks .tabs button[aria-selected=true]{background:var(--mustard);color:var(--green-deep)}
+.drinks .panel{background:#17483A;border-color:rgba(217,191,30,.7)}
+.drinks .panel-top{border-color:rgba(255,255,255,.15)}
+.drinks .panel-top h3{color:var(--mustard)}
+.drinks .dish{border-color:rgba(255,255,255,.16)}
+.drinks .dish h4{color:#fff}
+.drinks .dish p{color:rgba(255,255,255,.72)}
+.drinks .sub{color:var(--sage)}
+.drinks .panel-note{color:rgba(255,255,255,.72)}
+.drinks .v{color:#B5D88F}
+.drinks a{color:var(--mustard)}
+
+/* high tea */
+.hightea{padding:clamp(64px,9vw,110px) 0}
+.ht-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.ht-photo{position:relative}
+.ht-photo img{border-radius:8px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.price-circle{position:absolute;right:-18px;top:28px;width:132px;height:132px;border-radius:50%;background:var(--mustard);color:var(--green-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--cond);box-shadow:0 0 0 6px var(--paper)}
+.price-circle strong{font-size:2.3rem;line-height:1}
+.price-circle span{font-size:1rem;font-weight:600}
+.ht-grid ul{padding:0;margin:1.4rem 0 2rem;list-style:none}
+.ht-grid li{padding:10px 0 10px 32px;border-bottom:1px dotted rgba(30,90,67,.25);position:relative}
+.ht-grid li::before{content:"";position:absolute;left:4px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--sage)}
+
+/* more */
+.more{padding:0 0 clamp(64px,9vw,110px)}
+.more-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+.card{border-radius:10px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:1.9rem}
+.card p{margin:0;flex:1}
+.card a{font-weight:600}
+.card-groups{background:var(--white);border:2.5px solid var(--green);position:relative;overflow:hidden}
+.card-groups h3{color:var(--green)}
+.card-groups img{border-radius:6px;aspect-ratio:16/7;object-fit:cover;margin-bottom:6px}
+.card-gift{background:var(--mustard);color:var(--green-deep)}
+.card-gift a{color:var(--green-deep)}
+.card-jobs{background:var(--sage);color:var(--green-deep)}
+.card-jobs a{color:var(--green-deep)}
+
+/* contact */
+.contact{background:var(--white);padding:clamp(56px,8vw,100px) 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:clamp(28px,4vw,52px)}
+.contact h3{font-size:1.6rem;color:var(--green);margin-bottom:12px}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:7px 0;border-bottom:1px dotted rgba(30,90,67,.25)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{font-weight:700;color:var(--green)}
+.contact address{font-style:normal;margin-bottom:16px}
+.contact ul{list-style:none;padding:0;margin:0}
+.contact ul li{padding:5px 0 5px 22px;position:relative}
+.contact ul li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--mustard)}
+.map{border-radius:10px;overflow:hidden;border:2.5px dashed var(--mustard);height:100%;min-height:340px}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+.contact-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.contact-cta .btn-line{color:var(--green)}
+.contact-cta .btn-line:hover{background:var(--sage-soft)}
+
+footer{background:var(--green);color:rgba(255,255,255,.82);padding:40px 0 30px;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .logo{color:#fff}
+footer a{color:#fff}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#fff;text-align:center;font-size:.82rem;padding:7px 12px}
+
+@media (max-width:980px){
+  .more-grid{grid-template-columns:1fr 1fr}
+  .card-groups{grid-column:1/-1}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .map{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .menu-toggle{display:block}
+  .nav{position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:4px;padding:24px 24px 60px;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s;overflow:auto}
+  body.nav-open .nav{transform:none;visibility:visible}
+  .nav a{font-size:1.8rem;padding:6px 0}
+  .nav .btn{margin-top:14px;font-size:1.3rem;padding:.6em 1.5em}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-text{padding:36px 20px 40px;order:1}
+  .hero-photo{min-height:300px;order:2}
+  .stamp{left:auto;right:18px;top:-62px;bottom:auto;width:136px;height:136px;box-shadow:0 0 0 6px var(--green)}
+  .stamp .hand{font-size:1.3rem}.stamp strong{font-size:1.4rem}.stamp small{font-size:.78rem;padding:0 12px}
+  .hero h1{max-width:none}
+  .dayparts ol{grid-template-columns:1fr 1fr}
+  .dayparts li{padding:16px 14px;border-right:0;border-bottom:1px dashed rgba(30,90,67,.25)}
+  .dayparts li:first-child{padding-left:14px}
+  .dayparts li:nth-child(odd){border-right:1px dashed rgba(30,90,67,.25)}
+  .dayparts li:nth-child(n+3){border-bottom:0}
+  .about-grid,.ht-grid,.with-pic{grid-template-columns:1fr}
+  .with-pic img{display:none}
+  .cols{grid-template-columns:1fr}
+  .price-circle{right:12px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .more-grid,.contact-grid{grid-template-columns:1fr}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding:0 20px 4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{flex:none}
+  .panel{padding:18px 16px}
+  .panel-top h3{font-size:1.8rem}
+  .dish h4{font-size:1.2rem}
+  .hero .hand{font-size:1.8rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4c-8 0-14 3.5-14 10.2 0 1.6.5 3 1.3 4.1L5 20.6 6.4 22l2.3-2.3c1.1.8 2.5 1.3 4.1 1.3C19.5 21 20 12 20 4Zm-7.2 14.8c-1 0-1.9-.3-2.7-.8l5.6-5.6-1.4-1.4-5.6 5.6c-.5-.8-.8-1.7-.8-2.7C7.9 9 12.1 6.4 18 6c-.4 5.9-1.5 12.8-5.2 12.8Z"/></symbol>
+    <symbol id="mark" viewBox="0 0 48 48"><rect x="2.5" y="6.5" width="37" height="37" fill="none" stroke="currentColor" stroke-width="3"/><path fill="currentColor" d="M11 13h6.2v10.4L26.6 13h7.4L23.7 24l10.9 13.5h-7.6l-9.8-12.4v12.4H11z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M38.5 16c0-4 .5-7 2.5-9.5"/><path fill="currentColor" d="M41 6.5c1.5-3 4-4.3 6.5-4.5-.2 2.8-2.2 5-6.5 4.5Z"/><path fill="currentColor" d="M40.4 8.6c-1.2-2.8-3.6-3.9-6-3.8.4 2.6 2.5 4.6 6 3.8Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="de Kwekerij, naar boven">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="words"><span class="de">DE</span><span class="name"><b>KWEKERIJ</b><small>COFFEE · BAR · FOOD</small></span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#menu">Menu</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#hightea">High tea</a>
+      <a href="#groepen">Groepen</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-mustard" href="https://dekwekerijutrecht.nl/reserveren">Reserveren</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <svg class="sprig" viewBox="0 0 100 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M50 118C50 80 52 40 70 6"/><path d="M51 92c-14-4-24-14-26-28 14 2 24 12 26 28Z"/><path d="M53 68c12-6 26-6 34 2-10 8-24 8-34-2Z"/><path d="M57 44C46 38 40 26 42 14c11 5 17 17 15 30Z"/><path d="M63 26c9-6 20-7 27-2-7 7-18 8-27 2Z"/></g></svg>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="hand">A dream of happiness</span>
+      <h1>Een ontzettend warm welkom, van dinsdag t/m zondag.</h1>
+      <p>Koffie, ontbijt, lunch, bar bites en diner aan de Burgemeester Annie Brouwerlaan in Utrecht. Van versgebakken scones tot een Espresso Martini.</p>
+      <div class="hero-cta">
+        <a class="btn btn-mustard" href="https://dekwekerijutrecht.nl/reserveren">Tafel reserveren</a>
+        <a class="btn btn-line" href="#menu">Bekijk het menu</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/stock-koffie-planten.jpg" alt="" fetchpriority="high">
+      <div class="stamp" id="stamp" aria-live="polite">
+        <span class="hand">Open</span>
+        <strong>di t/m zo</strong>
+        <small>vanaf 10:30, in het weekend vanaf 09:00</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dayparts" aria-label="Wanneer serveren we wat">
+  <div class="wrap">
+    <ol id="dayparts">
+      <li data-from="0" data-to="12"><b>Breakfast</b><span>vanaf opening tot 12.00</span></li>
+      <li data-from="12" data-to="16"><b>Lunch</b><span>12.00 - 16.00</span></li>
+      <li data-from="12" data-to="21"><b>Bar bites</b><span>12.00 - 21.00</span></li>
+      <li data-from="17" data-to="20"><b>Dinner</b><span>17.00 - 20.00</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="about" id="over">
+  <div class="wrap about-grid">
+    <blockquote>De Kwekerij is eigenlijk je favoriete buurvrouw die net de versgebakken scones op tafel zet.</blockquote>
+    <div>
+      <p>Zodra je bij ons binnenkomt waan je je in een ‘Dream of Happiness’. Met onze mindblowing drankjes en funky barfood zorgen wij voor een zintuiglijke beleving.</p>
+      <p>Het belangrijkste doel dat wij hebben, is het creëren van een ultiem fijne plek voor iedereen!</p>
+      <div class="about-pics">
+        <img src="img/stock-taart.jpg" alt="" loading="lazy">
+        <img src="img/stock-borrel.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <span class="hand">Eten</span>
+        <h2>Ons menu</h2>
+        <p class="lead">Een mix van culturen en stijlen van over de hele wereld, met voor iedereen iets: jong en oud, vegetarisch, vegan, met of zonder suiker, vlees, vis en glutenvrij.</p>
+      </div>
+      <p class="legend"><svg class="v" aria-hidden="true"><use href="#leaf"/></svg> = vegetarisch of veganistisch</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Menukaart">
+      <button role="tab" id="t-ontbijt" aria-controls="p-ontbijt" aria-selected="true">Breakfast</button>
+      <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="false" tabindex="-1">Lunch</button>
+      <button role="tab" id="t-tosti" aria-controls="p-tosti" aria-selected="false" tabindex="-1">Tosti specials</button>
+      <button role="tab" id="t-bites" aria-controls="p-bites" aria-selected="false" tabindex="-1">Bar bites</button>
+      <button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Dinner</button>
+      <button role="tab" id="t-sweets" aria-controls="p-sweets" aria-selected="false" tabindex="-1">Sweets &amp; desserts</button>
+      <button role="tab" id="t-kids" aria-controls="p-kids" aria-selected="false" tabindex="-1">Kids</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-ontbijt" aria-labelledby="t-ontbijt">
+      <div class="panel-top"><h3>Breakfast</h3><span class="time">Open - 12.00</span></div>
+      <div class="cols">
+        <div>
+          <div class="dish"><h4>Croissant</h4><span class="p">3,80</span><p>jam en boter</p></div>
+          <div class="dish"><h4>Scones (by HOOI)</h4><span class="p">6,90</span><p>huisgemaakt met jam en cream</p></div>
+          <div class="dish"><h4>Banana Pancakes</h4><span class="p">9,60</span><p>spelt, warme kersen, mascarpone, meringue</p></div>
+          <div class="dish"><h4>Boerenyoghurt of Kokosyoghurt</h4><span class="p">7,50</span><p>banaan, bessen, kaneel, granola, frambozencoulis</p></div>
+        </div>
+        <div>
+          <div class="dish"><h4>Turkish Eggs</h4><span class="p">10,60</span><p>zachte eitjes, yoghurt, rucola, munt, vleugje knoflook, brood</p></div>
+          <div class="dish"><h4>Toast gerookte zalm</h4><span class="p">11,50</span><p>smashed avocado, mierikswortel, sla, gekookt ei</p></div>
+          <div class="dish"><h4>Ontbijtplankje</h4><span class="p">9,70</span><p>omeletje uit de oven, toast, croissant, jam, boter <span class="tag">+ kaas 1,00 · + bacon 1,50</span></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch" hidden>
+      <div class="panel-top"><h3>Lunch</h3><span class="time">12.00 - 16.00</span></div>
+      <div class="cols">
+        <div>
+          <div class="dish"><h4>Soep van het Moment<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">8,90</span><p>brood, bietenhummus</p></div>
+          <div class="dish"><h4>Turkish Eggs<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">10,60</span><p>zachte eitjes, yoghurt, rucola, munt, vleugje knoflook, brood</p></div>
+          <div class="dish"><h4>Burrata Salade<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,80</span><p>tomaatjes, gegrilde groenten, balsamico, rucola, pitjesmix, brood</p></div>
+          <div class="dish"><h4>De Kwekerij Club</h4><span class="p">12,90</span><p>gerookte kip, smashed avocado, gekookt eitje, tomaat, sla, frietjes <span class="tag">+ bacon 1,50</span></p></div>
+          <div class="dish"><h4>Halloumi wrap<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">10,90</span><p>bietenhummus, gegrilde groenten, avocado, komijn, sla</p></div>
+          <div class="dish"><h4>Homemade Hamburger</h4><span class="p">14,90</span><p>augurk, cocktailsaus, kaas, sla, ui, frietjes <span class="tag">nu ook vega</span></p></div>
+        </div>
+        <div>
+          <div class="dish"><h4>Gyoza Bowl<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,30</span><p>edamame, sesamdressing, komkommer, gebakken uitjes, rijst</p></div>
+          <div class="dish"><h4>Oesterzwamkroketten<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">10,90</span><p>truffelmayonaise, tomaat, rucola, peterselie</p></div>
+          <div class="dish"><h4>Toast Gerookte Zalm</h4><span class="p">11,50</span><p>smashed avocado, mierikswortel, sla, gekookt ei</p></div>
+          <div class="dish"><h4>Flammkuchen Burrata<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">13,50</span><p>gegrilde groenten, rucola, balsamico</p></div>
+          <div class="dish"><h4>Flammkuchen Zalm</h4><span class="p">12,50</span><p>kappertjes, ui</p></div>
+          <div class="dish"><h4>Flammkuchen Classic</h4><span class="p">10,50</span><p>spek, rode ui</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-tosti" aria-labelledby="t-tosti" hidden>
+      <div class="panel-top"><h3>Tosti specials</h3></div>
+      <div class="with-pic">
+        <div>
+          <div class="dish"><h4>Classic</h4><span class="p">4,50 / 5,00</span><p>kaas of ham/kaas</p></div>
+          <div class="dish"><h4>Caprese<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">7,70</span><p>mozzarella, pesto, tomaat</p></div>
+          <div class="dish"><h4>Tuna Melt</h4><span class="p">8,90</span><p>kappertjes, ui, kaas</p></div>
+          <div class="dish"><h4>Kimchi<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">7,50</span><p>jonge kaas</p></div>
+        </div>
+        <img src="img/stock-tosti.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-bites" aria-labelledby="t-bites" hidden>
+      <div class="panel-top"><h3>Bar bites</h3><span class="time">12.00 - 21.00</span></div>
+      <div class="with-pic">
+        <div class="cols">
+          <div>
+            <div class="dish"><h4>Bitterballen, 6 stuks</h4><span class="p">6,60</span><p>mosterd</p></div>
+            <div class="dish"><h4>Oesterzwambitterballen, 6 stuks<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">7,50</span><p>mosterd</p></div>
+            <div class="dish"><h4>Kaastengels, 6 stuks<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">6,90</span><p>sweet chilisaus</p></div>
+            <div class="dish"><h4>Gyoza’s, 6 stuks<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">6,90</span><p>sweet chilisaus</p></div>
+            <div class="dish"><h4>Samosa’s, 6 stuks<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">8,70</span><p>sweet chilisaus</p></div>
+            <div class="dish"><h4>Nacho’s<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">9,50</span><p>guacamole, crème fraîche, bonen, mais, tomaat, cheddar</p></div>
+          </div>
+          <div>
+            <div class="dish"><h4>Robuuste Frieten</h4><span class="p">5,50</span><p>mayonaise</p></div>
+            <div class="dish"><h4>Zoete Aardappelfriet</h4><span class="p">6,50</span><p>truffelmayonaise</p></div>
+            <div class="dish"><h4>Brood met Dips</h4><span class="p">7,50</span><p>edamamespread, bietenhummus, boter</p></div>
+            <div class="dish"><h4>Borrelplankje</h4><span class="p">9,90</span><p>fuet, komijnenkaas, oude kaas, olijven, nootjes, mosterd</p></div>
+            <div class="dish"><h4>Borrelplank Deluxe</h4><span class="p">17,90</span><p>crudité, brood, dips, olijven, fuet, kaasjes, frituursnacks</p></div>
+          </div>
+        </div>
+        <img src="img/stock-bitterballen.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden>
+      <div class="panel-top"><h3>Dinner</h3><span class="time">17.00 - 20.00</span></div>
+      <div class="cols">
+        <div>
+          <div class="dish"><h4>Soep van het Moment<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">8,90</span><p>brood, bietenhummus</p></div>
+          <div class="dish"><h4>Homemade Hamburger</h4><span class="p">14,90</span><p>augurk, cocktailsaus, kaas, sla, ui, friet <span class="tag">nu ook vega</span></p></div>
+          <div class="dish"><h4>Kaasfondue<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,90</span><p>Zwitsers, brood, crudité</p></div>
+          <div class="dish"><h4>Kipsaté</h4><span class="p">16,90</span><p>pindasaus, cassavachips, atjar, seroendeng, friet</p></div>
+          <div class="dish"><h4>Massaman Curry<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,50</span><p>witte rijst, kokos, aardappel, pinda, boontjes</p></div>
+          <div class="dish"><h4>Burrata Salade<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,80</span><p>tomaatjes, gegrilde groenten, balsamico, rucola, pitjesmix, brood</p></div>
+        </div>
+        <div>
+          <div class="dish"><h4>Gyoza Bowl<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">15,80</span><p>edamame, sesamdressing, komkommer, gebakken uitjes, rijst</p></div>
+          <div class="dish"><h4>Melanzane<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">14,50</span><p>aubergine, courgette, tomatensaus, mozzarella, groene salade</p></div>
+          <div class="dish"><h4>Flammkuchen Classic</h4><span class="p">10,50</span><p>spek, rode ui</p></div>
+          <div class="dish"><h4>Flammkuchen Burrata<svg class="v" aria-label="vega"><use href="#leaf"/></svg></h4><span class="p">13,50</span><p>gegrilde groenten, rucola, balsamico</p></div>
+          <div class="dish"><h4>Flammkuchen Zalm</h4><span class="p">12,50</span><p>ui, kappertjes</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-sweets" aria-labelledby="t-sweets" hidden>
+      <div class="panel-top"><h3>Sweets &amp; desserts</h3></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Sweets, de hele dag</p>
+          <div class="dish"><h4>Appeltaart</h4><span class="p">4,70</span><p>huisgemaakt, klassiek</p></div>
+          <div class="dish"><h4>Cheesecake</h4><span class="p">4,80</span><p>huisgemaakt, framboos</p></div>
+          <div class="dish"><h4>Vegan Brownie</h4><span class="p">5,10</span><p>sinaasappel, amandelmeel <span class="tag">glutenvrij</span></p></div>
+          <div class="dish"><h4>Bananenbrood van de Grill</h4><span class="p">5,50</span><p>crème fraîche <span class="tag">suiker- en glutenvrij</span></p></div>
+          <div class="dish"><h4>Scones (by HOOI)</h4><span class="p">6,90</span><p>jam, cream</p></div>
+          <div class="dish"><h4>+ Slagroom</h4><span class="p">0,50</span></div>
+        </div>
+        <div>
+          <p class="sub">Desserts bij het diner</p>
+          <div class="dish"><h4>Cheesecake</h4><span class="p">7,50</span><p>framboos, mangosorbet</p></div>
+          <div class="dish"><h4>Chocolade Lava Cakeje</h4><span class="p">7,50</span><p>roomijs</p></div>
+          <div class="dish"><h4>Affogato</h4><span class="p">6,50</span><p>roomijs, espresso</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-kids" aria-labelledby="t-kids" hidden>
+      <div class="panel-top"><h3>Kids</h3></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Bij de lunch</p>
+          <div class="dish"><h4>Tosti</h4><span class="p">4,50 / 5,00</span><p>kaas of ham/kaas</p></div>
+          <div class="dish"><h4>Banana pancakes</h4><span class="p">6,90</span><p>spelt, banaan, poedersuiker, jam</p></div>
+          <div class="dish"><h4>Portie friet</h4><span class="p">5,50</span><p>mayonaise</p></div>
+          <div class="dish"><h4>Waterijsje</h4><span class="p">2,50</span><p>aardbei <span class="tag">BIO</span></p></div>
+          <div class="dish"><h4>Roomijsje</h4><span class="p">3,50</span><p>vanille <span class="tag">BIO</span></p></div>
+        </div>
+        <div>
+          <p class="sub">Bij het diner</p>
+          <div class="dish"><h4>Tosti</h4><span class="p">4,50 / 5,00</span><p>kaas of ham/kaas</p></div>
+          <div class="dish"><h4>Banana pancakes</h4><span class="p">6,50</span><p>spelt, banaan, poedersuiker, jam</p></div>
+          <div class="dish"><h4>DIY wraps</h4><span class="p">9,50</span><p>kies 3 toppings: gerookte kip, cheddar, tomaatjes, komkommer, guacamole</p></div>
+          <div class="dish"><h4>Friet met snack</h4><span class="p">8,90</span><p>appelmoes, mayonaise + bitterballen, kaastengels of kipnuggets</p></div>
+          <div class="dish"><h4>Kinderpasta</h4><span class="p">8,50</span><p>rode saus, cheddar</p></div>
+          <div class="dish"><h4>Waterijsje / Roomijsje</h4><span class="p">2,50 / 3,50</span><p>aardbei / vanille <span class="tag">BIO</span></p></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="pdf-links">Liever de originele kaart? <a href="https://dekwekerijutrecht.nl/menu/">Menu en drankmenu als PDF</a></p>
+  </div>
+</section>
+
+<section class="drinks" id="drinks">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <span class="hand">Drinken</span>
+        <h2>Koffie, sappen &amp; cocktails</h2>
+        <p class="lead">Van een Flat White in de ochtend tot een De Kwekerij Special als het donker wordt.</p>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Drankkaart">
+      <button role="tab" id="t-warm" aria-controls="p-warm" aria-selected="true">Koffie &amp; thee</button>
+      <button role="tab" id="t-fris" aria-controls="p-fris" aria-selected="false" tabindex="-1">Sappen &amp; fris</button>
+      <button role="tab" id="t-bier" aria-controls="p-bier" aria-selected="false" tabindex="-1">Bier</button>
+      <button role="tab" id="t-wijn" aria-controls="p-wijn" aria-selected="false" tabindex="-1">Wijn &amp; bubbels</button>
+      <button role="tab" id="t-cocktail" aria-controls="p-cocktail" aria-selected="false" tabindex="-1">Cocktails &amp; mocktails</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-warm" aria-labelledby="t-warm">
+      <div class="panel-top"><h3>Warme dranken</h3></div>
+      <div class="cols">
+        <div>
+          <div class="dish"><h4>Espresso</h4><span class="p">3,10 / 3,70</span></div>
+          <div class="dish"><h4>Americano</h4><span class="p">3,20 / 3,90</span></div>
+          <div class="dish"><h4>Cappuccino</h4><span class="p">3,40 / 4,20</span></div>
+          <div class="dish"><h4>Koffie Verkeerd</h4><span class="p">3,80</span></div>
+          <div class="dish"><h4>Latte Macchiato</h4><span class="p">4,10</span></div>
+          <div class="dish"><h4>Espresso Macchiato</h4><span class="p">3,40</span></div>
+          <div class="dish"><h4>Cortado</h4><span class="p">3,50</span></div>
+          <div class="dish"><h4>Flat White</h4><span class="p">3,95</span></div>
+          <div class="dish"><h4>Chai Latte</h4><span class="p">4,00</span></div>
+          <div class="dish"><h4>Dirty Chai / Filthy Chai</h4><span class="p">4,50 / 5,00</span></div>
+          <div class="dish"><h4>Matcha Latte</h4><span class="p">5,50</span></div>
+          <div class="dish"><h4>Spiced Pumpkin Latte</h4><span class="p">5,80</span><p>slagroom, kaneel</p></div>
+          <div class="dish"><h4>Caramel Latte</h4><span class="p">5,80</span><p>slagroom, karamelsiroop</p></div>
+          <div class="dish"><h4>Warme Chocomel</h4><span class="p">3,90</span><p>slagroom + 0,60</p></div>
+        </div>
+        <div>
+          <p class="sub">Iced</p>
+          <div class="dish"><h4>Iced Espresso</h4><span class="p">3,80</span></div>
+          <div class="dish"><h4>Iced Latte</h4><span class="p">4,60</span></div>
+          <div class="dish"><h4>Iced Chai</h4><span class="p">4,80</span></div>
+          <div class="dish"><h4>Iced Matcha</h4><span class="p">5,80</span><p>havermelk, kokosmelk of decaf + 0,20 · karamelsiroop + 0,70</p></div>
+          <p class="sub">Thee</p>
+          <div class="dish"><h4>Clipper Thee <span class="tag">BIO</span></h4><span class="p">3,30</span></div>
+          <div class="dish"><h4>Verse Munt Thee</h4><span class="p">3,50</span></div>
+          <div class="dish"><h4>Verse Gember Thee</h4><span class="p">3,50</span><p>+ citroen of sinaasappel 0,20</p></div>
+          <div class="dish"><h4>De Kwekerij Blend #1</h4><span class="p">3,60</span><p>tijm, rozemarijn, citroen</p></div>
+          <div class="dish"><h4>De Kwekerij Blend #2</h4><span class="p">3,60</span><p>sinaasappel, kaneel, steranijs</p></div>
+          <p class="sub">Met een scheutje</p>
+          <div class="dish"><h4>Irish Coffee</h4><span class="p">8,10</span><p>whiskey, slagroom</p></div>
+          <div class="dish"><h4>Spanish Coffee</h4><span class="p">8,10</span><p>Licor 43, slagroom</p></div>
+          <div class="dish"><h4>French Coffee</h4><span class="p">8,10</span><p>Grand Marnier, slagroom</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-fris" aria-labelledby="t-fris" hidden>
+      <div class="panel-top"><h3>Verse sappen &amp; frisdranken</h3></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Verse sappen</p>
+          <div class="dish"><h4>Rode Smoothie</h4><span class="p">5,10</span><p>aardbei, banaan, peer</p></div>
+          <div class="dish"><h4>Groene Smoothie</h4><span class="p">5,30</span><p>mango, avocado, spinazie, banaan, appel</p></div>
+          <div class="dish"><h4>Verse Jus d’Orange</h4><span class="p">4,70</span></div>
+          <div class="dish"><h4>Mimosa</h4><span class="p">6,10</span><p>verse jus, prosecco</p></div>
+          <p class="sub">Huisgemaakt &amp; bio</p>
+          <div class="dish"><h4>Homemade Ice Tea</h4><span class="p">4,00</span></div>
+          <div class="dish"><h4>Organic Lemonade <span class="tag">BIO</span></h4><span class="p">3,80</span><p>vlierbloesem of zwarte bessen (met prik + 0,50)</p></div>
+          <div class="dish"><h4>Batu Kombucha <span class="tag">vegan · BIO</span></h4><span class="p">4,80</span><p>ginger &amp; lemon of passionfruit &amp; hop</p></div>
+          <div class="dish"><h4>Limonade framboos</h4><span class="p">1,90</span><p>75 cl karaf 4,50</p></div>
+        </div>
+        <div>
+          <p class="sub">Frisdranken</p>
+          <div class="dish"><h4>Coca Cola</h4><span class="p">3,40</span><p>Cola, Zero, Fanta, Cassis, Sprite Zero</p></div>
+          <div class="dish"><h4>Chaudfontaine</h4><span class="p">3,30</span><p>blauw of rood · 75 cl fles 6,50</p></div>
+          <div class="dish"><h4>Royal Bliss</h4><span class="p">3,50</span><p>Bitter Lemon, Tonic, Ginger Ale</p></div>
+          <div class="dish"><h4>Fuze Tea</h4><span class="p">3,50</span><p>Sparkling Lemon, Green</p></div>
+          <div class="dish"><h4>Fentimans</h4><span class="p">4,60</span><p>Gingerbeer, Rose Lemonade</p></div>
+          <div class="dish"><h4>Tomatensap</h4><span class="p">3,70</span></div>
+          <div class="dish"><h4>Fristi</h4><span class="p">3,50</span></div>
+          <div class="dish"><h4>Chocomel</h4><span class="p">3,50</span></div>
+          <div class="dish"><h4>Schulp Fruitsap</h4><span class="p">4,20</span><p>appelsap, perensap</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-bier" aria-labelledby="t-bier" hidden>
+      <div class="panel-top"><h3>Bieren</h3></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Van de tap</p>
+          <div class="dish"><h4>Jupiler</h4><span class="p">3,50 / 5,90</span><p>25 cl / 50 cl</p></div>
+          <div class="dish"><h4>IJwit</h4><span class="p">4,60</span></div>
+          <div class="dish"><h4>Leffe Blond</h4><span class="p">4,90</span></div>
+          <div class="dish"><h4>Tripel Karmeliet</h4><span class="p">5,10</span></div>
+          <div class="dish"><h4>Goose Island IPA</h4><span class="p">5,20</span></div>
+          <div class="dish"><h4>Hertog Jan Weizener</h4><span class="p">4,90 / 7,10</span><p>30 cl / 50 cl</p></div>
+          <p class="sub">Alcoholvrij &amp; licht</p>
+          <div class="dish"><h4>Jupiler 0,0%</h4><span class="p">3,50</span></div>
+          <div class="dish"><h4>Corona Cero 0,0%</h4><span class="p">4,90</span></div>
+          <div class="dish"><h4>Leffe Blond 0,0%</h4><span class="p">4,50</span></div>
+          <div class="dish"><h4>Franziskaner 0,35%</h4><span class="p">4,50</span></div>
+          <div class="dish"><h4>Playground IPA 0,5%</h4><span class="p">4,50</span><p>Van der Streek (blik)</p></div>
+          <div class="dish"><h4>Hoegaarden Radler 2,0%</h4><span class="p">4,00</span></div>
+        </div>
+        <div>
+          <p class="sub">Op fles of blik</p>
+          <div class="dish"><h4>Witzige Weizen</h4><span class="p">5,10</span><p>Van De Streek, romig wit (blik)</p></div>
+          <div class="dish"><h4>Hoegaarden Fruit</h4><span class="p">4,50</span></div>
+          <div class="dish"><h4>Broeders</h4><span class="p">4,90</span><p>Van De Streek, blond (blik)</p></div>
+          <div class="dish"><h4>Funky Falcon</h4><span class="p">4,90</span><p>Two Chefs, pale ale (blik)</p></div>
+          <div class="dish"><h4>Turf ’n Surf</h4><span class="p">4,90</span><p>Van De Streek, tripel (blik)</p></div>
+          <div class="dish"><h4>Corona</h4><span class="p">5,10</span></div>
+          <div class="dish"><h4>Leffe Bruin</h4><span class="p">4,90</span></div>
+          <div class="dish"><h4>Pilsener</h4><span class="p">4,50</span><p>Van De Streek <span class="tag">glutenvrij</span></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-wijn" aria-labelledby="t-wijn" hidden>
+      <div class="panel-top"><h3>Wijnen &amp; bubbels</h3><span class="time">glas / fles</span></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Wit</p>
+          <div class="dish"><h4>Verdejo <span class="tag">BIO</span></h4><span class="p">4,50 / 22,50</span><p>La Lustrosa (Spanje)</p></div>
+          <div class="dish"><h4>Chardonnay</h4><span class="p">5,50 / 27,90</span><p>Belle Mayance (Frankrijk)</p></div>
+          <div class="dish"><h4>Pinot Grigio</h4><span class="p">6,20 / 31,50</span><p>Pasqua, Black Label (Italië)</p></div>
+          <p class="sub">Bubbels</p>
+          <div class="dish"><h4>Prosecco</h4><span class="p">6,10 / 31,00</span><p>Valdo, Extra Dry (Italië)</p></div>
+        </div>
+        <div>
+          <p class="sub">Rosé</p>
+          <div class="dish"><h4>Grenache, Cariñena</h4><span class="p">4,50 / 22,50</span><p>Laroche (Frankrijk)</p></div>
+          <div class="dish"><h4>Rosé 0,0%, 37,5 cl</h4><span class="p">fles 10,90</span><p>Torres (Spanje)</p></div>
+          <p class="sub">Rood</p>
+          <div class="dish"><h4>Tempranillo <span class="tag">BIO</span></h4><span class="p">4,50 / 22,50</span><p>La Lustrosa (Spanje)</p></div>
+          <div class="dish"><h4>Encantado, Syrah blend</h4><span class="p">6,20 / 31,50</span><p>Ravasqueira (Portugal)</p></div>
+          <div class="dish"><h4>Port, Ruby</h4><span class="p">glas 4,80</span><p>Kopke (Portugal)</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-cocktail" aria-labelledby="t-cocktail" hidden>
+      <div class="panel-top"><h3>Cocktails &amp; mocktails</h3></div>
+      <div class="cols">
+        <div>
+          <p class="sub">Cocktails</p>
+          <div class="dish"><h4>G&amp;T</h4><p>gin, munt, aardbei</p></div>
+          <div class="dish"><h4>De Kwekerij Special</h4><span class="p">9,70</span><p>gin, rose lemonade, lavendel, munt, rozemarijn</p></div>
+          <div class="dish"><h4>Pear Dream</h4><span class="p">9,90</span><p>bruine rum, perensap, speculaaskruiden</p></div>
+          <div class="dish"><h4>Moscow Mule</h4><span class="p">9,90</span><p>wodka, gemberbier, limoen, gember, Angostura bitters</p></div>
+          <div class="dish"><h4>Espresso Martini</h4><span class="p">10,50</span><p>wodka, koffielikeur, espresso</p></div>
+          <div class="dish"><h4>Aperol Spritz</h4><span class="p">7,50</span><p>Aperol, prosecco, sinaasappel, bruiswater</p></div>
+        </div>
+        <div>
+          <p class="sub">Mocktails</p>
+          <div class="dish"><h4>G&amp;T 0,0%</h4><span class="p">6,50</span><p>VirGin, munt, framboos</p></div>
+          <div class="dish"><h4>De Kwekerij Special 0,0%</h4><span class="p">7,10</span><p>VirGin, rose lemonade, lavendel, munt, rozemarijn</p></div>
+          <p class="sub">Special</p>
+          <div class="dish"><h4>Gluhwein Special</h4><span class="p">6,20</span><p>in een kannetje, kaneel, steranijs, sinaasappel</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hightea" id="hightea">
+  <div class="wrap ht-grid">
+    <div class="ht-photo">
+      <img src="img/stock-high-tea.jpg" alt="" loading="lazy">
+      <div class="price-circle"><strong>21,50</strong><span>per persoon</span></div>
+    </div>
+    <div>
+      <span class="hand">Even alle tijd</span>
+      <h2>High tea bij de Kwekerij</h2>
+      <ul>
+        <li>Een hartige en een zoete gang</li>
+        <li>Allerlei gerechtjes van ons menu</li>
+        <li>Een smoothie</li>
+        <li>Onbeperkt thee</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="https://dekwekerijutrecht.nl/reserveren">High tea reserveren</a>
+        <a class="btn btn-line" style="color:var(--green)" href="https://dekwekerijutrecht.nl/high-tea-bij-de-kwekerij/">Meer over de high tea</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="more" id="groepen">
+  <div class="wrap more-grid">
+    <article class="card card-groups">
+      <img src="img/stock-borrel.jpg" alt="" loading="lazy">
+      <h3>Groepen &amp; vergaderen</h3>
+      <p>Groepen zijn ‘zeg maar helemaal ons ding’. We stellen allerlei groepsmenu’s samen, maken buffetten voor jouw groep en onze zalen zijn voor allerlei gelegenheden te gebruiken.</p>
+      <a href="https://dekwekerijutrecht.nl/groepen/">Bekijk de mogelijkheden voor groepen</a>
+    </article>
+    <article class="card card-gift">
+      <h3>Cadeaubonnen</h3>
+      <p>Iemand trakteren op koffie met scones, een high tea of een avond borrelen? Geef een cadeaubon van de Kwekerij.</p>
+      <a href="https://dekwekerijutrecht.nl/cadeaubonnen/">Naar de cadeaubonnen</a>
+    </article>
+    <article class="card card-jobs">
+      <h3>Werken bij de Kwekerij</h3>
+      <p>Kom je ons leuke team versterken? Bekijk welke plekken er open staan.</p>
+      <a href="https://dekwekerijutrecht.nl/vacatures/">Naar de vacatures</a>
+    </article>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="hand">Met liefde delen wij onze gegevens</span>
+    <h2 style="margin-bottom:34px">Kom langs</h2>
+    <div class="contact-grid">
+      <div>
+        <h3>Adres &amp; contact</h3>
+        <address>de Kwekerij<br>Burgemeester Annie Brouwerlaan 2<br>3582 LT Utrecht</address>
+        <p style="margin:0 0 6px"><a href="tel:+31302006396">030 - 200 63 96</a></p>
+        <p style="margin:0 0 6px"><a href="mailto:info@dekwekerijutrecht.nl">info@dekwekerijutrecht.nl</a></p>
+        <p style="margin:0"><a href="https://www.instagram.com/dekwekerijutrecht/">Instagram @dekwekerijutrecht</a></p>
+        <h3 style="margin-top:28px">Bereikbaarheid</h3>
+        <ul>
+          <li>Nabij uitvalswegen A27 en Waterlinieweg</li>
+          <li>Makkelijk met de auto te bereiken</li>
+          <li>Naast het Diakonessenhuis</li>
+          <li>Vlakbij Stadion Galgenwaard, perfect voor FC Utrecht-fans</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Openingstijden</h3>
+        <table class="hours" id="hours">
+          <tr data-d="1"><td>Maandag</td><td>gesloten</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>10:30 - 22:00</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>10:30 - 22:00</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>10:30 - 22:00</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>10:30 - 23:00</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>09:00 - 23:00</td></tr>
+          <tr data-d="0"><td>Zondag</td><td>09:00 - 22:00</td></tr>
+        </table>
+        <div class="contact-cta">
+          <a class="btn btn-green" href="https://dekwekerijutrecht.nl/reserveren">Reserveren</a>
+          <a class="btn btn-line" href="tel:+31302006396">Bel ons</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Kaart met de locatie van de Kwekerij, Burgemeester Annie Brouwerlaan 2 in Utrecht" loading="lazy" src="https://maps.google.com/maps?q=Burgemeester%20Annie%20Brouwerlaan%202%2C%203582%20LT%20Utrecht&amp;z=16&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="de Kwekerij, naar boven">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="words"><span class="de">DE</span><span class="name"><b>KWEKERIJ</b><small>COFFEE · BAR · FOOD</small></span></span>
+    </a>
+    <p style="margin:0">Burgemeester Annie Brouwerlaan 2, 3582 LT Utrecht · KvK 55006280 · btw NL001495373B78<br>
+    <small>Sfeerfoto’s zonder bijschrift: Unsplash. <a href="https://dekwekerijutrecht.nl/privacy-statement/">Privacy statement</a></small></p>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Kwekerij%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  // mobile menu
+  var btn=document.querySelector('.menu-toggle'), nav=document.getElementById('nav');
+  function setNav(open){document.body.classList.toggle('nav-open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');}
+  btn.addEventListener('click',function(){setNav(!document.body.classList.contains('nav-open'));});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))setNav(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setNav(false);});
+
+  // tabs
+  document.querySelectorAll('[role=tablist]').forEach(function(list){
+    var tabs=[].slice.call(list.querySelectorAll('[role=tab]'));
+    function select(t,focus){
+      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+      if(focus)t.focus();
+      t.scrollIntoView({block:'nearest',inline:'nearest'});
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){select(t);});
+      t.addEventListener('keydown',function(e){
+        var n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(n){e.preventDefault();select(tabs[(i+n+tabs.length)%tabs.length],true);}
+      });
+    });
+  });
+
+  // opening hours today
+  var hours={0:[9,22],1:null,2:[10.5,22],3:[10.5,22],4:[10.5,22],5:[10.5,23],6:[9,23]};
+  function fmt(h){var m=Math.round((h%1)*60);return Math.floor(h)+':'+(m<10?'0':'')+m;}
+  var now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60, today=hours[d];
+  var row=document.querySelector('#hours tr[data-d="'+d+'"]'); if(row)row.classList.add('today');
+  var st=document.getElementById('stamp');
+  if(today){
+    var open=h>=today[0]&&h<today[1];
+    st.innerHTML='<span class="hand">'+(open?'Nu open':'Vandaag')+'</span><strong>'+fmt(today[0]).replace(/^(\d+):00$/,'$1:00')+' - '+fmt(today[1])+'</strong><small>'+(open?'loop gerust binnen':'van harte welkom')+'</small>';
+    if(open){
+      document.querySelectorAll('#dayparts li').forEach(function(li){
+        var f=+li.dataset.from,t=+li.dataset.to;
+        if(h>=Math.max(f,today[0])&&h<t)li.classList.add('now');
+      });
+    }
+  }else{
+    st.innerHTML='<span class="hand">Vandaag dicht</span><strong>morgen 10:30</strong><small>dinsdag t/m zondag open</small>';
+  }
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
