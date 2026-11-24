@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nara Nara · Egyptische keuken aan het Dapperplein</title>
+<meta name="description" content="Nara Nara, het restaurant van chef Saïd aan het Dapperplein in Amsterdam: Egyptische en Midden-Oosterse gerechten om te delen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%234d0f4a'/%3E%3Cpath d='M16 6c3 5 7 8 7 13a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-6 1-9z' fill='%23f3e9da'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rakkas&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#4d0f4a; --plum-deep:#2a0828; --sand:#f3e9da; --sand-2:#e9dac3; --ink:#2b1529;
+  --hibiscus:#c2264e; --enamel:#2337a6; --white:#fffaf2;
+  --display:'Rakkas', Georgia, serif; --body:'Karla', system-ui, sans-serif;
+  --gut:clamp(18px,4vw,48px); --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:40px}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.05;margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:3px solid var(--hibiscus);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gut);background:var(--plum);color:var(--sand);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px;background:var(--sand);padding:3px}
+.brand span{font:400 26px/1 var(--display);letter-spacing:.02em}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:16px}
+.nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.nav .btn-sm{background:var(--hibiscus);color:#fff;padding:10px 18px;border-radius:999px}
+.nav .btn-sm:hover{text-decoration:none;background:#a81d41}
+.burger{display:none;background:none;border:0;color:var(--sand);width:44px;height:44px;padding:10px;cursor:pointer}
+.burger span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .2s,opacity .2s}
+body.nav-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0}
+body.nav-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(380px,5fr) 7fr;min-height:min(100vh,860px);padding:68px 0 0;background:var(--plum);color:var(--sand)}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:56px var(--gut) 64px;position:relative}
+.hero h1{font-size:clamp(64px,9vw,128px);letter-spacing:.01em;color:var(--sand)}
+.hero .lead{font-size:clamp(19px,1.7vw,22px);max-width:30ch;margin:22px 0 30px;color:#f0dfe9}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;color:#e5cfe0;margin-top:34px;padding-top:22px;border-top:1px solid rgba(243,233,218,.22)}
+.hero .meta b{color:var(--sand);font-weight:700}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;transition:background .2s,color .2s}
+.btn-hib{background:var(--hibiscus);color:#fff}.btn-hib:hover{background:#a81d41}
+.btn-line{border:2px solid rgba(243,233,218,.6);color:var(--sand)}.btn-line:hover{background:var(--sand);color:var(--plum)}
+.hero-photos{position:relative;overflow:hidden;background:var(--plum-deep)}
+.hero-photos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-photos img.on{opacity:1}
+.hero-photos img:first-child{opacity:1}
+.hero-photos.ready img:first-child:not(.on){opacity:0}
+.nar{position:absolute;left:24px;bottom:24px;z-index:2;background:var(--sand);color:var(--plum);padding:14px 18px;max-width:280px;font-size:15px;line-height:1.45;box-shadow:6px 6px 0 var(--hibiscus)}
+.nar b{font:400 22px/1 var(--display);display:block;margin-bottom:4px}
+
+/* sections */
+section{padding:clamp(72px,10vw,120px) 0}
+.kicker{font-family:var(--display);color:var(--hibiscus);font-size:20px;margin:0 0 8px}
+h2{font-size:clamp(40px,5.4vw,68px);color:var(--plum)}
+
+.intro{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,88px);align-items:center}
+.intro-img{position:relative}
+.intro-img img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.intro-img img.small{position:absolute;width:44%;aspect-ratio:1;right:-18px;bottom:-30px;border:8px solid var(--sand)}
+.intro p{max-width:56ch}
+.intro .big{font-size:21px;line-height:1.55;color:var(--plum)}
+
+/* menu */
+.menu{background:var(--white);border-top:6px solid var(--enamel)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.menu-head p{margin:10px 0 0;max-width:52ch}
+.tabs{display:inline-flex;background:var(--sand);border-radius:999px;padding:5px}
+.tabs button{border:0;background:none;font:700 16px var(--body);color:var(--plum);padding:12px 26px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--plum);color:var(--sand)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.cols ul{list-style:none;margin:0;padding:0}
+.dish,.drink{padding:16px 0;border-bottom:1px dashed #d8c7b3}
+.dish-top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.dish h4,.drink h4{font-size:23px;color:var(--enamel);letter-spacing:.01em}
+.drink h4{font-size:20px}
+.price{font-weight:700;color:var(--plum);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dish p,.drink p{margin:4px 0 0;font-size:15.5px;line-height:1.5;color:#5a4558}
+.tag{font-size:11.5px;font-weight:700;text-decoration:none;border:1.5px solid currentColor;border-radius:999px;padding:1px 7px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.tag-vgn{color:#2f7a45}.tag-v{color:#9a6a12}
+.dessert{margin-top:40px;padding:26px 28px;background:var(--plum);color:var(--sand)}
+.dessert h3{font-size:34px;margin-bottom:6px}
+.dessert .dish{border-color:rgba(243,233,218,.25)}
+.dessert .dish h4{color:#fff}.dessert .price{color:var(--sand)}.dessert .dish p{color:#e5cfe0}
+.dessert ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.menu-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:34px;font-size:15.5px}
+.menu-foot a{font-weight:700;color:var(--enamel)}
+.legend{display:flex;gap:16px;align-items:center}
+.drinks{columns:3 300px;column-gap:56px}
+.dgroup{break-inside:avoid;margin:0 0 34px}
+.dgroup h3{font-size:28px;color:var(--plum);padding-bottom:6px;border-bottom:3px solid var(--enamel);margin-bottom:4px}
+.dgroup ul{list-style:none;margin:0;padding:0}
+.winehead{display:grid;grid-template-columns:1fr 46px 46px;font-size:13px;font-weight:700;color:#7d6679;padding:8px 0 0;text-align:right}
+.winehead span:first-child{text-align:left}
+.wine{display:grid;grid-template-columns:1fr 46px 46px;gap:0;padding:11px 0;border-bottom:1px dashed #d8c7b3;align-items:baseline}
+.wine strong{display:block;font-weight:700;color:var(--enamel);line-height:1.3}
+.wine div span{font-size:14px;color:#6d5869}
+.wine .gl,.wine .fl{text-align:right;font-weight:700;color:var(--plum);font-variant-numeric:tabular-nums}
+.note{font-size:15px;color:#5a4558;font-style:italic;margin-top:10px}
+[role=tabpanel][hidden]{display:none}
+
+/* gallery */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:8px;background:var(--plum-deep)}
+.strip img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* chef */
+.chef{background:var(--plum);color:var(--sand)}
+.chef h2{color:var(--sand)}
+.chef .kicker{color:#f19ab3}
+.chef-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,6vw,88px);align-items:center}
+.chef p{max-width:58ch;color:#f0dfe9}
+.chef .quote{font:400 clamp(26px,2.6vw,34px)/1.25 var(--display);color:var(--sand);margin:28px 0 0;max-width:24ch}
+.chef-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chef-photos img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.chef-photos img:first-child{grid-row:span 2;aspect-ratio:auto;height:100%}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:40px}
+.visit h3{font-size:28px;color:var(--plum);margin-bottom:12px}
+.hours{list-style:none;padding:0;margin:0}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed #cdb9a2}
+.visit p{margin:0 0 10px}
+.visit a{color:var(--enamel);font-weight:700}
+.map{min-height:320px;border:0;width:100%;height:100%;filter:saturate(.8)}
+.reserve{margin-top:22px;padding:22px;background:var(--plum);color:var(--sand)}
+.reserve a{color:#fff}
+.reserve p{margin:0 0 6px}
+
+footer{background:var(--plum-deep);color:#cbb4c7;padding:44px 0 34px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
+footer img{width:64px;height:64px;background:var(--sand);padding:3px}
+footer a{color:var(--sand)}
+.ribbon{position:fixed;inset:auto 0 0;z-index:90;background:var(--sand-2);color:var(--plum);text-align:center;font:700 13px/1 var(--body);padding:11px 12px;box-shadow:0 -1px 0 rgba(0,0,0,.08)}
+
+/* one-time entrance */
+@media (prefers-reduced-motion:no-preference){
+  .hero-text > *{animation:rise .55s ease-out both}
+  .hero-text > *:nth-child(2){animation-delay:.08s}
+  .hero-text > *:nth-child(3){animation-delay:.16s}
+  .hero-text > *:nth-child(4){animation-delay:.24s}
+  @keyframes rise{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-photos img{transition:none}}
+
+@media (max-width:960px){
+  .nav{position:fixed;inset:68px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:var(--plum);padding:6px var(--gut) 20px;transform:translateY(-130%);visibility:hidden;transition:transform .25s,visibility .25s}
+  .nav a{padding:15px 0;font-size:19px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav .btn-sm{margin-top:14px;text-align:center;border:0}
+  body.nav-open .nav{transform:none;visibility:visible}
+  .burger{display:block}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photos{order:-1;height:38vh;min-height:260px}
+  .hero-text{padding:26px var(--gut) 40px}
+  .hero .meta{margin-top:26px}
+  .nar{left:auto;right:12px;bottom:12px;max-width:210px;padding:10px 12px;font-size:13.5px;box-shadow:4px 4px 0 var(--hibiscus)}
+  .nar b{font-size:18px}
+  .intro,.chef-grid,.visit-grid{grid-template-columns:1fr}
+  .intro-img{margin-right:18px}
+  .cols,.dessert ul{grid-template-columns:1fr}
+  .strip{grid-template-columns:repeat(3,1fr)}
+  .map{min-height:280px}
+}
+@media (max-width:520px){
+  body{font-size:16.5px}
+  .brand span{font-size:23px}
+  .brand img{width:40px;height:40px}
+  .hero h1{font-size:64px}
+  .tabs{width:100%}.tabs button{flex:1;padding:12px 10px}
+  .dish h4{font-size:21px}
+  .dessert{padding:20px 18px;margin-left:calc(var(--gut) * -1);margin-right:calc(var(--gut) * -1)}
+  .strip img:nth-child(n+7){display:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top" aria-label="Nara Nara, naar boven"><img src="img/logo.png" alt="Logo Nara Nara: kameel bij een vuur"><span>Nara Nara</span></a>
+  <nav class="nav" id="nav">
+    <a href="#verhaal">Over ons</a>
+    <a href="#menu">Menu</a>
+    <a href="#chef">Chef Saïd</a>
+    <a href="#bezoek">Bezoek</a>
+    <a class="btn-sm" href="#reserveren">Tafel reserveren</a>
+  </nav>
+  <button class="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-text">
+    <h1>Nara Nara</h1>
+    <p class="lead">Egyptische en Midden-Oosterse gerechten om te delen, aan het Dapperplein in Amsterdam.</p>
+    <div class="btns">
+      <a class="btn btn-hib" href="#menu">Bekijk het menu</a>
+      <a class="btn btn-line" href="#reserveren">Tafel reserveren</a>
+    </div>
+    <div class="meta"><span><b>Wo – vr</b> 17:30 – 23:00</span><span><b>Za – zo</b> 12:00 – 23:00</span><span>Dapperplein 25</span></div>
+  </div>
+  <div class="hero-photos" aria-hidden="true">
+    <img src="img/tafel.jpg" alt="">
+    <img src="img/terras.jpg" alt="">
+    <img src="img/gerecht-16.jpg" alt="">
+    <img src="img/interieur.jpg" alt="">
+    <div class="nar"><b>nar = vuur</b>Waar mensen samenkomen, voor warmte, verhalen en eten.</div>
+  </div>
+</section>
+
+<section id="verhaal">
+  <div class="wrap intro">
+    <div class="intro-img">
+      <img src="img/gasten.jpg" alt="Gasten aan tafel bij Nara Nara" loading="lazy">
+      <img class="small" src="img/gerecht-10.jpg" alt="Flatbread en dips op tafel bij Nara Nara" loading="lazy">
+    </div>
+    <div>
+      <p class="kicker">Over Nara Nara</p>
+      <h2>Rond het vuur, aan één tafel</h2>
+      <p class="big">De naam Nara Nara verwijst naar het Egyptische woord <em>nar</em>: vuur. Vuur is van oudsher een plek waar mensen samenkomen. Voor warmte, verbinding, verhalen en eten.</p>
+      <p>Bij Nara Nara brengen we klassieke Egyptische streetfood gerechten samen met invloeden uit het Middellandse Zeegebied en het Midden-Oosten. Het menu is geworteld in chef Saïds achtergrond, maar laat tegelijkertijd ruimte om nieuwe smaken te ontdekken.</p>
+      <p>Groenten spelen in veel van onze gerechten de hoofdrol. Voor wie niet zonder kan, staan er natuurlijk ook vis- en vleesgerechten op het menu. Samen eten en delen komt voort uit de Egyptische eetcultuur. Maar of je nu alles deelt of je favorieten liever voor jezelf houdt: jij maakt de tafel zoals jij die wilt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="kicker">Menu</p>
+        <h2>Om te delen</h2>
+        <p>Bestel een paar gerechten voor op tafel en schuif aan. Allergieën? Laat het ons weten!</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menukaart">
+        <button role="tab" id="t-eten" aria-controls="p-eten" aria-selected="true">Eten</button>
+        <button role="tab" id="t-drinken" aria-controls="p-drinken" aria-selected="false" tabindex="-1">Drinken</button>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-eten" aria-labelledby="t-eten">
+      <div class="cols">
+        <ul><li class="dish"><div class="dish-top"><h4>Falafal</h4><span class="price">9,95</span></div><p>cairo-style tuinbonenfalafal (4) · tahini · komkommer <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Dukkah friet</h4><span class="price">8,95</span></div><p>crispy aubergine frietjes · dukkah · munt yoghurt <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Gegrilde kaki</h4><span class="price">12,95</span></div><p>gegrilde kaki · stracciatella · pistache · kalamata olijven · munt olie <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Gerookte aubergine</h4><span class="price">12,95</span></div><p>gerookte aubergine · tahini · granaatappelpitjes · peterselie <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Dukkah inktvis</h4><span class="price">17,95</span></div><p>inktvis lamellen · jalapeño saus · dukkah · granaatappelpitjes · amandelen </p></li><li class="dish"><div class="dish-top"><h4>Hawawshi</h4><span class="price">13,95</span></div><p>crispy pita · gekruid gehakt · mozzarella · toum </p></li><li class="dish"><div class="dish-top"><h4>Caïro cauli</h4><span class="price">11,95</span></div><p>gefrituurde bloemkool · tahini · tomaat · grapefruit <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Knafeh pannetje</h4><span class="price">16,95</span></div><p>kadayif · zoete aardappel · venkel · mozzarella · chili honing · granaatappel · pistache <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Molokhia eend</h4><span class="price">17,95</span></div><p>gekonfijte eendenbout met molokhia </p></li><li class="dish"><div class="dish-top"><h4>Alex octo</h4><span class="price">11,95</span></div><p>gefrituurde octopus · toum · hibiscus </p></li><li class="dish"><div class="dish-top"><h4>Feteer</h4><span class="price">8,95</span></div><p>knapperig gelaagd Egyptisch flatbread uit de oven · feta · zwarte sesam · rietsuiker molasse <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Okra</h4><span class="price">3,95</span></div><p>ingemaakte okra · licht gekruid <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li></ul>
+        <ul><li class="dish"><div class="dish-top"><h4>Amber eggplant</h4><span class="price">13,95</span></div><p>gefrituurde aubergine · kaneel · avocado · dadel siroop · hibiscus parels <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Bissara</h4><span class="price">7,95</span></div><p>tuinbonendip · gefrituurde uien · amandelen <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Labneh</h4><span class="price">7,95</span></div><p>labneh · kalamata olijven · za’atar · olijfolie <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Baba ganoush</h4><span class="price">7,95</span></div><p>gerookte aubergine · granaatappelpitjes · amandelen <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li><li class="dish"><div class="dish-top"><h4>Moussaka</h4><span class="price">16,95</span></div><p>aubergine · tomaat · mozzarella · paprika in een pannetje uit de oven <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Mediterrane drumsticks</h4><span class="price">16,95</span></div><p>drumsticks (3) · dadels · olijven · kapperappeltjes </p></li><li class="dish"><div class="dish-top"><h4>Fatteh</h4><span class="price">18,95</span></div><p>langzaam gegaard rundvlees · rijst · crispy flatbread · tomaat · azijn </p></li><li class="dish"><div class="dish-top"><h4>Rooted mash</h4><span class="price">9,95</span></div><p>zoete aardappel en biet uit de oven · parmezaan · amandelen · basilicum <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Kebab</h4><span class="price">17,95</span></div><p>lamskebab (3) op een kaneelstok </p></li><li class="dish"><div class="dish-top"><h4>Citrus spinazie</h4><span class="price">12,95</span></div><p>spinazie · polenta · boter grapefruit saus · parmezaan <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Nara frietjes</h4><span class="price">5,95</span></div><p>huisgemaakte frietjes · komijnzout · harissa mayonaise <abbr class="tag tag-v" title="vegetarisch">v</abbr></p></li><li class="dish"><div class="dish-top"><h4>Groene salade</h4><span class="price">4,95</span></div><p>veldsla · crunchy freekeh · granaatappel <abbr class="tag tag-vgn" title="vegan">vgn</abbr></p></li></ul>
+      </div>
+      <div class="dessert">
+        <h3>Dessert</h3>
+        <ul><li class="dish"><div class="dish-top"><h4>Layali lime</h4><span class="price">8,95</span></div><p>limoenparfait · gekarameliseerde koekjes · rood fruit </p></li><li class="dish"><div class="dish-top"><h4>Knafeh</h4><span class="price">10,95</span></div><p>kadayif · mozzarella · rozenwater siroop · pistache </p></li></ul>
+      </div>
+      <div class="menu-foot">
+        <span class="legend"><abbr class="tag tag-v" title="vegetarisch">v</abbr> vegetarisch <abbr class="tag tag-vgn" title="vegan">vgn</abbr> vegan</span>
+        <span>Prijzen in euro’s.</span>
+        <a href="https://www.naranara-amsterdam.nl/_files/ugd/7fdc48_104764fc8cc8409c9016592f64e0f827.pdf" target="_blank" rel="noopener">Menukaart als pdf</a>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-drinken" aria-labelledby="t-drinken" hidden>
+      <div class="drinks">
+        <div class="dgroup"><h3>Egyptisch-mediterrane aperitivo</h3><ul><li class="drink"><div class="dish-top"><h4>Karkadé</h4><span class="price">12</span></div><p>hibiscusbloesem siroop · Tanqueray London Dry Gin · agrumes · munt · granaatappel</p></li><li class="drink"><div class="dish-top"><h4>Za’atar</h4><span class="price">12</span></div><p>za’atar siroop · Corralejo Tequila Blanco · limoensap</p></li><li class="drink"><div class="dish-top"><h4>Karaf Tinto de Verano</h4><span class="price">10</span></div><p>tempranillo · Fever-Tree Sicilian Lemonade (50 cl)</p></li><li class="drink"><div class="dish-top"><h4>Campari Orange</h4><span class="price">8</span></div><p>Campari · San Pellegrino Aranciata</p></li><li class="drink"><div class="dish-top"><h4>Negroni</h4><span class="price">11</span></div><p>Campari · Tanqueray London Dry Gin · Martini Rosso</p></li><li class="drink"><div class="dish-top"><h4>Pastis</h4><span class="price">6</span></div><p>Ricard Pastis · water · ijs</p></li><li class="drink"><div class="dish-top"><h4>Aperol Spritz</h4><span class="price">10</span></div><p>Aperol · prosecco · bruiswater</p></li></ul><p class="note">Klassiekers, twists en waar je zin in hebt: vraag gerust naar cocktails buiten de kaart.</p></div>
+        <div class="dgroup"><h3>Bubbel</h3><div class="winehead"><span></span><span>glas</span><span>fles</span></div><ul><li class="wine"><div><strong>MVSA Cava Brut</strong><span>Spanje</span></div><span class="gl">7,5</span><span class="fl">35</span></li></ul></div><div class="dgroup"><h3>Natuurwijn</h3><div class="winehead"><span></span><span>glas</span><span>fles</span></div><ul><li class="wine"><div><strong>Val de Combres, Les Champs Magnétiques</strong><span>Rhône, Frankrijk</span></div><span class="gl">8</span><span class="fl">40</span></li><li class="wine"><div><strong>Du vin aux Liens, Guet apens</strong><span>Alsace, Frankrijk</span></div><span class="gl">–</span><span class="fl">45</span></li><li class="wine"><div><strong>Le debit d’Ivresse, Goulou Goulou</strong><span>Côtes Catalanes, Frankrijk</span></div><span class="gl">–</span><span class="fl">45</span></li></ul></div><div class="dgroup"><h3>Rosé</h3><div class="winehead"><span></span><span>glas</span><span>fles</span></div><ul><li class="wine"><div><strong>Forte Alto Pinot Grigio</strong><span>Vigneti delle Dolomiti, Italië</span></div><span class="gl">5,5</span><span class="fl">27,5</span></li><li class="wine"><div><strong>Mirabeau Pure</strong><span>Provence, Frankrijk</span></div><span class="gl">–</span><span class="fl">39,5</span></li></ul></div><div class="dgroup"><h3>Wit</h3><div class="winehead"><span></span><span>glas</span><span>fles</span></div><ul><li class="wine"><div><strong>Teixeiró Granito Vinho Verde</strong><span>Portugal</span></div><span class="gl">5,5</span><span class="fl">27,5</span></li><li class="wine"><div><strong>Feudo Arancio Grillo</strong><span>Sicilië, Italië</span></div><span class="gl">6</span><span class="fl">29,5</span></li><li class="wine"><div><strong>Ante Cime Chardonnay Grande Réserve</strong><span>Languedoc, Frankrijk</span></div><span class="gl">7</span><span class="fl">32,5</span></li><li class="wine"><div><strong>Sybaria Treixedura &amp; Godello</strong><span>Ribeiro, Spanje</span></div><span class="gl">7,5</span><span class="fl">35</span></li><li class="wine"><div><strong>Serra da Estrela Albariño</strong><span>Rías Baixas, Spanje</span></div><span class="gl">8</span><span class="fl">45</span></li><li class="wine"><div><strong>Champault Sancerre</strong><span>Loire, Frankrijk</span></div><span class="gl">–</span><span class="fl">55</span></li></ul></div><div class="dgroup"><h3>Rood</h3><div class="winehead"><span></span><span>glas</span><span>fles</span></div><ul><li class="wine"><div><strong>Pour le Vin Syrah</strong><span>Languedoc, Frankrijk</span></div><span class="gl">5,5</span><span class="fl">27,5</span></li><li class="wine"><div><strong>Le Versant Pinot Noir (gekoeld)</strong><span>Pays d’Oc, Frankrijk</span></div><span class="gl">7</span><span class="fl">32,5</span></li><li class="wine"><div><strong>Quintas de Pancas Reserva</strong><span>Lisboa, Portugal</span></div><span class="gl">–</span><span class="fl">29,5</span></li><li class="wine"><div><strong>Integro Primitivo (bio)</strong><span>Puglia, Italië</span></div><span class="gl">–</span><span class="fl">35</span></li><li class="wine"><div><strong>Verema Rioja Crianza</strong><span>Spanje</span></div><span class="gl">–</span><span class="fl">42</span></li></ul></div>
+        <div class="dgroup"><h3>Bier van de tap</h3><ul><li class="drink"><div class="dish-top"><h4>Heineken</h4><span class="price">4</span></div><p>premium pilsener · 5%</p></li><li class="drink"><div class="dish-top"><h4>IJwit</h4><span class="price">6</span></div><p>witbier · Brouwerij ’t IJ · 6,5%</p></li><li class="drink"><div class="dish-top"><h4>Mannenliefde</h4><span class="price">6</span></div><p>saison · Oedipus · 6%</p></li></ul></div><div class="dgroup"><h3>Bier op fles</h3><ul><li class="drink"><div class="dish-top"><h4>Lellebel</h4><span class="price">6,5</span></div><p>blond · De Eeuwige Jeugd · 5,7%</p></li><li class="drink"><div class="dish-top"><h4>Bloesem Blond</h4><span class="price">6,5</span></div><p>blond · Gebrouwen door Vrouwen · 6,2%</p></li><li class="drink"><div class="dish-top"><h4>Zeebonk</h4><span class="price">6,5</span></div><p>New England IPA · Brouwerij Homeland · 6,4%</p></li><li class="drink"><div class="dish-top"><h4>Zatte</h4><span class="price">6,5</span></div><p>tripel · Brouwerij ’t IJ · 8%</p></li><li class="drink"><div class="dish-top"><h4>Heineken 0.0</h4><span class="price">4</span></div><p>pilsner · 0,0%</p></li><li class="drink"><div class="dish-top"><h4>Liefmans Fruitesse</h4><span class="price">6</span></div><p>alcoholvrij · Brouwerij Liefmans</p></li><li class="drink"><div class="dish-top"><h4>Vrijwit</h4><span class="price">6</span></div><p>witbier · Brouwerij ’t IJ · 0,5%</p></li></ul></div><div class="dgroup"><h3>Limonades</h3><ul><li class="drink"><div class="dish-top"><h4>Hibiscus</h4><span class="price">5</span></div><p>hibiscusbloesem · kardemom · munt · anijs</p></li><li class="drink"><div class="dish-top"><h4>Tamr Hindi</h4><span class="price">5</span></div><p>Egyptische tamarinde limonade</p></li><li class="drink"><div class="dish-top"><h4>Cranberry</h4><span class="price">5</span></div><p>cranberry · munt · citroen</p></li></ul></div><div class="dgroup"><h3>Sap</h3><ul><li class="drink"><div class="dish-top"><h4>Jus d’orange</h4><span class="price">5</span></div><p>vers geperst sinaasappelsap</p></li><li class="drink"><div class="dish-top"><h4>Grapefruitsap</h4><span class="price">5</span></div><p>vers geperst grapefruitsap</p></li><li class="drink"><div class="dish-top"><h4>Granaatappelsap</h4><span class="price">4</span></div><p>granaatappelsap van Sunich</p></li><li class="drink"><div class="dish-top"><h4>Appelsap</h4><span class="price">4</span></div><p>Schulp appelsap</p></li></ul></div><div class="dgroup"><h3>Frisdrank</h3><ul><li class="drink"><div class="dish-top"><h4>Orangina</h4><span class="price">4,5</span></div><p>Franse bruisende citrusdrank</p></li><li class="drink"><div class="dish-top"><h4>Coca-Cola</h4><span class="price">3,5</span></div><p>regular of zero</p></li><li class="drink"><div class="dish-top"><h4>Crodino Rosso</h4><span class="price">5</span></div><p>klassiek Italiaans alcoholvrij aperitief, bitter van karakter</p></li><li class="drink"><div class="dish-top"><h4>Ginger beer</h4><span class="price">4,5</span></div><p>Double Dutch</p></li><li class="drink"><div class="dish-top"><h4>San Pellegrino</h4><span class="price">4,5</span></div><p>Aranciata · Aranciata Rossa · Limonata</p></li><li class="drink"><div class="dish-top"><h4>San Pellegrino bruiswater</h4><span class="price">3,5 / 6,5</span></div><p>0,25 / 0,75 liter</p></li></ul></div><div class="dgroup"><h3>Koffie &amp; thee</h3><ul><li class="drink"><div class="dish-top"><h4>Espresso</h4><span class="price">3</span></div></li><li class="drink"><div class="dish-top"><h4>Cortado</h4><span class="price">3,5</span></div></li><li class="drink"><div class="dish-top"><h4>Espresso macchiato</h4><span class="price">3,5</span></div></li><li class="drink"><div class="dish-top"><h4>Americano</h4><span class="price">4</span></div></li><li class="drink"><div class="dish-top"><h4>Cappuccino</h4><span class="price">4</span></div></li><li class="drink"><div class="dish-top"><h4>Koffie verkeerd</h4><span class="price">4,2</span></div></li><li class="drink"><div class="dish-top"><h4>Latte macchiato</h4><span class="price">4,5</span></div></li><li class="drink"><div class="dish-top"><h4>Flat white</h4><span class="price">4,8</span></div></li><li class="drink"><div class="dish-top"><h4>Hibiscusthee</h4><span class="price">4</span></div></li><li class="drink"><div class="dish-top"><h4>Gember &amp; sinaasappelthee</h4><span class="price">4</span></div></li><li class="drink"><div class="dish-top"><h4>Muntthee</h4><span class="price">4</span></div></li><li class="drink"><div class="dish-top"><h4>Ahmad thee</h4><span class="price">4</span></div><p>rode vruchten &amp; hibiscus · rozenbottel, hibiscus &amp; kers · framboos &amp; granaatappel · citroen munt · kardemom · rooibos &amp; kaneel · perzik &amp; passievrucht · Earl Grey · groene thee jasmijn</p></li></ul></div>
+      </div>
+      <div class="menu-foot">
+        <span>Prijzen in euro’s.</span>
+        <a href="https://www.naranara-amsterdam.nl/_files/ugd/7fdc48_c8fb71473c8f4a04be509cd50a4c799a.pdf" target="_blank" rel="noopener">Drankkaart als pdf</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <img src="img/gerecht-7.jpg" alt="Gerecht van Nara Nara met granaatappel" loading="lazy">
+  <img src="img/gerecht-9.jpg" alt="Gerecht van Nara Nara op een emaille bord" loading="lazy">
+  <img src="img/bar.jpg" alt="De bar van Nara Nara" loading="lazy">
+  <img src="img/gerecht-5.jpg" alt="Gerecht van Nara Nara" loading="lazy">
+  <img src="img/gerecht-18.jpg" alt="Gerecht van Nara Nara in tomatensaus" loading="lazy">
+  <img src="img/gerecht-4.jpg" alt="Flatbread op een zilveren schaal bij Nara Nara" loading="lazy">
+</div>
+
+<section class="chef" id="chef">
+  <div class="wrap chef-grid">
+    <div>
+      <p class="kicker">Chef Saïd</p>
+      <h2>Van het land in Egypte naar het Dapperplein</h2>
+      <p>Chef Saïd, voorheen chef van Mana Mana, begint met Nara Nara aan een nieuw hoofdstuk: zijn eigen restaurant. Hij brengt zijn Egyptische roots naar de voorgrond, geïnspireerd door de smaken, tradities en de cultuur van samen eten waarmee hij is opgegroeid.</p>
+      <p>Hij groeide op op een boerderij in Egypte en werkte van jongs af aan op het land. Hij kent zijn ingrediënten van zaadje tot oogst: hoe ze groeien en wat ervoor nodig is om ze op tafel te brengen.</p>
+      <p>Sommige gerechten zijn herkenbaar Egyptisch. Andere beginnen met een herinnering of een Egyptisch ingrediënt, zoals dukkah of hibiscus, en groeien uit tot iets nieuws. Goed eten om te delen, drankjes om van te genieten, Egyptische muziek, warme energie en een tafel waar je graag wat langer blijft.</p>
+      <p class="quote">Het eten is geworteld in Egypte, de ervaring is gevormd door Amsterdam.</p>
+    </div>
+    <div class="chef-photos">
+      <img src="img/chef-said.jpg" alt="Chef Saïd" loading="lazy">
+      <img src="img/chef-keuken.jpg" alt="Chef Saïd aan het werk in de keuken" loading="lazy">
+      <img src="img/chef-bord.jpg" alt="Chef Saïd met een bord in de keuken van Nara Nara" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="bezoek">
+  <div class="wrap">
+    <p class="kicker">Bezoek</p>
+    <h2 style="margin-bottom:40px">Tot aan het Dapperplein</h2>
+    <div class="visit-grid">
+      <div>
+        <h3>Openingstijden</h3>
+        <ul class="hours">
+          <li><span>Woensdag – vrijdag</span><span>17:30 – 23:00</span></li>
+          <li><span>Zaterdag – zondag</span><span>12:00 – 23:00</span></li>
+        </ul>
+        <div class="reserve" id="reserveren">
+          <p><strong>Tafel reserveren?</strong></p>
+          <p>Bel <a href="tel:+31203546269">020 354 6269</a> of mail <a href="mailto:info@naranara.nl">info@naranara.nl</a>.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Adres &amp; contact</h3>
+        <p>Dapperplein 25<br>Amsterdam</p>
+        <p><a href="tel:+31203546269">020 354 6269</a><br><a href="mailto:info@naranara.nl">info@naranara.nl</a></p>
+        <p>Volg ons op <a href="https://www.instagram.com/nara_nara_amsterdam/" target="_blank" rel="noopener">Instagram</a></p>
+        <img src="img/terras.jpg" alt="Het terras van Nara Nara aan het Dapperplein" loading="lazy" style="margin-top:18px;aspect-ratio:4/3;object-fit:cover;width:100%">
+      </div>
+      <iframe class="map" title="Kaart: Dapperplein 25, Amsterdam" src="https://maps.google.com/maps?q=Dapperplein%2025%2C%20Amsterdam&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="">
+    <span>Nara Nara · Dapperplein 25, Amsterdam · <a href="mailto:info@naranara.nl">info@naranara.nl</a></span>
+    <span>© 2026 Nara Nara</span>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Nara%20Nara%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var b=document.querySelector('.burger');
+  b.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open');b.setAttribute('aria-expanded','false');});});
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];sel(n);n.focus();}});});
+  var box=document.querySelector('.hero-photos'),imgs=[].slice.call(box.querySelectorAll('img')),k=0;
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&imgs.length>1){
+    box.classList.add('ready');imgs[0].classList.add('on');
+    setInterval(function(){imgs[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on');},5500);
+  }
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

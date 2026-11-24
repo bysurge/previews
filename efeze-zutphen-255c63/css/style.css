@@ -1,0 +1,157 @@
+:root{
+  --wine:#4b1a22;
+  --wine-deep:#33111a;
+  --gold:#d39a4c;
+  --gold-soft:#e8bf7f;
+  --stone:#efe5d4;
+  --stone-2:#e4d6bf;
+  --olive:#5f6236;
+  --ink:#2b1a16;
+  --white:#fffaf2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--stone);color:var(--ink);font-family:"Alegreya Sans",system-ui,sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--wine)}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.15;margin:0 0 .6em}
+h2{font-size:clamp(30px,4vw,46px);color:var(--wine)}
+h3{font-size:22px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.lead{font-size:21px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--stone);border-bottom:1px solid rgba(75,26,34,.15)}
+.brand img{height:54px;width:auto}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;color:var(--ink);font-weight:500;font-size:17px}
+.nav a:hover{color:var(--wine)}
+.nav .nav-cta{background:var(--wine);color:var(--white);padding:9px 18px;border-radius:999px}
+.nav .nav-cta:hover{background:var(--wine-deep);color:var(--white)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;padding:10px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--wine);margin:5px 0;transition:transform .25s,opacity .2s}
+body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{min-height:100vh;padding:110px 24px 60px;background:var(--wine);color:var(--white);display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;max-width:none;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(211,154,76,.22),transparent 60%);pointer-events:none}
+.hero-text{max-width:600px;justify-self:end;position:relative}
+.hero-logo{width:130px;filter:brightness(0) invert(1);opacity:.95;margin-bottom:26px}
+.hero h1{font-size:clamp(36px,4.6vw,62px);margin-bottom:22px}
+.hero p{font-size:20px;color:#f2dfcf;max-width:34em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 22px}
+.hero-today{font-size:16px!important;color:var(--gold-soft)!important}
+.hero-arch{position:relative;justify-self:start;width:min(100%,520px);aspect-ratio:4/5;border-radius:260px 260px 10px 10px;overflow:hidden;border:6px solid rgba(211,154,76,.55);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.hero-arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-arch img.on{opacity:1}
+
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:17px;padding:14px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:var(--wine-deep)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-line{border-color:rgba(255,250,242,.6);color:var(--white)}
+.btn-line:hover{background:rgba(255,250,242,.1)}
+.btn.big{font-size:20px;padding:16px 30px;margin:8px 0 10px}
+
+/* welkom */
+.welkom{padding:110px 0}
+.welkom-photo img{border-radius:220px 220px 8px 8px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.sign{font-style:italic;color:var(--wine);margin-top:26px}
+.sign span{font-family:Marcellus,serif;font-style:normal;font-size:20px}
+
+/* menu */
+.menukaart{background:var(--white);padding:100px 0}
+.menu-head{max-width:720px;margin-bottom:34px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:70px;z-index:5;background:var(--white);padding:12px 0;border-bottom:1px solid var(--stone-2)}
+.tabs button{font:500 16px "Alegreya Sans",sans-serif;background:var(--stone);color:var(--ink);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--wine);color:var(--white)}
+.panel{padding-top:34px}
+.panel[hidden]{display:none}
+.group{margin-bottom:38px}
+.group h3{color:var(--olive);border-bottom:2px solid var(--gold);display:inline-block;padding-bottom:4px;margin-bottom:18px}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:6px 56px;list-style:none;margin:0;padding:0}
+.dish{padding:10px 0;border-bottom:1px dotted rgba(75,26,34,.25)}
+.dish-top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.dish-name{font-family:Marcellus,serif;font-size:19px;color:var(--wine)}
+.dish-price{font-weight:700;white-space:nowrap}
+.dish-desc{font-size:16px;color:#5d4a42;margin-top:2px}
+.menu-note{margin-top:30px;font-size:16px;color:#5d4a42}
+
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strip figure{margin:0}
+.strip img{width:100%;height:340px;object-fit:cover}
+
+/* terras */
+.terras{padding:110px 0}
+.terras-photo img{border-radius:8px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.koffie{margin:26px 0 0}
+.koffie img{border-radius:120px 120px 8px 8px;width:220px;aspect-ratio:1/1;object-fit:cover}
+
+/* reserveren */
+.reserveren{background:var(--wine);color:var(--white);padding:100px 0}
+.reserveren h2{color:var(--white)}
+.reserveren a{color:var(--gold-soft)}
+.reserveren .btn-gold{color:var(--wine-deep)}
+.small{font-size:16px}
+.form{background:var(--white);color:var(--ink);padding:30px;border-radius:10px;display:grid;gap:14px}
+.form label{display:grid;gap:4px;font-size:15px;font-weight:500}
+.form input,.form textarea{font:inherit;font-size:17px;padding:10px 12px;border:1px solid #cdbca3;border-radius:6px;background:#fff;width:100%;min-width:0}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-msg{margin:0;background:var(--stone);padding:10px 14px;border-radius:6px;color:var(--wine)}
+
+/* tijden */
+.tijden{padding:100px 0 0}
+.tijden .two{align-items:start}
+.hours{border-collapse:collapse;width:100%;max-width:440px;font-size:19px}
+.hours th{text-align:left;font-weight:500;padding:9px 0;border-bottom:1px solid var(--stone-2)}
+.hours td{text-align:right;padding:9px 0;border-bottom:1px solid var(--stone-2)}
+.hours tr.now th,.hours tr.now td{color:var(--wine);font-weight:700}
+address{font-style:normal;font-size:20px;margin-bottom:14px}
+.werken{margin-top:26px;padding-top:20px;border-top:1px solid var(--stone-2)}
+.werken h3{color:var(--olive)}
+.map{margin-top:70px}
+.map iframe{display:block;width:100%;height:380px;border:0;filter:sepia(.25)}
+
+.foot{background:var(--wine-deep);color:#e7d3c2;text-align:center;padding:40px 24px 70px}
+.foot img{width:90px;margin:0 auto 12px;filter:brightness(0) invert(1);opacity:.85}
+.foot a{color:var(--gold-soft)}
+.foot p{font-size:16px;margin:0}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#f3e4cf;text-align:center;font-size:13px;padding:7px 10px}
+
+@media (max-width:900px){
+  .burger{display:block}
+  .nav{position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--stone);flex-direction:column;align-items:flex-start;gap:6px;padding:24px;transform:translateX(100%);transition:transform .3s;visibility:hidden}
+  body.menu-open .nav{transform:none;visibility:visible}
+  .nav a{font-size:22px;padding:8px 0}
+  .nav .nav-cta{margin-top:12px;padding:12px 24px}
+  .hero{grid-template-columns:1fr;padding:86px 20px 50px;gap:28px;min-height:auto}
+  .hero-arch{order:-1;justify-self:center;width:100%;max-width:440px;aspect-ratio:5/4;border-radius:200px 200px 8px 8px}
+  .hero-text{justify-self:start}
+  .hero-logo{display:none}
+  .two{grid-template-columns:1fr;gap:36px}
+  .welkom,.terras{padding:70px 0}
+  .menukaart,.reserveren{padding:70px 0}
+  .dishes{grid-template-columns:1fr}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -24px;padding:12px 24px;scrollbar-width:none}
+  .tabs button{flex:0 0 auto}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip figure:last-child{display:none}
+  .strip img{height:200px}
+  .tijden{padding-top:70px}
+}
+@media (max-width:480px){
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .tabs{margin:0 -20px;padding:12px 20px}
+  .hero h1{font-size:34px}
+  .hero p{font-size:18px}
+  .lead{font-size:19px}
+  .form{padding:20px}
+  .form .row{grid-template-columns:1fr}
+  .brand img{height:48px}
+}
