@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BAM! Brood, brunch &amp; borrel in Tilburg</title>
+<meta name="description" content="BAM! aan de Frederikstraat in Tilburg: goede koffie, homemade taarten, ontbijt, brunch, lunch en borrelplanken. Gewoon binnenlopen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%235d9ca2'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-weight='bold' font-style='italic' font-size='26' text-anchor='middle' fill='%23f6b9a0'%3EB!%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall:#e9a68f;     /* de roze muur binnen */
+  --wall-soft:#f6d5c8;
+  --paper:#fbeee7;
+  --teal:#5d9ca2;     /* logo-cirkel */
+  --teal-dk:#3f7378;
+  --plum:#4d3340;     /* logo-letters */
+  --gold:#b48a45;     /* vergulde lijsten */
+  --ink:#2e2228;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{margin:0;font-family:Barlow,system-ui,sans-serif;font-size:17.5px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0 0 .45em;line-height:1.1}
+h2{font-family:Shrikhand,Georgia,serif;font-weight:400;font-size:clamp(2.1rem,4.6vw,3.4rem);color:var(--plum)}
+h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.35rem;letter-spacing:.01em}
+p{margin:0 0 1em}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.8em 1.4em;border-radius:999px;font:600 1.05rem "Barlow Condensed",sans-serif;letter-spacing:.02em;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-dk)}
+.btn-plum{background:var(--plum);color:var(--wall-soft)}
+.btn-ghost{border-color:var(--plum);color:var(--plum)}
+.btn-ghost:hover{background:var(--plum);color:var(--wall-soft)}
+:focus-visible{outline:3px solid var(--teal-dk);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;background:var(--plum);color:var(--wall-soft)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:.6em;text-decoration:none}
+.brand img{width:44px;height:44px}
+.brand span{font:600 1.05rem "Barlow Condensed",sans-serif;letter-spacing:.04em}
+.nav{display:flex;gap:1.6em;align-items:center}
+.nav a{text-decoration:none;font:600 1.08rem "Barlow Condensed",sans-serif;letter-spacing:.03em}
+.nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.nav .btn{padding:.5em 1.1em}
+.menu-btn{display:none;background:none;border:0;color:var(--wall-soft);width:44px;height:44px;padding:10px;cursor:pointer}
+.menu-btn span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .nav{position:fixed;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--plum);padding:8px 20px 24px;transform:translateY(-120%);visibility:hidden;transition:transform .3s ease}
+  .nav.open{transform:none;visibility:visible}
+  .nav a{padding:.75em 0;width:100%;border-bottom:1px solid rgba(246,213,200,.15);font-size:1.25rem}
+  .nav .btn{margin-top:16px;width:auto;border:0}
+  .menu-btn[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .menu-btn[aria-expanded=true] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+
+/* hero: de schilderijenmuur */
+.hero{background:var(--wall);padding:110px 0 80px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:var(--teal-dk);opacity:.9}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.word{font-family:Shrikhand,Georgia,serif;font-size:clamp(5rem,13vw,10rem);line-height:.9;color:#bfe0e0;-webkit-text-stroke:3px var(--plum);text-shadow:6px 6px 0 var(--plum);margin:0 0 .15em;transform:rotate(-4deg);transform-origin:left bottom;animation:pop .5s cubic-bezier(.2,1.4,.5,1) both}
+@keyframes pop{from{opacity:0;transform:rotate(-4deg) scale(.92)}to{opacity:1;transform:rotate(-4deg)}}
+.tag{font:700 clamp(1.3rem,2.4vw,1.7rem) "Barlow Condensed",sans-serif;color:var(--plum);letter-spacing:.03em;margin:0 0 .4em}
+.hero .lead{font-size:1.15rem;max-width:36ch;color:#3e2a32}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px}
+.walkin{display:inline-flex;gap:.5em;align-items:center;font-weight:600;color:var(--plum);background:rgba(251,238,231,.6);padding:.45em .9em;border-radius:999px;font-size:.98rem}
+.walkin i{width:9px;height:9px;border-radius:50%;background:var(--teal-dk)}
+
+.frames{position:relative;height:520px;margin-top:40px}
+.frame{position:absolute;background:var(--gold);padding:12px;box-shadow:0 0 0 3px #7d5c2a inset,0 0 0 2px #e2c78f inset,0 22px 40px -18px rgba(46,34,40,.6);border-radius:3px}
+.frame img{width:100%;height:100%;object-fit:cover;box-shadow:0 0 0 2px #6b4e22}
+.frame.f1{left:4%;top:0;width:62%;height:68%}
+.frame.f2{right:0;top:14%;width:36%;height:44%}
+.frame.f3{left:30%;bottom:0;width:50%;height:36%;}
+.frame.f1::before,.frame.f2::before{content:"";position:absolute;left:50%;top:-34px;width:2px;height:34px;background:#5b4430}
+
+/* over */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.about .pic{border-radius:18px;overflow:hidden;aspect-ratio:4/3}
+.about .pic img{width:100%;height:100%;object-fit:cover}
+.trio{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+.trio li{font:700 1.15rem "Barlow Condensed",sans-serif;background:var(--wall-soft);color:var(--plum);padding:.35em .9em;border-radius:999px}
+section{padding:96px 0}
+
+/* menu */
+.menu{background:var(--teal-dk);color:#f3ece6}
+.menu h2{color:#fff}
+.menu-intro{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:end}
+.menu-intro p{max-width:50ch;opacity:.9}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 24px}
+.tab{font:700 1.1rem "Barlow Condensed",sans-serif;letter-spacing:.03em;background:transparent;color:#f3ece6;border:2px solid rgba(243,236,230,.45);border-radius:999px;padding:.45em 1.15em;cursor:pointer}
+.tab[aria-selected=true]{background:var(--wall);border-color:var(--wall);color:var(--plum)}
+.panel[hidden]{display:none}
+.card{background:var(--paper);color:var(--ink);border-radius:6px;padding:36px 40px;box-shadow:0 0 0 10px var(--gold),0 0 0 13px #7d5c2a,0 30px 50px -20px rgba(0,0,0,.5);margin:13px}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:4px 54px}
+.item{padding:14px 0;border-bottom:1px dashed #d9b9aa}
+.item .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.item h3{margin:0;color:var(--plum);font-size:1.3rem}
+.item .p{font:700 1.2rem "Barlow Condensed",sans-serif;color:var(--teal-dk);white-space:nowrap}
+.item p{margin:.15em 0 0;font-size:.98rem}
+.item .en{display:block;font-style:italic;font-size:.88rem;color:#7b6670;margin-top:.15em}
+.item .x{display:inline-block;margin-top:.35em;font:600 .92rem "Barlow Condensed",sans-serif;color:var(--plum);background:var(--wall-soft);padding:.1em .55em;border-radius:4px}
+.drinks{display:grid;grid-template-columns:1fr 1fr;gap:4px 54px}
+.menu-foot{margin-top:28px;font-size:.98rem;opacity:.9}
+
+/* reserveren */
+.res{background:var(--wall-soft)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.rules{list-style:none;padding:0;margin:0 0 26px}
+.rules li{padding:.75em 0 .75em 2.1em;position:relative;border-bottom:1px solid #e7b9a6}
+.rules li::before{content:"!";position:absolute;left:0;top:.7em;width:1.4em;height:1.4em;border-radius:50%;background:var(--teal);color:#fff;font:400 .9rem Shrikhand,serif;display:grid;place-items:center}
+form{background:#fff;border-radius:16px;padding:30px;display:grid;gap:14px;border:1px solid #efcfc1}
+label{font:600 1rem "Barlow Condensed",sans-serif;letter-spacing:.02em;color:var(--plum);display:grid;gap:5px}
+input,textarea{font:inherit;padding:.7em .85em;border:1.5px solid #e3c2b4;border-radius:8px;background:var(--paper);width:100%}
+textarea{min-height:110px;resize:vertical}
+.check{display:flex;gap:.6em;align-items:center;font:400 .95rem Barlow,sans-serif;color:var(--ink)}
+.check input{width:auto}
+.formmsg{display:none;background:var(--teal);color:#fff;padding:.8em 1em;border-radius:8px;font-weight:500}
+.formmsg.show{display:block}
+
+/* galerij */
+.gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.gallery .tall{grid-row:span 2}
+
+/* bezoek */
+.visit{background:var(--plum);color:var(--wall-soft)}
+.visit h2{color:#fff}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:44px;margin-top:26px}
+.hours{list-style:none;padding:0;margin:0}
+.hours li{display:flex;justify-content:space-between;padding:.55em 0;border-bottom:1px solid rgba(246,213,200,.18)}
+.hours li.today{color:#fff;font-weight:600}
+.visit a{color:#fff}
+.map{border-radius:14px;overflow:hidden;min-height:300px;background:#3b2731}
+.map iframe{width:100%;height:100%;min-height:300px;border:0;display:block}
+.ig{display:inline-flex;gap:.5em;align-items:center;margin-top:8px;text-decoration:none;font-weight:600}
+.ig svg{width:22px;height:22px}
+
+footer{background:#3a2530;color:#d9bfc6;padding:36px 0 90px;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+footer img{width:64px;height:64px}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:var(--plum);color:#fff;font-size:.82rem;padding:.5em 1.1em;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.28);white-space:nowrap}
+
+@media (max-width:900px){
+  section{padding:66px 0}
+  .hero{padding:92px 0 60px}
+  .hero::after{height:44px}
+  .hero-grid,.about,.res-grid,.visit-grid{grid-template-columns:1fr;gap:34px}
+  .frames{height:330px}
+  .items,.drinks{grid-template-columns:1fr}
+  .card{padding:22px 20px;margin:11px 11px 13px}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}
+  .gallery .tall{grid-row:span 2}
+}
+@media (max-width:420px){
+  body{font-size:16.5px}
+  .word{-webkit-text-stroke:2px var(--plum);text-shadow:4px 4px 0 var(--plum)}
+  .frames{height:290px}
+  .frame{padding:8px}
+  .ribbon{font-size:.74rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="BAM!, naar boven"><img src="img/logo.svg" alt="" width="44" height="44"><span>Brood-Brunch-Borrel</span></a>
+    <button class="menu-btn" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#over">Wat is BAM!</a>
+      <a href="#menu">Menu</a>
+      <a href="#reserveren">Reserveren</a>
+      <a href="#bezoek">Openingstijden</a>
+      <a class="btn btn-teal" href="tel:+31627477109">06-27477109</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Welkom bij BAM!">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="word" aria-label="BAM!">BAM!</h1>
+        <p class="tag">Brood, brunch &amp; borrel in Tilburg</p>
+        <p class="lead">Goede koffie met homemade taarten, ontbijt, brunch en lunch. En vergeet onze fantastische borrelplanken niet!</p>
+        <div class="ctas">
+          <a class="btn btn-plum" href="#menu">Bekijk het menu</a>
+          <a class="btn btn-ghost" href="#bezoek">Frederikstraat 55</a>
+        </div>
+        <span class="walkin"><i></i><span id="openNow">Gewoon binnenlopen, reserveren hoeft niet</span></span>
+      </div>
+      <div class="frames" aria-hidden="false">
+        <div class="frame f1"><img src="img/BAM-4.jpg" alt="De gevel van BAM! aan de Frederikstraat met het grote BAM!-raam"></div>
+        <div class="frame f2"><img src="img/BAM-22.jpg" alt="De roze muur vol oude schilderijen bij BAM!"></div>
+        <div class="frame f3"><img src="img/BAM-72.jpg" alt="Ontbijtplank met croissant, brood, eitjes en yoghurt"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="over" aria-labelledby="overtitel">
+    <div class="wrap about">
+      <div class="pic"><img src="img/BAM-18.jpg" alt="Interieur van BAM! met roze muren, schilderijen en tafeltjes" loading="lazy"></div>
+      <div>
+        <h2 id="overtitel">Wat is BAM!</h2>
+        <p>Bij BAM! houden we van lekker eten. Jij ook? Gezellig!</p>
+        <p>We hebben goede koffie met homemade taarten en andere lekkernijen. We serveren ontbijt, brunch en lunchgerechten. En vergeet onze fantastische borrelplanken niet!</p>
+        <p>BAM! is een plek waar je lekker jezelf kan zijn. Dat doen wij ook.</p>
+        <ul class="trio"><li>Brood</li><li>Brunch</li><li>Borrel</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="menutitel">
+    <div class="wrap">
+      <div class="menu-intro">
+        <h2 id="menutitel">De kaart</h2>
+        <p>Van wentelteefjes en Turkish eggs tot clubs, chicken &amp; waffles en de BAM!-deelplank. Alle prijzen in euro's.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menukaart">
+        <button class="tab" role="tab" id="t-ontbijt" aria-controls="p-ontbijt" aria-selected="true">Ontbijt &amp; brunch</button>
+        <button class="tab" role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="false" tabindex="-1">Lunch</button>
+        <button class="tab" role="tab" id="t-boozy" aria-controls="p-boozy" aria-selected="false" tabindex="-1">Boozy brunch</button>
+        <button class="tab" role="tab" id="t-extra" aria-controls="p-extra" aria-selected="false" tabindex="-1">Extra honger?</button>
+      </div>
+
+      <div class="panel card" id="p-ontbijt" role="tabpanel" aria-labelledby="t-ontbijt">
+        <div class="items">
+          <div class="item"><div class="row"><h3>Wentelteefjes pindakaas banaan</h3><span class="p">14,5</span></div><p>Pindakaas, banaan, kokos, siroop</p><span class="en">French toast with peanut butter, banana, coconut, syrup</span><span class="x">Extra bacon +2</span></div>
+          <div class="item"><div class="row"><h3>Chicken &amp; waffles</h3><span class="p">14</span></div><p>Krokante kip, siroop, pittige mayonaise en rode koolsla</p><span class="en">Fried chicken with maple syrup, spicy mayo and red cabbage slaw</span></div>
+          <div class="item"><div class="row"><h3>Wentelteefjes appel kaneel &amp; kardemom</h3><span class="p">14,5</span></div><p>Kaneelkardemomsuiker, warme appel en siroop</p><span class="en">French toast with cinnamon sugar, warm apples &amp; syrup</span></div>
+          <div class="item"><div class="row"><h3>Avocado-toast BAM!</h3><span class="p">16</span></div><p>Smashed avocado op brioche met een gepocheerd eitje, gerookte zalm, wasabimayo &amp; sesam</p><span class="en">Smashed avocado on brioche with a poached egg, smoked salmon, wasabi mayo, sesame seeds</span></div>
+          <div class="item"><div class="row"><h3>Wentelteefjes eggs &amp; bacon</h3><span class="p">15</span></div><p>Scrambled eggs, bacon, siroop, bieslook</p><span class="en">French toast with scrambled eggs, bacon, syrup, chives</span></div>
+          <div class="item"><div class="row"><h3>Avocado-toast lekker simpel</h3><span class="p">13,5</span></div><p>Smashed avocado op toast met scrambled eggs &amp; chilivlokken</p><span class="en">Smashed avocado on toast with scrambled eggs &amp; chilli flakes</span><span class="x">Lekker met zalm +3,5 of bacon +2,5</span></div>
+          <div class="item"><div class="row"><h3>Turkish eggs</h3><span class="p">14</span></div><p>3 gebakken eitjes, spinazie, tomaat, lekker veel kruiden, yoghurt, brood om te dippen</p><span class="en">3 fried eggs, spinach, tomato, lots of herbs, yogurt, bread for dipping</span><span class="x">Extra zalm +3,5</span></div>
+          <div class="item"><div class="row"><h3>Ik kan niet kiezen ontbijtje</h3><span class="p">18,5</span></div><p>Wentelteefje appel kaneel, toast met avocado en een gepocheerd eitje &amp; mini yoghurtje</p><span class="en">French toast with warm apple, avocado toast with poached egg, mini yogurt bowl</span><span class="x">Extra zalm +3,5, extra bacon +2,5</span></div>
+          <div class="item"><div class="row"><h3>Yoghurt stoofpeer en noten granola</h3><span class="p">12,5</span></div><p>Yoghurt &amp; stoofpeer met honing en huisgemaakte notengranola</p><span class="en">Yogurt &amp; poached pear with honey and homemade nut granola</span></div>
+        </div>
+      </div>
+
+      <div class="panel card" id="p-lunch" role="tabpanel" aria-labelledby="t-lunch" hidden>
+        <div class="items">
+          <div class="item"><div class="row"><h3>Club BAM!</h3><span class="p">16</span></div><p>Sandwich met kip, avocado, bacon, sla, komkommer, tomaat, zure ui, mayo. Met chips erbij.</p><span class="en">Sandwich with chicken, avocado, bacon, lettuce, cucumber, pickled onion, tomato and mayo, crisps on the side</span><span class="x">Vegan optie +0,5 · friet i.p.v. chips +2</span></div>
+          <div class="item"><div class="row"><h3>Chicken &amp; waffles</h3><span class="p">14</span></div><p>Krokante kip, siroop, pittige mayonaise en rode kool</p><span class="en">Fried chicken with maple syrup, spicy mayo and red cabbage slaw</span><span class="x">Frietjes erbij? +2,5</span></div>
+          <div class="item"><div class="row"><h3>Club Blub</h3><span class="p">16,5</span></div><p>Sandwich zalm, avocado, roomkaas, sla, komkommer, tomaat, zure ui en wasabimayo. Met chips erbij.</p><span class="en">Sandwich with salmon, avocado, cream cheese, lettuce, cucumber, tomato and wasabi mayo, crisps on the side</span><span class="x">Friet i.p.v. chips +2</span></div>
+          <div class="item"><div class="row"><h3>Broodje beef</h3><span class="p">14,5</span></div><p>Broodje, langzaam gegaarde dun gesneden entrecôte (medium rare en koud), truffelmayo, rucola en pistache</p><span class="en">Sandwich with slowly cooked, thinly sliced sirloin steak (medium rare and cold), truffle mayonnaise, lettuce and pistachio</span></div>
+          <div class="item"><div class="row"><h3>Pita kip</h3><span class="p">14,5</span></div><p>Flatbread met gekruide kip, sla, komkommer, frietjes en BAM!-saus</p><span class="en">Flatbread with chicken, lettuce, cucumber, fries and BAM! sauce</span><span class="x">Vegan optie +0,5</span></div>
+          <div class="item"><div class="row"><h3>Spicy fried chicken &amp; avo toast</h3><span class="p">15,5</span></div><p>Toast met echt spicy fried chicken, mango salsa, BAM-saus, avocado, sla &amp; zure ui</p><span class="en">Toast with spicy fried chicken, mango salsa, BAM! mayo, avocado, lettuce &amp; pickled onion</span><span class="x">Frietjes erbij? +2,5</span></div>
+          <div class="item"><div class="row"><h3>Brood met kroketten</h3><span class="p">13</span></div><p>Brood met 2 kroketten, sla &amp; mosterdmayo. Kies vleeskroket of oesterzwamkroket.</p><span class="en">Bread with 2 croquettes, lettuce &amp; mustard mayo: meat or oyster mushroom croquette</span></div>
+          <div class="item"><div class="row"><h3>Focaccia burrata tomaat parmaham</h3><span class="p">16</span></div><p>Focaccia, burrata, gemarineerde tomaat, rucola, parmaham en kruidenolie</p><span class="en">Focaccia, burrata, marinated tomato, rocket, parma ham, herb oil</span></div>
+          <div class="item"><div class="row"><h3>Toast burrata stoofpeer &amp; parmaham</h3><span class="p">16,5</span></div><p>Toast met burrata, stoofpeer, parmaham, hot honey, hazelnoot, pistache en sla</p><span class="en">Toast with burrata, poached pear, parma ham, hot honey, hazelnut, pistachio and lettuce</span></div>
+          <div class="item"><div class="row"><h3>Warme brie &amp; stoofpeer</h3><span class="p">15</span></div><p>Flatbread met warme brie, stoofpeer, hot honey, hazelnoot en sla</p><span class="en">Flatbread with brie, poached pear, hot honey, hazelnut and lettuce</span></div>
+          <div class="item"><div class="row"><h3>Ik kan niet kiezen.. BAM!-deelplank</h3><span class="p">19,5 p.p.</span></div><p>Mini broodje beef, mini clubje BAM, mini chicken &amp; waffle + frietjes. Vanaf 2 personen.</p><span class="en">Mini beef sandwich, mini Club BAM, mini chicken &amp; waffle + fries (from 2 persons)</span></div>
+        </div>
+      </div>
+
+      <div class="panel card" id="p-boozy" role="tabpanel" aria-labelledby="t-boozy" hidden>
+        <div class="drinks">
+          <div class="item"><div class="row"><h3>Mimosa</h3><span class="p">7,5 · karaf 30</span></div></div>
+          <div class="item"><div class="row"><h3>Peer-tijm mimosa</h3><span class="p">7,5 · karaf 30</span></div></div>
+          <div class="item"><div class="row"><h3>Peach bellini</h3><span class="p">7,5</span></div></div>
+          <div class="item"><div class="row"><h3>Prosecco</h3><span class="p">7</span></div></div>
+          <div class="item"><div class="row"><h3>Boozy BAM juice</h3><span class="p">9,5</span></div><p>Verse mango/passievrucht met rum en kokosmelk</p></div>
+          <div class="item"><div class="row"><h3>BAM spritz</h3><span class="p">9</span></div><p>Grapefruitlikeur, rozemarijn, prosecco</p></div>
+          <div class="item"><div class="row"><h3>Passie spritz</h3><span class="p">9</span></div><p>Passievrucht, munt, prosecco</p></div>
+          <div class="item"><div class="row"><h3>Aperol spritz</h3><span class="p">8</span></div></div>
+        </div>
+      </div>
+
+      <div class="panel card" id="p-extra" role="tabpanel" aria-labelledby="t-extra" hidden>
+        <div class="drinks">
+          <div class="item"><div class="row"><h3>Frietjes rozemarijnzout + mayo</h3><span class="p">6,5</span></div><span class="en">Rosemary fries + mayo</span></div>
+          <div class="item"><div class="row"><h3>Zoete-aardappelfrietjes + truffelmayo</h3><span class="p">7,5</span></div><span class="en">Sweet potato fries + truffle mayo</span></div>
+        </div>
+      </div>
+
+      <p class="menu-foot">Koffie, homemade taarten en de borrelplanken vind je op de kaart in de zaak.</p>
+    </div>
+  </section>
+
+  <section class="res" id="reserveren" aria-labelledby="restitel">
+    <div class="wrap res-grid">
+      <div>
+        <h2 id="restitel">Reserveren? Hoeft niet!</h2>
+        <p>Je mag gewoon binnenkomen lopen, er is meestal wel een plekje vrij. Wil je zeker zijn van je plek, of kom je met een grote groep?</p>
+        <ul class="rules">
+          <li>Maandag t/m vrijdag, en in het weekend tot 12:00, reserveer je door te bellen of appen naar 06-27477109.</li>
+          <li>Zaterdag en zondag nemen we alleen reserveringen aan voor de ochtend, tot 12:00. Daarna zijn alle tafels beschikbaar voor spontane bezoekjes.</li>
+          <li>Helemaal vol? Even wachten kan altijd, meestal komt er snel een tafel vrij.</li>
+        </ul>
+        <div class="ctas">
+          <a class="btn btn-teal" href="tel:+31627477109">Bel 06-27477109</a>
+          <a class="btn btn-ghost" href="https://wa.me/31627477109" target="_blank" rel="noopener">App ons</a>
+        </div>
+        <p>Tot snel, bij BAM!</p>
+      </div>
+      <form id="form" novalidate>
+        <h3 style="color:var(--plum);font-size:1.6rem;margin:0">Reserveren of een vraag?</h3>
+        <label>Naam<input name="naam" autocomplete="name" required></label>
+        <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+        <label>Bericht<textarea name="bericht" required></textarea></label>
+        <label class="check"><input type="checkbox" name="nieuws"> Ja, ik ontvang graag nieuws over aanbiedingen</label>
+        <button class="btn btn-plum" type="submit">Verstuur bericht</button>
+        <p class="formmsg" id="formmsg" role="status">Dit is een voorbeeld: het formulier verstuurt nog niets. Mail ons op reserveren@bamtilburg.nl.</p>
+      </form>
+    </div>
+  </section>
+
+  <section aria-label="Foto's van BAM!">
+    <div class="wrap gallery">
+      <img class="tall" src="img/BAM-22.jpg" alt="Muur met oude schilderijen in vergulde lijsten" loading="lazy">
+      <img src="img/BAM-33.jpg" alt="Tafeltje bij BAM! met een drankje" loading="lazy">
+      <img src="img/BAM-47.jpg" alt="De koffiebar met espressomachine" loading="lazy">
+      <img src="img/BAM-72.jpg" alt="Ontbijtplank bij BAM!" loading="lazy">
+      <img src="img/BAM-18.jpg" alt="Het interieur met roze muren" loading="lazy">
+    </div>
+  </section>
+
+  <section class="visit" id="bezoek" aria-labelledby="bezoektitel">
+    <div class="wrap">
+      <h2 id="bezoektitel">Kom langs</h2>
+      <div class="visit-grid">
+        <div>
+          <h3>Openingstijden</h3>
+          <ul class="hours" id="hours">
+            <li data-d="1"><span>Maandag</span><span>11:00 – 16:30</span></li>
+            <li data-d="2"><span>Dinsdag</span><span>10:00 – 16:30</span></li>
+            <li data-d="3"><span>Woensdag</span><span>10:00 – 16:30</span></li>
+            <li data-d="4"><span>Donderdag</span><span>10:00 – 16:30</span></li>
+            <li data-d="5"><span>Vrijdag</span><span>10:00 – 16:30</span></li>
+            <li data-d="6"><span>Zaterdag</span><span>10:00 – 17:00</span></li>
+            <li data-d="0"><span>Zondag</span><span>10:00 – 17:00</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>BAM! Brood-Brunch-Borrel</h3>
+          <p>Frederikstraat 55<br>5038 AZ Tilburg</p>
+          <p><a href="tel:+31627477109">06-27477109</a> (bellen of appen)<br><a href="mailto:reserveren@bamtilburg.nl">reserveren@bamtilburg.nl</a></p>
+          <a class="ig" href="https://instagram.com/bamtilburg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@bamtilburg</a>
+        </div>
+        <div class="map"><iframe title="Kaart: Frederikstraat 55, Tilburg" loading="lazy" src="https://maps.google.com/maps?q=Frederikstraat%2055%2C%205038%20AZ%20Tilburg&amp;z=15&amp;output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.svg" alt="BAM! Brood-Brunch-Borrel" loading="lazy" width="64" height="64">
+    <span>BAM! Brood-Brunch-Borrel, Frederikstraat 55, 5038 AZ Tilburg</span>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20BAM!%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t)});
+    t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(n){var k=tabs[(i+n+tabs.length)%tabs.length];sel(k);k.focus();}});
+  });
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formmsg').classList.add('show');});
+
+  var H={0:[600,1020],1:[660,990],2:[600,990],3:[600,990],4:[600,990],5:[600,990],6:[600,1020]};
+  var d=new Date(),day=d.getDay(),m=d.getHours()*60+d.getMinutes(),h=H[day];
+  var li=document.querySelector('#hours li[data-d="'+day+'"]');if(li)li.classList.add('today');
+  var close=(day===0||day===6)?'17:00':'16:30';
+  if(m>=h[0]&&m<h[1])document.getElementById('openNow').textContent='Nu open tot '+close+', gewoon binnenlopen';
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

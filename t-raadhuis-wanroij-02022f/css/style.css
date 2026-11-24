@@ -1,0 +1,228 @@
+:root{
+  --bordeaux:#7a1626;
+  --bordeaux-d:#5c0f1c;
+  --bruin:#3b2a1d;
+  --bruin-d:#2a1d13;
+  --oker:#c9b57a;
+  --oker-l:#e8dcb6;
+  --perkament:#f3ead3;
+  --ink:#2b2017;
+  --friet:#d9543f;
+  --serif:'Fraunces',Georgia,serif;
+  --body:'Lora',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--perkament);color:var(--ink);font:400 1.0625rem/1.7 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--bordeaux)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--oker);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0 0 .5em;color:var(--bruin)}
+h2{font-size:clamp(2rem,4.2vw,3rem);letter-spacing:-.01em}
+h3{font-size:1.35rem}
+p{margin:0 0 1em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.small{font-size:.92rem;opacity:.85}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 28px;background:var(--perkament);border-bottom:1px solid rgba(59,42,29,.14)}
+.brand img{height:52px;width:auto;mix-blend-mode:multiply}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-family:var(--serif);font-weight:500;color:var(--bruin);text-decoration:none;font-size:1.02rem}
+.nav a:hover{color:var(--bordeaux)}
+.menu-toggle{display:none;background:none;border:0;width:46px;height:46px;padding:11px;cursor:pointer}
+.menu-toggle span{display:block;height:2px;background:var(--bruin);margin:5px 0;transition:transform .25s,opacity .2s}
+.menu-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-block;font-family:var(--serif);font-weight:600;font-size:1.05rem;text-decoration:none;padding:.8em 1.4em;border-radius:3px;background:var(--bordeaux);color:#fbf3e2;border:2px solid var(--bordeaux);transition:background .2s,color .2s}
+.btn:hover{background:var(--bordeaux-d);border-color:var(--bordeaux-d)}
+.nav .btn-small{padding:.5em 1em;font-size:.98rem;color:#fbf3e2}
+.nav .btn-small:hover{color:#fff}
+.btn-ghost{background:transparent;border-color:rgba(243,234,211,.6);color:var(--perkament)}
+.btn-ghost:hover{background:rgba(243,234,211,.12);border-color:var(--perkament)}
+.btn-ghost-dark{background:transparent;color:var(--bruin);border-color:var(--bruin)}
+.btn-ghost-dark:hover{background:var(--bruin);color:var(--perkament);border-color:var(--bruin)}
+.btn-light{background:var(--oker);border-color:var(--oker);color:var(--bruin-d)}
+.btn-light:hover{background:var(--oker-l);border-color:var(--oker-l)}
+.btn-friet{background:var(--friet);border-color:var(--friet)}
+.btn-friet:hover{background:#b8412f;border-color:#b8412f}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);min-height:100vh;padding-top:73px;background:var(--bruin-d);color:var(--perkament)}
+.hero-photo{position:relative;order:2;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:45% 50%;animation:settle 1.6s ease-out both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:scale(1)}}
+.hero-text{order:1;display:flex;flex-direction:column;justify-content:center;padding:56px clamp(28px,5vw,80px);background:linear-gradient(180deg,var(--bordeaux) 0%,#4a0e18 100%);position:relative}
+.hero-text::after{content:"";position:absolute;left:clamp(28px,5vw,80px);right:clamp(28px,5vw,80px);bottom:40px;height:1px;background:rgba(201,181,122,.45)}
+.hero-sub{font-family:var(--serif);font-size:1.05rem;color:var(--oker);margin-bottom:1.1em}
+.hero h1{color:#fbf3e2;font-size:clamp(2.4rem,4.6vw,4.1rem);font-weight:600;letter-spacing:-.015em;margin-bottom:.45em;max-width:13ch}
+.hero-lead{font-size:1.12rem;max-width:34em;color:rgba(251,243,226,.9)}
+.hero-today{margin:34px 0 0;font-size:.95rem;color:var(--oker)}
+
+/* welkom */
+.welkom{padding:110px 0 80px}
+.welkom-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start}
+.welkom .intro{font-size:1.25rem;line-height:1.6;color:var(--bruin)}
+.welkom h3{margin-top:1.6em;color:var(--bordeaux)}
+.welkom-copy p{max-width:36em}
+.welkom-photo{margin:0 0 -50px 0;border-radius:3px;overflow:hidden}
+.welkom-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.note{position:relative;margin:0 0 0 36px;background:var(--bruin);color:var(--oker-l);padding:30px 32px;border-radius:3px}
+.note h3{color:var(--oker);margin-top:0}
+.note p{margin:0}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:90px;padding-top:40px;border-top:2px solid var(--bruin)}
+.trio h3{font-size:1.2rem;color:var(--bordeaux)}
+.trio p{font-size:1rem;margin:0}
+
+/* tijden */
+.tijden{background:var(--oker);padding:80px 0}
+.tijden-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.tijden p{max-width:30em}
+.hours{width:100%;border-collapse:collapse;background:var(--perkament);border-radius:3px;overflow:hidden;font-size:1rem}
+.hours th,.hours td{text-align:left;padding:12px 18px;border-bottom:1px solid rgba(59,42,29,.12)}
+.hours thead th{font-family:var(--serif);background:var(--bruin);color:var(--oker-l);font-weight:600}
+.hours tbody th{font-family:var(--serif);font-weight:600;color:var(--bruin)}
+.hours tr.today{background:#fff8e6}
+.hours tr.today th{color:var(--bordeaux)}
+.hours tr.today th::after{content:"vandaag";margin-left:10px;font-family:var(--body);font-size:.78rem;font-weight:400;color:#fff;background:var(--bordeaux);padding:2px 8px;border-radius:20px;vertical-align:2px}
+
+/* menu */
+.menu{background:var(--bruin);color:var(--oker-l);padding:100px 0 90px}
+.menu h2{color:var(--perkament)}
+.menu-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:end;margin-bottom:40px}
+.menu-head p{margin:0;max-width:40em}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{font-family:var(--serif);font-size:1.12rem;font-weight:600;padding:.75em 1.4em;border:0;border-radius:3px 3px 0 0;background:rgba(232,220,182,.12);color:var(--oker-l);cursor:pointer}
+.tabs button:hover{background:rgba(232,220,182,.22)}
+.tabs button[aria-selected=true]{background:var(--oker);color:var(--bruin-d)}
+.card{background:var(--oker);color:var(--bruin-d);padding:44px clamp(20px,4vw,56px) 30px;border-radius:0 3px 3px 3px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.panel-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 20px;border-bottom:2px solid var(--bruin);padding-bottom:12px;margin-bottom:30px}
+.panel-top h3{font-size:clamp(1.8rem,3vw,2.4rem);margin:0;color:var(--bruin-d)}
+.panel-top .when{margin:0;font-style:italic}
+.cols{columns:2 340px;column-gap:60px}
+.group{break-inside:avoid;margin-bottom:34px}
+.group h4{font-size:1.3rem;color:var(--bordeaux);border-bottom:1px solid rgba(59,42,29,.3);padding-bottom:6px;margin:0 0 10px;display:flex;justify-content:space-between;gap:10px}
+.group dl+h4{margin-top:26px}
+.gp{font-family:var(--body);font-weight:600;font-size:1rem;color:var(--bruin-d);white-space:nowrap}
+.gnote{font-style:italic;font-size:.95rem;margin:2px 0 8px}
+.group dl+.gnote{margin-top:18px}
+dl{margin:0}
+.dish{display:grid;grid-template-columns:1fr auto;column-gap:16px;padding:7px 0}
+.dish dt{font-family:var(--serif);font-weight:600;font-size:1.05rem}
+.dish dd{margin:0}
+.dish .p{font-weight:600;white-space:nowrap;text-align:right}
+.dish .d{grid-column:1/-1;font-style:italic;font-size:.95rem;line-height:1.45;opacity:.88}
+.panel-photo{margin:20px 0 0;border-radius:3px;overflow:hidden}
+.panel-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.pdf{margin:6px 0 0;font-size:.95rem}
+.pdf a{color:var(--bruin-d)}
+.menu-foot{margin:22px 0 0;font-size:.95rem;color:var(--oker-l);opacity:.85}
+.panel:not([hidden]){animation:show .3s ease-out}
+@keyframes show{from{opacity:.3}to{opacity:1}}
+
+/* photo band */
+.photo-band{display:grid;grid-template-columns:1.2fr 1fr 1fr;height:340px;background:var(--bruin-d)}
+.photo-band img{width:100%;height:100%;object-fit:cover}
+
+/* reserveren */
+.reserveren{background:var(--bordeaux);color:#f6ead2;padding:90px 0}
+.reserveren h2{color:#fbf3e2}
+.res-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center}
+.res-grid p{max-width:34em}
+.res-box{border:1px solid rgba(201,181,122,.5);padding:36px;border-radius:3px;text-align:center}
+.res-box .or{margin:18px 0 6px;font-style:italic;color:var(--oker)}
+.tel{display:block;font-family:var(--serif);font-size:2rem;font-weight:600;color:#fbf3e2;text-decoration:none}
+.tel-small{font-size:1.2rem;margin-top:4px;color:var(--oker-l)}
+.tel:hover{text-decoration:underline}
+
+/* feesten */
+.feesten{padding:110px 0}
+.feest-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.feest-photo{margin:0;border-radius:3px;overflow:hidden}
+.feest-photo img{aspect-ratio:5/4;object-fit:cover;width:100%}
+.feest-range{font-family:var(--serif);font-size:1.4rem;color:var(--bordeaux);margin-bottom:.8em}
+.feest-range strong{font-size:2.6rem;font-weight:700}
+.feest-copy p{max-width:34em}
+
+/* friethuis */
+.friethuis{background:#fffaf0;padding:100px 0;border-top:1px solid rgba(59,42,29,.12)}
+.friet-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.friet-logo{width:190px;height:auto;margin:0 0 10px -8px}
+.friethuis h2{color:#2f2f2f}
+.friet-copy p{max-width:34em}
+.friet-copy .small{margin-top:20px}
+.friet-copy .small a{color:#b8412f}
+.friet-side{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:end}
+.friet-side figure{margin:0;border-radius:3px;overflow:hidden}
+.friet-side img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.friet-hours{background:var(--friet);color:#fff;padding:26px 24px;margin-left:-20px;margin-bottom:30px;border-radius:3px;position:relative}
+.friet-hours h3{color:#fff;margin-bottom:.3em}
+.friet-hours p{margin:0 0 .5em;font-size:.98rem}
+
+/* contact */
+.contact{background:var(--bruin-d);color:var(--oker-l);padding:90px 0}
+.contact h2{color:var(--perkament)}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:stretch}
+.contact address{font-style:normal;font-size:1.15rem;margin-bottom:20px}
+.contact address strong{font-family:var(--serif);color:var(--oker)}
+.contact a{color:var(--perkament)}
+.clist{list-style:none;padding:0;margin:0 0 20px;font-size:1.1rem}
+.clist li{padding:4px 0}
+.social{display:flex;gap:20px}
+.route{font-family:var(--serif);font-weight:600}
+.map{min-height:360px;border-radius:3px;overflow:hidden}
+.map iframe{width:100%;height:100%;min-height:360px;border:0;filter:sepia(.25)}
+
+.foot{background:var(--perkament);padding:34px 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot img{height:44px;width:auto;mix-blend-mode:multiply}
+.foot p{margin:0;font-size:.92rem}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--bruin-d);color:var(--oker-l);text-align:center;font:500 .8rem/1 var(--body);padding:9px 10px;letter-spacing:.02em}
+
+/* responsive */
+@media (max-width:980px){
+  .nav{position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--perkament);padding:8px 24px 24px;border-bottom:1px solid rgba(59,42,29,.15);transform:translateY(-130%);transition:transform .3s ease;z-index:40;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .nav.open{transform:none}
+  .nav a{padding:12px 0;width:100%;font-size:1.2rem;border-bottom:1px solid rgba(59,42,29,.1)}
+  .nav .btn-small{margin-top:16px;width:auto;border-bottom:2px solid var(--bordeaux);padding:.7em 1.3em}
+  .menu-toggle{display:block}
+  .top{padding:10px 16px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:1;height:30vh;min-height:220px}
+  .hero-text{order:2;padding:36px 24px 60px}
+  .hero-text::after{left:24px;right:24px;bottom:28px}
+  .welkom-grid,.tijden-grid,.res-grid,.feest-grid,.friet-grid,.contact-grid,.menu-head{grid-template-columns:1fr;gap:36px}
+  .trio{grid-template-columns:1fr;gap:28px}
+  .photo-band{grid-template-columns:1fr 1fr;height:220px}
+  .photo-band img:nth-child(3){display:none}
+}
+@media (max-width:600px){
+  body{font-size:1rem}
+  .wrap{padding:0 18px}
+  .brand img{height:44px}
+  .hero h1{font-size:2.05rem}
+  .hero-sub{font-size:.95rem;margin-bottom:.7em}
+  .hero-lead{font-size:1.02rem}
+  .hero-text{padding-top:26px}
+  .welkom,.feesten{padding:70px 0}
+  .menu,.friethuis,.reserveren,.contact,.tijden{padding:64px 0}
+  .note{margin-left:16px;padding:24px}
+  .hours th,.hours td{padding:10px 10px;font-size:.92rem}
+  .hours tr.today th::after{display:block;width:max-content;margin:4px 0 0}
+  .tabs{gap:4px}
+  .tabs button{flex:1 1 auto;padding:.65em .7em;font-size:1rem}
+  .card{padding:28px 18px 22px}
+  .cols{columns:1}
+  .res-box{padding:26px 18px}
+  .tel{font-size:1.7rem}
+  .friet-side{grid-template-columns:1fr}
+  .friet-side figure{max-height:260px}
+  .friet-side img{aspect-ratio:16/10}
+  .friet-hours{margin:-30px 16px 0}
+}

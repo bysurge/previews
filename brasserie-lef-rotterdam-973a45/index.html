@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brasserie LEF | Lunch, diner, borrel en zaalverhuur in Ommoord</title>
+<meta name="description" content="Brasserie LEF aan de Hesseplaats in Rotterdam-Ommoord. Elke dag geopend voor lunch, diner en borrel, met een grote privézaal voor vergaderingen en feesten.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2325302b'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-weight='900' font-size='24' fill='%23a9e4ef'%3ELEF%3C/text%3E%3Cpath d='M14 50 L50 46' stroke='%23f3cf62' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall:#25302b;      /* groengrijze muur */
+  --wall-deep:#1a221e;
+  --brick:#7b4733;
+  --wood:#b8875a;
+  --cream:#f3ecdf;
+  --paper:#faf6ee;
+  --ink:#1f2622;
+  --muted:#5d665f;
+  --neon-y:#f3cf62;    /* geel neon */
+  --neon-b:#a9e4ef;    /* ijsblauw neon */
+  --line:rgba(31,38,34,.14);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-optical-sizing:auto;font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.08;margin:0;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,5vw,3.3rem)}
+h3{font-size:1.3rem;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--neon-y);outline-offset:3px;border-radius:4px}
+
+/* knoppen */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.85em 1.4em;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;font-size:1rem;cursor:pointer;font-family:inherit;transition:background .2s,color .2s,border-color .2s}
+.btn-neon{background:var(--neon-y);color:var(--ink)}
+.btn-neon:hover{background:#ffe08a}
+.btn-line{border-color:rgba(243,236,223,.55);color:var(--cream);background:transparent}
+.btn-line:hover{border-color:var(--neon-b);color:var(--neon-b)}
+.btn-dark{background:var(--wall);color:var(--cream)}
+.btn-dark:hover{background:var(--brick)}
+
+/* header */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(26,34,30,.94);border-bottom:1px solid rgba(255,255,255,.06)}
+.head-in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{display:flex;flex-direction:column;line-height:.8;text-decoration:none;color:var(--cream)}
+.logo .s{font-family:'Caveat',cursive;font-size:1.15rem;color:var(--neon-y);text-shadow:0 0 8px rgba(243,207,98,.55);margin-left:2px}
+.logo .l{font-weight:800;font-size:1.75rem;letter-spacing:.02em;color:var(--neon-b);text-shadow:0 0 10px rgba(169,228,239,.55)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{color:var(--cream);text-decoration:none;font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--neon-y)}
+.nav .btn{padding:.6em 1.1em;font-size:.95rem;color:var(--ink)}
+.menu-toggle{display:none;background:none;border:1px solid rgba(243,236,223,.3);color:var(--cream);border-radius:10px;padding:9px 12px;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:880px){
+  .menu-toggle{display:inline-flex;align-items:center;gap:8px}
+  .nav{position:fixed;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--wall-deep);padding:8px 16px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.07);font-size:1.1rem}
+  .nav .btn{margin-top:14px;border-bottom:0;padding:.85em}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);background:var(--wall-deep);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 30%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,34,30,.35) 0%,rgba(26,34,30,.1) 30%,rgba(26,34,30,.78) 66%,rgba(26,34,30,.97) 100%)}
+.hero-in{position:relative;z-index:2;padding:120px 0 56px;width:min(1160px,100% - 32px);margin-inline:auto}
+.sign{display:inline-block;position:relative;margin:0 0 18px;padding-bottom:14px}
+.sign .s{display:block;font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:#fff4c9;text-shadow:0 0 6px rgba(243,207,98,.9),0 0 22px rgba(243,207,98,.6),0 0 44px rgba(243,207,98,.35);line-height:.9;margin-left:.1em}
+.sign .l{display:block;font-weight:800;font-size:clamp(5rem,17vw,10.5rem);line-height:.85;letter-spacing:.02em;color:#eafcff;text-shadow:0 0 6px rgba(169,228,239,.95),0 0 26px rgba(169,228,239,.65),0 0 60px rgba(120,210,230,.4)}
+.sign::after{content:"";position:absolute;left:18%;right:0;bottom:0;height:5px;border-radius:5px;background:#fff1bd;box-shadow:0 0 8px rgba(243,207,98,.95),0 0 24px rgba(243,207,98,.6);transform:rotate(-2.2deg)}
+@media (prefers-reduced-motion:no-preference){
+  .sign{animation:flick .55s ease-out 1 both}
+  @keyframes flick{0%{opacity:.55}20%{opacity:1}30%{opacity:.7}45%{opacity:1}55%{opacity:.85}100%{opacity:1}}
+}
+.hero .lead{font-size:clamp(1.1rem,2.4vw,1.35rem);max-width:34em;margin-bottom:26px;color:#f6f0e4}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:520px){
+  .hero-in{padding:100px 0 64px}
+  .hero .lead{font-size:1.05rem;margin-bottom:20px}
+  .hero .hero-actions{gap:10px}
+  .hero .hero-actions .btn{padding:.7em 1.1em;font-size:.95rem}
+  .hero .hero-actions .btn-neon{flex:1 1 100%}
+  .hero .hero-actions .btn-line{flex:1 1 0}
+  .today{margin-top:18px}
+}
+.today{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:.98rem;color:#e7e0d1}
+.today .dot{width:10px;height:10px;border-radius:50%;background:var(--neon-b);box-shadow:0 0 10px var(--neon-b)}
+
+/* openingsstrook */
+.strip{background:var(--wall);color:var(--cream);padding:22px 0}
+.strip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.strip li{text-align:center;padding:8px 4px;border-radius:10px;font-size:.92rem}
+.strip li b{display:block;font-weight:700;color:var(--neon-y)}
+.strip li.is-today{background:rgba(169,228,239,.12);outline:1px solid rgba(169,228,239,.45)}
+@media (max-width:720px){.strip ul{grid-template-columns:repeat(4,1fr)}.strip li{font-size:.85rem}}
+
+section{padding:clamp(64px,9vw,110px) 0}
+.intro{max-width:40em;margin-bottom:38px}
+.intro p{font-size:1.1rem;color:var(--muted)}
+.dark{background:var(--wall);color:var(--cream)}
+.dark .intro p{color:#cfd4cc}
+
+/* verhaal */
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,70px);align-items:center}
+.story-text p{color:#d9ddd5}
+.story-text .since{font-family:'Caveat',cursive;font-size:2rem;color:var(--neon-y);margin:0 0 6px;line-height:1}
+.story-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.story-photos img{border-radius:var(--radius);width:100%;height:100%;object-fit:cover}
+.story-photos .wide{grid-column:1/-1;aspect-ratio:16/9}
+.story-photos .sq{aspect-ratio:1}
+@media (max-width:880px){.story-grid{grid-template-columns:1fr}}
+
+/* menukaart */
+.menu{background:var(--cream)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.menu-head .intro{margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.tab{font:inherit;font-weight:700;font-size:1rem;padding:.65em 1.2em;border-radius:999px;border:2px solid var(--wall);background:transparent;color:var(--wall);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--wall);color:var(--cream)}
+.tab:hover{border-color:var(--brick)}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px}
+.panel[hidden]{display:none}
+.course{break-inside:avoid;margin-bottom:22px}
+.course h3{font-size:1.45rem;padding-bottom:10px;margin-bottom:6px;border-bottom:2px solid var(--wall);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.course h3 small{font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:0}
+.dish{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.dish:last-child{border-bottom:0}
+.dish .n{font-weight:700}
+.dish .p{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dish .d{grid-column:1/-1;color:var(--muted);font-size:.95rem;line-height:1.45}
+.dish .x{grid-column:1/-1;font-size:.92rem;color:var(--muted)}
+.dish .x span{display:flex;justify-content:space-between;gap:12px}
+.note{font-size:.95rem;color:var(--muted);margin-top:4px}
+.chalk{background:var(--wall);color:var(--cream);border-radius:var(--radius);padding:22px 24px;grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.chalk p{margin:0}
+.chalk .hand{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--neon-y);line-height:1.1}
+.drinks-list{columns:2;column-gap:24px;list-style:none;padding:0;margin:8px 0 0}
+.drinks-list li{padding:5px 0;break-inside:avoid;border-bottom:1px dashed var(--line)}
+.wine dt{font-weight:700;margin-top:10px;color:var(--brick)}
+.wine dd{margin:0;padding:3px 0}
+.beer-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.beer-tags span{border:1px solid var(--wall);border-radius:999px;padding:3px 11px;font-size:.9rem}
+.pdfs{display:flex;gap:10px;flex-wrap:wrap}
+.pdfs a{font-weight:700;font-size:.95rem;color:var(--wall);text-underline-offset:3px}
+.allergy{margin-top:26px;padding:14px 18px;border-left:4px solid var(--brick);background:var(--paper);border-radius:0 10px 10px 0;font-size:.98rem}
+@media (max-width:820px){.panel{grid-template-columns:1fr;gap:6px}.drinks-list{columns:1}}
+
+/* zaal */
+.zaal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:10px}
+.zaal-grid img{border-radius:var(--radius);width:100%;height:100%;object-fit:cover}
+.zaal-grid .a{grid-column:span 7;aspect-ratio:4/3}
+.zaal-grid .b{grid-column:span 5;aspect-ratio:auto}
+.zaal-grid .c{grid-column:span 4;aspect-ratio:4/3}
+.zaal-grid .d{grid-column:span 4;aspect-ratio:4/3}
+.zaal-grid .e{grid-column:span 4;aspect-ratio:4/3}
+.zaal-uses{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+.zaal-uses li{padding:7px 15px;border-radius:999px;background:rgba(243,236,223,.08);border:1px solid rgba(243,236,223,.2)}
+.zaal-top{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:end;margin-bottom:28px}
+@media (max-width:820px){.zaal-top{grid-template-columns:1fr}.zaal-grid .a,.zaal-grid .b{grid-column:1/-1;aspect-ratio:4/3}.zaal-grid .c,.zaal-grid .d,.zaal-grid .e{grid-column:span 6}.zaal-grid .e{grid-column:1/-1}}
+
+/* reserveren */
+.res-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.res-info p{color:var(--muted)}
+.closed{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-top:20px}
+.closed b{display:block;margin-bottom:4px;color:var(--brick)}
+form{background:#fff;border-radius:18px;padding:clamp(20px,3vw,30px);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.95rem}
+input,select,textarea{font:inherit;font-weight:400;padding:12px 13px;border-radius:10px;border:1.5px solid #cfd2ca;background:var(--paper);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--wall)}
+.full{grid-column:1/-1}
+.form-msg{grid-column:1/-1;margin:0;padding:12px 14px;border-radius:10px;background:#e7f4f6;color:#1d4a52;font-weight:500}
+@media (max-width:820px){.res-grid{grid-template-columns:1fr}}
+@media (max-width:480px){form{grid-template-columns:1fr}}
+
+/* werken */
+.work{background:var(--paper)}
+.work-card{display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;background:var(--wall);color:var(--cream)}
+.work-card img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.work-body{padding:clamp(26px,4vw,48px)}
+.work-body h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px}
+.work-body p{color:#d9ddd5}
+.work-body .tag{display:inline-block;font-family:'Caveat',cursive;font-size:1.6rem;color:var(--neon-y);margin-bottom:4px}
+@media (max-width:820px){.work-card{grid-template-columns:1fr}.work-card img{min-height:0;aspect-ratio:4/3}}
+
+/* contact */
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:stretch}
+.hours{width:100%;border-collapse:collapse;margin:8px 0 20px}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.is-today td{font-weight:700;color:var(--brick)}
+.contact-lines{list-style:none;padding:0;margin:0 0 22px}
+.contact-lines li{padding:4px 0}
+.contact-lines a{font-weight:700;text-underline-offset:3px}
+.map{border-radius:18px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#dcd6c8}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+@media (max-width:820px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--wall-deep);color:#c9cec6;padding:44px 0 90px;font-size:.95rem}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+footer .logo{margin-bottom:10px}
+footer a{color:#e8e2d4}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:var(--neon-y);color:var(--ink);font-size:.82rem;font-weight:700;padding:7px 14px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.25);white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="logo" href="#top" aria-label="Brasserie LEF, naar boven"><span class="s">Brasserie</span><span class="l">LEF</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#menukaart">Menukaart</a>
+      <a href="#over">Over LEF</a>
+      <a href="#zaalverhuur">Zaalverhuur</a>
+      <a href="#werken">Werken</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-neon" href="#reserveren">Reserveer een tafel</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <img src="img/zaal-neon.webp" alt="Het restaurant van Brasserie LEF met de neonletters aan de bakstenen muur en de krijtborden met speciaalbier" fetchpriority="high">
+    <div class="hero-in">
+      <h1 class="sign" aria-label="Brasserie LEF"><span class="s">Brasserie</span><span class="l">LEF</span></h1>
+      <p class="lead">Lunch, diner en borrel aan de Hesseplaats in Ommoord. Elke dag geopend, met een grote privézaal voor uw vergadering of feest.</p>
+      <div class="hero-actions">
+        <a class="btn btn-neon" href="#reserveren">Reserveer een tafel</a>
+        <a class="btn btn-line" href="#menukaart">Menukaart</a>
+        <a class="btn btn-line" href="tel:+31104201500">Bel 010-4201500</a>
+      </div>
+      <p class="today" id="today"><span class="dot"></span><span>Elke dag geopend</span></p>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Openingstijden">
+    <ul class="wrap" id="strip">
+      <li data-d="1"><b>ma</b>10 – 23</li>
+      <li data-d="2"><b>di</b>10 – 23</li>
+      <li data-d="3"><b>wo</b>09 – 23</li>
+      <li data-d="4"><b>do</b>10 – 23</li>
+      <li data-d="5"><b>vr</b>10 – 24</li>
+      <li data-d="6"><b>za</b>10 – 24</li>
+      <li data-d="0"><b>zo</b>12 – 23</li>
+    </ul>
+  </div>
+
+  <section class="menu" id="menukaart">
+    <div class="wrap">
+      <div class="menu-head">
+        <div class="intro">
+          <h2>Menukaart</h2>
+          <p>De kaart van dit seizoen: Rotterdamse klassiekers, LEF-burgers, saté en wisselende specials. Voor de borrel staat er een aparte kaart klaar.</p>
+        </div>
+        <div class="pdfs">
+          <a href="https://brasserie-lef.nl/wp-content/uploads/2026/10/menu-lunch-herfst-2026-1_compressed.pdf" target="_blank" rel="noopener">Lunchkaart (pdf)</a>
+          <a href="https://brasserie-lef.nl/wp-content/uploads/2026/10/menu-diner-herfst-2026-1_compressed.pdf" target="_blank" rel="noopener">Dinerkaart (pdf)</a>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Kaarten">
+        <button class="tab" role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch</button>
+        <button class="tab" role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Diner</button>
+        <button class="tab" role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrel</button>
+        <button class="tab" role="tab" id="t-toetjes" aria-controls="p-toetjes" aria-selected="false" tabindex="-1">Dessert &amp; kinderen</button>
+        <button class="tab" role="tab" id="t-dranken" aria-controls="p-dranken" aria-selected="false" tabindex="-1">Dranken</button>
+      </div>
+
+      <!-- LUNCH -->
+      <div class="panel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch">
+        <div>
+          <div class="course"><h3>Klassiekers</h3>
+            <div class="dish"><span class="n">12 uurtje</span><span class="p">12,75</span><span class="d">ham, kaas, kroket, spiegelei</span></div>
+            <div class="dish"><span class="n">Rotterdamse kroketten</span><span class="p">7,50 | 11</span><span class="d">1 of 2 stuks</span></div>
+            <div class="dish"><span class="n">Cas &amp; Kas vegan kroketten</span><span class="p">8,75 | 13</span><span class="d">1 of 2 stuks</span></div>
+            <div class="dish"><span class="n">Carpaccio</span><span class="p">14,75</span><span class="d">spekzout, pijnboompit, parmezaan, truffelmayonaise</span></div>
+            <div class="dish"><span class="n">Uitsmijter</span><span class="p">8,50</span>
+              <span class="x"><span><span>extra: ham / kaas / tomaat</span><span>+ 2</span></span><span><span>extra: spek / paddenstoelen / oude kaas</span><span>+ 3</span></span><span><span>extra: wildzwijnham</span><span>+ 5</span></span></span></div>
+            <div class="dish"><span class="n">Uitsmijter LEF</span><span class="p">15</span><span class="d">serranoham, truffelmayonaise, parmezaan</span></div>
+            <div class="dish"><span class="n">Saté van kippendijen</span><span class="p">20,50</span><span class="d">zoetzure rauwkost, cassave, pindasaus, keuze uit friet of brood</span></div>
+            <div class="dish"><span class="n">LEF burger | LEF burger XL</span><span class="p">22,75 | 27,75</span><span class="d">rund of crispy chicken, uiencompote, little gem, augurk, tomaat, bacon, cheddar, burgersaus, friet</span></div>
+          </div>
+          <div class="course"><h3>Tosti's</h3>
+            <div class="dish"><span class="n">Tosti</span><span class="p">9</span><span class="d">ham, kaas, spiegelei</span></div>
+            <div class="dish"><span class="n">Tosti LEF</span><span class="p">11</span><span class="d">oude kaas, bacon, vijgencompote</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="course"><h3>Specials</h3>
+            <div class="dish"><span class="n">Wildzwijnham</span><span class="p">15,75</span><span class="d">cranberry-mayonaise, gekarameliseerde ui</span></div>
+            <div class="dish"><span class="n">Philly cheesesteak</span><span class="p">17,75</span><span class="d">Aberdeen Angus-steak, oude kaas, pesto</span></div>
+            <div class="dish"><span class="n">Geitenkaas met serranoham</span><span class="p">14,50</span><span class="d">truffelhoning, gerookte amandel</span></div>
+            <div class="dish"><span class="n">Oosterse tonijnsalade</span><span class="p">15,75</span><span class="d">zoetzure rauwkost, cashewnoot, geroosterde sesamdressing</span></div>
+            <div class="dish"><span class="n">Steak LEF</span><span class="p">24,75</span><span class="d">salade, jus, friet of brood</span></div>
+            <div class="dish"><span class="n">Lunch special</span><span class="p">dagprijs</span></div>
+          </div>
+          <div class="course"><h3>Maaltijdsalades</h3>
+            <div class="dish"><span class="n">Salade crispy chicken</span><span class="p">19,75</span><span class="d">mango, cashewnoot, zoetzure rode ui, kerriemayonaise</span></div>
+            <div class="dish"><span class="n">Salade geitenkaas</span><span class="p">20,50</span><span class="d">gebakken paddenstoelen, truffelhoning, gerookte amandel</span></div>
+            <div class="dish"><span class="n">Oosterse tonijnsalade</span><span class="p">21,50</span><span class="d">geroosterde sesamdressing, zoetzure rauwkost, cashewnoot</span></div>
+          </div>
+          <div class="course"><h3>Soep</h3>
+            <div class="dish"><span class="n">Soep van de dag</span><span class="p">dagprijs</span></div>
+          </div>
+          <p class="note">Onze broodgerechten komen met boerenbruin of boerenmaïs.</p>
+        </div>
+      </div>
+
+      <!-- DINER -->
+      <div class="panel" role="tabpanel" id="p-diner" aria-labelledby="t-diner" hidden>
+        <div>
+          <div class="course"><h3>Voorgerechten</h3>
+            <div class="dish"><span class="n">Carpaccio</span><span class="p">14,75</span><span class="d">spekzout, pijnboompit, parmezaan, truffelmayonaise</span></div>
+            <div class="dish"><span class="n">Carpaccio wildzwijnham</span><span class="p">15,50</span><span class="d">bospaddenstoelen, gerookte amandel</span></div>
+            <div class="dish"><span class="n">Beef tataki</span><span class="p">15,75</span><span class="d">teriyaki-sesamdressing, zoetzure rauwkost, krokante ui</span></div>
+            <div class="dish"><span class="n">Gebakken mosselen</span><span class="p">14,75</span><span class="d">chorizo, parmezaanse kaas</span></div>
+            <div class="dish"><span class="n">Broodplank, 2 stuks</span><span class="p">4,50</span><span class="d">zeezoutboter, pesto</span>
+              <span class="x"><span><span>extra: serranoham</span><span>5,75</span></span><span><span>extra: 2 broodjes</span><span>2</span></span></span></div>
+            <div class="dish"><span class="n">Gyoza: kip, gamba of vegan</span><span class="p">11,50</span><span class="d">krokante ui, bosui, teriyaki-sesamdressing</span></div>
+            <div class="dish"><span class="n">Soep van de dag</span><span class="p">dagprijs</span></div>
+          </div>
+          <div class="course"><h3>Maaltijdsalades</h3>
+            <div class="dish"><span class="n">Salade crispy chicken</span><span class="p">19,75</span><span class="d">mango, cashewnoot, zoetzure rode ui, kerriemayonaise</span></div>
+            <div class="dish"><span class="n">Salade geitenkaas</span><span class="p">20,50</span><span class="d">gebakken paddenstoelen, truffelhoning, gerookte amandel</span></div>
+            <div class="dish"><span class="n">Oosterse tonijnsalade</span><span class="p">21,50</span><span class="d">geroosterde sesamdressing, zoetzure rauwkost, cashewnoot</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="course"><h3>Hoofdgerechten <small>vlees</small></h3>
+            <div class="dish"><span class="n">Specialiteit</span><span class="p">dagprijs</span><span class="d">wisselend vleesgerecht</span></div>
+            <div class="dish"><span class="n">Black Angus steak</span><span class="p">29,75</span><span class="d">seizoensgroente, jus van gekaramelliseerde ui, friet</span></div>
+            <div class="dish"><span class="n">LEF burger | LEF burger XL</span><span class="p">22,75 | 27,75</span><span class="d">rund of crispy chicken; uiencompote, little gem, augurk, tomaat, bacon, cheddar, burgersaus, friet</span></div>
+            <div class="dish"><span class="n">Saté van kippendij</span><span class="p">20,50 | 26,75</span><span class="d">200 of 400 gram; zoetzure rauwkost, cassave, pindasaus, friet</span></div>
+          </div>
+          <div class="course"><h3>Hoofdgerechten <small>vis</small></h3>
+            <div class="dish"><span class="n">Catch of the day</span><span class="p">dagprijs</span><span class="d">wisselend visgerecht</span></div>
+          </div>
+          <div class="course"><h3>Hoofdgerechten <small>vegetarisch</small></h3>
+            <div class="dish"><span class="n">Vega burger</span><span class="p">19,75</span><span class="d">uiencompote, little gem, augurk, tomaat, cheddar, burgersaus, friet</span></div>
+            <div class="dish"><span class="n">Bospaddenstoelenrisotto</span><span class="p">23,50</span><span class="d">truffel, parmezaan</span></div>
+          </div>
+          <div class="course"><h3>Extra</h3>
+            <div class="dish"><span class="n">Friet met mayonaise</span><span class="p">4,50</span></div>
+            <div class="dish"><span class="n">Zoete aardappelfriet met truffelmayonaise</span><span class="p">6,50</span></div>
+            <div class="dish"><span class="n">Salade</span><span class="p">5,50</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BORREL -->
+      <div class="panel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+        <div>
+          <div class="course"><h3>Borrelhapjes</h3>
+            <div class="dish"><span class="n">Bittergarnituur, 12 stuks</span><span class="p">12,50</span></div>
+            <div class="dish"><span class="n">Oosterse bittergarnituur, 10 stuks</span><span class="p">12,50</span></div>
+            <div class="dish"><span class="n">Rotterdamse bitterballen, 8 stuks</span><span class="p">8</span></div>
+            <div class="dish"><span class="n">Vlammetjes, 8 stuks</span><span class="p">9,50</span></div>
+            <div class="dish"><span class="n">Mini frikandellen, 10 stuks</span><span class="p">8</span></div>
+            <div class="dish"><span class="n">Torpedo garnalen, 6 stuks</span><span class="p">9,50</span></div>
+            <div class="dish"><span class="n">Yakitori spiesjes, 8 stuks</span><span class="p">12</span></div>
+            <div class="dish"><span class="n">Crispy chicken strips, 6 stuks</span><span class="p">8,50</span></div>
+            <div class="dish"><span class="n">Gyoza (kip of gamba), 5 stuks</span><span class="p">11,50</span></div>
+          </div>
+          <div class="course"><h3>Borrelhapjes vega</h3>
+            <div class="dish"><span class="n">Groenteloempia's, 8 stuks</span><span class="p">8</span></div>
+            <div class="dish"><span class="n">Vegan bitterballen Cas &amp; Kas, 8 stuks</span><span class="p">10,50</span></div>
+            <div class="dish"><span class="n">Kaastengels, 8 stuks</span><span class="p">9,50</span></div>
+            <div class="dish"><span class="n">Gyoza, 5 stuks</span><span class="p">11,50</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="course"><h3>Diverse hapjes</h3>
+            <div class="dish"><span class="n">Broodplank, 6 stuks</span><span class="p">7,50</span><span class="d">zeezoutboter, pesto</span></div>
+            <div class="dish"><span class="n">Beef tataki</span><span class="p">15,75</span><span class="d">teriyaki-sesamdressing, krokante ui</span></div>
+            <div class="dish"><span class="n">Nacho's</span><span class="p">11,75</span><span class="d">cheddar, guacamole, jalapeño, tomatensalsa</span></div>
+          </div>
+          <div class="course"><h3>Hapjes met LEF</h3>
+            <div class="dish"><span class="n">Loempia's van sprinkhaan, 8 stuks</span><span class="p">7,50</span><span class="d">chilisaus</span></div>
+            <div class="dish"><span class="n">Gehakballetjes van sprinkhaan, 8 stuks</span><span class="p">11,75</span><span class="d">oosterse saus</span></div>
+          </div>
+          <div class="course"><h3>Friet</h3>
+            <div class="dish"><span class="n">Friet</span><span class="p">4,50</span></div>
+            <div class="dish"><span class="n">Zoete aardappelfriet</span><span class="p">6,50</span></div>
+            <div class="dish"><span class="n">Friet met parmezaan</span><span class="p">8</span><span class="d">truffelmayonaise</span></div>
+            <div class="dish"><span class="n">Zoete aardappelfriet met parmezaan</span><span class="p">9,50</span><span class="d">truffelmayonaise</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESSERT & KINDEREN -->
+      <div class="panel" role="tabpanel" id="p-toetjes" aria-labelledby="t-toetjes" hidden>
+        <div>
+          <div class="course"><h3>Dessert</h3>
+            <div class="dish"><span class="n">Dame blanche</span><span class="p">9,50</span>
+              <span class="x"><span><span>extra: advocaat</span><span>2,75</span></span></span></div>
+            <div class="dish"><span class="n">Crème brûlée</span><span class="p">9,50</span><span class="d">steranijs, kaneel, kaneelijs</span></div>
+            <div class="dish"><span class="n">Kinderijsje</span><span class="p">5,75</span><span class="d">vanille-ijs, discodip, slagroom</span></div>
+            <div class="dish"><span class="n">Menu de chef dessert</span><span class="p">9,50</span><span class="d">wisselend dessert</span></div>
+          </div>
+          <div class="course"><h3>Special coffee</h3>
+            <div class="dish"><span class="n">Special coffee</span><span class="p">8,95</span><span class="d">Italian: Amaretto Disaronno<br>Spanish: Tia Maria of Licor 43<br>Irish: Jameson<br>French: Grand Marnier</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="course"><h3>Kindermenu <small>met mayonaise en appelmoes</small></h3>
+            <div class="dish"><span class="n">Friet met snack</span><span class="p">9,50</span><span class="d">frikandel, kroket, chicken strips of kaastengels</span></div>
+            <div class="dish"><span class="n">Saté van kippendijen</span><span class="p">12,50</span><span class="d">friet en pindasaus</span></div>
+          </div>
+          <div class="course"><h3>Nog plek voor een toetje?</h3>
+            <div class="dish"><span class="n">Kinderijsje</span><span class="p">5,75</span><span class="d">vanille-ijs, slagroom, discodip</span></div>
+            <div class="dish"><span class="n">Schatkistje</span><span class="p">4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRANKEN -->
+      <div class="panel" role="tabpanel" id="p-dranken" aria-labelledby="t-dranken" hidden>
+        <div>
+          <div class="course"><h3>Bieren</h3>
+            <div class="dish"><span class="n">Swinckels pilsener van de tap</span><span class="d">klein (18 cl), medium (25 cl), groot (50 cl)</span></div>
+            <div class="dish"><span class="n">Wisselende seizoensbieren</span><span class="d">Vraag ons naar de 4 wisselende seizoensbieren op de tap.</span></div>
+            <div class="dish"><span class="n">Bieren op fles</span><span class="d">Vraag naar ons uitgebreide assortiment. Wij hebben 20 verschillende soorten speciaalbier.</span>
+              <span class="x"><span class="beer-tags"><span>0.0%</span><span>Blond</span><span>Bruin</span><span>Amber</span><span>Triple</span><span>IPA</span><span>Fruit</span><span>Donker</span><span>Quadruple</span><span>Stout</span></span></span></div>
+          </div>
+          <div class="course"><h3>Cocktails</h3>
+            <ul class="drinks-list"><li>Aperol spritz</li><li>Limoncello spritz</li><li>Pornstar martini</li><li>Amaretto sour</li><li>Tanqueray gin tonic</li></ul>
+          </div>
+          <div class="course"><h3>Warme dranken</h3>
+            <ul class="drinks-list"><li>Koffie</li><li>Cappuccino</li><li>Espresso</li><li>Latte macchiato</li><li>Koffie verkeerd</li><li>Flat white</li><li>Cortado</li><li>Thee (diverse smaken)</li><li>Verse gemberthee</li><li>Verse muntthee</li><li>Warme chocomel (slagroom)</li></ul>
+            <p class="note">Lekker voor bij de koffie: appeltaart (slagroom) of onze wisselende taart.</p>
+          </div>
+        </div>
+        <div>
+          <div class="course"><h3>Wijnen</h3>
+            <dl class="wine">
+              <dt>Huiswijnen</dt>
+              <dd>rosé: Cielo pinot grigio</dd>
+              <dd>rood: Heritage merlot, Le Tufare aglianico</dd>
+              <dd>wit: Heritage chardonnay, XR sauvignon, Die Blaue spätlese (zoet)</dd>
+              <dd>cava: Brut Flama d'Or, Le Petit Étoilé 0%</dd>
+              <dt>Speciaalwijnen</dt>
+              <dd>rosé: Gris de Seigneurs</dd>
+              <dd>rood: Les Volets pinot noir, Posta Piana nero de troja, Esporão reserva</dd>
+              <dd>wit: Ancora pinot grigio, Flor de Añon verdejo, Esporão reserva</dd>
+              <dd>dessert: Pacherenc du Vic-Bilh</dd>
+            </dl>
+          </div>
+          <div class="course"><h3>Frisdranken</h3>
+            <ul class="drinks-list"><li>Coca-Cola / zero</li><li>Fanta orange</li><li>Fanta cassis</li><li>Sprite</li><li>Lipton ice tea / green</li><li>Rivella</li><li>Appelaere</li><li>Minute Maid tomatensap</li><li>Fristi</li><li>Chocomel</li><li>Royal Bliss: bitter lemon / ginger ale / tonic</li><li>Fentimans ginger beer</li><li>Chaudfontaine blauw / rood</li><li>IJskoffie met slagroom</li><li>Verse jus d'orange</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="allergy">Heeft u een allergie? Geef dit door aan één van onze collega's.</p>
+    </div>
+  </section>
+
+  <section class="dark" id="over">
+    <div class="wrap story-grid">
+      <div class="story-text">
+        <p class="since">sinds 5 augustus 2017</p>
+        <h2>Een droom die werkelijkheid werd</h2>
+        <p style="margin-top:22px">Brasserie LEF bestaat sinds 5 augustus 2017 en is gevestigd aan de Hesseplaats in Ommoord. Sinds de oprichting is Brasserie LEF uitgegroeid tot een vertrouwde en laagdrempelige ontmoetingsplek voor buurtbewoners en bezoekers uit de omgeving.</p>
+        <p>Gezelligheid staat centraal. De sfeer is warm en toegankelijk, waardoor iedereen welkom is. Gastvrijheid en persoonlijke aandacht vormen de basis van onze brasserie en zorgen ervoor dat gasten zich snel op hun gemak voelen.</p>
+        <p>Het team bestaat uit een hechte groep medewerkers die allemaal al jaren in het team werkzaam zijn. Hierdoor kunnen wij goed inspelen op de wensen van onze gasten.</p>
+        <p>Dankzij de combinatie van een centrale locatie, een gastvrije sfeer, een veelzijdige zaal en een sterk team heeft Brasserie LEF zich sinds 2017 ontwikkeld tot een waardevolle en geliefde plek in Ommoord.</p>
+      </div>
+      <div class="story-photos">
+        <img class="wide" src="img/team.webp" alt="Een groep mensen van Brasserie LEF proost samen met een glas bubbels" loading="lazy">
+        <img class="sq" src="img/proosten.webp" alt="Proosten met witte wijn boven bittergarnituur, kaastengels en bruschetta" loading="lazy">
+        <img class="sq" src="img/neon.webp" alt="De neonletters Brasserie LEF op de bakstenen muur" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="zaalverhuur" style="background:var(--wall-deep)">
+    <div class="wrap">
+      <div class="zaal-top">
+        <div class="intro" style="margin:0">
+          <h2>Zaalverhuur</h2>
+          <p style="margin-top:16px">Voor al uw vergaderingen, workshops, bijeenkomsten en feestjes kunt u terecht bij Brasserie LEF. Wij beschikken over een grote privézaal: een multifunctionele ruimte voor zowel zakelijke bijeenkomsten als feestelijke gelegenheden, met professionele faciliteiten en een informele, warme sfeer.</p>
+        </div>
+        <div>
+          <ul class="zaal-uses"><li>Vergaderingen</li><li>Workshops</li><li>Bijeenkomsten</li><li>Feestjes</li><li>Private diners</li></ul>
+          <p style="color:#cfd4cc">Samen stellen we een passend aanbod op dat geschikt is voor uw partij. Neem contact op voor alle mogelijkheden.</p>
+          <div class="hero-actions">
+            <a class="btn btn-neon" href="mailto:info@brasserie-lef.nl?subject=Zaalverhuur">Mail over de zaal</a>
+            <a class="btn btn-line" href="tel:+31104201500">Bel 010-4201500</a>
+          </div>
+        </div>
+      </div>
+      <div class="zaal-grid">
+        <img class="a" src="img/feest.webp" alt="De zaal van Brasserie LEF feestelijk gedekt met ballonnen en slingers" loading="lazy">
+        <img class="b" src="img/buffet.webp" alt="Een buffet met salades, carpaccio, vleeswaren en kaas voor de bar van de zaal" loading="lazy">
+        <img class="c" src="img/vergaderen.webp" alt="De zaal ingericht voor een vergadering met scherm, beamer en flip-over" loading="lazy">
+        <img class="d" src="img/zaal.webp" alt="De zaal met lange tafels, statafels en de bar" loading="lazy">
+        <img class="e" src="img/zaal-breed.webp" alt="Overzicht van de zaal met tafels en barkrukken langs de wand" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="reserveren">
+    <div class="wrap res-grid">
+      <div class="res-info">
+        <h2>Reserveer een tafel</h2>
+        <p style="margin-top:18px">Kies een dag, tijd en het aantal personen. Wilt u vandaag nog komen? Bel dan even naar <a href="tel:+31104201500"><b>010-4201500</b></a>.</p>
+        <div class="closed"><b>Gesloten op de feestdagen</b>Op 1e en 2e Kerstdag en op oudejaars- en nieuwjaarsdag zijn wij gesloten. U kunt voor deze dagen niet reserveren.</div>
+      </div>
+      <form id="res-form" novalidate>
+        <label>Datum<input type="date" name="datum" required></label>
+        <label>Tijd
+          <select name="tijd" id="tijd" required></select>
+        </label>
+        <label>Aantal personen
+          <select name="personen" id="personen"></select>
+        </label>
+        <label>Naam<input type="text" name="naam" autocomplete="name" required></label>
+        <label>Telefoon<input type="tel" name="telefoon" autocomplete="tel"></label>
+        <label>E-mail<input type="email" name="email" autocomplete="email"></label>
+        <label class="full">Opmerking<textarea name="opmerking" rows="3"></textarea></label>
+        <div class="full"><button class="btn btn-dark" type="submit">Reservering versturen</button></div>
+        <p class="form-msg" id="form-msg" role="status" hidden>Dit is een voorbeeld: er is niets verstuurd. Op de echte site komt hier uw eigen reserveringsformulier.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="work" id="werken" style="padding-top:0">
+    <div class="wrap">
+      <div class="work-card">
+        <img src="img/bar.webp" alt="" loading="lazy">
+        <div class="work-body">
+          <span class="tag">kom bij ons werken</span>
+          <h2>Vacature medewerker bediening</h2>
+          <p>Wij zijn op zoek naar een part-time en full-time medewerker voor in de bediening.</p>
+          <p>Ben jij een echte aanpakker en wil jij het altijd iedereen naar zijn zin maken? Kom dan werken bij LEF. Wij zoeken iemand die door de weeks niet elke dag naar school hoeft en daardoor flexibel inzetbaar is.</p>
+          <p>Het zou erg fijn zijn als je al ervaring hebt in de horeca, maar ben jij van nature een echte mensenmens en leergierig? Dan zou je ook zomaar bij ons in het team kunnen passen!</p>
+          <p>Stap gezellig binnen als je meer vragen hebt of stuur ons een e-mail. We nodigen je graag uit voor een gesprek.</p>
+          <a class="btn btn-neon" href="mailto:info@brasserie-lef.nl?subject=Vacature%20bediening">Mail ons</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Kom langs</h2>
+        <p style="margin-top:16px;color:var(--muted)">Wij zijn te bereiken via de mail en telefoon. U vindt de brasserie aan de Hesseplaats in Ommoord.</p>
+        <ul class="contact-lines">
+          <li>Hesseplaats 102-A/B, 3068 EA Rotterdam</li>
+          <li>Telefoon <a href="tel:+31104201500">010-4201500</a></li>
+          <li>E-mail <a href="mailto:info@brasserie-lef.nl">info@brasserie-lef.nl</a></li>
+        </ul>
+        <table class="hours" aria-label="Openingstijden">
+          <tbody id="hours">
+            <tr data-d="1"><td>Maandag</td><td>10:00 – 23:00</td></tr>
+            <tr data-d="2"><td>Dinsdag</td><td>10:00 – 23:00</td></tr>
+            <tr data-d="3"><td>Woensdag</td><td>09:00 – 23:00</td></tr>
+            <tr data-d="4"><td>Donderdag</td><td>10:00 – 23:00</td></tr>
+            <tr data-d="5"><td>Vrijdag</td><td>10:00 – 24:00</td></tr>
+            <tr data-d="6"><td>Zaterdag</td><td>10:00 – 24:00</td></tr>
+            <tr data-d="0"><td>Zondag</td><td>12:00 – 23:00</td></tr>
+          </tbody>
+        </table>
+        <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hesseplaats%20102%2C%203068%20EA%20Rotterdam" target="_blank" rel="noopener">Plan uw route</a>
+      </div>
+      <div class="map"><iframe title="Kaart met de locatie van Brasserie LEF, Hesseplaats 102 in Rotterdam" loading="lazy" src="https://maps.google.com/maps?q=Hesseplaats%20102%2C%203068%20EA%20Rotterdam&amp;z=16&amp;output=embed"></iframe></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#top" aria-label="Brasserie LEF, naar boven"><span class="s">Brasserie</span><span class="l">LEF</span></a>
+      <p>Lunch, diner, borrel en zaalverhuur in Rotterdam-Ommoord</p>
+    </div>
+    <div>
+      <p>Hesseplaats 102-A/B<br>3068 EA Rotterdam</p>
+    </div>
+    <div>
+      <p><a href="tel:+31104201500">010-4201500</a><br><a href="mailto:info@brasserie-lef.nl">info@brasserie-lef.nl</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Brasserie%20LEF%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  // mobiel menu
+  var t=document.querySelector('.menu-toggle'),n=document.getElementById('nav');
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);t.textContent=o?'Sluiten':'Menu';});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='Menu';});});
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(tab){tabs.forEach(function(x){var on=x===tab;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(tab,i){
+    tab.addEventListener('click',function(){sel(tab);});
+    tab.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var nx=tabs[(i+k+tabs.length)%tabs.length];sel(nx);nx.focus();}});
+  });
+
+  // vandaag open
+  var hrs={0:['12:00','23:00'],1:['10:00','23:00'],2:['10:00','23:00'],3:['09:00','23:00'],4:['10:00','23:00'],5:['10:00','24:00'],6:['10:00','24:00']};
+  var d=new Date().getDay();
+  document.querySelectorAll('[data-d="'+d+'"]').forEach(function(el){el.classList.add('is-today');});
+  document.querySelector('#today span:last-child').textContent='Vandaag open van '+hrs[d][0]+' tot '+hrs[d][1]+' uur';
+
+  // formulier
+  var ts=document.getElementById('tijd');
+  for(var h=11;h<=20;h++){['00','30'].forEach(function(m){var o=document.createElement('option');o.textContent=h+':'+m;ts.appendChild(o);});}
+  var ps=document.getElementById('personen');
+  for(var p=1;p<=10;p++){var o=document.createElement('option');o.textContent=p+(p===1?' persoon':' personen');if(p===2)o.selected=true;ps.appendChild(o);}
+  document.getElementById('res-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('form-msg').hidden=false;});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eetcafé De Tijd · Oisterwijk</title>
+<meta name="description" content="Eetcafé De Tijd aan De Lind in Oisterwijk: koffie, ontbijt, lunch, diner en borrel. Elke dag open van 08:00 tot 24:00.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23243241%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2247%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%20fill%3D%22%23e2b866%22%3ET%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#243241; --navy2:#2f4256; --ink:#221d18; --paper:#eeebe4; --paper2:#e4ded2;
+  --wood:#6e4326; --brass:#c9964a; --brass2:#e2b866; --line:rgba(34,29,24,.16);
+  --serif:'Sorts Mill Goudy', Georgia, serif; --sans:'Public Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;margin:0}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;background:var(--navy);color:#f3efe6;border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{text-decoration:none;display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.brand small{font:italic 400 15px var(--serif);opacity:.75}
+.brand b{font:400 28px/1 var(--serif);letter-spacing:.01em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;opacity:.85}
+.nav a:hover{opacity:1;color:var(--brass2)}
+.nav .call{background:var(--brass);color:var(--ink);opacity:1;padding:9px 16px;border-radius:999px;font-weight:600}
+.nav .call:hover{background:var(--brass2);color:var(--ink)}
+.menu-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:8px;padding:8px 12px;font:600 14px var(--sans);cursor:pointer}
+
+/* hero */
+.hero{background:var(--navy);color:#f3efe6;padding-top:64px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;min-height:calc(100vh - 64px);max-height:900px;padding:48px 0}
+.hero .lead{font:italic 400 22px/1.3 var(--serif);color:var(--brass2);margin:0 0 10px}
+.hero h1{font-size:clamp(64px,9vw,132px);letter-spacing:-.01em;line-height:.92}
+.hero h1 span{display:block;font-size:.3em;font-style:italic;letter-spacing:0;margin-bottom:.15em;opacity:.8}
+.hero p.intro{max-width:30em;margin:26px 0 0;font-size:18px;color:#d9d3c6}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px}
+.btn.solid{background:var(--brass);color:var(--ink)}
+.btn.solid:hover{background:var(--brass2)}
+.btn.ghost{border:1.5px solid rgba(243,239,230,.45);color:#f3efe6}
+.btn.ghost:hover{border-color:var(--brass2);color:var(--brass2)}
+.photo{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#1b2632;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:0;transition:opacity 1.2s ease}
+.photo img.on{opacity:1}
+
+/* day clock: the one memorable element */
+.day{margin-top:40px;max-width:560px}
+.day .now{display:flex;align-items:baseline;gap:10px;font-size:15px;color:#d9d3c6;margin-bottom:12px;min-height:1.6em}
+.day .now strong{font:400 26px/1 var(--serif);color:#fff}
+.day .dot{width:9px;height:9px;border-radius:50%;background:#7fc28b;box-shadow:0 0 0 4px rgba(127,194,139,.2);align-self:center}
+.day .dot.closed{background:#c98a6a;box-shadow:0 0 0 4px rgba(201,138,106,.2)}
+.track{position:relative;height:6px;border-radius:3px;background:rgba(255,255,255,.14)}
+.track .fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:3px;background:linear-gradient(90deg,var(--brass),var(--brass2));transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.track .pin{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;border:3px solid var(--brass);left:0;opacity:0;transition:left 1.4s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.ticks{display:flex;justify-content:space-between;font-size:12.5px;color:#a9b3bf;margin-top:8px}
+.moments{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;font:italic 400 17px/1.2 var(--serif);color:#e9e3d6}
+.moments span{padding-right:8px}
+.moments span.cur{color:var(--brass2)}
+
+/* sections */
+section.block{padding:104px 0}
+.kicker{font:italic 400 20px var(--serif);color:var(--wood);margin:0 0 6px}
+h2{font-size:clamp(40px,5.2vw,64px);letter-spacing:-.005em}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.prose p{max-width:34em}
+.prose p+p{margin-top:0}
+
+.about .img{aspect-ratio:1/1;border-radius:6px;overflow:hidden}
+.about .img img{width:100%;height:100%;object-fit:cover}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.facts div{padding:18px 14px 0 0}
+.facts b{display:block;font:400 44px/1 var(--serif);color:var(--navy)}
+.facts span{font-size:14px;color:#5c544b}
+.counter{margin-top:30px;padding:22px 24px;background:var(--paper2);border-radius:6px;font-size:15.5px}
+
+/* menu */
+.menu{background:#f7f4ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.menu-head p{max-width:34em;margin:12px 0 0}
+.tabs{display:inline-flex;background:var(--paper2);border-radius:999px;padding:5px}
+.tabs button{border:0;background:none;font:600 16px var(--sans);padding:11px 22px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected=true]{background:var(--navy);color:#fff}
+.tabs button span{font:italic 400 15px var(--serif);opacity:.75;margin-left:4px}
+.panel{columns:2;column-gap:64px}
+.panel[hidden]{display:none}
+.grp{break-inside:avoid;margin-bottom:40px}
+.grp h3{font-size:30px;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);display:flex;justify-content:space-between}
+.cols{display:flex;justify-content:flex-end;gap:0;font-size:12.5px;color:#6b6258;margin-top:8px}
+.cols span{width:64px;text-align:right}
+.grp ul{list-style:none;margin:0;padding:0}
+.grp li{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px dotted rgba(34,29,24,.25);font-size:16px;line-height:1.45}
+.grp li .d{flex:1}
+.grp li .p{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;width:64px;text-align:right}
+.grp li .p.k{font-weight:500;color:#5c544b}
+.grp li .none{color:#b2a998}
+.menu-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:10px;font-size:15px;color:#5c544b}
+.menu-foot a{color:var(--navy);font-weight:600}
+.season{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:24px 28px;background:var(--navy);color:#e9e3d6;border-radius:6px}
+.season b{font:italic 400 26px/1.2 var(--serif);color:var(--brass2)}
+.season p{margin:0;max-width:52em}
+
+/* borrel */
+.borrel{background:var(--wood);color:#f4ebdd}
+.borrel .kicker{color:var(--brass2)}
+.borrel .img{border-radius:6px;overflow:hidden;aspect-ratio:1/1}
+.borrel .img img{width:100%;height:100%;object-fit:cover}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.strip figure{margin:0;border-radius:6px;overflow:hidden;aspect-ratio:16/9}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+/* cadeau */
+.gifts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.gift{background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px}
+.gift h3{font-size:30px;color:var(--navy);margin-bottom:8px}
+.gift p{margin:0}
+form.order{margin-top:24px;background:var(--navy);color:#e9e3d6;border-radius:6px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+form.order h3{grid-column:1/-1;font-size:30px;color:#fff}
+form.order .full{grid-column:1/-1}
+form.order label{display:grid;gap:5px;font-size:14px;font-weight:500}
+form.order input,form.order textarea{font:16px var(--sans);padding:11px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.2);background:#1c2834;color:#fff;width:100%}
+form.order fieldset{border:0;padding:0;margin:0;display:flex;gap:18px;align-items:center;font-size:14px}
+form.order legend{float:left;margin-right:6px;font-weight:500}
+form.order button{justify-self:start;border:0;cursor:pointer}
+.formmsg{grid-column:1/-1;margin:0;color:var(--brass2);font-weight:600;min-height:1.4em}
+
+/* tijdschrift + werken */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{padding:34px;border-radius:6px;background:var(--paper2)}
+.card h2{font-size:clamp(34px,4vw,46px);margin-bottom:14px}
+.card p{margin:0 0 12px}
+.card.dark{background:var(--navy);color:#e9e3d6}
+.card.dark h2{color:#fff}
+.card.dark .kicker{color:var(--brass2)}
+
+/* contact */
+.contact{background:var(--navy);color:#e9e3d6}
+.contact .kicker{color:var(--brass2)}
+.contact h2{color:#fff}
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;margin-top:30px}
+.rows{display:grid;gap:22px}
+.rows h3{font:600 13px var(--sans);color:#a9b3bf;margin-bottom:4px;letter-spacing:.02em}
+.rows p{margin:0;font-size:19px}
+.rows a{text-decoration:none;border-bottom:1px solid rgba(226,184,102,.5)}
+.rows a:hover{color:var(--brass2)}
+.social{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.social a{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 14px;font-size:14.5px;text-decoration:none}
+.social a:hover{border-color:var(--brass2);color:var(--brass2)}
+.map{border-radius:6px;overflow:hidden;min-height:380px;background:#1c2834}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:saturate(.8)}
+footer{background:#1b2632;color:#a9b3bf;padding:28px 0 70px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(34,29,24,.92);color:#fff;font:500 13px var(--sans);padding:7px 14px;border-radius:999px;white-space:nowrap;pointer-events:none}
+
+@media (max-width:900px){
+  .nav{position:fixed;top:64px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:flex-start;gap:0;padding:8px 16px 20px;display:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;font-size:18px;width:100%;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .call{margin-top:14px;width:auto;border:0;padding:11px 20px}
+  .menu-toggle{display:block}
+  .hero .wrap{grid-template-columns:1fr;gap:0;min-height:0;max-height:none;padding:0 0 44px}
+  .hero .photo{order:-1;aspect-ratio:4/3;margin:0 -16px 24px;border-radius:0;width:calc(100% + 32px)}
+  .hero h1{font-size:clamp(60px,19vw,96px)}
+  .hero .lead{font-size:19px}
+  .hero p.intro{font-size:17px;margin-top:18px}
+  .day{margin-top:30px}
+  .moments{font-size:15px}
+  section.block{padding:72px 0}
+  .split,.cgrid,.duo,.gifts{grid-template-columns:1fr;gap:32px}
+  .gifts{gap:14px}
+  .panel{columns:1}
+  .strip{grid-template-columns:1fr 1fr;margin-top:32px}
+  .strip figure:last-child{display:none}
+  form.order{grid-template-columns:1fr;padding:22px}
+  .season{grid-template-columns:1fr;gap:6px}
+  .card{padding:26px}
+  .tabs button{padding:10px 16px}
+}
+@media (max-width:420px){
+  .facts b{font-size:36px}
+  .grp li{font-size:15.5px}
+  .grp li .p{width:54px}
+  .cols span{width:54px}
+  .ribbon{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .photo img,.track .fill,.track .pin{transition:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Eetcafé De Tijd, naar boven"><small>eetcafé</small><b>De Tijd</b></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#kaart">Kaart</a>
+      <a href="#over">Over ons</a>
+      <a href="#cadeau">Cadeautips</a>
+      <a href="#tijdschrift">TIJDschrift</a>
+      <a href="#contact">Contact</a>
+      <a class="call" href="tel:0135285678">Bel 013 528 5678</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="lead">De huiskamer van Oisterwijk</p>
+      <h1><span>eetcafé</span>De Tijd</h1>
+      <p class="intro">Aan De Lind, midden in de karakteristieke dorpskern. Schuif aan voor koffie en een vers ontbijt, een lunch, diner of een gezellige borrel. Iedere dag, tot in de kleine uurtjes. Reserveren hoeft niet: je bent altijd welkom.</p>
+      <div class="btns">
+        <a class="btn solid" href="#kaart">Bekijk de kaart</a>
+        <a class="btn ghost" href="#contact">Route en openingstijden</a>
+      </div>
+      <div class="day" aria-label="Openingstijden vandaag: 08:00 tot 24:00">
+        <div class="now" id="now"><span class="dot"></span><span>Elke dag open van <strong>08:00</strong> tot <strong>24:00</strong></span></div>
+        <div class="track" aria-hidden="true"><div class="fill" id="fill"></div><div class="pin" id="pin"></div></div>
+        <div class="ticks" aria-hidden="true"><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>24:00</span></div>
+        <div class="moments" id="moments"><span>koffie &amp; ontbijt</span><span>lunch</span><span>diner</span><span>borrel</span></div>
+      </div>
+    </div>
+    <div class="photo" id="slides">
+      <img class="on" src="img/005.jpg" alt="Gambaspiezen aan een standaard, met friet en salade, op tafel bij De Tijd">
+      <img src="img/008.jpg" alt="Kroketten op brood op het terras, met de blauwe De Tijd-stoelen" loading="lazy">
+      <img src="img/009.jpg" alt="Kipsaté met kroepoek, gebakken uitjes en friet" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="block menu" id="kaart">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="kicker">Voor lekker eten neem je de tijd</p>
+        <h2>Onze kaart</h2>
+        <p>Vlees, vis of liever vegetarisch? Warm of koud? Voor ieder wat wils. Veel gerechten zijn er in een kleine en een normale portie.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Kaart kiezen">
+        <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch <span>goedemiddag</span></button>
+        <button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="false" tabindex="-1">Diner <span>goedeavond</span></button>
+      </div>
+    </div>
+    <div class="panel" id="p-lunch" role="tabpanel" aria-labelledby="t-lunch">
+      <section class="grp">
+        <h3>Broodjes koud</h3>
+        <ul>
+          <li><span class="d">Boucheron met gerookte zalm, roomkaas, sla, kappertjes, gekookt ei en bosui</span><span class="p">14,80</span></li>
+          <li><span class="d">Broodje filet americain met uitjes en een eitje</span><span class="p">9,20</span></li>
+          <li><span class="d">Clubsandwich met vloerbrood, gerookte kipfilet, bacon, tomaat en komkommer</span><span class="p">16,50</span></li>
+          <li><span class="d">Pistoletje rundercarpaccio met truffeldressing, pijnboompitten en Parmezaanse kaas</span><span class="p">13,00</span></li>
+          <li><span class="d">Sunny Pocket met brie, honing, walnoten en druiven</span><span class="p">9,90</span></li>
+          <li><span class="d">Sunny Pocket met carpaccio, Parmezaanse kaas, truffelmayonaise en pijnboompitten</span><span class="p">9,90</span></li>
+          <li><span class="d">Sunny Pocket zalm met roomkaas, avocado, bosui en een gekookt eitje</span><span class="p">9,90</span></li>
+          <li><span class="d">Vloerbrood oude kaas met walnoten en mosterd-dilledressing</span><span class="p">9,00</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Broodjes warm</h3>
+        <ul>
+          <li><span class="d">Ambachtelijk Brabants worstenbroodje met mosterd</span><span class="p">3,50</span></li>
+          <li><span class="d">Broodje brie uit de oven met honing, tomaat en walnoten</span><span class="p">12,50</span></li>
+          <li><span class="d">Broodje met gegrilde groenten en pikante hummus</span><span class="p">9,80</span></li>
+          <li><span class="d">Flinke tosti ham/kaas met eigen Tijd’s tostisausje</span><span class="p">8,50</span></li>
+          <li><span class="d">Luxe tosti ham/kaas op focacciabrood</span><span class="p">9,50</span></li>
+          <li><span class="d">Mediterraanse pide met pesto, mozzarella en tomaat</span><span class="p">12,50</span></li>
+          <li><span class="d">Mediterraanse pide met pulled chicken, taugé, rode ui en chilisaus</span><span class="p">12,50</span></li>
+          <li><span class="d">Mediterraanse pide met tonijn, gesmolten kaas, rode ui en bosui</span><span class="p">12,50</span></li>
+          <li><span class="d">Meergranenbol met warme geitenkaas, uienchutney, balsamicostroop en walnoten</span><span class="p">13,50</span></li>
+          <li><span class="d">Oisterwijks bekende “broodje Cornelius”, met ham, kaas, ui en champignonsaus</span><span class="p">13,50</span></li>
+          <li><span class="d">Vloerbrood met kipreepjes, satésaus, ananas en taugé</span><span class="p">11,70</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Soepen</h3>
+        <ul>
+          <li><span class="d">Huisgemaakte Tom Kha Kai met kip, taugé en bosui</span><span class="p">9,30</span></li>
+          <li><span class="d">Pannetje huisgemaakte (vegetarische) tomatensoep</span><span class="p">7,30</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Warme gerechten</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">2 Bourgondische kroketten op vloerbrood met mayonaise en mosterd</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">12,20</span></li>
+          <li class="two"><span class="d">2 Hollandse garnalenkroketten op vloerbrood met cocktailsaus</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,00</span></li>
+          <li class="two"><span class="d">2 Vegetarische kroketten op vloerbrood met mayonaise en mosterd</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">12,20</span></li>
+          <li class="two"><span class="d">Broodje gambaburger met ravigottesaus, tomaat, rode ui, avocado en frietjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,80</span></li>
+          <li class="two"><span class="d">Broodje krokante kipburger met citroenmayonaise, avocado, rode peper en bacon</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,00</span></li>
+          <li class="two"><span class="d">Broodje vegetarische kipburger met citroenmayonaise, avocado en jalapeños</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">17,50</span></li>
+          <li class="two"><span class="d">Flink broodje hamburger “de Tijd”, met bacon, tomaat, komkommer, kaas, augurk en krulfriet</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,50</span></li>
+          <li class="two"><span class="d">Onze welbekende kipsaté met casave, gebakken uitjes, ananas, frietjes en salade</span><span class="p k">15,50</span><span class="p">21,00</span></li>
+          <li class="two"><span class="d">Vegetarisch broodje hamburger “de Tijd”, met tomaat, komkommer en kaas met krulfrietjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">16,90</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Maaltijdsalades</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">Geitenkaascrostini’s op een salade met bacon, tomaat en walnoten</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+          <li class="two"><span class="d">Kipsalade met knoflookdressing, tomaatjes, geraspte kaas en croutons</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+          <li class="two"><span class="d">Vissalade met lauwwarme gamba’s, surimi-crab en gerookte zalmsnippers</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Desserts</h3>
+        <ul>
+          <li><span class="d">Heerlijke smoothies in diverse smaken</span><span class="p">6,50</span></li>
+          <li><span class="d">Ouderwetse dame blanche: vanille-ijs, chocoladesaus en slagroom</span><span class="p">7,50</span></li>
+          <li><span class="d">Stroopwafelijs met stukjes stroopwafel, karamelsaus en slagroom</span><span class="p">5,10</span></li>
+          <li><span class="d">Verse halfvolle yoghurt (van de Smaak van HIER), goed gevuld met vers fruit van dit seizoen</span><span class="p">7,00</span></li>
+          <li><span class="d">Warme apfelstrudel met vanillesaus, ijs en slagroom</span><span class="p">8,50</span></li>
+          <li><span class="d">Warme lavacake van chocolade met vanille-ijs en slagroom</span><span class="p">8,20</span></li>
+        </ul>
+      </section>
+    </div>
+    <div class="panel" id="p-diner" role="tabpanel" aria-labelledby="t-diner" hidden>
+      <section class="grp">
+        <h3>Voorgerechten</h3>
+        <ul>
+          <li><span class="d">Gamba’s in kruidenolie met stokbrood om te dippen</span><span class="p">13,20</span></li>
+          <li><span class="d">Garnalenkroketje op een bedje sla met wit brood en dip</span><span class="p">9,20</span></li>
+          <li><span class="d">Rundercarpaccio met truffeldressing, Parmezaanse kaas en pijnboompitjes</span><span class="p">13,00</span></li>
+          <li><span class="d">Tafelbrood met kruidenboter, aioli en tapenade</span><span class="p">7,90</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Soepen</h3>
+        <ul>
+          <li><span class="d">Huisgemaakte Tom Kha Kai met kip, taugé en bosui</span><span class="p">9,30</span></li>
+          <li><span class="d">Pannetje huisgemaakte (vegetarische) tomatensoep</span><span class="p">7,30</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Maaltijdsalades</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">Geitenkaascrostini’s op een salade met bacon, tomaat en walnoten</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+          <li class="two"><span class="d">Kipsalade met knoflookdressing, tomaatjes, geraspte kaas en croutons</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+          <li class="two"><span class="d">Vissalade met lauwwarme gamba’s, surimi-crab en gerookte zalmsnippers</span><span class="p k">15,30</span><span class="p">24,90</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Vis</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">2 Gambaspiezen met friet, salade en diverse sausjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">22,90</span></li>
+          <li class="two"><span class="d">Broodje gambaburger met ravigottesaus, tomaat, rode ui, avocado en frietjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,80</span></li>
+          <li class="two"><span class="d">Mexicaanse zalm op een bedje van fijne groenten en frietjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">23,50</span></li>
+          <li class="two"><span class="d">Wilde rijst met gamba’s, wokgroenten, ketjap en chilisaus</span><span class="p k">15,90</span><span class="p">20,40</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Vlees</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">Broodje krokante kipburger met citroenmayonaise, avocado, rode peper en bacon</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,00</span></li>
+          <li class="two"><span class="d">Flink broodje hamburger “de Tijd”, met bacon, tomaat, komkommer, kaas, augurk en krulfriet</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">19,50</span></li>
+          <li class="two"><span class="d">Mixed grill op een spies met biefstuk, kip, lamsvlees en varkenshaas, diverse sausjes en friet</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">23,50</span></li>
+          <li class="two"><span class="d">Onze welbekende kipsaté met casave, gebakken uitjes, ananas, frietjes en salade</span><span class="p k">15,50</span><span class="p">21,00</span></li>
+          <li class="two"><span class="d">Plank voor 2 personen met gamba’s in kruidenboter, spareribs, kipsaté, friet en salade</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">65,00</span></li>
+          <li class="two"><span class="d">Spareribs naturel, sweet chili of pikant met frietjes, salade en diverse sausjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">24,50</span></li>
+          <li class="two"><span class="d">Varkensschnitzel met champignonsaus, friet en salade</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">16,90</span></li>
+          <li class="two"><span class="d">Wilde rijst met kip, wokgroenten, ketjap en chilisaus</span><span class="p k">15,50</span><span class="p">20,50</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Vegetarisch</h3><div class="cols" aria-hidden="true"><span>klein</span><span>normaal</span></div>
+        <ul>
+          <li class="two"><span class="d">Broodje vegetarische kipburger met citroenmayonaise, avocado en jalapeños</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">17,50</span></li>
+          <li class="two"><span class="d">Vegetarisch broodje hamburger “de Tijd”, met tomaat, komkommer en kaas met krulfrietjes</span><span class="p k none" aria-label="geen kleine portie">–</span><span class="p">16,90</span></li>
+          <li class="two"><span class="d">Wilde rijst met vegetarische loempia, wokgroenten, ketjap en chilisaus</span><span class="p k">15,00</span><span class="p">19,00</span></li>
+        </ul>
+      </section>
+      <section class="grp">
+        <h3>Desserts</h3>
+        <ul>
+          <li><span class="d">Heerlijke smoothies in diverse smaken</span><span class="p">6,50</span></li>
+          <li><span class="d">Ouderwetse dame blanche: vanille-ijs, chocoladesaus en slagroom</span><span class="p">7,50</span></li>
+          <li><span class="d">Stroopwafelijs met stukjes stroopwafel, karamelsaus en slagroom</span><span class="p">5,10</span></li>
+          <li><span class="d">Warme apfelstrudel met vanillesaus, ijs en slagroom</span><span class="p">8,50</span></li>
+          <li><span class="d">Warme lavacake van chocolade met vanille-ijs en slagroom</span><span class="p">8,20</span></li>
+        </ul>
+      </section>
+    </div>
+    <div class="menu-foot">
+      <span>Prijzen in euro’s, onder voorbehoud.</span>
+      <a href="http://placematsnew.detijdoisterwijk.nl/placemat/pdf/type3/goedemiddag_1.pdf?1657540536" target="_blank" rel="noopener">Lunchkaart als pdf</a>
+      <a href="http://placematsnew.detijdoisterwijk.nl/placemat/pdf/type3/goedeavond_1.pdf?1657540536" target="_blank" rel="noopener">Dinerkaart als pdf</a>
+    </div>
+    <div class="season">
+      <b>Van het seizoen</b>
+      <p>Onze chef gaat geregeld van de kaart met seizoensgebonden gerechten. Zei daar iemand asperges? Vers van het land op loopafstand. Speciale wensen? Geef ze vooraf door, dan maken we in goed overleg ook jouw avond bijzonder.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block about" id="over">
+  <div class="wrap split">
+    <div class="prose">
+      <p class="kicker">Terug in de tijd</p>
+      <h2>Voel je thuis</h2>
+      <p>Bij eetcafé De Tijd vullen we naast glazen en borden vooral de harten van onze Bourgondische gasten. Ons enthousiaste team maakt het verschil voor sfeerproevers van jong tot oud. Met onze Brabantse gastvrijheid zijn we al 30 jaar het kloppende hart van de karakteristieke dorpskern van Oisterwijk.</p>
+      <p>Vind je plek op ons terras of kom gewoon gezellig binnen, op iedere dag van de week.</p>
+      <div class="facts">
+        <div><b>1995</b><span>open sinds 6 april</span></div>
+        <div><b>9,4</b><span>klantscore</span></div>
+        <div><b>74</b><span>gerechten</span></div>
+      </div>
+      <p class="counter">Sinds de eerste dag hebben we ruim 12.000 keer onze deuren geopend, stonden er 682 medewerkers voor je klaar en dekten we 1,5 miljoen tafels voor 3,8 miljoen gasten. Cijfers om stil van te worden. Maar het enige dat je hoeft te onthouden: bij ons ben je nooit een nummer.</p>
+    </div>
+    <div class="img"><img src="img/006.jpg" alt="Gasten aan tafel op het terras van De Tijd, met een medewerker die drankjes brengt" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="block borrel" id="borrel">
+  <div class="wrap split">
+    <div class="img"><img src="img/011.jpg" alt="Een etagère vol hapjes met bier, wijn en cocktails" loading="lazy"></div>
+    <div class="prose">
+      <p class="kicker">Het borrelt en het bruist</p>
+      <h2>Waar is dat feestje?</h2>
+      <p>Kringverjaardagen met kaas en worst en foute ooms? Nee toch? Neem geen enkel risico en trakteer op De Tijd. Dan geef je altijd een gezellig moment met echte aandacht voor elkaar. Lekker in de middagzon of tot in de late uurtjes.</p>
+      <p>Wij regelen de drankjes, lekkere hapjes en de afwas. Dat is pas een feestje! En op vrijdag is er natuurlijk onze typisch Brabantse VrijMiBo.</p>
+      <div class="btns"><a class="btn solid" href="tel:0135285678">Bel ons over je feestje</a></div>
+    </div>
+  </div>
+  <div class="wrap strip">
+    <figure><img src="img/002.jpg" alt="Broodje met tonijn, kappertjes en bosui" loading="lazy"></figure>
+    <figure><img src="img/003.jpg" alt="Salade met geitenkaascrostini’s en walnoten" loading="lazy"></figure>
+    <figure><img src="img/004.jpg" alt="Vloerbrood met kipreepjes, satésaus en taugé" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="block" id="cadeau">
+  <div class="wrap">
+    <p class="kicker">TIJDgenoten geven om elkaar</p>
+    <h2>Cadeautips</h2>
+    <p style="max-width:40em">Bijzondere momenten vier je lekker samen. Daarom heeft De Tijd een passend cadeau voor iedereen, zelfs voor die speciale persoon die zegt dat hij of zij alles al heeft. We hebben vele bierkeuzen en mooie flessen voor wijnneuzen. Last-minute cadeau nodig? Loop binnen, dan kom je nooit met lege handen aan.</p>
+    <div class="gifts">
+      <div class="gift"><h3>Cadeaubonnen</h3><p>Weleens die bon gepakt? En na een hele fijne avond op de bar geklapt? Lekker hè? Pak in, pak mee en stuur ook eens iemand langs zonder portemonnee!</p></div>
+      <div class="gift"><h3>Plateau van niveau</h3><p>Brabantse bourgondiërs zonder hoogtevrees geef je natuurlijk ons plateau cadeau. Van boven tot onder gevuld met hapas die zelf niet wisten dat ze zo goed bij elkaar pasten.</p></div>
+    </div>
+    <form class="order" id="order" novalidate>
+      <h3>Bestel maar</h3>
+      <p class="full" style="margin:0">Geef je favoriete verrassing door, dan leggen we het gelijk voor je klaar of op het moment dat je het nodig hebt.</p>
+      <label>Naam<input name="naam" autocomplete="name"></label>
+      <label>Telefoon<input name="tel" type="tel" autocomplete="tel"></label>
+      <label>E-mail<input name="mail" type="email" autocomplete="email"></label>
+      <label>Aantal<input name="aantal" type="number" min="1" value="1"></label>
+      <fieldset class="full"><legend>Met De Tijd-kaartje?</legend><label style="display:flex;gap:6px"><input type="radio" name="kaart" value="ja" checked style="width:auto"> Ja</label><label style="display:flex;gap:6px"><input type="radio" name="kaart" value="nee" style="width:auto"> Nee</label></fieldset>
+      <label class="full">Wat wil je bestellen?<textarea name="wat" rows="3"></textarea></label>
+      <button class="btn solid" type="submit">Direct bestellen</button>
+      <p class="formmsg" id="formmsg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="block" id="tijdschrift" style="padding-top:0">
+  <div class="wrap duo">
+    <div class="card dark">
+      <p class="kicker">Wil je er een nietje bij?</p>
+      <h2>TIJDschrift</h2>
+      <p>Ons eigen huismagazine wordt gretig gelezen door onze gasten, en daar zijn we trots op. Net als onze kaart draait het mee met de seizoenen: twee keer per jaar, als ZomerTijd en WinterTijd. Met de mooiste producten, gezellige evenementen, lokale facts en de talk of the town. En de talk of De Tijd.</p>
+      <p>Jouw exemplaar ligt altijd voor je klaar om bij ons te lezen of mee naar huis te nemen. Zelf breaking news dat niet mag ontbreken? Mail het naar de redactie: <a href="mailto:info@detijdoisterwijk.nl">info@detijdoisterwijk.nl</a></p>
+    </div>
+    <div class="card">
+      <p class="kicker">De trots van De Tijd</p>
+      <h2>Ons team</h2>
+      <p>Bij ons team van horecahelden past maar één woord: trots. Zij zorgen dat De Tijd nooit stilstaat, door iedere dag opnieuw onze gasten blij te maken met geniet-hier-en-nu-momenten.</p>
+      <p>Wil je ook onmisbaar worden? Voor leuke mensen met een horecahart maken we altijd plek. Ervaring geen bezwaar, er is niets dat De Tijd je niet kan leren. Loop gewoon binnen en vraag naar Mirjan. Met een n.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <p class="kicker">Zien we je gauw?</p>
+    <h2>Kom gewoon binnen</h2>
+    <p style="max-width:40em">We hebben of vinden altijd snel een fijn plekje voor jou en je gezelschap. Reserveren is dus niet nodig: kom binnen op het moment dat jij zover bent.</p>
+    <div class="cgrid">
+      <div class="rows">
+        <div><h3>Openingstijden</h3><p>Maandag t/m zondag<br>08:00 – 24:00</p></div>
+        <div><h3>Adres</h3><p><a href="https://www.google.com/maps?q=De+Lind+53+5061+HT+Oisterwijk" target="_blank" rel="noopener">De Lind 53<br>5061 HT Oisterwijk</a></p></div>
+        <div><h3>Zeg het maar</h3><p><a href="tel:0135285678">013 528 5678</a><br><a href="mailto:info@detijdoisterwijk.nl">info@detijdoisterwijk.nl</a></p></div>
+        <div><h3>Blijf bij De Tijd</h3>
+          <div class="social">
+            <a href="https://www.facebook.com/detijdoisterwijk/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/detijdoisterwijk" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.tripadvisor.nl/Restaurant_Review-g652287-d746374-Reviews-De_Tijd-Oisterwijk_North_Brabant_Province.html" target="_blank" rel="noopener">Beoordelingen op Tripadvisor</a>
+          </div>
+        </div>
+      </div>
+      <div class="map"><iframe title="Kaart: De Lind 53, Oisterwijk" loading="lazy" src="https://maps.google.com/maps?q=De%20Lind%2053%2C%205061%20HT%20Oisterwijk&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Eetcafé De Tijd · De Lind 53, Oisterwijk</span>
+    <span>Elke dag geopend tot 24:00</span>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Eetcaf%C3%A9%20de%20Tijd%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  // menu
+  var t=document.querySelector('.menu-toggle'),n=document.getElementById('nav');
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);t.textContent=o?'Sluiten':'Menu';});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A'&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='Menu';}});
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(b){tabs.forEach(function(x){var on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){sel(b)});b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var nb=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];sel(nb);nb.focus();}});});
+  // slides
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var imgs=document.querySelectorAll('#slides img'),k=0;
+  if(!reduce&&imgs.length>1)setInterval(function(){imgs[k].classList.remove('on');k=(k+1)%imgs.length;imgs[k].classList.add('on');},5500);
+  // day clock (Europe/Amsterdam)
+  try{
+    var parts=new Intl.DateTimeFormat('nl-NL',{timeZone:'Europe/Amsterdam',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var h=+parts.find(function(p){return p.type==='hour'}).value%24,m=+parts.find(function(p){return p.type==='minute'}).value;
+    var mins=h*60+m,open=mins>=480,pct=open?Math.min(100,(mins-480)/(960)*100):0;
+    var hh=(h<10?'0':'')+h+':'+(m<10?'0':'')+m;
+    var now=document.getElementById('now');
+    now.innerHTML=open?'<span class="dot"></span><span>Het is nu <strong>'+hh+'</strong> en we zijn open, tot 24:00</span>'
+                      :'<span class="dot closed"></span><span>Nu dicht. Vanaf <strong>08:00</strong> staan we weer voor je klaar</span>';
+    var f=document.getElementById('fill'),p=document.getElementById('pin');
+    requestAnimationFrame(function(){setTimeout(function(){f.style.width=pct+'%';if(open){p.style.left=pct+'%';p.style.opacity=1;}},200);});
+    if(open){var ms=document.querySelectorAll('#moments span');ms[Math.min(3,Math.floor(pct/25))].classList.add('cur');}
+  }catch(e){}
+  // demo form
+  document.getElementById('order').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formmsg').textContent='Dit is een voorbeeld: er is niets verstuurd.';});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
