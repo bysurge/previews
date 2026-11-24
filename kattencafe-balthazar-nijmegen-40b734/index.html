@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kattencafé Balthazar · Nijmegen</title>
+<meta name="description" content="Lunch, koffie en huisgemaakt gebak in gezelschap van onze katten. Van Welderenstraat 46, Nijmegen. Gewoon binnenlopen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E2A72E'/%3E%3Cpath d='M16 50V22l9 8h14l9-8v28z' fill='%23362520'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Rethink+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --melk:#FFFAF1;
+  --kussen:#E2A72E;     /* the mustard window cushions */
+  --kussen-licht:#F6E3B4;
+  --baksteen:#A3462C;   /* the brick wall */
+  --vacht:#362520;      /* dark tabby brown, text */
+  --hout:#EBDCC4;       /* floorboards */
+  --zacht:#6E5A50;
+  --r:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--melk);color:var(--vacht);font:400 1.0625rem/1.65 "Rethink Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--baksteen);outline-offset:3px;border-radius:6px}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,250,241,.97);border-bottom:1px solid rgba(54,37,32,.08)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Young Serif",serif;font-size:1.3rem}
+.logo svg{width:34px;height:34px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{color:var(--baksteen)}
+nav .cta{background:var(--vacht);color:var(--melk);padding:10px 18px;border-radius:999px}
+nav .cta:hover{background:var(--baksteen);color:var(--melk)}
+.menu-toggle{display:none;background:none;border:0;width:46px;height:46px;border-radius:12px;cursor:pointer;color:var(--vacht)}
+.menu-toggle span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:transform .25s}
+@media (max-width:860px){
+  .menu-toggle{display:block}
+  nav{position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--melk);padding:28px 24px;display:none}
+  body.nav-open nav{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;gap:22px}
+  nav a{font-family:"Young Serif",serif;font-size:1.7rem}
+  nav .cta{font-family:"Rethink Sans",sans-serif;font-size:1.05rem}
+  body.nav-open .menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .menu-toggle span:nth-child(2){opacity:0}
+  body.nav-open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* hero */
+.hero{padding:112px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.open-chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(54,37,32,.12);padding:7px 14px 7px 12px;border-radius:999px;font-size:.95rem;font-weight:500}
+.open-chip i{width:9px;height:9px;border-radius:50%;background:#9a9a9a}
+.open-chip.is-open i{background:#3f9b5a;box-shadow:0 0 0 4px rgba(63,155,90,.18)}
+.hero h1{font-size:clamp(2.4rem,4.4vw,3.7rem);margin:22px 0 20px;letter-spacing:-.01em}
+.hero p.lead{font-size:1.2rem;max-width:30em;color:var(--zacht);margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;padding:15px 24px;border-radius:999px;border:2px solid var(--vacht);transition:background .2s,color .2s}
+.btn-dark{background:var(--vacht);color:var(--melk)}
+.btn-dark:hover{background:var(--baksteen);border-color:var(--baksteen)}
+.btn-line:hover{background:var(--vacht);color:var(--melk)}
+.hero-art{position:relative;justify-self:center;width:min(100%,500px)}
+.arch{border-radius:999px 999px var(--r) var(--r);overflow:hidden;background:var(--hout)}
+.hero-art .arch{aspect-ratio:4/5}
+.hero-art .arch img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero-art .peek{position:absolute;left:-46px;bottom:-26px;width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--melk);background:var(--hout)}
+.hero-art .peek img{width:100%;height:100%;object-fit:cover}
+.hero-art .tag{position:absolute;right:-14px;top:18%;background:var(--kussen);padding:12px 18px;border-radius:16px;font-family:"Young Serif",serif;font-size:1.1rem;line-height:1.25;transform:rotate(3deg);box-shadow:0 10px 24px -14px rgba(54,37,32,.5)}
+.hero-art{animation:rise .7s ease-out both}
+@keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* sections */
+section{scroll-margin-top:76px}
+.sec{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(2.1rem,4vw,3.2rem);margin-bottom:14px}
+.sec-head p{color:var(--zacht);margin:0;font-size:1.12rem}
+
+/* welkom strip */
+.welkom{background:var(--vacht);color:var(--melk)}
+.welkom .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:56px 0}
+.welkom h3{font-size:1.45rem;color:var(--kussen);margin-bottom:8px}
+.welkom p{margin:0;color:#E9DDD3}
+.welkom a{color:var(--kussen-licht)}
+
+/* cats */
+.katten{background:var(--hout)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cat{background:var(--melk);border-radius:var(--r);padding:16px 16px 24px;display:flex;flex-direction:column}
+.cat .arch{aspect-ratio:1/1;margin-bottom:18px;position:relative}
+.cat .arch img{width:100%;height:100%;object-fit:cover}
+.cat .mono{display:grid;place-items:center;height:100%;font-family:"Young Serif",serif;font-size:7rem;color:var(--melk);line-height:1}
+.cat:nth-child(2) .arch{background:var(--baksteen)}
+.cat:nth-child(3) .arch{background:var(--kussen)}
+.cat:nth-child(4) .arch{background:var(--vacht)}
+.cat:nth-child(5) .arch{background:#C9824A}
+.cat h3{font-size:1.75rem;padding:0 6px}
+.cat .rol{font-weight:700;color:var(--baksteen);padding:2px 6px 10px;font-size:.98rem}
+.cat p{margin:0 0 10px;padding:0 6px;font-size:1rem}
+.cat.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1.1fr;gap:26px;align-items:center}
+.cat.wide .arch{margin:0;aspect-ratio:3/4}
+.cat.wide .arch img{object-position:50% 70%}
+.cat.full{grid-column:1/-1;grid-template-columns:1fr 2fr}
+.cat.full .arch{aspect-ratio:4/3}
+.cat.full .arch img{object-position:50% 40%}
+.cat.full > div:last-child{max-width:560px}
+.cat-note{margin-top:34px;max-width:720px;font-size:1.05rem}
+
+/* menu */
+.kaart-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.kaart-top .sec-head{margin:0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.tabs button{font:inherit;font-weight:700;border:2px solid var(--vacht);background:transparent;color:var(--vacht);padding:10px 18px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--vacht);color:var(--melk)}
+.panel{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 64px}
+.panel[hidden]{display:none}
+.mgroup h3{font-size:1.6rem;margin-bottom:14px;color:var(--baksteen)}
+.mgroup + .mgroup{}
+.item{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(54,37,32,.2)}
+.item .n{font-weight:500}
+.item .d{display:block;font-weight:400;font-size:.93rem;color:var(--zacht);line-height:1.45;margin-top:2px}
+.item .p{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.item .v{display:inline-block;font-size:.78rem;font-weight:700;background:#DDE8C9;color:#3F5326;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
+.small{font-size:.95rem;color:var(--zacht);margin:14px 0 0}
+.thee-list{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.thee-list li{background:var(--kussen-licht);padding:4px 12px;border-radius:999px;font-size:.93rem}
+.pdf-link{font-weight:700;color:var(--baksteen)}
+
+/* high tea */
+.hightea{background:var(--kussen)}
+.hightea .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.hightea .arch{aspect-ratio:5/6;background:var(--kussen-licht)}
+.hightea .arch img{width:100%;height:100%;object-fit:cover}
+.hightea h2{font-size:clamp(2.3rem,4.6vw,3.6rem);margin-bottom:10px}
+.prijs{font-family:"Young Serif",serif;font-size:1.5rem;margin:0 0 18px}
+.hightea ul{padding-left:1.2em;margin:0 0 28px}
+.hightea li{margin:4px 0}
+.hightea .btn-line{border-color:var(--vacht)}
+
+/* huisregels */
+.regels{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.regel{border-top:3px solid var(--vacht);padding-top:16px}
+.regel h3{font-size:1.4rem;margin-bottom:6px}
+.regel p{margin:0;color:var(--zacht)}
+
+/* bezoek */
+.bezoek{background:var(--vacht);color:var(--melk)}
+.bezoek .sec-head p{color:#E2D5CB}
+.bezoek-grid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:44px}
+.bezoek h3{font-size:1.5rem;color:var(--kussen);margin-bottom:12px}
+.uren{border-collapse:collapse;width:100%}
+.uren td{padding:8px 0;border-bottom:1px solid rgba(255,250,241,.15)}
+.uren td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.uren tr.vandaag td{color:var(--kussen);font-weight:700}
+.bezoek p{margin:0 0 12px;color:#EFE4DA}
+.bezoek a{color:var(--melk)}
+.map{border-radius:var(--r);overflow:hidden;min-height:300px;background:#4a3730}
+.map iframe{width:100%;height:100%;min-height:300px;border:0;display:block}
+.bezoek .btn{border-color:var(--melk);color:var(--melk);margin-top:6px}
+.bezoek .btn:hover{background:var(--melk);color:var(--vacht)}
+
+footer{padding:34px 0 40px;font-size:.95rem;color:var(--zacht)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--baksteen);color:#fff;text-align:center;font-size:.85rem;font-weight:500;padding:7px 10px}
+
+@media (max-width:980px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .bezoek-grid{grid-template-columns:1fr 1fr}
+  .map{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .hero{padding:92px 0 56px}
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero-art{width:min(74%,340px);order:-1}
+  .hero-art .arch{aspect-ratio:1/1}
+  .hero-art .peek{left:-22px}
+  .hero-art .tag{right:-10px}
+  .welkom .wrap{grid-template-columns:1fr;gap:28px;padding:48px 0}
+  .panel{grid-template-columns:1fr}
+  .hightea .wrap{grid-template-columns:1fr;gap:36px}
+  .hightea .arch{max-width:420px;aspect-ratio:1/1}
+  .regels{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .wrap{width:calc(100% - 32px)}
+  .sec{padding:68px 0}
+  .hero h1{font-size:2.15rem;margin:16px 0 14px}
+  .hero{padding:86px 0 52px}
+  .hero .wrap{gap:30px}
+  .hero p.lead{font-size:1.08rem}
+  .cat-grid{grid-template-columns:1fr}
+  .cat.wide,.cat.full{grid-column:auto;grid-template-columns:1fr}
+  .cat.wide .arch{aspect-ratio:1/1}
+  .bezoek-grid{grid-template-columns:1fr}
+  .btn{padding:14px 20px}
+  .tabs button{padding:9px 14px;font-size:.95rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Kattencafé Balthazar, naar boven">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#E2A72E"/><path d="M16 50V22l9 8h14l9-8v28z" fill="#362520"/><circle cx="26" cy="38" r="2.6" fill="#E2A72E"/><circle cx="38" cy="38" r="2.6" fill="#E2A72E"/></svg>
+      Balthazar
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#katten">Onze katten</a></li>
+        <li><a href="#kaart">Menukaart</a></li>
+        <li><a href="#hightea">High tea</a></li>
+        <li><a href="#huisregels">Huisregels</a></li>
+        <li><a class="cta" href="#bezoek">Openingstijden &amp; adres</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="open-chip" id="openChip"><i></i><span>Ma 12 – 17.30 · di t/m za 10 – 17.30 · zo 11 – 17.30</span></span>
+        <h1>Lunch, koffie en huisgemaakte taart, in gezelschap van onze katten.</h1>
+        <p class="lead">Kattencafé Balthazar is een gezellige lunchroom aan de Van Welderenstraat in Nijmegen. U kunt gewoon binnenlopen: reserveren is niet nodig.</p>
+        <div class="btns">
+          <a class="btn btn-dark" href="#kaart">Bekijk de menukaart</a>
+          <a class="btn btn-line" href="#katten">Maak kennis met de katten</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="arch"><img src="img/004.jpg" alt="Katten liggen op gele kussens in het raam van Kattencafé Balthazar" fetchpriority="high"></div>
+        <div class="peek"><img src="img/001.jpg" alt="Spruit kijkt nieuwsgierig over de rand"></div>
+        <div class="tag">Gewoon<br>binnenlopen</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="welkom">
+    <div class="wrap">
+      <div>
+        <h3>Geen reservering nodig</h3>
+        <p>Loop binnen wanneer het u uitkomt. Alleen voor een high tea reserveert u vooraf.</p>
+      </div>
+      <div>
+        <h3>Alles huisgemaakt</h3>
+        <p>Taart, ijsthee en limonade maken we zelf. Lunch op blond natuurbrood van Streekbakker Jorrit, ook glutenvrij te bestellen.</p>
+      </div>
+      <div>
+        <h3>Alleen pinnen</h3>
+        <p>Bij ons betaalt u met de pinpas of kaart.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec katten" id="katten">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Maak alvast kennis met onze katten</h2>
+        <p>Ze wonen hier, slapen in het raam en houden de zaak van bovenaf in de gaten. Ieder met een eigen karakter.</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat wide">
+          <div class="arch"><img src="img/003.jpg" alt="Kittens Beer en Loki stappen uit de reismand" loading="lazy"></div>
+          <div>
+            <h3>Beer en Loki</h3>
+            <div class="rol">De nieuwe kittens, broers</div>
+            <p>Beer lijkt de avonturier van de twee. Al gelijk na aankomst wilde hij alles onderzoeken. Loki gaat daar goed in mee, maar lijkt wat voorzichtiger. Al zijn ze goed aan elkaar gewaagd qua spel.</p>
+            <p>We zijn heel benieuwd hoe de broers zich hier gaan ontwikkelen, maar dat ze zich gelijk thuis voelen, dat staat vast!</p>
+          </div>
+        </article>
+        <article class="cat">
+          <div class="arch"><div class="mono" aria-hidden="true">M</div></div>
+          <h3>Moes</h3>
+          <div class="rol">De groepsoudste</div>
+          <p>Woont al sinds de opening bij ons. Een rustige, gevoelige kat die graag op haar favoriete kussentje in het raam ligt. Knuffelen vindt ze heerlijk, maar zwiept ze met haar staart, dan heeft ze even geen zin. Kleine kinderen vindt ze soms spannend: benader haar voorzichtig.</p>
+        </article>
+        <article class="cat">
+          <div class="arch"><div class="mono" aria-hidden="true">N</div></div>
+          <h3>Nori</h3>
+          <div class="rol">Zus van Maki</div>
+          <p>Houdt enorm van klimmen en is vaak op de touwbrug te vinden. In de zomer klimt ze graag de boom in, en als het zonnetje schijnt hangt ze in het raam. Nori doet precies wat ze wil, wanneer ze het wil. Typisch kat, toch?</p>
+        </article>
+        <article class="cat">
+          <div class="arch"><div class="mono" aria-hidden="true">M</div></div>
+          <h3>Maki</h3>
+          <div class="rol">Broer van Nori</div>
+          <p>De rust zelve, behalve als hij een knuffel wil: dan zet hij al zijn charmes in. Hij ligt graag op schoot en geeft kleine liefdesbijtjes. Slapen doet hij het liefst bovenop een rugzak, al sinds hij klein is.</p>
+        </article>
+        <article class="cat">
+          <div class="arch"><div class="mono" aria-hidden="true">K</div></div>
+          <h3>Karel</h3>
+          <div class="rol">De avonturier</div>
+          <p>Voelde zich vanaf dag 1 als een vis in het water. Propjes papier zijn favoriet: grote kans dat hij komt apporteren als een hondje. Hij weet als enige hoe hij uit de binnentuin kan ontsnappen, maar komt altijd vanzelf weer terug.</p>
+        </article>
+        <article class="cat wide full">
+          <div class="arch"><img src="img/001.jpg" alt="Spruit, een lapjeskat met grote ogen" loading="lazy"></div>
+          <div>
+            <h3>Spruit</h3>
+            <div class="rol">Een brutale dame</div>
+            <p>Klimmen, stoeien, spelen, het eten van je bord willen stelen: in alles is ze one of the guys. Maar zo stoer als ze is, zo lief is ze ook. Als ze moe is wil ze knuffelen, en maar weinig katten kunnen zo hard spinnen als Spruit.</p>
+          </div>
+        </article>
+      </div>
+      <p class="cat-note">Onze katten wonen permanent in het café en zijn dus niet beschikbaar voor adoptie. Ook is het niet de bedoeling dat u uw eigen kat meeneemt.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="kaart">
+    <div class="wrap">
+      <div class="kaart-top">
+        <div class="sec-head">
+          <h2>Menukaart</h2>
+          <p>Lunch van 11 tot 16 uur, tosti's tot 17 uur. Al het gebak maken we zelf.</p>
+        </div>
+        <a class="pdf-link" href="https://www.kattencafebalthazar.nl/s/Menukaart2026.pdf">Menukaart 2026 als pdf</a>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Onderdelen van de kaart">
+        <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="true">Lunch</button>
+        <button role="tab" id="t-gebak" aria-controls="p-gebak" aria-selected="false" tabindex="-1">Gebak</button>
+        <button role="tab" id="t-koffie" aria-controls="p-koffie" aria-selected="false" tabindex="-1">Koffie &amp; thee</button>
+        <button role="tab" id="t-fris" aria-controls="p-fris" aria-selected="false" tabindex="-1">Fris &amp; mocktails</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch">
+        <div class="mgroup">
+          <h3>Brood &amp; toast</h3>
+          <div class="item"><span class="n">Oude kaas<span class="d">Driedubbele sandwich met oude kaas, pestomayonaise, rucola, cherrytomaatjes en walnoten</span></span><span class="p">14,00</span></div>
+          <div class="item"><span class="n">Fetaspread<span class="d">Brood met huisgemaakte fetaspread &amp; koriander, met spinazie, sojabonen, walnoten, granaatappelpitjes en limoendressing</span></span><span class="p">12,00</span></div>
+          <div class="item"><span class="n">Avocadospread &amp; zeekraal <span class="v">vegan</span><span class="d">Toast met huisgemaakte avocado-erwtenspread &amp; pesto, met veldsla, rucola, geroosterde pitjes en zeekraal</span></span><span class="p">12,00</span></div>
+          <div class="item"><span class="n">Brie, walnoten en honing<span class="d">Toast met brie, gemengde sla, appelschijfjes, walnoten en honing</span></span><span class="p">15,00</span></div>
+        </div>
+        <div class="mgroup">
+          <h3>Soep &amp; tosti</h3>
+          <div class="item"><span class="n">Oosterse tomaten-linzensoep <span class="v">vegan</span><span class="d">Kruidige, volle soep, geserveerd met brood en boter</span></span><span class="p">12,00</span></div>
+          <div class="item"><span class="n">Tosti kaas<span class="d">Klassieker met belegen kaas, geserveerd met tomatenchutney</span></span><span class="p">8,50</span></div>
+          <div class="item"><span class="n">Kindertosti<span class="d">Kleine variant van de kaastosti, met ketchup</span></span><span class="p">6,00</span></div>
+          <div class="item"><span class="n">Combi: minisoepje met een tosti<span class="d">Kleine kaastosti, chutney en een glaasje Oosterse tomaten-linzensoep</span></span><span class="p">12,00</span></div>
+          <p class="small">Onze lunchgerechten serveren we op blond natuurbrood van Streekbakker Jorrit, maar ze zijn ook op glutenvrij brood te bestellen (behalve de tosti's). Met enige regelmaat serveren we ook seizoenspecials.</p>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-gebak" aria-labelledby="t-gebak" hidden>
+        <div class="mgroup">
+          <h3>Gebak, alles huisgemaakt</h3>
+          <div class="item"><span class="n">Appel-crumbletaart <span class="v">vegan</span></span><span class="p">5,50</span></div>
+          <div class="item"><span class="n">Carrot cake</span><span class="p"></span></div>
+          <div class="item"><span class="n">Chocolade-fudgetaart</span><span class="p">5,00</span></div>
+          <div class="item"><span class="n">Cheesecake met frambozencoulis</span><span class="p">5,80</span></div>
+          <div class="item"><span class="n">Bananenbrood <span class="v">vegan</span><span class="d">2 plakjes, met boter, kaneel en vers fruit</span></span><span class="p">8,00</span></div>
+        </div>
+        <div class="mgroup">
+          <h3>Seizoenspecial</h3>
+          <p style="margin:0 0 18px">Kijk in onze vitrine of vraag een medewerker naar het wisselgebak.</p>
+          <h3>High tea</h3>
+          <div class="item"><span class="n">High tea<span class="d">Uitgebreide selectie zoete en hartige lekkernijen, inclusief onbeperkt thee en ijsthee. Minimaal 2 personen, 24 uur vooraf reserveren. Vegan mogelijk.</span></span><span class="p">29,50 p.p.</span></div>
+          <p class="small"><a href="#hightea">Zo reserveert u een high tea</a></p>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-koffie" aria-labelledby="t-koffie" hidden>
+        <div class="mgroup">
+          <h3>Koffie</h3>
+          <div class="item"><span class="n">Koffie</span><span class="p">2,80</span></div>
+          <div class="item"><span class="n">Espresso | dubbele espresso</span><span class="p">2,50 | 3,50</span></div>
+          <div class="item"><span class="n">Cortado</span><span class="p">3,00</span></div>
+          <div class="item"><span class="n">Cappuccino</span><span class="p">4,00</span></div>
+          <div class="item"><span class="n">Flat white</span><span class="p">4,50</span></div>
+          <div class="item"><span class="n">Latte macchiato</span><span class="p">4,50</span></div>
+          <div class="item"><span class="n">Chai latte | dirty chai latte<span class="d">dirty: met espresso</span></span><span class="p">4,80 | 5,50</span></div>
+          <div class="item"><span class="n">Pumpkin spice latte | dirty pumpkin spice latte</span><span class="p">4,80 | 5,50</span></div>
+          <div class="item"><span class="n">Moccaccino</span><span class="p">4,00</span></div>
+          <div class="item"><span class="n">Warme chocolademelk</span><span class="p">4,00</span></div>
+          <div class="item"><span class="n">Slagroom</span><span class="p">0,50</span></div>
+          <div class="item"><span class="n">IJskoffie</span><span class="p">5,00</span></div>
+          <p class="small">Al onze melkdrankjes kunnen ook besteld worden met soja-, haver- of kokosmelk, zonder meerprijs.</p>
+        </div>
+        <div class="mgroup">
+          <h3>Thee</h3>
+          <div class="item"><span class="n">Biologische thee van Van Hilst</span><span class="p">3,80</span></div>
+          <ul class="thee-list">
+            <li>earl grey</li><li>chai</li><li>Nijmegen thee (zwart, gearomatiseerd met fruit)</li><li>groene thee sencha</li><li>groene thee jasmijn</li><li>groene thee dauwdruppel (mango, perzik, sinaasappel)</li><li>rooibos</li>
+          </ul>
+          <div class="item" style="margin-top:14px"><span class="n">Verse thee<span class="d">Kies 1 of meer: verse munt, sinaasappel, citroen, gember, zoethout, kaneel</span></span><span class="p">4,00</span></div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-fris" aria-labelledby="t-fris" hidden>
+        <div class="mgroup">
+          <h3>Fris</h3>
+          <div class="item"><span class="n">Huisgemaakte ijsthee</span><span class="p">4,50</span></div>
+          <div class="item"><span class="n">Huisgemaakte citroenlimonade</span><span class="p">4,50</span></div>
+          <div class="item"><span class="n">Fritz kola | kola light</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Fritz limo citroen</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Fritz honingmeloen</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Fritz spritz rabarbersap</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Fever-Tree ginger beer</span><span class="p">3,80</span></div>
+          <div class="item"><span class="n">Mineraalwater Marie Stella Maris</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Apfelschorle</span><span class="p">4,00</span></div>
+        </div>
+        <div class="mgroup">
+          <h3>Sappen &amp; melk</h3>
+          <div class="item"><span class="n">Appelsap</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Appel-perensap</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Sinaasappelsap</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Fristi</span><span class="p">3,50</span></div>
+          <div class="item"><span class="n">Chocolademelk</span><span class="p">3,00</span></div>
+          <div class="item"><span class="n">Glas melk</span><span class="p">3,00</span></div>
+          <div class="item"><span class="n">Aanmaaklimonade</span><span class="p">2,50</span></div>
+          <h3 style="margin-top:28px">Mocktails</h3>
+          <div class="item"><span class="n">Watermeloen | komkommer</span><span class="p">6,20</span></div>
+          <div class="item"><span class="n">Lavendel | rozemarijn | blauwe bes</span><span class="p">6,50</span></div>
+          <div class="item"><span class="n">Ananas | munt</span><span class="p">6,50</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec hightea" id="hightea">
+    <div class="wrap">
+      <div class="arch"><img src="img/002.jpg" alt="High tea met taart, wraps en sandwiches, met een kat op de achtergrond" loading="lazy"></div>
+      <div>
+        <h2>High tea bij Balthazar</h2>
+        <p class="prijs">29,50 per persoon</p>
+        <p>Een uitgebreide selectie van zoete en hartige lekkernijen, met onbeperkt thee en ijsthee. Voor de high tea is reserveren wel nodig.</p>
+        <ul>
+          <li>Minimaal 2 personen</li>
+          <li>Minimaal 24 uur van tevoren reserveren</li>
+          <li>Vegan mogelijk</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-dark" href="https://wa.me/31682699393">Reserveren via WhatsApp</a>
+          <a class="btn btn-line" href="mailto:kattencafebalthazar@gmail.com?subject=High%20tea%20reserveren">Reserveren per mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="huisregels">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Huisregels</h2>
+        <p>Om het de katten zo aangenaam mogelijk te maken.</p>
+      </div>
+      <div class="regels">
+        <div class="regel"><h3>Kinderen zijn welkom</h3><p>Wees met uw kind(eren) wel voorzichtig richting de katten. Ze zijn kinderen gewend, maar het blijven katten die soms even rust willen. Let goed op hun lichaamstaal en benader ze rustig.</p></div>
+        <div class="regel"><h3>Geen reserveringen</h3><p>U kunt binnenlopen wanneer u wilt. Alleen voor een high tea is reserveren noodzakelijk.</p></div>
+        <div class="regel"><h3>Onze katten wonen hier</h3><p>Ze wonen permanent in het café en zijn niet beschikbaar voor adoptie.</p></div>
+        <div class="regel"><h3>Eigen kat thuislaten</h3><p>Het is niet de bedoeling dat u uw eigen kat meeneemt.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bezoek" id="bezoek">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Kom langs</h2>
+        <p>Van Welderenstraat 46, 6511 MN Nijmegen.</p>
+      </div>
+      <div class="bezoek-grid">
+        <div>
+          <h3>Openingstijden</h3>
+          <table class="uren" id="uren">
+            <tr data-d="1"><td>Maandag</td><td>12.00 – 17.30</td></tr>
+            <tr data-d="2"><td>Dinsdag</td><td>10.00 – 17.30</td></tr>
+            <tr data-d="3"><td>Woensdag</td><td>10.00 – 17.30</td></tr>
+            <tr data-d="4"><td>Donderdag</td><td>10.00 – 17.30</td></tr>
+            <tr data-d="5"><td>Vrijdag</td><td>10.00 – 17.30</td></tr>
+            <tr data-d="6"><td>Zaterdag</td><td>10.00 – 17.30</td></tr>
+            <tr data-d="0"><td>Zondag</td><td>11.00 – 17.30</td></tr>
+          </table>
+          <p style="margin-top:16px">Gesloten op 1e en 2e kerstdag en op 1 januari.</p>
+          <p>Bij temperaturen boven de 30 graden sluiten we om 16.00 uur, omwille van de katten.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>Van Welderenstraat 46<br>6511 MN Nijmegen</p>
+          <p><a href="mailto:kattencafebalthazar@gmail.com">kattencafebalthazar@gmail.com</a><br><a href="tel:+31682699393">06 826 993 93</a> (ook WhatsApp)</p>
+          <p>Reserveringen voor een high tea graag via WhatsApp of de mail. Bij drukte zijn we telefonisch minder goed bereikbaar.</p>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Van%20Welderenstraat%2046%2C%206511%20MN%20Nijmegen">Route plannen</a>
+        </div>
+        <div class="map">
+          <iframe title="Kaart: Van Welderenstraat 46, Nijmegen" src="https://maps.google.com/maps?q=Van%20Welderenstraat%2046%2C%206511%20MN%20Nijmegen&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Kattencafé Balthazar · Van Welderenstraat 46, Nijmegen</span>
+    <span><a href="mailto:kattencafebalthazar@gmail.com">kattencafebalthazar@gmail.com</a> · <a href="tel:+31682699393">06 826 993 93</a></span>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Kattencaf%C3%A9%20Balthazar%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  // mobile menu
+  var t=document.querySelector('.menu-toggle');
+  t.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');});
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open');t.setAttribute('aria-expanded','false');});});
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(tab){tabs.forEach(function(b){var on=b===tab;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){sel(b);});
+    b.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus();}});
+  });
+
+  // open today? (Amsterdam time)
+  try{
+    var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false,day:'numeric',month:'numeric'}).formatToParts(new Date());
+    var g=function(t){return (parts.find(function(p){return p.type===t;})||{}).value;};
+    var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[g('weekday')];
+    var mins=parseInt(g('hour'),10)%24*60+parseInt(g('minute'),10);
+    var day=+g('day'),mon=+g('month');
+    var start={0:660,1:720}[wd]||600,end=1050;
+    var closedDay=(mon===12&&(day===25||day===26))||(mon===1&&day===1);
+    var row=document.querySelector('#uren tr[data-d="'+wd+'"]'); if(row) row.className='vandaag';
+    var chip=document.getElementById('openChip'), txt=chip.querySelector('span');
+    var fmt=function(m){return Math.floor(m/60)+'.'+String(m%60).padStart(2,'0');};
+    if(closedDay){txt.textContent='Vandaag gesloten (feestdag)';}
+    else if(mins>=start&&mins<end){chip.classList.add('is-open');txt.textContent='Nu open, vandaag tot 17.30';}
+    else if(mins<start){txt.textContent='Vandaag open vanaf '+fmt(start);}
+    else{txt.textContent='Nu gesloten, morgen open vanaf '+fmt({0:660,1:720}[(wd+1)%7]||600);}
+  }catch(e){}
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

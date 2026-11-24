@@ -1,0 +1,205 @@
+:root{
+  --inkt:#15191a;
+  --diep:#1e2426;
+  --messing:#b49a5e;
+  --messing-licht:#d3bf8a;
+  --kalk:#f2eee7;
+  --eik:#8a6540;
+  --blad:#55704f;
+  --tekst:#23292b;
+  --zacht:#c9c4ba;
+  --kop:'Josefin Sans',system-ui,sans-serif;
+  --body:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--tekst);background:var(--kalk);-webkit-font-smoothing:antialiased;padding-bottom:30px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--kop);font-weight:600;line-height:1.15;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--messing);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(21,25,26,.96);border-bottom:1px solid rgba(180,154,94,.25)}
+.top-in{max-width:1280px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.top-logo img{height:38px;width:auto}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{color:#e9e4da;text-decoration:none;font-family:var(--kop);font-size:15px;letter-spacing:.06em;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-color:var(--messing)}
+.nav .nav-bel{border:1px solid var(--messing);color:var(--messing-licht);padding:8px 14px;border-radius:2px}
+.nav .nav-bel:hover{background:var(--messing);color:var(--inkt)}
+.burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--messing-licht);margin:5px 0;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:44% 56%;min-height:100vh;min-height:100svh;background:var(--inkt);padding-top:64px}
+.hero-foto{order:2;position:relative;overflow:hidden}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:40% 60%;animation:zoom 1.6s ease-out both}
+.hero-tekst{order:1;position:relative;padding:72px 56px 64px;display:flex;flex-direction:column;justify-content:center;color:#ece7dd;overflow:hidden}
+.hero-golf{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;color:var(--messing);opacity:.18;
+  -webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent)}
+.hero-logo{width:min(380px,90%);height:auto;margin-bottom:34px}
+.hero h1{font-size:clamp(28px,3.1vw,42px);font-weight:300;letter-spacing:.01em;max-width:16em;color:#f4efe5}
+.hero-tekst>p{max-width:31em;color:var(--zacht);margin:20px 0 0}
+.hero-knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-vandaag{font-size:15px;color:var(--messing-licht)!important;margin-top:22px!important}
+@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+
+.knop{display:inline-block;font-family:var(--kop);font-weight:600;font-size:15px;letter-spacing:.05em;text-decoration:none;padding:14px 22px 12px;border-radius:2px;border:1px solid var(--messing);cursor:pointer;transition:background .2s,color .2s}
+.knop-goud{background:var(--messing);color:var(--inkt)}
+.knop-goud:hover{background:var(--messing-licht)}
+.knop-lijn{background:transparent;color:var(--messing-licht)}
+.knop-lijn:hover{background:rgba(180,154,94,.15)}
+
+/* welkom */
+.welkom{padding:110px 0 100px}
+.welkom-kop{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:end;margin-bottom:56px}
+.welkom h2{font-size:clamp(34px,4.4vw,58px);font-weight:300;color:var(--inkt)}
+.welkom-kop p{margin:0;font-size:19px;max-width:36em}
+.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.drie-item{text-decoration:none;display:block}
+.drie-item img{aspect-ratio:4/5;object-fit:cover;width:100%;margin-bottom:18px}
+.drie-midden{margin-top:48px}
+.drie-item h3{font-size:26px;color:var(--inkt);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.drie-item h3::after{content:"";flex:1;height:9px;max-width:80px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='9'%3E%3Cpath d='M0 4.5 q5 -3.5 10 0 t10 0' fill='none' stroke='%23b49a5e' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x}
+.drie-item p{margin:0;color:#4a5153}
+.drie-item:hover h3{color:var(--eik)}
+
+/* menukaart */
+.kaart{position:relative;background:var(--inkt);color:#e6e1d7;padding:100px 0 110px;overflow:hidden}
+.kaart-golf{position:absolute;top:0;left:0;width:100%;height:90px;color:var(--messing);opacity:.14;
+  -webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.kaart-kop{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px;position:relative}
+.kaart h2{font-size:clamp(36px,4.6vw,60px);font-weight:300;color:#f4efe5}
+.kaart-kop p{max-width:26em;color:var(--zacht);margin:0;font-size:15px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid rgba(180,154,94,.35);margin-bottom:44px}
+.tabs button{font-family:var(--kop);font-size:16px;letter-spacing:.03em;background:none;border:0;color:var(--zacht);padding:14px 16px 12px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button:hover{color:#fff}
+.tabs button[aria-selected="true"]{color:var(--messing-licht);border-bottom-color:var(--messing)}
+.paneel{animation:paneel .35s ease-out}
+@keyframes paneel{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kolommen{display:grid;grid-template-columns:1fr 1fr;gap:28px 72px}
+.drie-kol{grid-template-columns:repeat(3,1fr);gap:28px 48px}
+.groep h3{font-size:24px;color:var(--messing-licht);margin:0 0 14px;font-weight:600}
+.groep h3 small{font-family:var(--body);font-size:13px;font-weight:400;color:var(--zacht);margin-left:8px}
+.groep h3:not(:first-child){margin-top:34px}
+.groep h4{font-size:17px;color:#f1ece2;margin:24px 0 8px;font-weight:600}
+.lijst{list-style:none;margin:0;padding:0}
+.lijst li{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dotted rgba(201,196,186,.25)}
+.lijst .n{flex:1;color:#f1ece2}
+.lijst .n em{display:block;font-style:normal;font-size:14.5px;color:#a9a397;margin-top:2px}
+.lijst .p{font-variant-numeric:tabular-nums;color:var(--messing-licht);white-space:nowrap;font-weight:500}
+.lijst .uitgelicht .n{font-weight:600}
+.lijst.klein li{padding:5px 0;font-size:15px}
+.noot{font-size:14.5px;color:#a9a397;margin:14px 0 0}
+.noot a{color:var(--messing-licht)}
+.togo{font-family:var(--kop);font-size:20px;color:var(--messing-licht);margin:22px 0 0}
+.paneel-foto{margin-top:28px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.paneel-foto.groot{margin-top:0;aspect-ratio:4/3}
+.krijt{border:3px solid #d8d4cc;border-radius:14px 22px 12px 26px;padding:28px 30px}
+.ijs{border:1px solid var(--messing);padding:34px;text-align:center}
+.ijs h3{font-size:32px;margin:0 0 8px}
+.ijs p{margin:0;color:var(--zacht)}
+
+/* samen genieten */
+.samen{display:grid;grid-template-columns:1fr 1fr;background:var(--diep);color:#e9e4da}
+.samen-foto{position:relative;min-height:460px}
+.samen-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.samen-tekst{padding:84px 64px;align-self:center}
+.samen h2{font-size:clamp(34px,4vw,52px);font-weight:300;color:#f4efe5}
+.samen-tekst>p{color:var(--zacht);max-width:30em}
+.samen-lijst{list-style:none;padding:0;margin:26px 0 0;max-width:380px}
+.samen-lijst li{display:flex;justify-content:space-between;font-family:var(--kop);font-size:24px;padding:12px 0;border-bottom:1px solid rgba(180,154,94,.35)}
+.samen-lijst b{font-weight:400;color:var(--messing-licht)}
+
+/* bier */
+.bier{padding:100px 0;background:var(--kalk)}
+.bier-in{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
+.bier h2{font-size:clamp(34px,4vw,52px);font-weight:300;color:var(--inkt);margin-bottom:30px}
+.bier-twee{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.bier h3{font-size:20px;color:var(--eik);margin-bottom:12px}
+.bier ul{list-style:none;padding:0;margin:0}
+.bier li{padding:9px 0;border-bottom:1px solid #d9d2c4;font-size:18px}
+.bier-foto{aspect-ratio:4/5;object-fit:cover;width:100%}
+
+/* tijden */
+.tijden{background:var(--inkt);color:#e6e1d7;padding:100px 0 0}
+.tijden-in{display:grid;grid-template-columns:1fr 1fr;gap:72px;padding-bottom:70px}
+.tijden h2{font-size:clamp(32px,3.6vw,46px);font-weight:300;color:#f4efe5;margin-bottom:24px}
+.uren{width:100%;border-collapse:collapse;font-size:18px}
+.uren th,.uren td{padding:12px 0;border-bottom:1px solid rgba(201,196,186,.18);text-align:left;font-weight:400}
+.uren td{text-align:right;font-variant-numeric:tabular-nums}
+.uren .dicht{color:#8c887f}
+.uren .vandaag th,.uren .vandaag td{color:var(--messing-licht);font-weight:600}
+.waar{position:relative}
+.brug{width:200px;mix-blend-mode:lighten;opacity:.85;margin:-20px 0 10px -14px}
+.waar address{font-style:normal;font-size:20px;line-height:1.5}
+.kaartje iframe{display:block;width:100%;height:380px;border:0;filter:grayscale(.35) contrast(.95)}
+
+/* contact */
+.contact{padding:100px 0;background:var(--kalk)}
+.contact-in{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.contact h2{font-size:clamp(32px,3.6vw,46px);font-weight:300;color:var(--inkt)}
+.contact-lijst{list-style:none;padding:0;margin:26px 0 0}
+.contact-lijst li{padding:10px 0;border-bottom:1px solid #d9d2c4}
+.contact-lijst a{text-decoration:none;font-size:18px;color:var(--inkt)}
+.contact-lijst a:hover{color:var(--eik)}
+.formulier{display:grid;gap:16px;background:#fff;padding:32px;border:1px solid #e1dbcf}
+.formulier label{display:grid;gap:6px;font-size:15px;color:#4a5153}
+.formulier input,.formulier textarea{font:inherit;padding:12px 14px;border:1px solid #cfc8ba;background:#fbfaf7;border-radius:2px;color:var(--tekst)}
+.formulier input:focus,.formulier textarea:focus{outline:2px solid var(--messing);border-color:var(--messing)}
+.formulier .knop{justify-self:start}
+.form-msg{margin:0;padding:12px 14px;background:#efe6d0;color:#5b4a22;font-size:15px}
+
+/* footer */
+.voet{background:var(--inkt);color:var(--zacht);padding:56px 0 64px;text-align:center}
+.voet img{margin:0 auto 18px;height:auto}
+.voet p{margin:6px 0}
+.voet a{color:var(--messing-licht);text-decoration:none}
+.voet .klein{font-size:13px;color:#8c887f;margin-top:14px}
+
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--messing);color:var(--inkt);font-size:13px;text-align:center;padding:6px 10px;font-weight:600}
+
+@media (max-width:980px){
+  .nav{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--inkt);flex-direction:column;align-items:flex-start;padding:28px 24px;gap:6px;transform:translateX(100%);transition:transform .3s;visibility:hidden}
+  .nav.open{transform:none;visibility:visible}
+  .nav a{font-size:22px;padding:12px 0}
+  .nav .nav-bel{margin-top:14px;font-size:18px;padding:12px 18px}
+  .burger{display:block}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-foto{order:1;height:40vh;min-height:260px}
+  .hero-tekst{order:2;padding:40px 24px 56px}
+  .hero-logo{width:min(300px,85%);margin-bottom:24px}
+  .welkom-kop,.kolommen,.drie-kol,.samen,.bier-in,.tijden-in,.contact-in{grid-template-columns:1fr}
+  .welkom-kop{gap:18px}
+  .drie{grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .drie-midden{margin-top:0}
+  .kaart-kop{flex-direction:column;align-items:start;gap:12px}
+  .samen-tekst{padding:56px 24px}
+  .samen-foto{min-height:0}
+  .samen-foto img{position:static;aspect-ratio:16/10}
+  .bier-in,.tijden-in,.contact-in{gap:44px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .welkom,.kaart,.bier,.contact{padding:72px 0}
+  .tijden{padding-top:72px}
+  .drie{grid-template-columns:1fr;gap:34px}
+  .drie-item img{aspect-ratio:16/10}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -24px 34px;padding:0 18px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{white-space:nowrap;padding:14px 12px 12px;font-size:15px}
+  .krijt{padding:22px 20px}
+  .formulier{padding:22px}
+  .kaartje iframe{height:300px}
+  .bier-twee{gap:24px}
+  .welkom-kop p{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
