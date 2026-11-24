@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>De Streekzaak · Streekwinkel &amp; Eetlokaal in Geldermalsen</title>
+<meta name="description" content="Lunchroom, high tea en streekwinkel aan het Marktplein in Geldermalsen. Zo lokaal mogelijk: beleef de Betuwe.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231E3B2E'/%3E%3Crect x='9' y='12' width='46' height='40' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bottle:#1E3B2E; --bottle-2:#2A4D3C; --sage:#CFE0D1; --sage-2:#E3EDE2; --mist:#F2F5EF;
+  --ink:#1A2620; --muted:#55645B; --apple:#B5372B; --apple-d:#962B21; --honey:#D6A24A; --white:#fff;
+  --display:"Zilla Slab", Georgia, serif; --body:"Karla", system-ui, sans-serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--mist);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:34px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0 0 .5em;font-weight:700;letter-spacing:-.005em}
+h2{font-size:clamp(30px,4.2vw,46px)}
+h3{font-size:22px;font-weight:600}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--honey);outline-offset:3px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:4px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--body);transition:background .2s,color .2s,border-color .2s}
+.btn-apple{background:var(--apple);color:#fff}
+.btn-apple:hover{background:var(--apple-d)}
+.btn-line{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-ink{border-color:var(--bottle);color:var(--bottle)}
+.btn-ink:hover{background:var(--bottle);color:#fff}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--bottle);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:20px}
+.top .brand img{height:40px;width:auto}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-weight:500;font-size:15.5px;opacity:.88}
+.nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.nav .btn{padding:10px 16px;font-size:15px;opacity:1}
+.nav .btn:hover{text-decoration:none}
+.menu-toggle{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer;padding:10px}
+.menu-toggle span{display:block;height:2px;background:#fff;margin:6px 0;transition:transform .2s,opacity .2s}
+.menu-open .menu-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-open .menu-toggle span:nth-child(2){opacity:0}
+.menu-open .menu-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{padding-top:66px;background:var(--bottle);color:#fff;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(640px,calc(100vh - 66px))}
+.hero-text{padding:64px 48px 56px max(24px,calc((100vw - var(--wrap))/2 + 24px));display:flex;flex-direction:column;justify-content:center}
+.hero-logo{width:min(330px,80%);margin-bottom:34px}
+.hero h1{font-size:clamp(34px,4.4vw,54px);font-weight:600;margin-bottom:18px}
+.hero p.lead{font-size:19px;color:#DCE7DD;max-width:30em;margin-bottom:28px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.today{margin-top:30px;display:flex;align-items:center;gap:10px;font-size:15px;color:#DCE7DD}
+.today .dot{width:9px;height:9px;border-radius:50%;background:var(--honey);flex:none}
+.today.open .dot{background:#7FC08F}
+.hero-photo{position:relative;min-height:340px}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:settle 1.4s ease-out both}
+@keyframes settle{from{transform:scale(1.05)}to{transform:none}}
+
+/* route band */
+.route{background:var(--sage);padding:40px 0}
+.route-line{display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:16px;font-family:var(--display);font-weight:600;font-size:20px;color:var(--bottle)}
+.route-line .rail{height:2px;background:repeating-linear-gradient(90deg,var(--bottle) 0 10px,transparent 10px 18px)}
+.route-line .stop{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.route-line .stop i{width:14px;height:14px;border-radius:50%;border:3px solid var(--bottle);background:var(--sage)}
+.route-line .stop.home{background:var(--bottle);color:#fff;padding:8px 16px;border-radius:3px}
+.route p{margin:18px 0 0;color:#2F4A3C;max-width:62em;font-size:16px}
+
+/* sections */
+section{padding:96px 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.intro .photo{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.intro .photo img{width:100%;height:100%;object-fit:cover}
+.intro p{color:#33433A}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:2px solid var(--bottle)}
+.pillars a{display:block;padding:22px 22px 4px 0;text-decoration:none}
+.pillars a + a{padding-left:22px;border-left:1px solid #C8D3CA}
+.pillars h3{margin-bottom:6px}
+.pillars a:hover h3{color:var(--apple)}
+.pillars p{font-size:15.5px;color:var(--muted)}
+
+/* menu */
+.menu{background:var(--white)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.menu-head p{max-width:34em;color:var(--muted);margin:0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--sage);margin-bottom:34px}
+.tabs button{font:600 16px var(--body);background:none;border:0;padding:12px 16px;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button[aria-selected=true]{color:var(--bottle);border-bottom-color:var(--apple)}
+.tabs button:hover{color:var(--bottle)}
+.panel{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 56px}
+.panel[hidden]{display:none}
+.dish{padding:16px 0;border-bottom:1px dashed #C8D3CA}
+.dish h4{font:600 19px/1.25 var(--display);margin:0 0 4px;display:flex;justify-content:space-between;gap:16px}
+.dish h4 .pr{font-family:var(--body);font-weight:700;font-size:16px;color:var(--apple);white-space:nowrap}
+.dish p{margin:0;color:var(--muted);font-size:15.5px}
+.panel .note{grid-column:1/-1;background:var(--sage-2);padding:14px 18px;border-radius:4px;font-size:15px;color:#2F4A3C;margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips span{background:var(--mist);border:1px solid #D5DFD6;border-radius:30px;padding:4px 12px;font-size:14.5px}
+.menu-foot{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--muted);font-size:15px}
+
+/* high tea */
+.hightea{background:var(--bottle);color:#fff}
+.ht-grid{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
+.ht-grid .photo{border-radius:4px;overflow:hidden;aspect-ratio:3/4;max-height:640px}
+.ht-grid .photo img{width:100%;height:100%;object-fit:cover}
+.price-tag{display:inline-block;font:700 44px/1 var(--display);color:var(--honey);margin:6px 0 4px}
+.price-tag small{font:500 17px var(--body);color:#DCE7DD;margin-left:6px}
+.courses{list-style:none;padding:0;margin:28px 0;counter-reset:c}
+.courses li{counter-increment:c;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.15)}
+.courses li::before{content:counter(c);font:700 22px/1 var(--display);color:var(--bottle);background:var(--sage);width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.courses strong{display:block;font-family:var(--display);font-size:20px;font-weight:600}
+.courses span{color:#C9D8CB;font-size:15.5px}
+.hightea .small{color:#C9D8CB;font-size:15.5px}
+
+/* afhalen & catering */
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.order-card{background:#fff;border-radius:4px;overflow:hidden;display:grid;grid-template-rows:260px 1fr}
+.order-card img{width:100%;height:100%;object-fit:cover}
+.order-card .body{padding:28px 30px 30px}
+.order-card ul{padding-left:20px;margin:0 0 1em}
+.order-card li{margin:3px 0}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
+.facts b{background:var(--sage-2);color:var(--bottle);padding:6px 12px;border-radius:3px;font-size:15px}
+.party{margin-top:28px;background:var(--sage);border-radius:4px;padding:30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.party p{margin:0;color:#2F4A3C}
+
+/* winkel */
+.shop{background:#fff}
+.shop-banner{border-radius:4px;overflow:hidden;aspect-ratio:1200/350;margin-bottom:56px}
+.shop-banner img{width:100%;height:100%;object-fit:cover}
+.shop-grid{display:grid;grid-template-columns:6fr 5fr;gap:64px}
+.shelf{list-style:none;padding:0;margin:20px 0 0}
+.shelf li{padding:14px 0;border-bottom:1px dashed #C8D3CA}
+.shelf strong{font-family:var(--display);font-size:19px;font-weight:600;display:block}
+.shelf span{color:var(--muted);font-size:15.5px}
+.side-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.side-photos img{border-radius:4px;width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.gift{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:2px solid var(--bottle)}
+.gift div{padding:22px 24px 0 0}
+.gift div + div{padding-left:24px;border-left:1px solid #C8D3CA}
+.gift p{color:var(--muted);font-size:15.5px}
+
+/* kerst */
+.xmas{background:#22392D;color:#fff;position:relative}
+.xmas-grid{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
+.xmas p{color:#D2DFD4}
+.xmas-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.xmas-photos img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
+.xmas-photos img:nth-child(2){transform:translateY(28px)}
+.xmas .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+/* reserveren + bezoek */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+form{background:#fff;border-radius:4px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .full{grid-column:1/-1}
+label{display:block;font-weight:700;font-size:14.5px;margin-bottom:5px}
+input,select{width:100%;font:16px var(--body);padding:12px;border:1.5px solid #C3CFC5;border-radius:4px;background:var(--mist);color:var(--ink)}
+input:focus,select:focus{border-color:var(--bottle);outline:none;background:#fff}
+.form-msg{grid-column:1/-1;background:var(--sage);padding:14px 16px;border-radius:4px;font-size:15px;display:none}
+.form-msg.show{display:block}
+.hint{font-size:14.5px;color:var(--muted);margin:0}
+.hours{width:100%;border-collapse:collapse;margin:8px 0 6px}
+.hours td{padding:9px 0;border-bottom:1px dashed #C8D3CA}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.now td{color:var(--apple)}
+.contact-list{list-style:none;padding:0;margin:20px 0}
+.contact-list li{margin:6px 0}
+.contact-list a{font-weight:700;text-decoration-color:var(--sage);text-underline-offset:4px}
+.map{margin-top:22px;border-radius:4px;overflow:hidden;height:280px;background:var(--sage-2)}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--bottle);color:#C9D8CB;padding:48px 0 40px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+footer img{height:46px;width:auto}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--honey);color:#2A2210;text-align:center;font-size:13.5px;font-weight:700;padding:7px 10px}
+
+@media (max-width:960px){
+  .nav{position:fixed;top:66px;left:0;right:0;background:var(--bottle);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px;display:none;border-top:1px solid rgba(255,255,255,.1)}
+  .menu-open .nav{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:17px}
+  .nav .btn{margin-top:14px;justify-content:center;padding:14px}
+  .menu-toggle{display:block}
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;min-height:0;aspect-ratio:2/1.15}
+  .hero-text{padding:34px 24px 44px}
+  .intro,.ht-grid,.shop-grid,.xmas-grid,.visit-grid{grid-template-columns:1fr;gap:40px}
+  .pillars{grid-template-columns:1fr 1fr}
+  .pillars a:nth-child(3){padding-left:0;border-left:0}
+  .order-grid{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr}
+  .ht-grid .photo{aspect-ratio:4/3}
+}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  section{padding:68px 0}
+  .wrap{padding:0 20px}
+  .top .brand img{height:34px}
+  .hero-logo{width:230px;margin-bottom:24px}
+  .hero p.lead{font-size:17.5px}
+  .hero .actions .btn{flex:1 1 auto;justify-content:center}
+  .route-line{grid-template-columns:1fr;gap:6px;font-size:18px}
+  .route-line .rail{width:2px;height:22px;margin-left:5px;background:repeating-linear-gradient(180deg,var(--bottle) 0 6px,transparent 6px 11px)}
+  .route-line .stop.home{justify-self:start;margin-left:-6px}
+  .pillars{grid-template-columns:1fr}
+  .pillars a,.pillars a + a{padding:18px 0 2px;border-left:0;border-bottom:1px solid #C8D3CA}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-20px;margin-right:-20px;padding:0 14px}
+  .tabs button{white-space:nowrap;padding:12px 12px}
+  .order-card{grid-template-rows:210px 1fr}
+  .order-card .body{padding:22px}
+  .party{grid-template-columns:1fr;padding:24px}
+  .gift{grid-template-columns:1fr}
+  .gift div,.gift div + div{padding:18px 0 0;border-left:0}
+  .xmas-photos img:nth-child(2){transform:translateY(16px)}
+  form{grid-template-columns:1fr;padding:22px}
+  .price-tag{font-size:38px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="De Streekzaak, naar boven"><img src="img/logo-wit.png" alt="De Streekzaak - Streekwinkel &amp; Eetlokaal" width="104" height="40"></a>
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#lunchkaart">Lunchkaart</a>
+      <a href="#hightea">High tea</a>
+      <a href="#afhalen">Afhalen &amp; catering</a>
+      <a href="#winkel">Streekwinkel</a>
+      <a href="#kerst">Kerstpakketten</a>
+      <a href="#bezoek">Contact</a>
+      <a class="btn btn-apple" href="#reserveren">Tafel reserveren</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:0">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <img class="hero-logo" src="img/logo-wit.png" alt="De Streekzaak - Streekwinkel &amp; Eetlokaal" width="330" height="128">
+      <h1>Lunchen, high tea en streekproducten uit de Betuwe</h1>
+      <p class="lead">Aan het Marktplein in Geldermalsen. Luxe broodjes, huisgemaakt gebak en een winkel vol lekkers uit de streek. Zo lokaal mogelijk.</p>
+      <div class="actions">
+        <a class="btn btn-apple" href="#reserveren">Tafel of high tea reserveren</a>
+        <a class="btn btn-line" href="#lunchkaart">Bekijk de lunchkaart</a>
+      </div>
+      <p class="today" id="today"><span class="dot"></span><span id="today-text">Ma 12:00-17:00, di, wo en za 9:30-17:00, vr 9:00-17:00, do gesloten</span></p>
+    </div>
+    <div class="hero-photo"><img src="img/broodjes-appelsap.jpg" alt="Belegde broodjes en flessen Betuws appelsap van De Streekzaak" width="1200" height="600"></div>
+  </div>
+</section>
+
+<div class="route" aria-label="Ligging">
+  <div class="wrap">
+    <div class="route-line">
+      <span class="stop"><i></i>Marktplein</span>
+      <span class="rail"></span>
+      <span class="stop home">De Streekzaak</span>
+      <span class="rail"></span>
+      <span class="stop"><i></i>De Linge</span>
+    </div>
+    <p>Ons pand van meer dan 100 jaar oud verbindt het centrum letterlijk met de Linge: je loopt via de winkel van het Marktplein naar de parkeerplaats bij het park en de rivier, of andersom.</p>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <h2>Beleef de Betuwe</h2>
+        <p>Bij De Streekzaak staat de kwaliteit van het eten en drinken centraal. We gebruiken verse en lokale producten voor onze gerechten. Alles wordt met liefde en passie gemaakt, en dat proef je.</p>
+        <p>Geniet in het eetlokaal of op het terras van luxe broodjes, maaltijdsalades, soep of een van onze specials. Of kom voor een kop koffie, een van onze koffiespecials of een vers sapje met huisgemaakt gebak. En neem daarna een kijkje in de streekwinkel.</p>
+        <a class="btn btn-ink" href="#lunchkaart">Naar de lunchkaart</a>
+      </div>
+      <div class="photo"><img src="img/pand-terras.jpg" alt="Het terras voor De Streekzaak aan het Marktplein" loading="lazy" width="1600" height="970"></div>
+    </div>
+    <div class="pillars">
+      <a href="#lunchkaart"><h3>Lunchroom</h3><p>Luxe broodjes, specials, salades en zoet. Keuken open tot 16:30.</p></a>
+      <a href="#hightea"><h3>High tea</h3><p>Vier gangen met huisgemaakte en lokale producten, € 27,50 p.p.</p></a>
+      <a href="#afhalen"><h3>Afhalen &amp; catering</h3><p>Broodjes voor thuis, op het werk of op locatie.</p></a>
+      <a href="#winkel"><h3>Streekwinkel</h3><p>Betuwse streekproducten, pakketten en cadeaubonnen.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="lunchkaart">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>Lunch- en borrelkaart</h2>
+      <p>Geserveerd tot 16:30 uur. Broodjes naar keuze op wit of meergranen.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Onderdelen van de kaart">
+      <button role="tab" id="t-broodjes" aria-controls="p-broodjes" aria-selected="true">Broodjes</button>
+      <button role="tab" id="t-specials" aria-controls="p-specials" aria-selected="false" tabindex="-1">Specials</button>
+      <button role="tab" id="t-salades" aria-controls="p-salades" aria-selected="false" tabindex="-1">Salades &amp; kleine trek</button>
+      <button role="tab" id="t-zoet" aria-controls="p-zoet" aria-selected="false" tabindex="-1">Zoet</button>
+      <button role="tab" id="t-drinken" aria-controls="p-drinken" aria-selected="false" tabindex="-1">Drinken</button>
+      <button role="tab" id="t-borrel" aria-controls="p-borrel" aria-selected="false" tabindex="-1">Borrel</button>
+      <button role="tab" id="t-bier" aria-controls="p-bier" aria-selected="false" tabindex="-1">Betuwse bieren</button>
+      <button role="tab" id="t-cocktails" aria-controls="p-cocktails" aria-selected="false" tabindex="-1">Cocktails</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-broodjes" aria-labelledby="t-broodjes">
+      <div class="dish"><h4>Kip sensatie</h4><p>Huisgemaakte gerookte kipsalade met biet, rode ui, paprika en cranberry</p></div>
+      <div class="dish"><h4>Clubsandwich gezond</h4><p>Kaas, kip en groentespread, geserveerd met Hoeksche chips</p></div>
+      <div class="dish"><h4>Carpaccio</h4><p>Parmezaanse kaas, rode ui, pijnboompitten, gedroogde tomaten en keuze uit truffelmayonaise of mosterd-dilledressing</p></div>
+      <div class="dish"><h4>Oudekaassalade</h4><p>Huisgemaakte oudekaassalade met walnoten, rode ui en komkommer</p></div>
+      <div class="dish"><h4>Brie</h4><p>Peer, honing, pecannoten en cranberry</p></div>
+      <div class="dish"><h4>Lunchplankjes <span class="pr">€ 16,95 p.p.</span></h4><p>Vanaf 2 personen: genieten van diverse warme en koude gerechtjes</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-specials" aria-labelledby="t-specials" hidden>
+      <div class="dish"><h4>Bourgondische kroket</h4><p>Twee bourgondische kroketten op brood, met mosterdsaus</p></div>
+      <div class="dish"><h4>Special tosti</h4><p>Van de grill, met ham en/of kaas. Met boer'n dip en rauwkost</p></div>
+      <div class="dish"><h4>Grillworst</h4><p>Briochebol met grillworst, cocktailsaus en gebakken uitjes, met Hoeksche chips en boer'n dip</p></div>
+      <div class="dish"><h4>Warme beenham</h4><p>Met honing-mosterdsaus, rode ui, komkommer en gemengde sla, met Hoeksche chips en boer'n dip</p></div>
+      <div class="dish"><h4>Soep van het seizoen</h4><p>Vraag gerust naar onze seizoenssoep, met broodjes en smeersel</p></div>
+      <div class="dish"><h4>12 uurtje</h4><p>Soep, kroket, salade en een belegd broodje met keuze uit oudekaassalade of kip-bietsalade</p></div>
+      <div class="dish"><h4>Pulled chicken</h4><p>Briochebol met cocktailsaus en gebakken uitjes, met Hoeksche chips en boer'n dip</p></div>
+      <div class="dish"><h4>Uitsmijter ham en kaas</h4><p>Drie gebakken eieren met ham en/of kaas, op wit of meergranen brood</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-salades" aria-labelledby="t-salades" hidden>
+      <div class="dish"><h4>Maaltijdsalade carpaccio</h4><p>Parmezaanse kaas, rode ui, gedroogde tomaten, pijnboompitten en keuze uit truffelmayonaise of mosterd-dilledressing. Met broodjes en smeersel</p></div>
+      <div class="dish"><h4>Maaltijdsalade geitenkaas</h4><p>Rode ui, komkommer, noten, appel, rood fruit en balsamicodressing. Met broodjes en smeersel</p></div>
+      <div class="dish"><h4>Broodje</h4><p>Jam, pindakaas en hagelslag, vruchtenstroop of kaas</p></div>
+      <div class="dish"><h4>Kroketje</h4><p>Broodje met een kroket</p></div>
+      <div class="dish"><h4>Pannenkoek</h4><p>Met stroop en poedersuiker. Topping appel of kaas + € 1,00</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-zoet" aria-labelledby="t-zoet" hidden>
+      <div class="dish"><h4>Proeverijtje</h4><p>Verschillende zoete lekkernijen</p></div>
+      <div class="dish"><h4>Appeltaart</h4><p>Slagroom + € 0,50</p></div>
+      <div class="dish"><h4>Streek slof</h4><p>Slof met room en fruit</p></div>
+      <div class="dish"><h4>Schuimgebak</h4><p>Hazelnoot</p></div>
+      <div class="dish"><h4>Monchou</h4><p>Monchou met Bastogne en kersen, in een potje</p></div>
+      <div class="dish"><h4>Fruitcake</h4></div>
+      <div class="dish"><h4>Ingense molenkoek</h4></div>
+      <div class="dish"><h4>IJscoupe</h4><p>Met seizoensfruit</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-drinken" aria-labelledby="t-drinken" hidden>
+      <div class="dish"><h4>Warme dranken</h4><div class="chips"><span>Koffie</span><span>Thee van Betuws Theehuis</span><span>Cappuccino</span><span>Flat white</span><span>Espresso</span><span>Dubbele espresso</span><span>Latte macchiato</span><span>Koffie verkeerd</span><span>Verse muntthee</span><span>Verse gemberthee</span><span>Warme Chocomel</span></div></div>
+      <div class="dish"><h4>Smulkoffie's</h4><p>Latte macchiato met siroop: karamel, hazelnoot, chocolade of chai. IJskoffie met slagroom en karamelsaus</p></div>
+      <div class="dish"><h4>Sappen uit de streek</h4><div class="chips"><span>Appel</span><span>Peer</span><span>Appel-peer</span><span>Appel-aardbei</span><span>Appel-zwarte bes</span><span>Appel-cranberry</span><span>Appel-framboos</span><span>Appel-vlierbes</span><span>Appel-kers</span></div></div>
+      <div class="dish"><h4>Vers &amp; limonade</h4><div class="chips"><span>Verse jus d'orange</span><span>Verse jus d'orange XL</span><span>Smoothie aardbei</span><span>Limonade framboos</span><span>Limonade citroen</span><span>Limonade aardbei</span></div></div>
+      <div class="dish"><h4>Frisdrank</h4><div class="chips"><span>Coca-Cola</span><span>Coca-Cola Zero</span><span>Fanta Orange</span><span>Cassis</span><span>Rivella</span><span>Fuze Tea green / sparkling</span><span>Bitter lemon</span><span>Tonic</span><span>Fristi</span><span>Chocomel</span><span>Chaudfontaine rood / blauw</span></div></div>
+      <div class="dish"><h4>Bier &amp; wijn</h4><p>Heineken en Heineken 0.0%, Amstel Radler 0,0% / 2,0%, Texels Skuumkoppe en diverse speciaalbieren. Wijn: wit droog, wit zoet, rosé en rood</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-borrel" aria-labelledby="t-borrel" hidden>
+      <div class="dish"><h4>Borrelbroodjes</h4><p>Met diverse smeersels</p></div>
+      <div class="dish"><h4>Kaasplankje</h4><p>Plankje met diverse kazen, voor twee personen</p></div>
+      <div class="dish"><h4>Bitterballen</h4><p>Acht stuks met mosterdsaus</p></div>
+      <div class="dish"><h4>Gemengde warme hapjes</h4><p>Zestien stuks</p></div>
+      <div class="dish"><h4>Nacho's pulled chicken</h4><p>Rode ui, paprika, kaas, guacamole en room</p></div>
+      <div class="dish"><h4>Snackje</h4><p>Boerenchips, dippers of notenmix</p></div>
+      <div class="dish"><h4>Plank De Streekzaak</h4><p>Luxe plank met diverse soorten vleeswaren, kaas, bitterballen, chips en noten, voor twee personen</p></div>
+      <p class="note">De borrelkaart wordt geserveerd tot 16:30 uur. Thuis verder genieten met speciaalbiertjes, wijnen en ciders? Neem een kijkje in de streekwinkel.</p>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-bier" aria-labelledby="t-bier" hidden>
+      <div class="dish"><h4>De Bleekscheet <span class="pr">5,1%</span></h4><p>Brouwerij De Betuwe. Betuws witbier</p></div>
+      <div class="dish"><h4>Krachtig Blond <span class="pr">6,4%</span></h4><p>Brouwerij De Betuwe. Licht fruitig, kruidig en aromatisch van smaak</p></div>
+      <div class="dish"><h4>Fruitig Blond <span class="pr">6,7%</span></h4><p>Brouwerij De Betuwe. Het zoete zusje van het Krachtig Blond</p></div>
+      <div class="dish"><h4>Stoere Tripel <span class="pr">9,1%</span></h4><p>Brouwerij De Betuwe. Een goudgeel krachtig bier</p></div>
+      <div class="dish"><h4>Witte Freule <span class="pr">5,0%</span></h4><p>Landgoed Marienwaerdt. Zachte volle moutsmaak</p></div>
+      <div class="dish"><h4>Gulden Gravin <span class="pr">6,0%</span></h4><p>Landgoed Marienwaerdt. Krachtig blond met frisse citrusfruit- en hoptonen</p></div>
+      <div class="dish"><h4>Blije Baron <span class="pr">6,5%</span></h4><p>Landgoed Marienwaerdt. Dubbel met geuren van donker fruit, karamel en gebrande mout</p></div>
+      <div class="dish"><h4>Norbertijner <span class="pr">8,0%</span></h4><p>Landgoed Marienwaerdt. Donkerblond tripel</p></div>
+      <div class="dish"><h4>Betuws Wit <span class="pr">5,0%</span></h4><p>Betuws Speciaalbier. Zacht romig, zoet met een fris zuurtje en een aroma van banaan</p></div>
+      <div class="dish"><h4>Betuws Blond <span class="pr">6,0%</span></h4><p>Betuws Speciaalbier. Een echte doordrinker</p></div>
+      <div class="dish"><h4>Betuws Dubbel <span class="pr">8,0%</span></h4><p>Betuws Speciaalbier. Dubbelbock bereid met perenstroop</p></div>
+      <div class="dish"><h4>Betuws Tripel <span class="pr">8,0%</span></h4><p>Betuws Speciaalbier. Blond bier met appel en peer uit de Betuwe</p></div>
+      <div class="dish"><h4>Betuws Kersenwit <span class="pr">5,0%</span></h4><p>Betuws Speciaalbier. Licht bloemige, fruitige en hoppige tonen</p></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-cocktails" aria-labelledby="t-cocktails" hidden>
+      <div class="dish"><h4>Pornstar martini <span class="pr">€ 8,95</span></h4><p>De Kuyper Passionfruit, vodka, vanille</p></div>
+      <div class="dish"><h4>Mojito <span class="pr">€ 8,95</span></h4><p>Rum, munt, limoen, bruiswater</p></div>
+      <div class="dish"><h4>Strawberry mojito <span class="pr">€ 8,95</span></h4><p>De Kuyper Wild Strawberry, rum, munt, limoen</p></div>
+      <div class="dish"><h4>Fizzy peach <span class="pr">€ 6,50</span></h4><p>Peachtree, limoen, bruiswater</p></div>
+      <div class="dish"><h4>Aperol spritz <span class="pr">€ 7,50</span></h4><p>Aperol, prosecco, bruiswater</p></div>
+      <div class="dish"><h4>Limoncello spritz <span class="pr">€ 7,50</span></h4><p>Limoncello, prosecco, bruiswater</p></div>
+      <div class="dish"><h4>Pink gin <span class="pr">€ 8,00</span></h4><p>Rood fruit, munt</p></div>
+      <div class="dish"><h4>Betuwse gin <span class="pr">€ 8,00</span></h4><p>Komkommer, munt</p></div>
+    </div>
+
+    <div class="menu-foot">
+      <span>Allergieën of dieetwensen? Vraag het ons gerust.</span>
+      <a class="btn btn-ink" href="https://www.destreekzaak.nl/images/zonder_prijs_Menu_en_Borrelkaart_Januari_2025.pdf" target="_blank" rel="noopener">Lunch- en borrelkaart (pdf)</a>
+      <a class="btn btn-ink" href="https://www.destreekzaak.nl/images/artikelen/Lunchkaart2024/Cocktails__zo.pdf" target="_blank" rel="noopener">Cocktailkaart (pdf)</a>
+    </div>
+  </div>
+</section>
+
+<section class="hightea" id="hightea">
+  <div class="wrap ht-grid">
+    <div class="photo"><img src="img/hightea-plank.jpg" alt="Een plank met hartige en zoete lekkernijen van De Streekzaak" loading="lazy" width="1200" height="1600"></div>
+    <div>
+      <h2>High tea in het eetlokaal</h2>
+      <p>Geniet van een high tea vol smaakvolle, huisgemaakte en lokale producten, met onbeperkt thee.</p>
+      <div class="price-tag">€ 27,50<small>per persoon</small></div>
+      <ol class="courses">
+        <li><div><strong>Soepje vooraf</strong><span>Huisgemaakt</span></div></li>
+        <li><div><strong>Hartige plank</strong><span>Met zo veel mogelijk lokale producten</span></div></li>
+        <li><div><strong>Zoete plank</strong><span>Met onze huisgemaakte lekkernijen</span></div></li>
+        <li><div><strong>Toetje</strong><span>Als heerlijke afsluiter</span></div></li>
+      </ol>
+      <p class="small">Graag minimaal een dag van tevoren reserveren, vanaf 2 personen. Vegetarisch, of een gluten- of lactoseallergie? Geef het op tijd door, dan houden we er rekening mee.</p>
+      <a class="btn btn-apple" href="#reserveren">High tea reserveren</a>
+    </div>
+  </div>
+</section>
+
+<section id="afhalen">
+  <div class="wrap">
+    <h2>Afhalen, bezorgen &amp; catering</h2>
+    <p style="max-width:40em;color:var(--muted);margin-bottom:36px">Geniet ook thuis of op het werk van een ontbijt of lunch van De Streekzaak. Echt Betuws genieten.</p>
+    <div class="order-grid">
+      <article class="order-card">
+        <img src="img/ontbijt.jpg" alt="Een ontbijtbox met croissants, broodjes, fruit en gebak" loading="lazy" width="500" height="375">
+        <div class="body">
+          <h3>Afhalen</h3>
+          <p>Luxe belegde broodjes, verse salades en koude sapjes uit de streek. Te bestellen en af te halen in onze lunchroom. We houden rekening met allergieën en dieetwensen.</p>
+          <div class="facts"><b>Luxe belegde broodjes € 4,50 per stuk</b><b>Ontbijt: prijzen in overleg</b></div>
+          <a class="btn btn-ink" href="tel:+31345525624">Bel om te bestellen</a>
+          <a class="btn btn-ink" href="mailto:info@destreekzaak.nl?subject=Bestelling%20afhalen" style="margin-top:8px">Mail ons</a>
+        </div>
+      </article>
+      <article class="order-card">
+        <img src="img/catering.jpg" alt="Een doos vol belegde broodjes van De Streekzaak" loading="lazy" width="1536" height="2048" style="object-position:center 60%">
+        <div class="body">
+          <h3>Catering &amp; broodjesservice</h3>
+          <p>Voor uw bedrijf, vergadering, feest of een andere gelegenheid op locatie: een complete lunch, afgestemd op uw wensen. Stel zelf uw broodjes samen, of laat ons een gevarieerde selectie maken.</p>
+          <ul>
+            <li>Romige brie, gezond, beenham, grillworst, kaas</li>
+            <li>Huisgemaakte salades voor op brood</li>
+            <li>Versgebakken cake en ambachtelijke appeltaart</li>
+            <li>Sap en andere drankjes</li>
+          </ul>
+          <div class="facts"><b>Vanaf 10 personen, in Geldermalsen en omgeving</b><b>Bezorgen vanaf € 60 excl. btw</b></div>
+          <a class="btn btn-ink" href="mailto:info@destreekzaak.nl?subject=Catering">Catering aanvragen</a>
+          <a class="btn btn-ink" href="tel:+31651705251" style="margin-top:8px">06 517 052 51</a>
+        </div>
+      </article>
+    </div>
+    <div class="party">
+      <div>
+        <h3>Iets te vieren?</h3>
+        <p>Denk eens aan De Streekzaak als feestlocatie: een verjaardag, huwelijksfeest, babyshower, bedrijfsborrel of een 'gewoon omdat het kan'-feestje. Wil je je gasten niet met lege handen naar huis laten gaan? We kunnen ook een leuk bedankje regelen.</p>
+      </div>
+      <a class="btn btn-apple" href="mailto:info@destreekzaak.nl?subject=Feest%20bij%20De%20Streekzaak">Mail over je feest</a>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="winkel">
+  <div class="wrap">
+    <div class="shop-banner"><img src="img/winkel-kasten.jpg" alt="De kasten met streekproducten in de winkel van De Streekzaak" loading="lazy" width="1200" height="350"></div>
+    <div class="shop-grid">
+      <div>
+        <h2>De streekwinkel</h2>
+        <p>Laat je verrassen door de lekkerste streekproducten uit de Betuwe, en door bijzondere, ambachtelijk gemaakte producten van buiten de Betuwe. Ontdek producten waarvan je niet eens wist dat ze bestonden.</p>
+        <ul class="shelf">
+          <li><strong>100% puur Betuws appelsap</strong><span>Zonder toevoegingen en toch heerlijk zoet. Van Betuwse Elstar-appels van familiebedrijf CapelFruit uit Kesteren</span></li>
+          <li><strong>Fruit- en streekproducten</strong><span>Een uniek assortiment, van thee van Betuws Theehuis tot bakseltjes</span></li>
+          <li><strong>Speciaalbier, wijn en ciders</strong><span>Om thuis verder te genieten</span></li>
+        </ul>
+      </div>
+      <div class="side-photos">
+        <img src="img/winkel-schappen.jpg" alt="Schappen met cadeau- en streekproducten" loading="lazy" width="1200" height="1600">
+        <img src="img/winkel-raam.jpg" alt="Achter het raam van De Streekzaak" loading="lazy" width="1200" height="600" style="object-position:72% center">
+      </div>
+    </div>
+    <div class="gift">
+      <div>
+        <h3>Pakket versturen</h3>
+        <p>Een beterschapspakket, een borrelpakket, een streekproductenpakket en nog veel meer. Neem contact met ons op om een pakket te laten versturen.</p>
+        <a class="btn btn-ink" href="https://www.destreekzaak.nl/images/Verzendpakketten-met-prijzen.pdf" target="_blank" rel="noopener">Pakketten en prijzen (pdf)</a>
+      </div>
+      <div>
+        <h3>Cadeaupakketten</h3>
+        <p>Verras vrienden, familie of zakenrelaties met een pakket vol lekkere, gezonde en leuke streekproducten.</p>
+      </div>
+      <div>
+        <h3>Cadeaubon</h3>
+        <p>Verras je vrienden, bekenden of relaties met een cadeaubon van De Streekzaak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="xmas" id="kerst">
+  <div class="wrap xmas-grid">
+    <div>
+      <h2>Kerstpakketten met streekproducten</h2>
+      <p>Op zoek naar kerstpakketten voor je bedrijf? Maak indruk op je relaties met een kerstpakket of eindejaarsgeschenk vol streekproducten uit de Betuwe.</p>
+      <p>Kom kijken in de winkel, bekijk de brochure of stuur ons je wensen: wij stellen een mooi pakket samen.</p>
+      <div class="actions">
+        <a class="btn btn-apple" href="https://www.destreekzaak.nl/images/kerstpakketten/Kerstpakketten-brochure-DeStreekzaak.pdf" target="_blank" rel="noopener">Brochure bekijken (pdf)</a>
+        <a class="btn btn-line" href="mailto:info@destreekzaak.nl?subject=Kerstpakketten">Mail je wensen</a>
+      </div>
+    </div>
+    <div class="xmas-photos">
+      <img src="img/kerst-1.jpg" alt="Kerstpakket met streekproducten en een gouden strik" loading="lazy" width="600" height="800">
+      <img src="img/cadeaupakket.jpg" alt="Cadeaupakket in cellofaan met streekproducten" loading="lazy" width="1536" height="2048">
+      <img src="img/kerst-2.jpg" alt="Kerstpakket met chips, drop en flessen" loading="lazy" width="600" height="800">
+    </div>
+  </div>
+</section>
+
+<section id="bezoek">
+  <div class="wrap visit-grid">
+    <div id="reserveren">
+      <h2>Tafel of high tea reserveren</h2>
+      <p class="hint" style="margin-bottom:20px">Met meer dan 10 personen? Bel ons voor de mogelijkheden: <a href="tel:+31345525624">0345 525 624</a>.</p>
+      <form id="form" novalidate>
+        <div class="full"><label for="f-wat">Wat wil je reserveren?</label>
+          <select id="f-wat"><option>Lunch</option><option>High tea</option><option>Koffie en thee</option></select></div>
+        <div><label for="f-datum">Datum</label><input id="f-datum" type="date"></div>
+        <div><label for="f-tijd">Hoe laat?</label><input id="f-tijd" type="time" min="09:00" max="16:30"></div>
+        <div class="full"><label for="f-pers">Hoeveel personen?</label>
+          <select id="f-pers"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+        <div class="full"><label for="f-naam">Naam</label><input id="f-naam" autocomplete="name"></div>
+        <div><label for="f-mail">E-mailadres</label><input id="f-mail" type="email" autocomplete="email"></div>
+        <div><label for="f-tel">Telefoonnummer</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+        <div class="full"><button class="btn btn-apple" type="submit">Reservering versturen</button></div>
+        <p class="form-msg" id="form-msg" role="status">Dit is een voorbeeld: er is niets verstuurd. Op de echte site komt je reservering direct bij De Streekzaak binnen.</p>
+      </form>
+    </div>
+    <div>
+      <h2>Openingstijden</h2>
+      <table class="hours" aria-label="Openingstijden winkel en lunchroom">
+        <tr data-d="1"><td>Maandag</td><td>12:00 - 17:00</td></tr>
+        <tr data-d="2"><td>Dinsdag</td><td>09:30 - 17:00</td></tr>
+        <tr data-d="3"><td>Woensdag</td><td>09:30 - 17:00</td></tr>
+        <tr data-d="4"><td>Donderdag</td><td>gesloten</td></tr>
+        <tr data-d="5"><td>Vrijdag</td><td>09:00 - 17:00</td></tr>
+        <tr data-d="6"><td>Zaterdag</td><td>09:30 - 17:00</td></tr>
+      </table>
+      <p class="hint">Lunchroom en winkel. De keuken sluit om 16:30 uur.</p>
+      <ul class="contact-list">
+        <li>De Streekzaak, Marktplein 4, 4191 AC Geldermalsen</li>
+        <li>Telefoon <a href="tel:+31345525624">0345 525 624</a> of mobiel <a href="tel:+31651705251">06 517 052 51</a></li>
+        <li>E-mail <a href="mailto:info@destreekzaak.nl">info@destreekzaak.nl</a></li>
+      </ul>
+      <div class="map"><iframe title="Kaart: Marktplein 4, Geldermalsen" loading="lazy" src="https://maps.google.com/maps?q=Marktplein%204%2C%204191%20AC%20Geldermalsen&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-wit.png" alt="De Streekzaak" width="119" height="46" loading="lazy">
+    <span>Marktplein 4, Geldermalsen · <a href="tel:+31345525624">0345 525 624</a> · <a href="mailto:info@destreekzaak.nl">info@destreekzaak.nl</a></span>
+    <span>© 2026 De Streekzaak</span>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Streekzaak%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var body=document.body, tog=document.querySelector('.menu-toggle');
+  tog.addEventListener('click',function(){
+    var o=body.classList.toggle('menu-open');
+    tog.setAttribute('aria-expanded',o?'true':'false');
+    tog.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');
+  });
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){body.classList.remove('menu-open');tog.setAttribute('aria-expanded','false');});});
+
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t);});
+    t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus();}});
+  });
+
+  // vandaag open?
+  var H={1:[12,17],2:[9.5,17],3:[9.5,17],5:[9,17],6:[9.5,17]};
+  var d=new Date(), day=d.getDay(), h=d.getHours()+d.getMinutes()/60, el=document.getElementById('today'), tx=document.getElementById('today-text');
+  var row=document.querySelector('.hours tr[data-d="'+day+'"]'); if(row) row.className='now';
+  function fmt(x){var m=Math.round((x%1)*60);return Math.floor(x)+':'+(m<10?'0':'')+m;}
+  if(H[day]){
+    if(h<H[day][0]) tx.textContent='Vandaag open vanaf '+fmt(H[day][0])+' tot 17:00';
+    else if(h<H[day][1]){ tx.textContent='Nu open tot 17:00, keuken tot 16:30'; el.classList.add('open'); }
+    else tx.textContent='Vandaag zijn we weer gesloten. Tot de volgende keer!';
+  } else if(day===4) tx.textContent='Donderdag gesloten, vrijdag vanaf 9:00 weer open';
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('form-msg').classList.add('show');});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

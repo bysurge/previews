@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Restaurant Ratatouille · Vischmarkt Harderwijk</title>
+<meta name="description" content="Restaurant Ratatouille aan de Vischmarkt in Harderwijk. Eerlijk eten, mooie wijnen en gastvrijheid van Gerwin & Cindy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235a1f2a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23f1e9dc'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c1415;      /* donkere zaal */
+  --ink-2:#271c1d;
+  --wine:#5a1f2a;     /* wijnrood */
+  --linen:#f1e9dc;    /* tafellinnen */
+  --linen-2:#e6dccb;
+  --candle:#d6a25e;   /* kaarslicht */
+  --sage:#7d8b6a;     /* lindebomen Vischmarkt */
+  --text:#2a2021;
+  --muted:#6e6260;
+  --serif:'Gloock', Georgia, serif;
+  --sans:'Hanken Grotesk', system-ui, sans-serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--text);background:var(--linen);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0 0 .5em;letter-spacing:-.005em}
+h2{font-size:clamp(2rem,4.6vw,3.3rem)}
+h3{font-size:1.45rem}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+:focus-visible{outline:2px solid var(--candle);outline-offset:3px}
+
+/* knoppen */
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.85em 1.4em;border-radius:999px;font-weight:600;font-size:.98rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-candle{background:var(--candle);color:var(--ink)}
+.btn-candle:hover{background:#e2b170}
+.btn-line{border-color:rgba(241,233,220,.55);color:var(--linen)}
+.btn-line:hover{border-color:var(--linen)}
+.btn-wine{background:var(--wine);color:var(--linen)}
+.btn-wine:hover{background:#6d2734}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--linen);transition:background .3s}
+.top.solid{background:var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--serif);font-size:1.7rem;text-decoration:none;letter-spacing:.01em}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-size:.95rem;opacity:.88}
+.nav a:hover{opacity:1}
+.nav .btn{opacity:1;padding:.6em 1.15em}
+.menu-toggle{display:none;background:none;border:0;color:var(--linen);width:44px;height:44px;cursor:pointer;padding:10px}
+.menu-toggle span{display:block;height:2px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+@media (max-width:960px){
+  .menu-toggle{display:block}
+  .nav{position:fixed;inset:68px 0 auto 0;background:var(--ink);flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 26px;display:none;max-height:calc(100vh - 68px);overflow:auto}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;width:100%;border-bottom:1px solid rgba(241,233,220,.1);font-size:1.08rem}
+  .nav .btn{margin-top:18px;width:auto;border-bottom:0;padding:.8em 1.4em}
+  .top.open{background:var(--ink)}
+  .menu-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+  .menu-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--linen);background:var(--ink);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,20,21,.55) 0%,rgba(28,20,21,0) 24%,rgba(28,20,21,0) 42%,rgba(28,20,21,.88) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:64px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);max-width:11ch;margin-bottom:.3em;animation:rise .55s ease-out both}
+.hero p.lead{font-size:1.15rem;max-width:34rem;opacity:.92;margin-bottom:1.6em}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hours{border-left:1px solid rgba(214,162,94,.6);padding-left:22px;font-size:.98rem;min-width:250px}
+.hours strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--candle);margin-bottom:.3em}
+.hours dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}
+.hours dt{opacity:.75}
+.hours dd{margin:0}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+@media (max-width:760px){
+  .hero img{object-position:40% 50%}
+  .hero::after{background:linear-gradient(180deg,rgba(28,20,21,.6) 0%,rgba(28,20,21,.05) 18%,rgba(28,20,21,.35) 34%,rgba(28,20,21,.86) 58%,rgba(28,20,21,.95) 100%)}
+  .hero h1{font-size:2.7rem}
+  .hero .wrap{grid-template-columns:1fr;padding-bottom:40px;gap:26px}
+  .hero p.lead{font-size:1.05rem}
+  .hours{min-width:0}
+}
+
+/* intro */
+.intro{padding:110px 0 90px}
+.intro .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.intro h2{max-width:14ch}
+.intro .sign{font-family:var(--serif);font-size:1.2rem;color:var(--wine);margin-top:1.4em}
+.photo-pair{position:relative;padding-bottom:70px}
+.photo-pair img{border-radius:4px}
+.photo-pair .a{width:82%;aspect-ratio:4/3;object-fit:cover}
+.photo-pair .b{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:3/4;object-fit:cover;border:8px solid var(--linen)}
+.quote{background:var(--ink);color:var(--linen);padding:90px 0;text-align:center}
+.quote p{font-family:var(--serif);font-size:clamp(1.7rem,3.8vw,2.8rem);line-height:1.2;max-width:22ch;margin:0 auto .5em}
+.quote small{color:var(--candle);font-size:1rem}
+.attention{background:var(--ink-2);color:var(--linen);padding:0 0 100px}
+.attention .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.attention img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:4px}
+.attention p{opacity:.88}
+@media (max-width:860px){
+  .intro{padding:76px 0 60px}
+  .intro .wrap,.attention .wrap{grid-template-columns:1fr;gap:40px}
+  .quote{padding:64px 0}
+  .attention{padding-bottom:70px}
+}
+
+/* menukaart */
+.menu{padding:110px 0}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.menu-head p{max-width:30rem;color:var(--muted);margin:0}
+.tabs{display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--linen-2);margin-bottom:40px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;background:none;border:0;border-bottom:2px solid transparent;padding:12px 16px;font:500 1rem var(--sans);color:var(--muted);cursor:pointer;margin-bottom:-1px}
+.tabs button[aria-selected=true]{color:var(--wine);border-bottom-color:var(--wine)}
+.panel-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:start}
+.panel-grid figure{margin:0}
+.panel-grid figure img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
+.dishes{list-style:none;margin:0;padding:0}
+.dishes li{padding:16px 0;border-bottom:1px solid var(--linen-2);display:grid;grid-template-columns:1fr auto;gap:4px 20px}
+.dishes li:first-child{padding-top:0}
+.dishes .n{font-family:var(--serif);font-size:1.22rem;line-height:1.25}
+.dishes .d{grid-column:1;color:var(--muted);font-size:.97rem}
+.dishes .p{grid-row:1;grid-column:2;font-weight:600;white-space:nowrap;color:var(--wine)}
+.note{font-size:.95rem;color:var(--muted);margin-top:22px}
+
+/* gangenkiezer */
+.picker{background:var(--ink);color:var(--linen);border-radius:6px;padding:34px}
+.picker h3{color:var(--linen);margin-bottom:.2em}
+.picker .sub{opacity:.75;margin-bottom:24px}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}
+.counts button{background:transparent;color:var(--linen);border:1px solid rgba(241,233,220,.25);border-radius:6px;padding:14px 6px;font:500 1rem var(--sans);cursor:pointer;line-height:1.2}
+.counts button b{display:block;font:400 1.9rem var(--serif)}
+.counts button[aria-pressed=true]{background:var(--candle);color:var(--ink);border-color:var(--candle)}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:14px 0;border-top:1px solid rgba(241,233,220,.14)}
+.price-row .big{font:400 2rem var(--serif);color:var(--candle);white-space:nowrap}
+.price-row .lbl{opacity:.85}
+.arr{margin-top:6px;padding:18px 0 0;border-top:1px solid rgba(241,233,220,.14)}
+.arr .name{font-family:var(--serif);font-size:1.3rem;color:var(--linen)}
+.arr .glasses{display:flex;flex-wrap:wrap;gap:4px 24px;white-space:nowrap;margin-top:6px;color:var(--candle);font-weight:600}
+.arr p{opacity:.75;font-size:.95rem;margin:.6em 0 0}
+.arr.none p{opacity:.7}
+.extra{margin-top:30px}
+.extra li{border-bottom:1px solid var(--linen-2)}
+@media (max-width:860px){
+  .menu{padding:76px 0}
+  .panel-grid{grid-template-columns:1fr;gap:36px}
+  .panel-grid figure img{aspect-ratio:4/3}
+  .picker{padding:24px 20px}
+  .counts button b{font-size:1.6rem}
+}
+
+/* zondag */
+.sunday{background:var(--sage);color:#fbf7ef;padding:80px 0}
+.sunday .wrap{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.sunday .time{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1}
+.sunday .time span{display:block;font-family:var(--sans);font-size:1rem;opacity:.85;margin-top:10px}
+.sunday p{max-width:36rem;margin:0}
+.sunday h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+@media (max-width:760px){.sunday .wrap{grid-template-columns:1fr;gap:24px}.sunday{padding:60px 0}}
+
+/* kerst */
+.xmas{background:var(--wine);color:var(--linen);padding:110px 0}
+.xmas-head{max-width:40rem;margin-bottom:50px}
+.xmas-head p{opacity:.85}
+.xmas-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.days{display:grid;gap:14px;margin-bottom:36px}
+.day{border:1px solid rgba(241,233,220,.25);border-radius:6px;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:baseline}
+.day .dt{font-family:var(--serif);font-size:1.5rem;color:var(--candle);grid-row:span 2}
+.day .t{opacity:.8;font-size:.95rem}
+.xm-prices .row{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid rgba(241,233,220,.16)}
+.xm-prices .row div{max-width:32ch}
+.xm-prices .row b{font-family:var(--serif);font-weight:400;font-size:1.15rem;display:block}
+.xm-prices .row small{opacity:.75;font-size:.92rem;line-height:1.45;display:block}
+.xm-prices .row .pp{white-space:nowrap;color:var(--candle);font-weight:600;text-align:right}
+.xm-prices .row .pp small{color:var(--linen);font-weight:400}
+.xm-menu{background:var(--linen);color:var(--text);border-radius:6px;padding:40px 36px;text-align:center}
+.xm-menu h3{color:var(--wine);font-size:1.9rem}
+.xm-menu ol{list-style:none;padding:0;margin:20px 0 0}
+.xm-menu li{padding:16px 0;border-top:1px solid var(--linen-2);font-family:var(--serif);font-size:1.15rem;line-height:1.35}
+.xm-menu li em{display:block;font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--muted);margin-top:4px}
+.xm-cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.xmas{padding:76px 0}.xmas-grid{grid-template-columns:1fr;gap:44px}.xm-menu{padding:30px 22px}}
+
+/* private dining */
+.private{padding:0;background:var(--ink);color:var(--linen)}
+.private .split{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.private .img{position:relative}
+.private .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.private .txt{padding:100px 60px;max-width:620px}
+.private ul{list-style:none;padding:0;margin:26px 0}
+.private li{padding:14px 0;border-bottom:1px solid rgba(241,233,220,.14);display:grid;grid-template-columns:7.5rem 1fr;gap:14px}
+.private li b{font-weight:600;color:var(--candle)}
+.occ{font-size:.95rem;opacity:.8}
+@media (max-width:860px){.private .split{grid-template-columns:1fr;min-height:0}.private .img{height:62vw}.private .txt{padding:60px 22px}.private li{grid-template-columns:1fr;gap:2px}}
+
+/* verhaal */
+.story{padding:110px 0}
+.story .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.story figure{margin:0}
+.story figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:4px}
+.story figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
+.story .art{margin-top:26px;padding-top:22px;border-top:1px solid var(--linen-2);color:var(--muted);font-size:.98rem}
+@media (max-width:860px){.story{padding:76px 0}.story .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* cadeaubon */
+.gift{background:var(--linen-2);padding:110px 0}
+.gift-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.gift-head p{margin:0}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.trio article{background:var(--linen);border-radius:6px;overflow:hidden}
+.trio img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.trio .in{padding:22px 24px 26px}
+.trio h3{font-size:1.35rem;color:var(--wine)}
+.trio p{font-size:.97rem;color:var(--muted);margin:0}
+@media (max-width:860px){.gift{padding:76px 0}.gift-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.trio{grid-template-columns:1fr}}
+
+/* route */
+.route{padding:110px 0}
+.route .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.route address{font-style:normal;font-size:1.12rem;margin-bottom:22px}
+.route .map{border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:var(--linen-2)}
+.route .map iframe{width:100%;height:100%;border:0;display:block}
+.parking{list-style:none;padding:0;margin:14px 0 0}
+.parking li{display:grid;grid-template-columns:3.2rem 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--linen-2)}
+.parking b{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--wine)}
+.parking small{color:var(--muted);display:block}
+.square{margin-top:30px;border-radius:6px;overflow:hidden;position:relative}
+.square img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.square p{position:absolute;left:0;right:0;bottom:0;margin:0;padding:40px 18px 14px;color:var(--linen);background:linear-gradient(transparent,rgba(28,20,21,.8));font-size:.95rem}
+@media (max-width:860px){.route{padding:76px 0}.route .wrap{grid-template-columns:1fr;gap:40px}}
+
+/* vacatures */
+.jobs{background:var(--ink-2);color:var(--linen);padding:90px 0}
+.jobs .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+.jobs ul{list-style:none;padding:0;margin:0 0 24px}
+.jobs li{padding:16px 0;border-bottom:1px solid rgba(241,233,220,.14);font-family:var(--serif);font-size:1.3rem}
+.jobs li small{display:block;font-family:var(--sans);font-size:.92rem;opacity:.7}
+.jobs p{opacity:.85}
+@media (max-width:860px){.jobs{padding:70px 0}.jobs .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* footer */
+footer{background:var(--ink);color:var(--linen);padding:80px 0 110px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px}
+footer .brand{font-size:2.4rem;display:block;margin-bottom:10px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer h3{font-size:1.15rem;color:var(--candle)}
+footer p{opacity:.85;margin:0 0 .5em}
+.socials{display:flex;gap:16px;margin-top:14px}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr;gap:34px}}
+
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(28,20,21,.92);color:var(--linen);font-size:.8rem;padding:7px 14px;border-radius:999px;white-space:nowrap;border:1px solid rgba(214,162,94,.45)}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#welkom">Ratatouille</a>
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#menukaart">Menukaart</a>
+      <a href="#kerst">Kerst 2026</a>
+      <a href="#private-dining">Private dining</a>
+      <a href="#verhaal">Ons verhaal</a>
+      <a href="#cadeau">Cadeaubon</a>
+      <a href="#route">Route &amp; parkeren</a>
+      <a class="btn btn-candle" href="https://app.wereserve.nl/m/reservate/1123" target="_blank" rel="noopener">Reserveer een tafel</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="welkom">
+  <img src="img/009.jpg" alt="Gedekte tafels bij kaarslicht in Restaurant Ratatouille">
+  <div class="wrap">
+    <div>
+      <h1>Op het mooiste plein van Harderwijk</h1>
+      <p class="lead">Intiem, gezellig en vooral eerlijk eten, mooie wijnen en gastvrijheid. Aan de Vischmarkt, bij Gerwin &amp; Cindy.</p>
+      <div class="ctas">
+        <a class="btn btn-candle" href="https://app.wereserve.nl/m/reservate/1123" target="_blank" rel="noopener">Reserveer een tafel</a>
+        <a class="btn btn-line" href="#menukaart">Bekijk de menukaart</a>
+      </div>
+    </div>
+    <div class="hours">
+      <strong>Wanneer we open zijn</strong>
+      <dl>
+        <dt>Wo t/m za</dt><dd>vanaf 18.00 diner</dd>
+        <dt>Zondag</dt><dd>13.00 – 18.00 lunch</dd>
+        <dt>Ma &amp; di</dt><dd>private dining en lunch op aanvraag</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <div>
+      <h2>Aan de Vischmarkt, op nummer 6</h2>
+      <p>Ratatouille ligt aan de historische Vischmarkt: een plein met mooie bomen en eeuwenoude gevels, met de Vischpoort als best gefotografeerde plek van Harderwijk. Daar vind je ons.</p>
+      <p>Kom heerlijk dineren of geniet van een uitgebreide zondagslunch. Dieetwensen houden we graag rekening mee: vermeld het bij je reservering. Je begint meteen met de eerste hapjes en amuses uit de keuken.</p>
+      <p class="sign">Tot ziens bij Ratatouille,<br>Gerwin Dooijeweerd &amp; Cindy Berkenbosch + Team RTTLL</p>
+    </div>
+    <div class="photo-pair">
+      <img class="a" src="img/003.jpg" alt="Wijnflessen tegen de bakstenen muur van het restaurant" loading="lazy">
+      <img class="b" src="img/011.jpg" alt="Een dessert van Ratatouille" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <p>Desembrood, jus of een taart: alles maken we zelf.</p>
+  </div>
+</section>
+<section class="attention">
+  <div class="wrap">
+    <img src="img/007.jpg" alt="Zelfgebakken desembrood van Ratatouille" loading="lazy">
+    <div>
+      <h2>Aandacht maakt alles mooier</h2>
+      <p>Alles is met zorg uitgekozen en door vertrouwde leveranciers gebracht, lang voordat de gasten aan tafel zitten. De wijnen zijn geselecteerd en de koks hebben hun messen geslepen.</p>
+      <p>Het Nederlandse seizoen is onze leidraad, het liefst lokaal. Maar we maken ook uitstapjes: truffel uit Italië, die mooie Spaanse ham, kaffir limoen of ras el hanout. Smaken die je niet wilt missen.</p>
+      <p>Dat alles met een mooi stuk vis of vlees en een vleugje liefde en passie: dat is onze keuken.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menukaart">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>Menukaart</h2>
+      <p>De kaart wisselt elke vijf à zes weken. Dieetwensen en allergieën zijn geen probleem: geef het door aan de bediening.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Onderdelen van de menukaart">
+      <button role="tab" id="t-verras" aria-controls="p-verras" aria-selected="true">Verrassingsmenu</button>
+      <button role="tab" id="t-menu" aria-controls="p-menu" aria-selected="false" tabindex="-1">Menu Ratatouille</button>
+      <button role="tab" id="t-groente" aria-controls="p-groente" aria-selected="false" tabindex="-1">Groentemenu</button>
+      <button role="tab" id="t-classics" aria-controls="p-classics" aria-selected="false" tabindex="-1">Classics &amp; oesters</button>
+      <button role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false" tabindex="-1">Kaas &amp; dessert</button>
+    </div>
+
+    <div role="tabpanel" id="p-verras" aria-labelledby="t-verras">
+      <div class="panel-grid">
+        <div class="picker">
+          <h3>Hoeveel gangen?</h3>
+          <p class="sub">Laat je verrassen door de keuken. Alle menu's zijn inclusief dessert.</p>
+          <div class="counts" id="counts">
+            <button type="button" data-n="3" aria-pressed="false"><b>3</b>gangen</button>
+            <button type="button" data-n="4" aria-pressed="true"><b>4</b>gangen</button>
+            <button type="button" data-n="5" aria-pressed="false"><b>5</b>gangen</button>
+            <button type="button" data-n="6" aria-pressed="false"><b>6</b>gangen</button>
+          </div>
+          <div class="price-row"><span class="lbl">Verrassingsmenu, <span id="n-lbl">4</span> gangen</span><span class="big" id="menu-price">€ 65,50</span></div>
+          <div class="arr" id="arr">
+            <div class="name" id="arr-name">Arrangement “Heerlijk Ratatouille”</div>
+            <div class="glasses"><span id="arr-half">Halve glazen € 110</span><span id="arr-full">Volle glazen € 120</span></div>
+            <p id="arr-txt">4 gangen inclusief aperitief, amuses, vier bijpassende wijnen, tafelwater, desembrood, koffie of thee en friandises.</p>
+          </div>
+        </div>
+        <div>
+          <ul class="dishes">
+            <li><span class="n">Liever vijf kazen van het Kaasatelier?</span><span class="d">In plaats van het dessert</span><span class="p">€ 7,50 p.p.</span></li>
+            <li><span class="n">À la carte: voorgerecht</span><span class="d">Per portie, uit het Menu Ratatouille</span><span class="p">€ 23,50</span></li>
+            <li><span class="n">À la carte: hoofdgerecht</span><span class="d">Per portie, uit het Menu Ratatouille</span><span class="p">€ 35</span></li>
+          </ul>
+          <p class="note">Wijnarrangementen zijn er bij 4, 5 en 6 gangen. Kies een aantal gangen om de prijs te zien.</p>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-menu" aria-labelledby="t-menu" hidden>
+      <div class="panel-grid">
+        <ul class="dishes">
+          <li><span class="n">Zacht gegaard Iberico</span><span class="d">Met gekarameliseerde witlof, aubergine, granaatappel en bieslookcrème</span></li>
+          <li><span class="n">Ravioli gevuld met zoete aardappel</span><span class="d">Met venkel, gegrilde zeebaars en paprikapoeder</span></li>
+          <li><span class="n">Coquille met beurre noisette</span><span class="d">Crème van bloemkool, geroosterde amandelen en tuile van kerrie</span></li>
+          <li><span class="n">Gemarineerde portobello</span><span class="d">Met sjalotvinaigrette, crudité van pastinaak en balsamico</span></li>
+          <li><span class="n">Runderlende</span><span class="d">Met verschillende bereidingen van pompoen en rodewijnjus met sinaasappel</span></li>
+        </ul>
+        <figure><img src="img/004.jpg" alt="Een hoofdgerecht van Ratatouille op een aardewerk bord" loading="lazy"></figure>
+      </div>
+      <p class="note">Ook à la carte: voorgerecht € 23,50 per portie, hoofdgerecht € 35 per portie.</p>
+    </div>
+
+    <div role="tabpanel" id="p-groente" aria-labelledby="t-groente" hidden>
+      <div class="panel-grid">
+        <ul class="dishes">
+          <li><span class="n">King boleet</span><span class="d">Met gekarameliseerde witlof, aubergine, granaatappel en bieslookcrème</span></li>
+          <li><span class="n">Ravioli gevuld met zoete aardappel</span><span class="d">Met venkel, burrata en gerookt paprikapoeder</span></li>
+          <li><span class="n">Tofu met aardpeer</span><span class="d">Beurre noisette, crème van bloemkool en geroosterde amandelen</span></li>
+          <li><span class="n">Gemarineerde portobello</span><span class="d">Met sjalotvinaigrette, crudité van pastinaak en balsamico</span></li>
+          <li><span class="n">Parelcouscous</span><span class="d">Met verschillende bereidingen van pompoen, schorseneren en wittewijnjus</span></li>
+        </ul>
+        <figure><img src="img/006.jpg" alt="Gedekte tafel voor twee bij kaarslicht" loading="lazy"></figure>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-classics" aria-labelledby="t-classics" hidden>
+      <div class="panel-grid">
+        <div>
+          <h3>Classics</h3>
+          <ul class="dishes">
+            <li><span class="n">Steak tartaar</span><span class="d">Cornichons, sjalot, kappertjes, mosterd en gepocheerd kriel ei. Klein of groot.</span><span class="p">€ 23,50 / € 35</span></li>
+            <li><span class="n">Tournedos Rossini</span><span class="d">Haricots verts en dikke frieten</span><span class="p">€ 48</span></li>
+            <li><span class="n">Zeetong à la meunière</span><span class="d">Bospeen, spinazie en dikke frieten</span><span class="p">dagprijs</span></li>
+            <li><span class="n">Tarte tatin van eendenlever</span><span class="d">Appel, balsamico en crudité van asperge</span><span class="p">€ 24</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Heerlijk starten met oesters</h3>
+          <ul class="dishes">
+            <li><span class="n">Klassiek</span><span class="d">Met zwarte peper, citroen en rodewijn-sjalotvinaigrette</span><span class="p">€ 4,25 p.st.</span></li>
+            <li><span class="n">Gegratineerd</span><span class="d">Met knoflookspinazie en bieslook-hollandaise</span><span class="p">€ 5,25 p.st.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-dessert" aria-labelledby="t-dessert" hidden>
+      <div class="panel-grid">
+        <ul class="dishes">
+          <li><span class="n">Vijf kazen van het Kaasatelier</span><span class="d">Met passend garnituur</span><span class="p">€ 18</span></li>
+          <li><span class="n">Mousse van koffie</span><span class="d">Met vanille-ijs, bramencompote en gesuikerde pecannoten</span><span class="p">€ 14,50</span></li>
+          <li><span class="n">Tarte tatin</span><span class="d">Met appel en vanilleroomijs</span><span class="p">€ 14,50</span></li>
+        </ul>
+        <figure><img src="img/008.jpg" alt="Friandises en caramel fudge bij de koffie" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sunday" id="zondag">
+  <div class="wrap">
+    <div class="time">13.00 – 18.00<span>Elke zondag</span></div>
+    <div>
+      <h2>Lunch op zondag</h2>
+      <p>Op zondagmiddag zijn we exclusief open voor de lunch. Kies voor ons Menu Ratatouille of à la carte. Hoe langer je wilt genieten, hoe eerder we je graag ontvangen. Een lunch voelt vaak nog specialer: een ontspannen middag, en de avond heb je helemaal voor jezelf.</p>
+    </div>
+  </div>
+</section>
+
+<section class="xmas" id="kerst">
+  <div class="wrap">
+    <div class="xmas-head">
+      <h2>Kerst bij Ratatouille 2026</h2>
+      <p>Op kerstavond en eerste kerstdag zijn we open. Reserveer op tijd en vermeld een kaasplankje graag meteen bij je reservering.</p>
+    </div>
+    <div class="xmas-grid">
+      <div>
+        <div class="days">
+          <div class="day"><span class="dt">24 dec</span><b>Kerstavond, diner</b><span class="t">Aankomst tussen 18.00 en 19.30</span></div>
+          <div class="day"><span class="dt">25 dec</span><b>Eerste kerstdag, lunch</b><span class="t">Aankomst tussen 13.00 en 14.00</span></div>
+          <div class="day"><span class="dt">25 dec</span><b>Eerste kerstdag, diner</b><span class="t">Aankomst tussen 19.00 en 20.00</span></div>
+        </div>
+        <div class="xm-prices">
+          <div class="row"><div><b>Kerstlunch</b><small>Feestelijk aperitief &amp; amuses, 4 gangen, tafelwater en desembrood</small></div><span class="pp">€ 92,50 p.p.</span></div>
+          <div class="row"><div><b>Kerstdiner</b><small>Feestelijk aperitief &amp; amuses, 5 gangen, tafelwater en desembrood</small></div><span class="pp">€ 110 p.p.</span></div>
+          <div class="row"><div><b>Kerstbeleving lunch</b><small>Aperitief &amp; amuses, 4 gangen, tafelwater, brood, 4 wijnen of passende alcoholvrije dranken, koffie met kerstzoet</small></div><span class="pp">€ 130 p.p.<small><br>halve glazen € 120</small></span></div>
+          <div class="row"><div><b>Kerstbeleving diner</b><small>Aperitief &amp; amuses, 5 gangen, tafelwater, brood, 5 wijnen of passende alcoholvrije dranken, koffie met kerstzoet</small></div><span class="pp">€ 145 p.p.<small><br>halve glazen € 135</small></span></div>
+          <div class="row"><div><b>Uitbreiding: kaasplankje</b><small>Met bijpassend garnituur, graag vermelden bij je reservering</small></div><span class="pp">€ 18 p.p.</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="xm-menu">
+          <h3>Kerstmenu 2026</h3>
+          <ol>
+            <li>Gebraden fazant met eendenlever, PX-stroop en gegrild briochebrood</li>
+            <li>Coquille met boerenkool, piccalilly en haringkuit</li>
+            <li>Scholfilet met paddenstoelen, bloemkool, schorseneren en beurre blanc<em>alleen bij 5 gangen</em></li>
+            <li>Hert met bitterbal van hert, rode kool en rodewijnsaus met vanille</li>
+            <li>Stoofpeer met roomijs van dennennaalden en glühwein</li>
+          </ol>
+        </div>
+        <div class="xm-cta">
+          <a class="btn btn-candle" href="https://app.wereserve.nl/m/reservate/1123" target="_blank" rel="noopener">Reserveer voor kerst</a>
+          <a class="btn btn-line" href="tel:+31341431256">Bel 0341 431 256</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="private" id="private-dining">
+  <div class="split">
+    <div class="img"><img src="img/005.jpg" alt="De grote tafel in de Loge van Ratatouille" loading="lazy"></div>
+    <div class="txt">
+      <h2>Dineren met een groter gezelschap</h2>
+      <p>Voor een etentje met meer mensen hebben we een prachtige tafel in onze Loge, met dakterras en uitzicht over de daken van Harderwijk.</p>
+      <ul>
+        <li><b>De Loge</b><span>Grote ovale tafel voor 4 tot 12 gasten, met dakterras</span></li>
+        <li><b>Open keuken</b><span>Tafel naast de open keuken voor 4 tot 6 gasten</span></li>
+        <li><b>Hoge tafel</b><span>Voor gezelschappen tot 8 gasten</span></li>
+        <li><b>Vischmarkt</b><span>In de zomer ook een grote tafel op het terras aan het plein</span></li>
+        <li><b>Heel restaurant</b><span>Het hele restaurant is af te huren</span></li>
+        <li><b>Ma &amp; di</b><span>Lunch op maandag en dinsdag is mogelijk</span></li>
+      </ul>
+      <p class="occ">Voor een bruiloft, jubileum, bedrijfsfeest, vergadering, lunch, diner of uitvaartdiner.</p>
+      <a class="btn btn-candle" href="mailto:info@rttll.nl?subject=Private%20dining">Vraag de mogelijkheden aan</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="verhaal">
+  <div class="wrap">
+    <figure>
+      <img src="img/010.jpg" alt="Gerwin Dooijeweerd en Cindy Berkenbosch" loading="lazy">
+      <figcaption>Gerwin &amp; Cindy</figcaption>
+    </figure>
+    <div>
+      <h2>Ons verhaal</h2>
+      <p>Gerwin stond vanaf zijn zestiende in de keuken en kwam terecht bij De Mandenmaker. In 2004 werd die overgenomen door Wim en Tina Zwaart (voorheen Olivio) en werd het Bistro Ratatouille. Gerwin werkte ook bij Olivio en De Basiliek, en kwam daarna terug bij Ratatouille. Nu is hij chef-kok en runt hij het restaurant samen met Cindy.</p>
+      <p>Cindy begon acht jaar geleden als studerende gastvrouw, leerde het vak bij De Basiliek en Salentijn in Nijkerk en geeft nu leiding aan de bediening. Ze houdt van eten, van drinken en van paarden.</p>
+      <p class="art">Kunst aan de muur: in het restaurant hangen verschillende kunstwerken, waaronder het bijzondere werk “Ratatouille” dat bij de opening is gemaakt, en werk van Martijn Poorter en Monique Spapens.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gift" id="cadeau">
+  <div class="wrap">
+    <div class="gift-head">
+      <h2>Geef een avond bij Ratatouille</h2>
+      <div>
+        <p>Een cadeaucheque is een belevenis om weg te geven: voor een bedrag naar keuze of een compleet verzorgd all-in menu. Haal hem op in het restaurant of laat hem per post versturen; voor verzending naar een adres in Nederland rekenen we een kleine vergoeding.</p>
+        <p style="margin-top:18px"><a class="btn btn-wine" href="mailto:info@rttll.nl?subject=Cadeaucheque">Bestel een cadeaucheque</a></p>
+      </div>
+    </div>
+    <div class="trio">
+      <article>
+        <img src="img/002.jpg" alt="De Vischmarkt in Harderwijk bij zonsondergang" loading="lazy">
+        <div class="in"><h3>De Vischmarkt</h3><p>Lindebomen, oude gevels en de Vischpoort. ’s Avonds staat het plein mooi in het licht.</p></div>
+      </article>
+      <article>
+        <img src="img/007.jpg" alt="Desembrood van Ratatouille" loading="lazy">
+        <div class="in"><h3>Desembrood</h3><p>Elke dag vers gebakken. Het desem wordt al tientallen jaren in leven gehouden; we kregen het veertien jaar geleden van “Herman”.</p></div>
+      </article>
+      <article>
+        <img src="img/008.jpg" alt="Caramel fudge met zwart zeezout en friandises" loading="lazy">
+        <div class="in"><h3>Caramel fudge</h3><p>Bij de koffie, met zwart zeezout.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="route" id="route">
+  <div class="wrap">
+    <div>
+      <h2>Route &amp; parkeren</h2>
+      <address>Restaurant Ratatouille<br>Vischmarkt 6, 3841 BG Harderwijk</address>
+      <h3>Parkeren in de buurt</h3>
+      <ul class="parking">
+        <li><b>P9</b><span>Scheepssingel</span></li>
+        <li><b>P11</b><span>Parkeergarage Vuldersbrink</span></li>
+        <li><b>P2</b><span>Lelykade Dolfinarium<small>Na 21.00 uur gratis</small></span></li>
+        <li><b>P6</b><span>Dolfinariumeiland<small>Maximaal 3 uur, na 21.00 uur gratis</small></span></li>
+        <li><b>P14</b><span>Houtwalgarage</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="map"><iframe title="Kaart met de locatie van Ratatouille, Vischmarkt 6 in Harderwijk" loading="lazy" src="https://maps.google.com/maps?q=Vischmarkt%206%2C%203841%20BG%20Harderwijk&amp;z=16&amp;output=embed"></iframe></div>
+      <p style="margin-top:14px"><a class="btn btn-wine" href="https://www.google.com/maps/search/?api=1&amp;query=Vischmarkt%206%2C%203841%20BG%20Harderwijk" target="_blank" rel="noopener">Plan je route</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="jobs" id="vacatures">
+  <div class="wrap">
+    <div>
+      <h2>Werken bij RTTLL</h2>
+      <p>Mail naar <a href="mailto:info@rttll.nl?subject=Vacature">info@rttll.nl</a> of bel <a href="tel:+31341431256">0341 431 256</a>, ter attentie van Cindy Berkenbosch.</p>
+    </div>
+    <div>
+      <ul>
+        <li>Maître / sommelier</li>
+        <li>Bediening<small>Fulltime of oproepkracht</small></li>
+        <li>Leerling bediening<small>BOL, BBL of stage</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#welkom">Ratatouille</a>
+      <p>Vischmarkt 6, 3841 BG Harderwijk</p>
+      <p><a href="tel:+31341431256">0341 431 256</a><br><a href="mailto:info@rttll.nl">info@rttll.nl</a></p>
+      <div class="socials">
+        <a href="https://www.instagram.com/ratatouille_harderwijk/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/restaurantratatouille/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.linkedin.com/company/rttll/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div>
+      <h3>Openingstijden</h3>
+      <p>Woensdag t/m zaterdag vanaf 18.00 voor diner</p>
+      <p>Zondag 13.00 – 18.00 voor de lunch</p>
+      <p>Maandag en dinsdag: private dining en lunch op aanvraag</p>
+    </div>
+    <div>
+      <h3>Reserveren</h3>
+      <p>Reserveer online of bel ons. Dieetwensen? Vermeld het bij je reservering.</p>
+      <p style="margin-top:16px"><a class="btn btn-candle" href="https://app.wereserve.nl/m/reservate/1123" target="_blank" rel="noopener">Reserveer een tafel</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Restaurant%20Ratatouille%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),btn=document.querySelector('.menu-toggle'),nav=document.getElementById('nav');
+  function onScroll(){top.classList.toggle('solid',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')!=='true';
+    btn.setAttribute('aria-expanded',open);nav.classList.toggle('open',open);top.classList.toggle('open',open);
+    btn.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    btn.setAttribute('aria-expanded','false');nav.classList.remove('open');top.classList.remove('open');
+  })});
+
+  // tabs menukaart
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function select(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;
+      var n=tabs[(i+d+tabs.length)%tabs.length];select(n);n.focus();
+    });
+  });
+
+  // gangenkiezer
+  var data={
+    3:{p:'€ 55,50'},
+    4:{p:'€ 65,50',a:'Heerlijk Ratatouille',h:110,f:120,w:'vier'},
+    5:{p:'€ 75,50',a:'Ratatouille Beleving',h:125,f:135,w:'vijf'},
+    6:{p:'€ 85,50',a:'Rijkelijk Genieten',h:140,f:150,w:'zes'}
+  };
+  var bs=[].slice.call(document.querySelectorAll('#counts button')),arr=document.getElementById('arr');
+  function pick(n){
+    var d=data[n];
+    bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.n==n)});
+    document.getElementById('n-lbl').textContent=n;
+    document.getElementById('menu-price').textContent=d.p;
+    if(d.a){
+      arr.classList.remove('none');
+      document.getElementById('arr-name').textContent='Arrangement “'+d.a+'”';
+      document.getElementById('arr-half').textContent='Halve glazen € '+d.h;
+      document.getElementById('arr-full').textContent='Volle glazen € '+d.f;
+      document.getElementById('arr-half').hidden=false;document.getElementById('arr-full').hidden=false;
+      document.getElementById('arr-txt').textContent=n+' gangen inclusief aperitief, amuses, '+d.w+' bijpassende wijnen, tafelwater, desembrood, koffie of thee en friandises.';
+    }else{
+      arr.classList.add('none');
+      document.getElementById('arr-name').textContent='Zonder wijnarrangement';
+      document.getElementById('arr-half').hidden=true;document.getElementById('arr-full').hidden=true;
+      document.getElementById('arr-txt').textContent='Een wijnarrangement kies je bij 4, 5 of 6 gangen.';
+    }
+  }
+  bs.forEach(function(b){b.addEventListener('click',function(){pick(+b.dataset.n)})});
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>

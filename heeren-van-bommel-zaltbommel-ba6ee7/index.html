@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>De Heeren van Bommel · Brasserie in hartje Zaltbommel</title>
+<meta name="description" content="Franse brasserie met Hollandse gastvrijheid aan de Waterstraat 21 in Zaltbommel. Koffie, lunch, borrel en diner, wo t/m zo vanaf 11:00 uur.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2312332a'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='44' text-anchor='middle' fill='%23c9a46a'%3Eb%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#12332a; --green-d:#0b231c; --green-l:#1d4a3d;
+  --brass:#c9a46a; --copper:#c27845; --paper:#f6f1e6; --paper-2:#ece4d3;
+  --ink:#1b2520; --muted:#5d6a63; --line:#d9cdb5;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0}
+p{margin:0 0 1em}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.top.solid{background:var(--green-d);box-shadow:0 1px 0 rgba(201,164,106,.25)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;color:var(--paper)}
+.logo small{font-family:var(--serif);font-size:15px;letter-spacing:.02em;color:var(--brass)}
+.logo b{font-family:var(--serif);font-weight:400;font-size:34px;letter-spacing:-.01em;margin-top:-2px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{color:var(--paper);text-decoration:none;font-size:14px;font-weight:500}
+.nav a:hover{color:var(--brass)}
+.nav .cta{border:1px solid var(--brass);padding:9px 18px;border-radius:999px;color:var(--brass)}
+.nav .cta:hover{background:var(--brass);color:var(--green-d)}
+.burger{display:none;background:none;border:0;color:var(--paper);width:44px;height:44px;cursor:pointer;padding:10px}
+.burger span{display:block;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{background:var(--green-d);color:var(--paper);display:grid;grid-template-columns:1.1fr .9fr;min-height:100svh}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:120px max(40px,calc((100vw - 1160px)/2)) 70px;padding-right:56px;position:relative}
+.hero h1{font-size:clamp(64px,9vw,136px);letter-spacing:-.02em;line-height:.92}
+.hero h1 em{display:block;color:var(--brass);font-style:italic}
+.hero .lead{font-size:18px;max-width:30em;margin:30px 0 34px;color:#d8d3c4}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--sans)}
+.btn-brass{background:var(--brass);color:var(--green-d)}
+.btn-brass:hover{background:#d8b57c}
+.btn-line{border-color:rgba(246,241,230,.45);color:var(--paper)}
+.btn-line:hover{border-color:var(--paper)}
+.today{margin-top:46px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c9c3b2}
+.dot{width:9px;height:9px;border-radius:50%;background:#7fb08f;box-shadow:0 0 0 4px rgba(127,176,143,.2)}
+.dot.closed{background:#b9865d;box-shadow:0 0 0 4px rgba(185,134,93,.2)}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:settle 1.6s ease-out both}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--green-d) 0,rgba(11,35,28,0) 22%)}
+@keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+
+/* moments */
+.moments{background:var(--green);color:var(--paper)}
+.moments ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.moments li{padding:30px 26px;border-left:1px solid rgba(201,164,106,.25)}
+.moments li:last-child{border-right:1px solid rgba(201,164,106,.25)}
+.moments h3{font-size:30px;color:var(--brass)}
+.moments p{margin:4px 0 0;font-size:14px;color:#d1ccbd}
+
+/* intro */
+section{padding:110px 0}
+.intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro h2,.sec-h{font-size:clamp(42px,5.5vw,72px);color:var(--green);letter-spacing:-.01em}
+.intro h2{margin-bottom:28px}
+.intro p{font-size:17px;color:#38443e;max-width:34em}
+.intro figure{margin:0;position:relative}
+.intro figure img{border-radius:4px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;padding:0;list-style:none}
+.facts li{font-size:13px;font-weight:500;padding:7px 14px;border:1px solid var(--line);border-radius:999px;color:var(--green)}
+
+/* menu */
+.kaart{background:var(--green-d);color:var(--paper);padding-bottom:120px}
+.kaart-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.kaart .sec-h{color:var(--paper)}
+.kaart-head p{max-width:30em;color:#cfc9b8;margin:14px 0 0}
+.tabs{display:flex;gap:6px;background:rgba(246,241,230,.08);padding:5px;border-radius:999px}
+.tabs button{font:600 14px var(--sans);color:var(--paper);background:none;border:0;padding:11px 22px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--brass);color:var(--green-d)}
+.card{background:var(--paper);color:var(--ink);border-radius:6px;padding:60px 64px;position:relative}
+.card::before{content:"";position:absolute;inset:12px;border:1px solid var(--line);border-radius:3px;pointer-events:none}
+.panel[hidden]{display:none}
+.panel-intro{text-align:center;font-family:var(--serif);font-size:24px;color:var(--green);margin:0 auto 40px;max-width:26em;line-height:1.3}
+.cols{columns:2;column-gap:72px}
+.grp{break-inside:avoid;margin-bottom:38px}
+.grp h3{font-size:34px;color:var(--green);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:14px}
+.grp .sub{font-size:13px;color:var(--muted);margin:-8px 0 12px;font-style:italic}
+.dish{display:grid;grid-template-columns:1fr auto;column-gap:14px;padding:7px 0}
+.dish b{font-weight:600;font-size:15px}
+.dish .p{font-weight:600;font-size:15px;color:var(--green);font-variant-numeric:tabular-nums}
+.dish small{grid-column:1/-1;color:var(--muted);font-size:13.5px;line-height:1.5}
+.note{font-size:13.5px;color:var(--muted);background:var(--paper-2);padding:12px 16px;border-radius:4px;margin-top:6px}
+.note b{color:var(--ink)}
+.allergen{text-align:center;margin:20px 0 0;font-size:14px;color:var(--muted)}
+.kerst-top{text-align:center;margin-bottom:36px}
+.kerst-top h3{font-size:44px;color:var(--green)}
+.kerst-top p{color:var(--muted);margin:6px 0 0}
+.gang{margin-bottom:34px}
+.gang h4{font:400 28px var(--serif);color:var(--copper);text-align:center;margin:0 0 14px}
+.keuze{display:grid;grid-template-columns:1fr 1fr;gap:18px 48px}
+.keuze.een{grid-template-columns:1fr;text-align:center;max-width:36em;margin:0 auto}
+.keuze div b{display:block;font-weight:600}
+.keuze div small{color:var(--muted);font-size:13.5px}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;background:var(--green);color:var(--paper);padding:2px 8px;border-radius:2px;margin-bottom:4px}
+.kerst-cta{text-align:center;border-top:1px solid var(--line);padding-top:28px;margin-top:10px}
+.kerst-cta p{color:var(--muted)}
+.btn-green{background:var(--green);color:var(--paper)}
+.btn-green:hover{background:var(--green-l)}
+.btn-outline{border-color:var(--green);color:var(--green)}
+
+/* borrel */
+.borrel{background:var(--paper)}
+.borrel .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.borrel .tap{padding:36px 38px;background:var(--green);color:var(--paper);border-radius:4px}
+.borrel .tap h3{font-size:32px;color:var(--brass);margin-bottom:10px}
+.borrel .tap p{color:#d8d3c4;margin-bottom:16px}
+
+/* heeren */
+.heeren{background:var(--paper-2)}
+.heeren .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.heeren img{border-radius:4px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.heeren figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+.heeren figure{margin:0}
+.heeren p{font-size:17px;color:#38443e}
+.heeren .sig{font-family:var(--serif);font-size:30px;color:var(--copper);margin-top:10px;line-height:1.2}
+
+/* werken */
+.werken{background:var(--green);color:var(--paper);padding:90px 0}
+.werken .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.werken .sec-h{color:var(--paper)}
+.werken p{color:#d4cfbf}
+.jobs{list-style:none;padding:0;margin:0 0 26px}
+.jobs li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid rgba(201,164,106,.3)}
+.jobs li span{font-family:var(--serif);font-size:32px}
+.jobs li a{font-size:14px;font-weight:600;color:var(--brass);text-decoration:none;white-space:nowrap}
+
+/* contact */
+.contact{position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;right:-40px;top:40px;width:340px;height:585px;background:url(img/kerk.jpg) no-repeat right top/contain;opacity:.55;mix-blend-mode:multiply;pointer-events:none}
+.contact .wrap{position:relative}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin:46px 0 50px}
+.contact h3{font-size:30px;color:var(--green);margin-bottom:14px}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:7px 0;border-bottom:1px solid var(--line)}
+.hours td+td{text-align:right;font-weight:500}
+.hours tr.now td{color:var(--copper);font-weight:600}
+.contact p,.contact li{font-size:15px}
+.contact ul{padding:0;margin:0;list-style:none}
+.contact li{margin-bottom:14px}
+.contact li b{display:block;font-weight:600}
+.contact a{color:var(--green);text-underline-offset:3px}
+.big{font-family:var(--serif);font-size:30px;color:var(--green);text-decoration:none;line-height:1.2}
+.map{border-radius:4px;overflow:hidden;border:1px solid var(--line);height:380px;background:var(--paper-2)}
+.map iframe{width:100%;height:100%;border:0;filter:saturate(.7)}
+.groups{margin-top:18px;font-size:14px;color:var(--muted);background:var(--paper-2);padding:14px 16px;border-radius:4px}
+
+footer{background:var(--green-d);color:#bdb8a8;padding:56px 0 90px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:end}
+footer .logo{margin-bottom:12px}
+footer nav{display:flex;gap:20px}
+footer a{color:var(--paper)}
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:rgba(11,35,28,.92);color:var(--paper);border:1px solid var(--brass);font-size:12px;padding:7px 14px;border-radius:999px;white-space:nowrap}
+
+@media (max-width:960px){
+  .nav{position:fixed;inset:0;background:var(--green-d);flex-direction:column;justify-content:center;gap:26px;transform:translateY(-100%);transition:transform .35s ease;z-index:-1}
+  .nav a{font-size:22px;font-family:var(--serif)}
+  .nav .cta{font-family:var(--sans);font-size:16px}
+  .menu-open .nav{transform:none}
+  .burger{display:block}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;height:56svh;min-height:340px}
+  .hero-photo::after{background:linear-gradient(0deg,var(--green-d) 0,rgba(11,35,28,0) 45%),linear-gradient(180deg,rgba(11,35,28,.7) 0,rgba(11,35,28,0) 28%)}
+  .hero-text{padding:0 20px 56px;margin-top:-90px;z-index:2}
+  .hero h1{font-size:clamp(60px,17vw,96px)}
+  .hero .lead{font-size:16px;margin:22px 0 28px}
+  .today{margin-top:30px;margin-bottom:24px}
+  .moments ul{grid-template-columns:1fr 1fr}
+  .moments li{padding:22px 18px;border-left:0;border-top:1px solid rgba(201,164,106,.25)}
+  .moments li:nth-child(odd){border-right:1px solid rgba(201,164,106,.25)}
+  .moments li:last-child{border-right:0}
+  section{padding:76px 0}
+  .intro .wrap,.borrel .wrap,.heeren .wrap,.werken .wrap{grid-template-columns:1fr;gap:40px}
+  .borrel figure{order:2}
+  .card{padding:40px 22px}
+  .card::before{inset:8px}
+  .cols{columns:1}
+  .keuze{grid-template-columns:1fr;gap:16px}
+  .contact-grid{grid-template-columns:1fr;gap:34px}
+  .contact::before{opacity:.25}
+  .tabs{width:100%}
+  .tabs button{flex:1;padding:11px 8px}
+}
+@media (max-width:420px){
+  .wrap{width:calc(100% - 32px)}
+  .moments h3{font-size:26px}
+  .jobs li span{font-size:26px}
+  .ribbon{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="De Heeren van Bommel, naar boven"><small>de heeren van</small><b>bommel</b></a>
+    <nav class="nav" id="nav" aria-label="Hoofdmenu">
+      <a href="#kaart">Menukaart</a>
+      <a href="#borrelen">Borrelen</a>
+      <a href="#over-ons">Over ons</a>
+      <a href="#vacatures">Werken bij</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#reserveren">Reserveren</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="hero-text">
+    <h1>Het borrelt,<em>het bruist.</em></h1>
+    <p class="lead">Een Franse brasserie met Hollandse gastvrijheid, in een karakteristiek pand in het oude centrum van Zaltbommel. Voor koffie, lunch, een borrel of diner.</p>
+    <div class="btns">
+      <a class="btn btn-brass" href="#reserveren">Reserveer een tafel</a>
+      <a class="btn btn-line" href="#kaart">Bekijk de menukaart</a>
+    </div>
+    <p class="today"><span class="dot" id="dot"></span><span id="today">Woensdag t/m zondag open vanaf 11:00 uur</span></p>
+  </div>
+  <div class="hero-photo"><img src="img/bar.jpg" alt="De bar van De Heeren van Bommel met koperen tanks en bloemen op de toog" fetchpriority="high"></div>
+</section>
+
+<div class="moments">
+  <div class="wrap">
+    <ul>
+      <li><h3>Koffie</h3><p>Brasserie open vanaf 11:00</p></li>
+      <li><h3>Lunch</h3><p>12:00 – 16:00 uur</p></li>
+      <li><h3>Borrel</h3><p>Aan de bar of zelf tappen aan tafel</p></li>
+      <li><h3>Diner</h3><p>Vanaf 17:00 uur</p></li>
+    </ul>
+  </div>
+</div>
+
+<section class="intro">
+  <div class="wrap">
+    <div>
+      <h2>Een gezellige brasserie in hartje Zaltbommel</h2>
+      <p>In het sfeervolle oude centrum van Zaltbommel, in een karakteristiek pand met bijzondere verhalen, heeft onze brasserie een moderne en ontspannen uitstraling. Een unieke plek om vrienden, familie en collega’s te ontmoeten en samen te genieten.</p>
+      <p>Ons team maakt graag een feest van eten en drinken. Geniet van lekker eten, bijzondere bieren, barbites of verfijnde koffiesmaken. Daarnaast schenken wij heerlijke wijnen, die perfect passen bij onze gerechten. ’s Zomers kun je op het mooie terras genieten.</p>
+      <ul class="facts">
+        <li>Franse brasserie</li><li>Bijzondere bieren &amp; wijnen</li><li>Terras in de zomer</li><li>Rolstoeltoegankelijk</li>
+      </ul>
+    </div>
+    <figure><img src="img/zaal.jpg" alt="Het restaurant van De Heeren van Bommel met ronde tafels, gestoffeerde stoelen en de bar op de achtergrond" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="kaart" id="kaart">
+  <div class="wrap">
+    <div class="kaart-head">
+      <div>
+        <h2 class="sec-h">De kaart</h2>
+        <p>Kom lunchen of dineren, of laat je verrassen door de specialiteiten van onze brasserie.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Kies een kaart">
+        <button role="tab" id="t-diner" aria-controls="p-diner" aria-selected="true">Diner</button>
+        <button role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="false" tabindex="-1">Lunch</button>
+        <button role="tab" id="t-kerst" aria-controls="p-kerst" aria-selected="false" tabindex="-1">Kerst 2026</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <!-- DINER -->
+      <div class="panel" id="p-diner" role="tabpanel" aria-labelledby="t-diner">
+        <p class="panel-intro">Kom lekker dineren bij de Heeren van Bommel. Diner vanaf 17:00 uur.</p>
+        <div class="cols">
+          <div class="grp"><h3>Voorgerechten</h3>
+            <div class="dish"><b>Garnalen cocktail</b><span class="p">17,50</span><small>met Noorse garnalen, gemberschuim &amp; pompoenchips</small></div>
+            <div class="dish"><b>Kip ‘a la royale’</b><span class="p">15,50</span><small>met sous-vide gegaarde kip, gebonden foeliejus &amp; bospaddenstoelen</small></div>
+            <div class="dish"><b>Carpaccio</b><span class="p">16,50</span><small>met rucola, truffelmayonaise, oude kaas en pittenmix</small></div>
+            <div class="dish"><b>Carpaccio XXL</b><span class="p">25,50</span><small>met rucola, truffelmayonaise, oude kaas en pittenmix · optie: eendenlever 6,50</small></div>
+            <div class="dish"><b>Steak tartaar</b><span class="p">17,50</span><small>met eidooier, sesamschuim, miso-mayonaise &amp; zoetzuur radijs</small></div>
+            <div class="dish"><b>Tonijn tataki</b><span class="p">18,50</span><small>gegrilde tonijnsteak met matcha, ponzu &amp; yuzu</small></div>
+            <div class="dish"><b>Rode bietentaco’s</b><span class="p">16,50</span><small>met feta, salsa roja &amp; kruidige popcorn</small></div>
+            <div class="dish"><b>Gegrilde coquilles</b><span class="p">19,50</span><small>met vanillerisotto, salade van zeegroenten &amp; zoetzure komkommer</small></div>
+            <div class="dish"><b>Gebakken makreel</b><span class="p">15,50</span><small>in rode gazpacho met rucola-olie</small></div>
+            <div class="dish"><b>Ceviche van zeebaars</b><span class="p">16,50</span><small>met passiefruit en wasabi mayonaise</small></div>
+            <div class="dish"><b>Bouillabaisse</b><span class="p">14,50</span><small>rijkelijk gevuld met vis &amp; zeevruchten</small></div>
+            <div class="dish"><b>Spicy pumpkin soep</b><span class="p">9,50</span><small>lichtpittige &amp; kruidige pompoensoep met 5-spices schuim</small></div>
+          </div>
+          <div class="grp"><h3>Vleesgerechten</h3>
+            <div class="dish"><b>Procureur</b><span class="p">27,50</span><small>met honing-sesam &amp; gepofte tomaat</small></div>
+            <div class="dish"><b>Spareribs</b><span class="p">28,50</span><small>met knoflooksaus &amp; oosterse crumble</small></div>
+            <div class="dish"><b>Duo van kalfssucade &amp; kalfszwezerik</b><span class="p">39,50</span><small>met rode wijnreductie, kalfjus, oesterzwammen</small></div>
+            <div class="dish"><b>Tournedos Bommels Rund</b><span class="p">39,50</span><small>met madeira jus, truffelolie &amp; huisgemaakte crouton</small></div>
+            <div class="dish"><b>Chateaubriand</b><span class="p">84,50</span><small>met stroganoff saus &amp; seizoensgroenten</small></div>
+            <div class="dish"><b>Gebakken eendenborst</b><span class="p">29,50</span><small>met sinaasappel-tijm saus &amp; vijgencompote</small></div>
+            <div class="dish"><b>No.21 kip</b><span class="p">26,50</span><small>gegrilde kippendijen met noodles, oosterse groente &amp; soja-olie</small></div>
+            <p class="note">Maak uw gerecht compleet met een verfijnde aanvulling: <b>zwezerik 9,50</b> · <b>½ kreeft 21,50</b></p>
+            <p class="note">Alle gerechten worden geserveerd met sla en frites. Extra mayonaise <b>1,50</b> · extra saus <b>3,50</b></p>
+          </div>
+          <div class="grp"><h3>Visgerechten</h3>
+            <div class="dish"><b>Gepocheerde zalm</b><span class="p">28,50</span><small>met knoflook crème en krokante pancetta</small></div>
+            <div class="dish"><b>Kreeft 500 gram</b><span class="p">49,50</span><small>gegrild en geserveerd met tom kha kai &amp; koriander-olie</small></div>
+            <div class="dish"><b>Sliptongen 3 stuks</b><span class="p">36,50</span><small>met remouladesaus &amp; seizoensgroente</small></div>
+            <div class="dish"><b>Botervis</b><span class="p">32,50</span><small>met antiboise &amp; zeegroenten</small></div>
+            <p class="note">Maak uw gerecht compleet met een verfijnde aanvulling: <b>zwezerik 9,50</b></p>
+          </div>
+          <div class="grp"><h3>Vegetarisch</h3>
+            <div class="dish"><b>Kaasfondue</b><span class="p">27,50</span><small>van gruyère en geserveerd met diverse crudités</small></div>
+            <div class="dish"><b>Juicy Marbles</b><span class="p">28,50</span><small>met bospaddenstoelen &amp; pompoenchips</small></div>
+          </div>
+          <div class="grp"><h3>Desserts</h3>
+            <div class="dish"><b>Gepocheerde peer</b><span class="p">11,50</span><small>met chocolademousse &amp; 5-spices saus</small></div>
+            <div class="dish"><b>Glaze royale</b><span class="p">11,50</span><small>van cassis, champagnesorbet &amp; bruis</small></div>
+            <div class="dish"><b>Cheesecake van pompoen</b><span class="p">11,50</span><small>met sinaasappelsorbet &amp; speculaas</small></div>
+            <div class="dish"><b>Rum-soaked muffin</b><span class="p">11,50</span><small>met blauwe bessen &amp; chocolade</small></div>
+            <div class="dish"><b>Coupe Heeren</b><span class="p">11,50</span><small>met boerenjongens ijs, advocaat ijs en slagroom</small></div>
+            <div class="dish"><b>Kaasplank</b><span class="p">16,50</span><small>een heerlijke variatie van diverse soorten kaas</small></div>
+            <div class="dish"><b>Luxe koffie</b><span class="p">9,50</span><small>Irish Coffee · Coffee D.O.M. · French Coffee · Italian Coffee · Spanish Coffee</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUNCH -->
+      <div class="panel" id="p-lunch" role="tabpanel" aria-labelledby="t-lunch" hidden>
+        <p class="panel-intro">Kom lekker lunchen en laat je verrassen door de specialiteiten van onze brasserie. Van 12:00 tot 16:00 uur.</p>
+        <div class="cols">
+          <div class="grp"><h3>Sandwich</h3>
+            <div class="dish"><b>Club sandwich kip</b><span class="p">14,50</span><small>met bacon &amp; frites</small></div>
+            <div class="dish"><b>Club sandwich zalm</b><span class="p">16,50</span><small>met ei &amp; frites</small></div>
+            <div class="dish"><b>Steak sandwich</b><span class="p">15,50</span><small>brood met gegrilde ribeye &amp; truffelmayonaise</small></div>
+          </div>
+          <div class="grp"><h3>Tosti’s</h3>
+            <div class="dish"><b>Ham/kaas</b><span class="p">7,50</span></div>
+            <div class="dish"><b>Tuna melt</b><span class="p">9,50</span></div>
+            <div class="dish"><b>Japanse kip</b><span class="p">9,50</span></div>
+            <div class="dish"><b>Gerookte zalm</b><span class="p">11,50</span></div>
+          </div>
+          <div class="grp"><h3>Eiergerechten</h3><p class="sub">zelf samenstellen tegen meerprijs</p>
+            <div class="dish"><b>Uitsmijter</b><span class="p">11,50</span><small>keuze uit ham/kaas/spek of carpaccio</small></div>
+            <div class="dish"><b>Omelet</b><span class="p">13,50</span><small>keuze uit kaas/spek/zalm</small></div>
+            <div class="dish"><b>Eggs benedict</b><span class="p">14,50</span><small>met avocado en gepocheerd ei, keuze uit zalm/ham</small></div>
+          </div>
+          <div class="grp"><h3>Belegd brood</h3><p class="sub">keuze uit robuust wit of bruin</p>
+            <div class="dish"><b>Tonijnsalade</b><span class="p">13,50</span></div>
+            <div class="dish"><b>Carpaccio</b><span class="p">15,50</span></div>
+            <div class="dish"><b>Gerookte zalm</b><span class="p">15,50</span></div>
+            <div class="dish"><b>Twee kroketten</b><span class="p">13,50</span></div>
+            <div class="dish"><b>Geitenkaas</b><span class="p">14,50</span></div>
+            <div class="dish"><b>Italiaanse bol</b><span class="p">17,50</span><small>met miso-mayonaise &amp; zoetzuur radijs · optie: eendenlever, meerprijs 6,50</small></div>
+            <div class="dish"><b>Japanse kip</b><span class="p">15,50</span><small>met oosterse groenten &amp; soja-olie</small></div>
+            <div class="dish"><b>Mattonella-ham</b><span class="p">15,50</span><small>met groene kruidenolie</small></div>
+          </div>
+          <div class="grp"><h3>Maaltijdsalades</h3>
+            <div class="dish"><b>Geitenkaas salade</b><span class="p">17,50</span><small>met compote &amp; notencrumble</small></div>
+            <div class="dish"><b>Carpaccio salade</b><span class="p">18,50</span><small>met truffel-mayo, pittenmix &amp; oude kaas</small></div>
+            <div class="dish"><b>Japanse kip salade</b><span class="p">17,50</span><small>met oosterse groenten &amp; soja-olie</small></div>
+            <div class="dish"><b>Calamari salade</b><span class="p">21,50</span><small>krokant gebakken met cherry tomaten</small></div>
+            <div class="dish"><b>Poké bowl</b><span class="p">19,50</span><small>met keuze uit zalm, kip of vega</small></div>
+          </div>
+          <div class="grp"><h3>Warme gerechten</h3>
+            <div class="dish"><b>Tournedos Bommels Rund</b><span class="p">33,50</span><small>met brood &amp; boterjus</small></div>
+            <div class="dish"><b>Spareribs</b><span class="p">24,50</span><small>met knoflooksaus &amp; frites</small></div>
+            <div class="dish"><b>Kipsaté</b><span class="p">22,50</span><small>met satésaus &amp; frites</small></div>
+            <div class="dish"><b>Heerenburger</b><span class="p">22,50</span><small>met bacon, cheddar, burgersaus &amp; frites</small></div>
+            <div class="dish"><b>Zalmfilet</b><span class="p">24,50</span><small>met hollandaisesaus &amp; frites</small></div>
+            <div class="dish"><b>Juicy Marbles (v)</b><span class="p">28,50</span><small>met groente &amp; frites</small></div>
+          </div>
+          <div class="grp"><h3>Specials</h3>
+            <div class="dish"><b>12 uurtje</b><span class="p">14,50</span><small>soepje, kleine uitsmijter met ham/kaas, kroket en rundvleessalade</small></div>
+            <div class="dish"><b>Vis-uurtje</b><span class="p">17,50</span><small>gerookte zalm, tonijnsalade, garnalenkroket &amp; een vissoepje</small></div>
+            <div class="dish"><b>Sashimi zalm of tonijn</b><span class="p">15,50</span><small>met brood, wasabi, soja, avocado &amp; yuzu</small></div>
+            <div class="dish"><b>Bouillabaisse</b><span class="p">15,50</span><small>met brood, knoflook &amp; diverse vissoorten</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KERST -->
+      <div class="panel" id="p-kerst" role="tabpanel" aria-labelledby="t-kerst" hidden>
+        <div class="kerst-top">
+          <h3>Kerst keuzemenu 2026</h3>
+          <p>Geniet deze kerst van een sfeervol kerstdiner, gezellig samen of met de hele familie. Kies per gang uit wild, vlees, vis of vega.</p>
+        </div>
+        <div class="gang"><h4>Amuse</h4>
+          <div class="keuze een"><div><b>Zilte kerstparel</b><small>Pani puri gevuld met gel van zeekraal, gerookte zalm, zalmeitjes en yuzu pearls</small></div></div>
+        </div>
+        <div class="gang"><h4>Voorgerecht</h4>
+          <div class="keuze">
+            <div><span class="tag">WILD</span><b>Hertelijke verleiding</b><small>Hertentataki met milde ponzu, cacao, matcha, rode biet en shiitakes</small></div>
+            <div><span class="tag">VLEES</span><b>Italiaanse winterpracht</b><small>Huisgemaakte bresaola met groene olie, aardpeer, eidooier en kletzenbrood</small></div>
+            <div><span class="tag">VIS</span><b>Zilte winterserenade</b><small>40 graden zalm met pastinaak, baby venkel, schorseneren &amp; paarse aardappel</small></div>
+            <div><span class="tag">VEGA</span><b>Kerst in kleur</b><small>Panna cotta van mais met geitenkaassorbet, rode bieten gazpacho &amp; bosui</small></div>
+          </div>
+        </div>
+        <div class="gang"><h4>Tussengerecht</h4>
+          <div class="keuze">
+            <div><span class="tag">WILD</span><b>Fluweel van eendenlever</b><small>Mousse van eendenlever met kaneel, steranijs, dadels, zure room en speculaas</small></div>
+            <div><span class="tag">VLEES</span><b>Bosrijke winterweelde</b><small>Gepekelde procureur met wilde paddenstoelen, gedroogde bessen en paksoi</small></div>
+            <div><span class="tag">VIS</span><b>Gouden parels van de zee</b><small>Coquilles met vanille risotto, chili olie, saffraan en mandarijn</small></div>
+            <div><span class="tag">VEGA</span><b>Witte verleiding</b><small>Parmezaan wolk met tomatenchutney, truffel, groene asperge &amp; hazelnoten</small></div>
+          </div>
+        </div>
+        <div class="gang"><h4>Soepje</h4>
+          <div class="keuze een"><div><b>Gouden kerstconsommé</b><small>Heldere pompoenbouillon met sinaasappel, kaaskrokantje, gember-kaneelschuim &amp; krokantje van filodeeg</small></div></div>
+        </div>
+        <div class="gang"><h4>Hoofdgerecht</h4>
+          <div class="keuze">
+            <div><span class="tag">WILD</span><b>Wild in winterse elegantie</b><small>Wild zwijnenrug met rode portjus, rode kool, appel, kruidnagel &amp; witlof</small></div>
+            <div><span class="tag">VLEES</span><b>Tournedos Rossini Grandeur de Noël</b><small>Heerlijke tournedos Rossini</small></div>
+            <div><span class="tag">VIS</span><b>Winterse oceaanpracht</b><small>Zeeduivelwang met geroosterde amandelen, kers, gemberbollen &amp; gebakken banaan</small></div>
+            <div><span class="tag">VEGA</span><b>Fondue de Noël</b><small>Klassieke kaasfondue met crouton, groenteplateau en fruitplateau</small></div>
+          </div>
+        </div>
+        <div class="gang"><h4>Dessert</h4>
+          <div class="keuze een"><div><b>Gouden winterdroom</b><small>Walnoot-karamel ijs met perenstroop, chocolademousse en honeycomb</small></div></div>
+        </div>
+        <div class="kerst-cta">
+          <p>Wij wensen u een smakelijke kerst en een sfeervol samenzijn aan tafel.</p>
+          <div class="btns" style="justify-content:center">
+            <a class="btn btn-green" href="#reserveren">Reserveer voor de kerst</a>
+            <a class="btn btn-outline" href="https://www.heerenvanbommel.nl/wp-content/uploads/2026/11/Kerstmenu_2026_De_Heeren_van_Bommel.pdf" target="_blank" rel="noopener">Kerstmenu als pdf</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="allergen" style="color:#cfc9b8">In onze keuken werken we met allergenen. Heeft u een voedselallergie? Vraag naar onze allergenenkaart.</p>
+  </div>
+</section>
+
+<section class="borrel" id="borrelen">
+  <div class="wrap">
+    <div>
+      <h2 class="sec-h">Gewoon een borrel? Ook dat kan.</h2>
+      <p style="font-size:17px;color:#38443e;margin-top:24px">Zin in alleen een borrel met vrienden of bekenden? Schuif aan aan de sfeervolle bar voor bijzondere bieren, een goed glas wijn en barbites.</p>
+    </div>
+    <div>
+      <div class="tap">
+        <h3>Zelf tappen aan tafel</h3>
+        <p>Voor vrienden die samen de tap graag in eigen hand nemen, is er de mogelijkheid om zelf aan tafel bier te tappen. Reserveer dit unieke concept van tevoren door contact met ons op te nemen.</p>
+        <a class="btn btn-brass" href="tel:+31418783000">Bel (0418) 78 30 00</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="heeren" id="over-ons">
+  <div class="wrap">
+    <figure><img src="img/heeren.jpg" alt="Gideon en Lodewijk aan de bar van De Heeren van Bommel" loading="lazy"><figcaption>Gideon en Lodewijk, de Heeren van Bommel</figcaption></figure>
+    <div>
+      <h2 class="sec-h">De Heeren van Bommel</h2>
+      <p style="margin-top:24px">Bij De Heeren van Bommel ervaar je de gezellige sfeer van een Franse brasserie gecombineerd met de Hollandse gastvrijheid van de vrienden Gideon en Lodewijk. Kom lunchen, dineren, borrelen of een kop koffie drinken.</p>
+      <p>Gezelligheid en kwaliteit, dat streven wij als team na. Bij de Heeren van Bommel draait alles om goed eten en gezelligheid.</p>
+      <p class="sig">Gideon en Lodewijk verwelkomen je graag in hun brasserie in hartje Zaltbommel!</p>
+    </div>
+  </div>
+</section>
+
+<section class="werken" id="vacatures">
+  <div class="wrap">
+    <div>
+      <h2 class="sec-h">Werken bij de Heeren</h2>
+      <p style="margin-top:22px">Je gaat niet zomaar ‘ergens’ werken. Wil je meer ervaring opdoen binnen de horeca en je vaardigheden verder ontwikkelen? Je komt terecht in een gezellig en professioneel team waar kennis en kunde gewaardeerd worden.</p>
+    </div>
+    <div>
+      <p>We zijn op zoek naar uitbreiding van ons team en hebben de volgende vacatures open staan:</p>
+      <ul class="jobs">
+        <li><span>Sous-chef</span><a href="mailto:info@heerenvanbommel.nl?subject=Sollicitatie%20sous-chef">Solliciteer per mail</a></li>
+        <li><span>Kok</span><a href="mailto:info@heerenvanbommel.nl?subject=Sollicitatie%20kok">Solliciteer per mail</a></li>
+      </ul>
+      <p>Heb jij passie voor je vak en zoek je een nieuwe uitdaging in een leuk team? Stuur je cv met motivatie naar <a href="mailto:info@heerenvanbommel.nl" style="color:var(--brass)">info@heerenvanbommel.nl</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="sec-h" id="reserveren">Reserveren &amp; contact</h2>
+    <div class="contact-grid">
+      <div>
+        <h3>Openingstijden</h3>
+        <table class="hours" id="hours">
+          <tr data-d="1"><td>Maandag</td><td>gesloten</td></tr>
+          <tr data-d="2"><td>Dinsdag</td><td>gesloten</td></tr>
+          <tr data-d="3"><td>Woensdag</td><td>vanaf 11:00</td></tr>
+          <tr data-d="4"><td>Donderdag</td><td>vanaf 11:00</td></tr>
+          <tr data-d="5"><td>Vrijdag</td><td>vanaf 11:00</td></tr>
+          <tr data-d="6"><td>Zaterdag</td><td>vanaf 11:00</td></tr>
+          <tr data-d="0"><td>Zondag</td><td>vanaf 11:00</td></tr>
+        </table>
+        <p style="margin-top:14px;color:var(--muted);font-size:14px">Brasserie vanaf 11:00 · lunch 12:00 – 16:00 · diner vanaf 17:00</p>
+      </div>
+      <div>
+        <h3>Reserveren</h3>
+        <p>Reserveer telefonisch of per mail, we zien je graag.</p>
+        <a class="big" href="tel:+31418783000">(0418) 78 30 00</a><br>
+        <a href="mailto:info@heerenvanbommel.nl">Info@heerenvanbommel.nl</a>
+        <p class="groups">Met een groep van meer dan 12 personen? Neem telefonisch of per mail contact met ons op.</p>
+      </div>
+      <div>
+        <h3>Adres &amp; parkeren</h3>
+        <p>Waterstraat 21<br>5301 AH Zaltbommel<br><span style="color:var(--muted)">Ons historisch pand is rolstoeltoegankelijk.</span></p>
+        <ul>
+          <li><b>Parkeerterrein Veerweg</b>± 3 minuten lopen, betaald parkeren<br>Veerweg 1, 5301 CK Zaltbommel</li>
+          <li><b>Parkeerterrein Beersteeg</b>± 7 minuten lopen, gratis parkeren<br>Beersteeg 4, 5301 HR Zaltbommel</li>
+        </ul>
+        <a class="btn btn-green" href="https://www.google.com/maps/dir/?api=1&amp;destination=Waterstraat%2021%2C%205301%20AH%20Zaltbommel" target="_blank" rel="noopener">Plan je route</a>
+      </div>
+    </div>
+    <div class="map"><iframe title="Kaart: Waterstraat 21, Zaltbommel" src="https://maps.google.com/maps?q=Waterstraat%2021%2C%205301%20AH%20Zaltbommel&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top"><small>de heeren van</small><b>bommel</b></a>
+      Waterstraat 21, 5301 AH Zaltbommel · <a href="tel:+31418783000">(0418) 78 30 00</a>
+    </div>
+    <nav aria-label="Sociale media">
+      <a href="https://www.facebook.com/heerenvanbommel" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/deheerenvanbommel/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Heeren%20van%20Bommel%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var top=document.getElementById('top'),burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  function onScroll(){top.classList.toggle('solid',window.scrollY>40||document.body.classList.contains('menu-open'))}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function setMenu(open){document.body.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');onScroll()}
+  burger.addEventListener('click',function(){setMenu(!document.body.classList.contains('menu-open'))});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function select(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){var n=tabs[(i+d+tabs.length)%tabs.length];select(n);n.focus()}});
+  });
+
+  var day=new Date().getDay(),open=day>=3||day===0;
+  var row=document.querySelector('#hours tr[data-d="'+day+'"]');if(row)row.className='now';
+  document.getElementById('today').textContent=open?'Vandaag open vanaf 11:00 uur · lunch 12–16 · diner vanaf 17:00':'Vandaag gesloten · woensdag t/m zondag open vanaf 11:00 uur';
+  if(!open)document.getElementById('dot').classList.add('closed');
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
