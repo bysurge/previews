@@ -1,0 +1,214 @@
+:root {
+  --groen: #1E3A2F;
+  --groen-2: #29493B;
+  --munt: #BFD6C1;
+  --munt-licht: #E6EFE4;
+  --steen: #9E3B26;
+  --steen-d: #82301F;
+  --oker: #E0A040;
+  --papier: #F5F3EC;
+  --inkt: #1A221D;
+  --grijs: #56615A;
+  --display: "Young Serif", Georgia, serif;
+  --body: "Schibsted Grotesk", system-ui, sans-serif;
+  --gut: clamp(16px, 4vw, 48px);
+  --cube: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='46' viewBox='0 0 120 46'%3E%3Cg%3E%3Cpath d='M20 0 40 11.5 20 23 0 11.5z' fill='%23BFD6C1'/%3E%3Cpath d='M0 11.5 20 23v23L0 34.5z' fill='%239E3B26'/%3E%3Cpath d='M20 23 40 11.5v23L20 46z' fill='%23E0A040'/%3E%3C/g%3E%3Cg transform='translate(40 0)'%3E%3Cpath d='M20 0 40 11.5 20 23 0 11.5z' fill='%23E6EFE4'/%3E%3Cpath d='M0 11.5 20 23v23L0 34.5z' fill='%2329493B'/%3E%3Cpath d='M20 23 40 11.5v23L20 46z' fill='%239E3B26'/%3E%3C/g%3E%3Cg transform='translate(80 0)'%3E%3Cpath d='M20 0 40 11.5 20 23 0 11.5z' fill='%23E0A040'/%3E%3Cpath d='M0 11.5 20 23v23L0 34.5z' fill='%23BFD6C1'/%3E%3Cpath d='M20 23 40 11.5v23L20 46z' fill='%231E3A2F'/%3E%3C/g%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--papier); color: var(--inkt); font: 400 17px/1.6 var(--body); padding-bottom: 38px; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0 0 .5em; }
+h2 { font-size: clamp(30px, 4.4vw, 48px); color: var(--groen); }
+h3 { font-size: 22px; }
+p { margin: 0 0 1em; }
+.lead { font-size: 19px; }
+.klein { font-size: 14px; color: var(--grijs); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--gut); }
+:focus-visible { outline: 3px solid var(--oker); outline-offset: 3px; }
+
+/* buttons */
+.btn { display: inline-block; font: 700 16px/1 var(--body); text-decoration: none; padding: 15px 24px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; transition: background .2s, color .2s; }
+.btn-steen { background: var(--steen); color: #fff; }
+.btn-steen:hover { background: var(--steen-d); }
+.btn-licht { border-color: rgba(255,255,255,.85); color: #fff; }
+.btn-licht:hover { background: #fff; color: var(--groen); }
+.btn-groen { background: var(--groen); color: #fff; }
+.btn-groen:hover { background: var(--groen-2); }
+
+/* header */
+.top { position: fixed; inset: 0 0 auto; z-index: 50; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gut); background: var(--groen); color: #fff; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-cube { width: 30px; height: 34px; background: var(--cube) 0 0 / auto 34px no-repeat; background-size: 89px 34px; }
+.logo-txt { font: 26px/1 var(--display); }
+.logo-txt small { display: block; font: 500 11px/1 var(--body); letter-spacing: .08em; color: var(--munt); margin-bottom: 2px; }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a { text-decoration: none; font-weight: 500; font-size: 15px; }
+.nav a:hover { color: var(--oker); }
+.nav .nav-cta { background: var(--steen); padding: 10px 18px; border-radius: 999px; }
+.nav .nav-cta:hover { color: #fff; background: var(--steen-d); }
+.burger { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
+.burger span { display: block; height: 2px; background: #fff; margin: 5px 0; transition: transform .2s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* hero */
+.hero { position: relative; min-height: min(92vh, 820px); display: flex; align-items: flex-end; color: #fff; margin-top: 68px; overflow: hidden; background: var(--groen); }
+.hero-slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
+.hero-slides img.on { opacity: 1; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,38,30,.25) 0%, rgba(20,38,30,.45) 38%, rgba(20,38,30,.92) 100%); }
+.hero-in { text-shadow: 0 1px 12px rgba(10,25,18,.45); position: relative; z-index: 2; padding: 0 var(--gut) clamp(40px, 7vh, 80px); max-width: 1180px; width: 100%; margin: 0 auto; }
+.hero-kicker { font: 400 clamp(19px, 2.2vw, 24px)/1.2 var(--display); color: var(--munt); margin-bottom: 8px; }
+.hero h1 { font-size: clamp(64px, 12vw, 148px); line-height: .9; margin-bottom: 20px; letter-spacing: -.01em; }
+.hero-sub { max-width: 34em; font-size: clamp(17px, 1.6vw, 19px); }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 22px; }
+.nu-open { font-size: 15px; display: flex; align-items: center; gap: 8px; margin: 0; }
+.nu-open::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--munt); }
+.nu-open.dicht::before { background: var(--oker); }
+.hero-in > * { animation: in .6s ease both; }
+.hero-in > :nth-child(2) { animation-delay: .08s; }
+@keyframes in { from { opacity: .001; transform: translateY(10px); } }
+
+.kubus-band { height: 23px; background: var(--cube) 0 0 / 60px 23px repeat-x; }
+
+/* welkom */
+.welkom { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 6vw, 90px); padding-top: clamp(60px, 9vw, 110px); padding-bottom: clamp(50px, 7vw, 90px); align-items: start; }
+.welkom-tekst { max-width: 36em; }
+.tijden { background: var(--groen); color: #fff; padding: 30px 30px 22px; border-radius: 4px; position: relative; }
+.tijden h3 { color: var(--munt); font-size: 26px; }
+.tijden dl { margin: 0 0 14px; }
+.tijden dl div { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(191,214,193,.22); }
+.tijden dt { font-weight: 500; }
+.tijden dd { margin: 0; font-variant-numeric: tabular-nums; }
+.tijden div.vandaag { color: var(--oker); }
+.tijden div.vandaag dt::after { content: " (vandaag)"; font-weight: 400; font-size: 14px; }
+.tijden .klein { color: var(--munt); margin: 0; }
+
+/* fotorij */
+.fotorij { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 6px; height: clamp(220px, 30vw, 400px); }
+.fotorij img { width: 100%; height: 100%; object-fit: cover; }
+
+/* menu */
+.menu { background: var(--munt-licht); padding: clamp(60px, 9vw, 110px) 0; }
+.menu-kop { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 26px; }
+.menu-kop h2 { margin: 0; }
+.menu-kop p { margin: 0; color: var(--grijs); max-width: 22em; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 2px solid var(--groen); padding-bottom: 0; margin-bottom: 30px; }
+.tabs button { font: 500 16px/1 var(--body); background: transparent; color: var(--groen); border: 0; padding: 14px 18px 13px; cursor: pointer; border-radius: 6px 6px 0 0; }
+.tabs button:hover { background: rgba(30,58,47,.08); }
+.tabs button[aria-selected="true"] { background: var(--groen); color: #fff; }
+.paneel-noot { font-family: var(--display); color: var(--steen); font-size: 19px; }
+.kolommen { display: grid; grid-template-columns: 1fr 1fr; gap: 20px clamp(30px, 5vw, 70px); }
+.kolommen.drie { grid-template-columns: repeat(3, 1fr); }
+.groep h3 { color: var(--groen); margin-top: 18px; border-bottom: 1px solid rgba(30,58,47,.25); padding-bottom: 8px; }
+.groep h3:first-child { margin-top: 0; }
+.groep h3 small { font: 400 15px var(--body); color: var(--grijs); margin-left: 6px; }
+.groep-noot { font-size: 15px; color: var(--grijs); }
+.sub { font-weight: 700; color: var(--steen); font-size: 14px; margin: 12px 0 2px; }
+.kaart { list-style: none; margin: 0 0 10px; padding: 0; }
+.kaart li { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; padding: 10px 0; border-bottom: 1px dotted rgba(30,58,47,.25); }
+.kaart.kort li { padding: 6px 0; }
+.kaart li:last-child { border-bottom: 0; }
+.kaart b { font-weight: 700; }
+.kaart b small { font-weight: 400; color: var(--grijs); font-size: 14px; }
+.kaart i { font-style: normal; font-variant-numeric: tabular-nums; font-weight: 500; color: var(--steen); }
+.kaart span { grid-column: 1 / -1; color: var(--grijs); font-size: 15px; line-height: 1.45; margin-top: 2px; }
+.plank { background: var(--groen); color: #fff; padding: 28px; border-radius: 4px; align-self: start; }
+.plank h3 { color: var(--munt); border-color: rgba(191,214,193,.3); }
+.plank-prijs { font: 44px/1 var(--display); color: var(--oker); margin-bottom: 12px; }
+.plank img { margin-top: 16px; border-radius: 3px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.bier-foto { margin-top: 18px; border-radius: 3px; aspect-ratio: 1; object-fit: cover; width: 100%; }
+.pdf { display: inline-block; margin-top: 22px; font-size: 15px; color: var(--groen); font-weight: 500; }
+
+/* feestje */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; padding-top: clamp(60px, 9vw, 110px); padding-bottom: clamp(60px, 9vw, 110px); }
+.duo-foto { margin: 0; position: relative; }
+.duo-foto img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; border-radius: 4px; }
+.duo-foto::after { content: ""; position: absolute; left: -12px; bottom: -12px; width: 120px; height: 46px; background: var(--cube) 0 0 / 120px 46px no-repeat; }
+
+/* groepen */
+.groepen { background: var(--groen); color: #fff; padding: clamp(60px, 9vw, 110px) 0; }
+.groepen h2 { color: var(--munt); }
+.groepen-in { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); }
+.groep-opties { list-style: none; margin: 0; padding: 0; }
+.groep-opties li { padding: 18px 0; border-top: 1px solid rgba(191,214,193,.25); }
+.groep-opties strong { display: block; font: 400 22px/1.2 var(--display); color: var(--oker); margin-bottom: 4px; }
+.groep-contact { display: flex; flex-wrap: wrap; gap: 8px 24px; font-weight: 700; }
+.groep-contact a { color: var(--munt); }
+
+/* tour */
+.tour { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 80px); padding-top: clamp(60px, 9vw, 110px); padding-bottom: clamp(60px, 9vw, 110px); }
+.tour-stappen { margin: 20px 0 0; padding: 0; list-style: none; counter-reset: s; }
+.tour-stappen li { counter-increment: s; position: relative; padding: 0 0 18px 54px; }
+.tour-stappen li::before { content: counter(s); position: absolute; left: 0; top: -4px; width: 38px; height: 38px; border-radius: 50%; background: var(--steen); color: #fff; font: 20px/38px var(--display); text-align: center; }
+
+/* forms */
+.form { background: #fff; padding: clamp(22px, 3vw, 34px); border-radius: 4px; border-top: 6px solid var(--steen); display: grid; gap: 14px; align-self: start; }
+.form h3 { color: var(--groen); margin: 0; }
+.form label { display: grid; gap: 5px; font-size: 14px; font-weight: 500; color: var(--groen); }
+.form input, .form select, .form textarea { font: 400 16px var(--body); padding: 11px 12px; border: 1.5px solid #c9d3cb; border-radius: 4px; background: var(--papier); color: var(--inkt); width: 100%; min-width: 0; }
+.form-rij { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-rij.drie { grid-template-columns: 1.2fr 1fr .8fr; }
+.form .btn { justify-self: start; }
+.form-msg { background: var(--munt-licht); color: var(--groen); padding: 12px 14px; border-radius: 4px; margin: 0; font-weight: 500; }
+
+/* team */
+.team { background: var(--munt); }
+.team-in { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; padding-top: clamp(50px, 7vw, 90px); padding-bottom: clamp(50px, 7vw, 90px); }
+.team img { border-radius: 4px; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* vacatures */
+.vacature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); padding-top: clamp(60px, 9vw, 110px); padding-bottom: clamp(60px, 9vw, 110px); align-items: start; }
+.vac-kaart { border: 2px solid var(--groen); padding: 28px; border-radius: 4px; }
+.vac-kaart h3 { color: var(--steen); }
+.vac-kaart ul { padding-left: 20px; margin: 0 0 22px; }
+
+/* reserveren */
+.reserveren { background: var(--steen); color: #fff; padding: clamp(60px, 9vw, 110px) 0; }
+.reserveren h2 { color: #fff; }
+.res-in { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 6vw, 80px); }
+.res-contact { display: flex; flex-direction: column; gap: 6px; font: 24px/1.3 var(--display); }
+.res-contact a { text-decoration: none; }
+.res-contact a:hover { text-decoration: underline; }
+.reserveren .form { border-top-color: var(--groen); color: var(--inkt); }
+.reserveren .btn-steen { background: var(--groen); }
+
+/* contact */
+.contact { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(30px, 5vw, 70px); padding-top: clamp(60px, 9vw, 110px); padding-bottom: clamp(60px, 9vw, 110px); }
+.contact address { font-style: normal; font-size: 19px; margin-bottom: 1em; }
+.social { display: flex; gap: 20px; font-weight: 500; }
+.kaartje iframe { width: 100%; height: 100%; min-height: 360px; border: 0; border-radius: 4px; filter: saturate(.75); }
+
+/* footer */
+.voet { background: var(--groen); color: var(--munt-licht); padding: 36px 0 30px; font-size: 15px; }
+.voet-naam { font: 28px/1 var(--display); color: #fff; }
+.voet a { color: var(--munt); }
+
+.ribbon { position: fixed; inset: auto 0 0; z-index: 90; background: var(--oker); color: var(--groen); text-align: center; font: 700 13px/1 var(--body); padding: 11px 12px; }
+
+@media (max-width: 1020px) {
+  .burger { display: block; }
+  .nav { position: fixed; inset: 68px 0 auto; flex-direction: column; align-items: stretch; gap: 0; background: var(--groen); padding: 6px var(--gut) 20px; transform: translateY(-130%); visibility: hidden; transition: transform .25s, visibility .25s; box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+  .nav.open { transform: none; visibility: visible; }
+  .nav a { padding: 13px 0; font-size: 18px; border-bottom: 1px solid rgba(191,214,193,.18); }
+  .nav .nav-cta { margin-top: 14px; text-align: center; border-bottom: 0; }
+  .kolommen.drie { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .welkom, .duo, .groepen-in, .tour, .team-in, .vacature, .res-in, .contact, .kolommen, .kolommen.drie { grid-template-columns: 1fr; }
+  .hero { min-height: calc(100svh - 68px - 38px); }
+  .fotorij { grid-template-columns: 1fr 1fr; height: auto; }
+  .fotorij img { aspect-ratio: 1; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-left: calc(var(--gut) * -1); margin-right: calc(var(--gut) * -1); padding: 0 var(--gut); }
+  .tabs button { flex: none; padding: 12px 14px; }
+  .form-rij, .form-rij.drie { grid-template-columns: 1fr; }
+  .kaartje iframe { min-height: 300px; }
+  .duo-foto::after { left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
