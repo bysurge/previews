@@ -29,7 +29,7 @@
   const nav = [V && ['#voor-na', 'Voor en na'], ['#diensten', 'Diensten'], GA && ['#werk', GA.navNaam || 'Projecten'], GU && ['#garantie', GU.navNaam || 'Garantie'], O && ['#over', O.navNaam || 'Over ons'], ['#contact', 'Contact']].filter(Boolean);
   const ctaKnoppen = (light) => `<a class="btn ${light ? 'btn-light' : 'btn-ink'}" href="#contact">${e(S.ctaTekst || 'Vraag een offerte aan')}</a>${wa ? `<a class="btn ${light ? 'btn-ghost' : 'btn-line'}" href="${wa}" target="_blank" rel="noopener">${I.wa} ${e(S.waTekst || 'WhatsApp')}</a>` : `<a class="btn ${light ? 'btn-ghost' : 'btn-line'}" href="${tel}">${I.tel} ${e(S.telefoon)}</a>`}`;
   const words = t => t.split(/\s+/).map(w => `<span class="w">${e(w)} </span>`).join('');
-  const rating = S.google ? `<div class="rating"><span class="g">${I.g}</span>${stars}<span><b>${e(S.google.score)}</b> uit ${e(S.google.aantal)} Google-reviews</span></div>` : (H.badge ? `<div class="rating"><span class="g" style="color:var(--brand)">${I.vink}</span><span>${e(H.badge)}</span></div>` : '');
+  const rating = S.google ? `<div class="rating"><span class="g">${I.g}</span>${stars}<span><b>${e(S.google.score)}</b> uit ${e(S.google.aantal)} Google-${S.google.aantal == 1 ? "review" : "reviews"}</span></div>` : (H.badge ? `<div class="rating"><span class="g" style="color:var(--brand)">${I.vink}</span><span>${e(H.badge)}</span></div>` : '');
 
   if (S.logoHoogte) document.documentElement.style.setProperty('--logo-h', S.logoHoogte + 'px');
   document.getElementById('app').innerHTML = `
