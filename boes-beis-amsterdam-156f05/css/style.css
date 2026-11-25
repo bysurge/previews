@@ -1,0 +1,183 @@
+/* Boes & Beis: sage mural wall, ink line drawing, coffee-cherry red, warm wood */
+:root {
+  --wall: #d5ded3;
+  --wall-2: #e6ece3;
+  --paper: #f5f7f2;
+  --ink: #22281f;
+  --ink-2: #4a5444;
+  --cherry: #b4432f;
+  --cherry-d: #93321f;
+  --leaf: #66733a;
+  --wood: #a86f3e;
+  --serif: "Young Serif", Georgia, serif;
+  --sans: "Figtree", system-ui, sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; margin: 0; }
+h2 { font-size: clamp(34px, 5vw, 56px); margin-bottom: .45em; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+:focus-visible { outline: 3px solid var(--cherry); outline-offset: 3px; }
+
+.btn { display: inline-block; background: var(--cherry); color: #fff; text-decoration: none; font-weight: 600; padding: 14px 24px; border-radius: 999px; border: 2px solid var(--cherry); transition: background .2s; }
+.btn:hover { background: var(--cherry-d); border-color: var(--cherry-d); }
+.btn-line { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn-small { padding: 9px 18px; font-size: 15px; }
+
+/* header */
+.top { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; gap: 24px; padding: 12px 24px; background: var(--paper); border-bottom: 1px solid rgba(34,40,31,.12); }
+.mark { font-family: var(--serif); font-size: 26px; text-decoration: none; white-space: nowrap; }
+.mark span { color: var(--cherry); }
+.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav a { text-decoration: none; font-weight: 500; font-size: 15px; }
+.nav a:hover { color: var(--cherry); }
+.menu-btn { display: none; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1fr 1.05fr; min-height: 100vh; padding-top: 64px; background: var(--wall); }
+.hero-photo { margin: 0; position: relative; overflow: hidden; order: 2; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; position: absolute; inset: 0; }
+.hero-text { padding: clamp(32px, 6vw, 80px); display: flex; flex-direction: column; justify-content: center; animation: rise .55s ease-out both; }
+.where { margin: 0 0 10px; font-weight: 600; color: var(--leaf); }
+.hero h1 { font-size: clamp(56px, 6.6vw, 96px); letter-spacing: -.02em; }
+.lede { font-size: 20px; max-width: 34ch; margin: 14px 0 22px; color: var(--ink-2); }
+.entry { border-left: 3px solid var(--cherry); padding: 4px 0 4px 18px; max-width: 34ch; margin-bottom: 26px; font-family: var(--serif); font-size: 18px; line-height: 1.45; }
+.entry p { margin: 0; }
+.entry-head b { font-size: 24px; font-weight: 400; }
+.pron { color: var(--ink-2); font-family: var(--sans); font-size: 15px; }
+.entry i { font-family: var(--sans); color: var(--cherry); }
+.today { margin: 0 0 20px; font-weight: 600; }
+.today::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--leaf); margin-right: 9px; vertical-align: 1px; }
+.today.closed::before { background: var(--cherry); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* hours strip */
+.hours-strip { background: var(--ink); color: var(--paper); padding: 22px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 40px; }
+.hours { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.hours li span { opacity: .7; margin-right: 8px; }
+.hours li.is-today b { color: #f2b9a8; }
+.hours-note { margin: 0; font-size: 15px; opacity: .8; }
+
+/* menu */
+.kaart { padding: 96px 0 80px; }
+.sec-head { max-width: 640px; margin-bottom: 28px; }
+.sec-head p { margin: 0; color: var(--ink-2); font-size: 18px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.tabs button { font: 600 15px var(--sans); color: var(--ink); background: var(--wall-2); border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+.tabs button:hover { background: var(--wall); }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.panel-time { font-family: var(--hand); font-size: 26px; color: var(--cherry); margin: 0 0 8px; }
+.groups { columns: 2 420px; column-gap: 56px; }
+.grp { break-inside: avoid; margin-bottom: 34px; }
+.grp h3 { font-size: 24px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); margin-bottom: 6px; }
+.grp-note { margin: 8px 0 4px; font-size: 15px; color: var(--leaf); font-weight: 500; }
+.grp ul { list-style: none; margin: 0; padding: 0; }
+.grp li { padding: 11px 0; border-bottom: 1px dashed rgba(34,40,31,.2); }
+.d { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.n { font-weight: 600; }
+.p { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; color: var(--cherry-d); }
+.nl, .en { margin: 2px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink-2); max-width: 52ch; }
+.en { font-style: italic; color: #6b7466; }
+.chalk { background: #2c332b; color: #eef0ea; border-radius: 6px; padding: 26px 30px; margin: 10px 0 22px; max-width: 640px; box-shadow: inset 0 0 0 8px #6b4a2f; }
+.chalk h3 { font-family: var(--hand); font-size: 34px; font-weight: 700; }
+.chalk p { margin: 4px 0 10px; opacity: .85; }
+.chalk ul { margin: 0; padding: 0; list-style: none; font-family: var(--hand); font-size: 25px; display: flex; flex-wrap: wrap; gap: 2px 24px; }
+.pdfs { font-size: 15px; color: var(--ink-2); }
+
+/* about */
+.buurt { background: var(--wall); padding: 96px 0; }
+.buurt-grid { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto auto; gap: 28px 64px; align-items: center; }
+.buurt-photo { margin: 0; grid-row: span 2; }
+.buurt-photo img { border-radius: 4px; aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+.buurt-text p { max-width: 52ch; }
+.buurt-thee { margin: 0; max-width: 300px; }
+.buurt-thee img { border-radius: 4px; aspect-ratio: 1; object-fit: cover; }
+.ijs { font-weight: 500; }
+.wifi { font-family: var(--hand); font-size: 25px; line-height: 1.25; color: var(--leaf); }
+
+/* water */
+.water { padding: 96px 0; }
+.water-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
+.water-big { font-family: var(--serif); font-size: clamp(90px, 15vw, 200px); line-height: 1; color: #4f7f8c; }
+.water-text p { max-width: 58ch; }
+.en-block { font-style: italic; color: var(--ink-2); font-size: 15px; }
+
+/* groups */
+.vieren { background: var(--ink); color: var(--paper); padding: 0; }
+.vieren-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; max-width: none; padding: 0; }
+.vieren-grid > div { padding: 80px 0 80px max(24px, calc((100vw - 1180px) / 2 + 24px)); }
+.vieren p { max-width: 52ch; opacity: .9; margin-bottom: 26px; }
+.vieren-photo { margin: 0; height: 100%; min-height: 380px; }
+.vieren-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* work */
+.werken { padding: 96px 0; }
+.werken-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.form { display: grid; gap: 14px; }
+.form label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.form input, .form textarea { font: 16px var(--sans); padding: 12px 14px; border: 1.5px solid rgba(34,40,31,.35); border-radius: 6px; background: #fff; }
+.form .btn { justify-self: start; cursor: pointer; font: 600 16px var(--sans); }
+.form-msg { margin: 0; font-weight: 600; color: var(--leaf); }
+
+/* contact */
+.contact { background: var(--wall-2); padding: 96px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: start; }
+address { font-style: normal; font-size: 19px; margin-bottom: 14px; }
+.hours-list { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; margin: 18px 0; }
+.hours-list dt { color: var(--ink-2); }
+.hours-list dd { margin: 0; font-weight: 600; }
+.social { display: flex; gap: 18px; font-weight: 600; }
+.map iframe { width: 100%; height: 420px; border: 0; border-radius: 4px; filter: saturate(.75); }
+
+.foot { background: var(--ink); color: var(--paper); text-align: center; padding: 36px 24px 70px; }
+.foot .mark { font-size: 30px; margin: 0 0 6px; }
+.foot p { margin: 0; opacity: .85; }
+
+.ribbon { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--cherry); color: #fff; text-align: center; font-size: 13px; padding: 6px 10px; }
+
+@media (max-width: 960px) {
+  .nav { position: fixed; inset: 61px 0 auto 0; flex-direction: column; gap: 0; background: var(--paper); padding: 8px 24px 20px; border-bottom: 1px solid rgba(34,40,31,.15); display: none; }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 0; font-size: 18px; border-bottom: 1px solid rgba(34,40,31,.08); }
+  .top-cta { margin-left: auto; }
+  .menu-btn { display: grid; place-content: center; gap: 6px; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; padding: 0; }
+  .menu-btn span { display: block; width: 24px; height: 2px; background: var(--ink); transition: transform .2s; }
+  .menu-btn[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-photo { order: 0; height: 38vh; min-height: 250px; }
+  .hero-text { padding: 28px 20px 40px; }
+  .buurt-grid, .water-grid, .vieren-grid, .werken-grid, .contact-grid { grid-template-columns: 1fr; }
+  .buurt-photo { grid-row: auto; }
+  .buurt-photo img { aspect-ratio: 1; }
+  .buurt-thee { display: none; }
+  .water-grid { gap: 8px; }
+  .vieren-grid > div { padding: 64px 20px 32px; }
+  .vieren-photo { min-height: 280px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 20px; }
+  .top { padding: 10px 16px; gap: 12px; }
+  .mark { font-size: 22px; }
+  .hero h1 { font-size: 56px; }
+  .lede { font-size: 18px; }
+  .kaart, .buurt, .water, .werken, .contact { padding: 64px 0; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; margin: 0 -20px 22px; padding: 0 20px 6px; scrollbar-width: none; }
+  .tabs button { flex: none; }
+  .groups { columns: 1; }
+  .chalk { padding: 22px; }
+  .map iframe { height: 300px; }
+  .hours-strip { justify-content: flex-start; }
+  .hours { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
