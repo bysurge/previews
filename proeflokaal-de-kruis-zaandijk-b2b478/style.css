@@ -1,0 +1,210 @@
+:root {
+  --gevel: #1d3b2f;      /* groen van de houten gevel */
+  --gevel-2: #24493a;
+  --gevel-3: #2f5a48;
+  --tap: #5aa64a;        /* helder tapgroen, alleen voor details */
+  --schuim: #f5f0e3;     /* schuimkraag / papier van de kaart */
+  --papier-2: #ebe3d0;
+  --hout: #5a3c26;
+  --amber: #d39a3a;      /* bierkleur, prijzen */
+  --inkt: #1f2621;
+  --grijs: #5b625c;
+  --display: "Zilla Slab", Georgia, serif;
+  --tekst: "Libre Franklin", system-ui, sans-serif;
+  --max: 1180px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; font-family: var(--tekst); font-size: 17px; line-height: 1.6; color: var(--inkt); background: var(--schuim); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.08; margin: 0 0 .5em; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
+h3 { font-size: 1.35rem; }
+p { margin: 0 0 1em; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--schuim); padding: 8px 12px; z-index: 200; }
+.skip:focus { left: 8px; }
+
+/* ---------- header ---------- */
+.top { position: fixed; inset: 0 0 auto 0; z-index: 100; height: 68px; display: flex; align-items: center; gap: 16px; padding: 0 clamp(16px, 4vw, 40px); background: var(--gevel); color: var(--schuim); border-bottom: 3px double rgba(245,240,227,.35); }
+.merk { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+.badge { width: 46px; height: 46px; border-radius: 50%; background: var(--schuim); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--tap) inset, 0 0 0 5px var(--schuim) inset; flex: none; }
+.badge span { font-family: var(--display); font-weight: 700; font-size: 11px; line-height: 1; color: var(--gevel); text-align: center; width: 30px; }
+.merk-txt { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1; }
+.merk-txt small { display: block; font-size: .72rem; font-weight: 500; font-style: italic; opacity: .8; margin-bottom: 2px; }
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a { text-decoration: none; font-weight: 500; font-size: .97rem; }
+.nav a:hover { color: var(--amber); }
+.nav .nav-bel { background: var(--schuim); color: var(--gevel); padding: 9px 16px; border-radius: 4px; font-weight: 600; }
+.nav .nav-bel:hover { background: var(--amber); color: var(--inkt); }
+.bel-kort, .menu-toggle { display: none; }
+
+/* ---------- knoppen ---------- */
+.knop { display: inline-block; text-decoration: none; font-weight: 600; padding: 13px 22px; border-radius: 4px; border: 2px solid transparent; transition: background .2s, color .2s; }
+.knop-licht { background: var(--schuim); color: var(--gevel); }
+.knop-licht:hover { background: var(--amber); color: var(--inkt); }
+.knop-rand { border-color: rgba(245,240,227,.7); color: var(--schuim); }
+.knop-rand:hover { background: rgba(245,240,227,.12); }
+.knop-groen { background: var(--gevel); color: var(--schuim); }
+.knop-groen:hover { background: var(--gevel-3); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; padding-top: 68px; background: var(--gevel); color: var(--schuim); }
+.hero-foto { height: min(76vh, 720px); min-height: 460px; overflow: hidden; }
+.hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 56% 55%; animation: rustig 1.6s ease-out both; }
+@keyframes rustig { from { transform: scale(1.04); } to { transform: scale(1); } }
+.hero-bord { position: absolute; left: clamp(16px, 5vw, 64px); bottom: clamp(28px, 6vh, 64px); max-width: 590px; background: var(--gevel); padding: 30px 34px 26px; border-radius: 6px; box-shadow: 0 0 0 1px rgba(245,240,227,.5) inset, 0 0 0 7px var(--gevel) inset, 0 0 0 8px rgba(245,240,227,.28) inset, 0 24px 60px rgba(0,0,0,.35); }
+.hero-plaats { font-size: .95rem; color: var(--amber); font-weight: 600; margin-bottom: .6em; }
+.hero h1 { font-size: clamp(2.9rem, 6.4vw, 4.9rem); margin-bottom: .25em; letter-spacing: -.01em; }
+.h1-klein { display: block; font-size: .42em; font-weight: 500; font-style: italic; letter-spacing: 0; margin-bottom: .1em; }
+.hero-sub { font-size: 1.12rem; max-width: 30em; opacity: .93; }
+.hero-knoppen { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 6px; }
+.vandaag { margin: 14px 0 0; font-size: .95rem; min-height: 1.5em; }
+.vandaag::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--tap); margin-right: 8px; vertical-align: 1px; }
+.vandaag.dicht::before { background: #b9735a; }
+.vandaag:empty::before { display: none; }
+
+/* ---------- welkom ---------- */
+.welkom { max-width: var(--max); margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 40px) 48px; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.welkom-tekst { max-width: 33em; }
+.welkom-tekst h2 { color: var(--gevel); }
+.welkom-tekst a { color: var(--gevel); font-weight: 600; text-decoration-color: var(--tap); text-underline-offset: 3px; }
+.welkom-foto { margin: 0; }
+.welkom-foto img { border-radius: 6px; aspect-ratio: 4 / 3.2; object-fit: cover; width: 100%; box-shadow: 14px 14px 0 var(--papier-2); }
+
+.drie { max-width: var(--max); margin: 0 auto; padding: 24px clamp(16px, 4vw, 40px) clamp(64px, 9vw, 110px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.tegel { position: relative; display: block; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 5; text-decoration: none; color: var(--schuim); background: var(--gevel); }
+.tegel img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.tegel:hover img { transform: scale(1.03); }
+.tegel-txt { position: absolute; inset: auto 0 0 0; padding: 60px 20px 18px; background: linear-gradient(transparent, rgba(16,30,23,.88)); }
+.tegel-txt strong { display: block; font-family: var(--display); font-size: 1.6rem; line-height: 1.1; }
+.tegel-txt span { font-size: .95rem; opacity: .9; }
+
+/* ---------- bierkaart ---------- */
+.bier { background: var(--gevel); color: var(--schuim); padding: clamp(64px, 9vw, 110px) clamp(16px, 4vw, 40px); }
+.bier > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.bier-kop { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: end; margin-bottom: 40px; }
+.bier-kop h2 { font-size: clamp(2.6rem, 7vw, 5rem); margin: 0; }
+.bier-kop p { margin: 0; max-width: 34em; opacity: .9; }
+.tap { background: var(--gevel-2); border-radius: 6px; padding: 22px 26px; margin-bottom: 34px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.tap h3 { margin: 0; color: var(--amber); }
+.tap-maten { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tap-maten li { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 12px; align-items: end; }
+.tap-glas { grid-row: 1 / 4; width: 20px; height: calc(18px + 30px * var(--h)); background: linear-gradient(var(--schuim) 0 5px, var(--amber) 5px); border-radius: 2px 2px 4px 4px; opacity: .95; }
+.tap-maten strong { font-family: var(--display); font-size: 1.15rem; line-height: 1.1; }
+.tap-maten span { font-size: .9rem; opacity: .8; line-height: 1.3; }
+.tap-maten .b-prijs { opacity: 1; text-align: left; font-size: 1rem; }
+.bier-tabs, .kaart-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.bier-tabs button, .kaart-tabs button { font: 500 .95rem var(--tekst); padding: 9px 15px; border-radius: 999px; cursor: pointer; border: 1px solid rgba(245,240,227,.35); background: transparent; color: var(--schuim); }
+.bier-tabs button:hover { border-color: var(--schuim); }
+.bier-tabs button[aria-selected="true"] { background: var(--schuim); color: var(--gevel); border-color: var(--schuim); font-weight: 600; }
+.bier-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 56px; }
+.bier-list li { break-inside: avoid; display: grid; grid-template-columns: 1fr 110px 56px; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(245,240,227,.16); }
+.b-name { font-family: var(--display); font-weight: 600; font-size: 1.22rem; line-height: 1.2; }
+.b-abv { display: flex; align-items: center; gap: 8px; font-size: .88rem; opacity: .85; font-variant-numeric: tabular-nums; }
+.b-abv i { display: block; height: 5px; width: calc(52px * var(--s)); min-width: 2px; background: var(--amber); border-radius: 3px; flex: none; }
+.b-prijs { font-family: var(--display); font-weight: 600; color: var(--amber); text-align: right; font-variant-numeric: tabular-nums; }
+.bier-voet { font-size: .9rem; opacity: .7; margin-top: 26px; }
+
+/* ---------- menukaart ---------- */
+.kaart { max-width: 980px; margin: 0 auto; padding: clamp(64px, 9vw, 110px) clamp(16px, 4vw, 40px); }
+.kaart-kop { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; }
+.kaart-kop h2 { color: var(--gevel); margin: 0; }
+.taal { display: inline-flex; border: 1px solid var(--gevel); border-radius: 4px; overflow: hidden; }
+.taal-knop { font: 500 .9rem var(--tekst); padding: 8px 14px; border: 0; background: transparent; color: var(--gevel); cursor: pointer; }
+.taal-knop[aria-pressed="true"] { background: var(--gevel); color: var(--schuim); }
+.kaart-tabs button { border-color: rgba(29,59,47,.3); color: var(--gevel); }
+.kaart-tabs button:hover { border-color: var(--gevel); }
+.kaart-tabs button[aria-selected="true"] { background: var(--gevel); color: var(--schuim); border-color: var(--gevel); font-weight: 600; }
+.kaart-panels { background: #fbf8f0; border: 1px solid var(--papier-2); border-radius: 6px; padding: clamp(20px, 4vw, 44px); }
+.gerechten { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 52px; }
+.gerechten li { break-inside: avoid; display: grid; grid-template-columns: 1fr auto; column-gap: 14px; padding: 11px 0; border-bottom: 1px dotted rgba(31,38,33,.25); }
+.g-naam { font-weight: 600; }
+.g-prijs { font-family: var(--display); font-weight: 600; color: var(--hout); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.g-desc { grid-column: 1 / -1; font-size: .92rem; color: var(--grijs); line-height: 1.45; }
+.gerechten .k-head { display: block; border: 0; padding: 22px 0 4px; font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: var(--gevel); break-after: avoid; }
+.gerechten .k-head:first-child { padding-top: 0; }
+.gerechten .k-note { display: block; border: 0; font-size: .93rem; font-style: italic; color: var(--grijs); padding: 0 0 8px; }
+.kaart-voet { margin-top: 18px; font-size: .9rem; color: var(--grijs); }
+.kaart-voet p { margin: 0 0 4px; }
+body:not(.en) [lang="en"], body.en .kaart [lang="nl"] { display: none; }
+
+/* ---------- terras ---------- */
+.terras { background: var(--papier-2); display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.terras-foto { margin: 0; min-height: 420px; }
+.terras-foto img { width: 100%; height: 100%; object-fit: cover; }
+.terras-tekst { padding: clamp(48px, 7vw, 96px) clamp(16px, 5vw, 72px); max-width: 640px; }
+.terras-tekst h2 { color: var(--gevel); }
+.terras-tekst h3 { color: var(--gevel); margin-top: 1.6em; }
+.terras-tekst a:not(.knop) { color: var(--gevel); font-weight: 600; }
+.social { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- bezoek ---------- */
+.bezoek { max-width: var(--max); margin: 0 auto; padding: clamp(64px, 9vw, 110px) clamp(16px, 4vw, 40px); display: grid; grid-template-columns: 1fr 1fr; gap: 48px clamp(32px, 6vw, 80px); }
+.bezoek h2 { color: var(--gevel); font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
+.tijden { border-collapse: collapse; width: 100%; max-width: 420px; font-variant-numeric: tabular-nums; }
+.tijden th, .tijden td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--papier-2); font-weight: 400; }
+.tijden td { text-align: right; }
+.tijden tr.nu { background: var(--gevel); color: var(--schuim); }
+.tijden tr.nu th { font-weight: 600; }
+.keuken { margin-top: 14px; font-weight: 600; color: var(--gevel); }
+address { font-style: normal; font-size: 1.08rem; line-height: 1.7; margin-bottom: 1em; }
+address a { color: var(--gevel); font-weight: 600; }
+.betalen { color: var(--grijs); font-size: .95rem; }
+.kaartje { grid-column: 1 / -1; border-radius: 6px; overflow: hidden; border: 1px solid var(--papier-2); }
+.kaartje iframe { display: block; width: 100%; height: 380px; border: 0; }
+
+/* ---------- footer ---------- */
+.voet { background: var(--gevel); color: var(--schuim); padding: 40px clamp(16px, 4vw, 40px) 70px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.voet-merk { display: flex; align-items: center; gap: 14px; }
+.voet-merk p { margin: 0; line-height: 1.4; }
+.voet-links { margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.voet-links a { text-decoration: none; opacity: .9; }
+.voet-links a:hover { color: var(--amber); }
+.ribbon { position: fixed; left: 0; right: 0; bottom: 0; z-index: 150; background: var(--amber); color: var(--inkt); text-align: center; font-size: .8rem; font-weight: 600; padding: 5px 10px; }
+
+/* ---------- tablet / telefoon ---------- */
+@media (max-width: 960px) {
+  .nav { position: fixed; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--gevel); padding: 8px 16px 20px; border-bottom: 3px double rgba(245,240,227,.35); display: none; }
+  .nav.open { display: flex; }
+  .nav a { padding: 14px 4px; border-bottom: 1px solid rgba(245,240,227,.14); font-size: 1.08rem; }
+  .nav .nav-bel { margin-top: 14px; text-align: center; border: 0; }
+  .bel-kort { display: inline-block; background: var(--schuim); color: var(--gevel); text-decoration: none; font-weight: 600; font-size: .92rem; padding: 8px 13px; border-radius: 4px; }
+  .menu-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: 0; padding: 10px; cursor: pointer; }
+  .menu-toggle span { display: block; height: 2px; background: var(--schuim); border-radius: 2px; transition: transform .2s, opacity .2s; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .bier-kop { grid-template-columns: 1fr; gap: 16px; }
+  .tap { grid-template-columns: 1fr; gap: 16px; }
+  .bier-list, .gerechten { columns: 1; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .hero-foto { height: 44svh; min-height: 280px; }
+  .hero-foto img { object-position: 60% 50%; }
+  .hero-bord { position: relative; left: auto; bottom: auto; max-width: none; margin: -46px 12px 0; padding: 24px 20px 22px; }
+  .hero { padding-bottom: 28px; }
+  .hero-knoppen .knop { flex: 1 1 100%; text-align: center; }
+  .welkom { grid-template-columns: 1fr; padding-top: 56px; }
+  .welkom-foto img { box-shadow: 8px 8px 0 var(--papier-2); }
+  .drie { grid-template-columns: 1fr; }
+  .tegel { aspect-ratio: 16 / 10; }
+  .tap-maten { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+  .bier-tabs, .kaart-tabs { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px 6px; scrollbar-width: none; }
+  .bier-tabs::-webkit-scrollbar, .kaart-tabs::-webkit-scrollbar { display: none; }
+  .bier-tabs button, .kaart-tabs button { flex: none; }
+  .bier-list li { grid-template-columns: 1fr 86px 48px; gap: 10px; }
+  .b-name { font-size: 1.1rem; }
+  .b-abv i { width: calc(34px * var(--s)); }
+  .terras { grid-template-columns: 1fr; }
+  .terras-foto { min-height: 0; aspect-ratio: 4 / 3; }
+  .bezoek { grid-template-columns: 1fr; }
+  .kaartje iframe { height: 300px; }
+  .voet { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
