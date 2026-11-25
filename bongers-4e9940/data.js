@@ -1,7 +1,6 @@
 // Bongers Dakwerken B.V. (Heeze). Bron: bongersdakwerken.nl + Google (4,4 / 16), 25-11-2026. Zie content.md.
 // Eigen foto's: alleen de headerfoto van hun site (hero) en Google-foto's van hun bedrijfsterrein (steigers, bussen).
-// Stock (Wikimedia Commons, CC0 / publiek domein): pannen.jpg + band.jpg ("Dekarz"), lood.jpg ("Komín chaty"),
-// dakkapel.jpg ("Roof window at Evanger"). Alleen als sfeer op dienstkaarten en band, niet als "ons werk".
+// Geen stock meer (25-11): kaarten gebruiken eigen foto (hero/bedrijf).
 // Geen 06/WhatsApp: alleen bellen en mailen.
 window.SITE = {
   naam: "Bongers Dakwerken",
@@ -47,11 +46,11 @@ window.SITE = {
     titel: "Alles voor uw pannendak",
     tekst: "Nieuwe of gebruikte pannen, beton of gebakken: we denken mee over wat bij uw woning en uw smaak past.",
     items: [
-      { naam: "Pannendaken", soort: "Pannendak", foto: "img/pannen.jpg", pos: "60% 45%", tekst: "Een compleet nieuw pannendak of een renovatie. We adviseren over de pan die bij uw woning past en leggen hem strak.",
+      { naam: "Pannendaken", soort: "Pannendak", foto: "img/hero.jpg", pos: "50% 40%", tekst: "Een compleet nieuw pannendak of een renovatie. We adviseren over de pan die bij uw woning past en leggen hem strak.",
         punten: ["Nieuwe en gebruikte dakpannen", "Betonpannen en gebakken pannen", "Nieuwbouw, renovatie en reparatie"] },
-      { naam: "Lood- en zinkwerk", soort: "Lood / zink", foto: "img/lood.jpg", pos: "50% 60%", tekst: "Lood rond de schoorsteen of dakkapel vernieuwen of repareren, en zinken goten die weer jaren meekunnen.",
+      { naam: "Lood- en zinkwerk", soort: "Lood / zink", foto: "img/bedrijf.jpg", pos: "50% 50%", tekst: "Lood rond de schoorsteen of dakkapel vernieuwen of repareren, en zinken goten die weer jaren meekunnen.",
         punten: ["Loodwerk schoorsteen en dakkapel", "Zinken dakgoten en kielgoten", "Verholen goten bij dakkapellen"] },
-      { naam: "Dakramen en dakkapellen", soort: "Dakraam / dakkapel", foto: "img/dakkapel.jpg", pos: "50% 55%", tekst: "We plaatsen nieuwe dakramen en timmeren ze netjes af. Ook een nieuwe dakkapel, of werk aan uw bestaande, regelen we.",
+      { naam: "Dakramen en dakkapellen", soort: "Dakraam / dakkapel", foto: "img/hero.jpg", pos: "30% 70%", tekst: "We plaatsen nieuwe dakramen en timmeren ze netjes af. Ook een nieuwe dakkapel, of werk aan uw bestaande, regelen we.",
         punten: ["Dakramen plaatsen en aftimmeren", "Nieuwe dakkapel", "Bestaande dakkapel aanpakken"] },
       { naam: "Steigerbouw", soort: "Steigerbouw", foto: "img/steiger.jpg", pos: "70% 60%", tekst: "Steigers bouwen we zelf, met eigen materiaal vanaf ons terrein in Heeze. Veilig werken, zonder gedoe met een derde partij.",
         punten: ["Eigen steigermateriaal", "Voor dak- en gevelwerk", "Opbouwen en afbreken"] }
@@ -104,7 +103,7 @@ window.SITE = {
   },
 
   band: {
-    foto: "img/band.jpg", fotoPos: "50% 40%",
+    foto: "img/hero.jpg", fotoPos: "50% 40%",
     titel: "Toe aan een nieuw dak?",
     tekst: "Bel 040 226 37 33 of mail ons. We maken zo snel mogelijk een afspraak en een vrijblijvende offerte."
   },
