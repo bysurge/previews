@@ -115,7 +115,7 @@ ${GU ? `<section class="guarantee" id="garantie"><div class="wrap gu-grid">
 
 ${R ? `<section class="reviews" id="reviews"><div class="wrap">
   <div class="rv-head"><div><p class="kicker">${e(R.kicker || 'Reviews')}</p><h2>${e(R.titel)}</h2></div>
-  ${S.google ? `<div class="score"><b>${e(S.google.score)}</b><div>${stars}<small>${e(S.google.aantal)} reviews op Google</small></div></div>` : ''}</div>
+  ${S.google ? `<div class="score"><b>${e(S.google.score)}</b><div>${stars}<small>${e(S.google.aantal)} ${S.google.aantal == 1 ? "review" : "reviews"} op Google</small></div></div>` : ''}</div>
   <div class="quotes${R.items.length > 3 ? ' many' : R.items.length === 1 ? ' one' : R.items.length === 2 ? ' two' : ''}">${R.items.map(r => `<blockquote class="quote rv"><p>${e(r.tekst)}</p><footer><b>${e(r.naam)}</b><span class="stars" aria-label="${r.sterren || 5} sterren">${I.ster.repeat(r.sterren || 5)}</span></footer></blockquote>`).join('')}</div>
 </div></section>` : ''}
 
