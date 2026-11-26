@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Snackstar · Cafetaria in Uithuizen</title>
+<meta name="description" content="Cafetaria Snackstar aan de Departementsstraat in Uithuizen: patat, snacks, verse burgers en de patatkraam voor uw feest.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231c1715'/%3E%3Cpath d='M50 10l11 27h29l-23 18 9 29-26-17-26 17 9-29-23-18h29z' fill='none' stroke='%23fff' stroke-width='5'/%3E%3Cpath d='M38 34h24l-12 42z' fill='%23ffd21f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bord:#1c1715;      /* warm zwart, als hun menubord */
+  --bord-2:#26201d;
+  --rood:#d7262e;      /* Snackstar-rood */
+  --rood-donker:#a8161d;
+  --geel:#ffd21f;      /* frietgeel uit het logo */
+  --papier:#fbf6ea;    /* vetvrij zakpapier */
+  --inkt:#221c19;
+  --grijs:#6d625b;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--papier);color:var(--inkt);font:400 17px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--geel);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.02;margin:0}
+h2{font-size:clamp(40px,6vw,68px)}
+p{margin:0 0 1em}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:50;background:var(--bord);color:#fff;border-bottom:4px solid var(--rood)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.top .merk{display:flex;align-items:center;gap:10px;text-decoration:none}
+.top .merk img{height:46px;width:auto}
+.top nav{display:flex;gap:26px;align-items:center}
+.top nav a{text-decoration:none;font-weight:600;font-size:15px;opacity:.88}
+.top nav a:hover{opacity:1;color:var(--geel)}
+.top .bel{background:var(--rood);padding:9px 16px;border-radius:999px;opacity:1}
+.top .bel:hover{background:var(--rood-donker);color:#fff}
+.menuknop{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer;padding:10px}
+.menuknop span{display:block;height:3px;background:currentColor;margin:5px 0;border-radius:2px;transition:transform .2s,opacity .2s}
+.top.open .menuknop span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.top.open .menuknop span:nth-child(2){opacity:0}
+.top.open .menuknop span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;color:#fff;background:var(--bord);overflow:hidden;padding:110px 0 56px}
+.hero .foto{position:absolute;inset:0;background:url(img/stock-bakjes-patat.jpg) center/cover;transform:scale(1.04);animation:zoom 1.4s ease-out forwards}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,23,21,.96) 0%,rgba(28,23,21,.86) 38%,rgba(28,23,21,.35) 70%,rgba(28,23,21,.15) 100%),linear-gradient(0deg,rgba(28,23,21,.9),transparent 45%)}
+@keyframes zoom{to{transform:scale(1)}}
+.hero .wrap{position:relative;z-index:2}
+.hero .logo{width:min(250px,60vw);height:auto;margin:0 0 18px -8px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45))}
+.hero h1{font-size:clamp(42px,6vw,78px);max-width:14ch;text-transform:none}
+.hero .lead{font-size:clamp(18px,2vw,21px);max-width:34ch;margin:18px 0 28px;color:#f3ece4}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px}
+.knop{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;padding:15px 24px;border-radius:999px;font-size:17px;border:2px solid transparent;transition:background .15s,transform .15s}
+.knop svg{width:20px;height:20px;flex:none}
+.knop.rood{background:var(--rood);color:#fff}
+.knop.rood:hover{background:var(--rood-donker)}
+.knop.licht{border-color:rgba(255,255,255,.55);color:#fff}
+.knop.licht:hover{background:rgba(255,255,255,.1)}
+.knop:active{transform:translateY(1px)}
+
+/* open-nu kaartje */
+.nu{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:8px 14px 8px 12px;border-radius:999px;font-weight:600;font-size:15px;margin-bottom:22px}
+.nu i{width:10px;height:10px;border-radius:50%;background:#9a8f88;flex:none}
+.nu.open i{background:#49d26b;box-shadow:0 0 0 4px rgba(73,210,107,.2)}
+
+/* ---------- infostrook ---------- */
+.strook{background:var(--rood);color:#fff}
+.strook .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strook .vak{padding:22px 24px;border-left:1px solid rgba(255,255,255,.22)}
+.strook .vak:first-child{border-left:0;padding-left:0}
+.strook h3{font-size:22px;margin-bottom:6px;color:var(--geel)}
+.strook p{margin:0;font-size:16px;line-height:1.5}
+.strook a{text-decoration:none;font-weight:700}
+.strook a:hover{text-decoration:underline}
+
+/* ---------- menubord ---------- */
+.menu{background:var(--bord);color:#fff;padding:96px 0 104px;position:relative}
+.menu .kop{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.menu .kop p{max-width:42ch;color:#d8cfc8;margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.tabs button{font:400 19px/1 Anton,sans-serif;letter-spacing:.02em;color:#fff;background:var(--bord-2);border:2px solid #3a322e;padding:12px 18px 11px;border-radius:6px;cursor:pointer;transition:background .15s,border-color .15s}
+.tabs button:hover{border-color:var(--rood)}
+.tabs button[aria-selected="true"]{background:var(--rood);border-color:var(--rood)}
+.paneel{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px}
+.paneel[hidden]{display:none}
+.groep h3{display:inline-block;background:var(--rood);font-size:26px;padding:8px 16px 7px;border-radius:3px;margin-bottom:10px}
+.groep .uitleg{color:#d8cfc8;font-size:15px;margin:2px 0 10px}
+.lijst{list-style:none;margin:0;padding:0}
+.lijst li{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed #40372f}
+.lijst li span{flex:1}
+.lijst li small{display:block;color:#bfb4ac;font-size:14px;line-height:1.4;margin-top:2px}
+.lijst li b{font-weight:700;color:var(--geel);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lijst li.tussen{border:0;padding-top:20px}
+.blad{font-size:13px;margin-left:6px;color:#7fd38f}
+.burgerfoto{border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:18px;aspect-ratio:420/295;max-width:420px}
+.burgerfoto img{width:100%;height:100%;object-fit:cover}
+.fotobij{font-size:13px;color:#a99d95;margin:-8px 0 18px}
+.sfeer{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;align-self:start}
+.sfeer img{width:100%;height:100%;object-fit:cover}
+.menu .noot{margin-top:40px;color:#bfb4ac;font-size:15px}
+
+/* ---------- patatkraam ---------- */
+.kraam{padding:100px 0;background:var(--papier)}
+.kraam .intro{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-bottom:56px}
+.kraam .intro h2{color:var(--rood);margin-bottom:18px}
+.kraam .intro p{max-width:56ch}
+.kraam .intro .beeld{border-radius:var(--radius);overflow:hidden;aspect-ratio:5/4;box-shadow:12px 12px 0 var(--geel)}
+.kraam .intro .beeld img{width:100%;height:100%;object-fit:cover}
+.pakketten{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.pakket{background:#fff;border:2px solid var(--inkt);border-radius:var(--radius);padding:26px 26px 24px;display:flex;flex-direction:column}
+.pakket h3{font-size:30px;margin-bottom:12px}
+.pakket ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.pakket li{padding:6px 0 6px 26px;position:relative;border-bottom:1px solid #eee4d6}
+.pakket li::before{content:"";position:absolute;left:2px;top:13px;width:12px;height:12px;background:var(--geel);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.pakket .prijs{font:400 40px/1 Anton,sans-serif;color:var(--rood)}
+.pakket .prijs small{font:600 14px Figtree,sans-serif;color:var(--grijs);margin-left:6px}
+.pakket.luxe{background:var(--bord);color:#fff;border-color:var(--bord)}
+.pakket.luxe li{border-color:#3a322e}
+.pakket.luxe .prijs{color:var(--geel)}
+.pakket.luxe .prijs small{color:#bfb4ac}
+.extra{margin-top:30px;display:flex;gap:16px 40px;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:2px solid var(--inkt);padding-top:24px}
+.extra p{margin:0}
+.extra .knop.rood{flex:none}
+
+/* ---------- over ons ---------- */
+.over{background:var(--geel);padding:96px 0}
+.over .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.over h2{font-size:clamp(40px,5.6vw,64px)}
+.over .tekst p{font-size:19px;max-width:60ch}
+.over .tekst p:first-child::first-line{font-weight:700}
+.tijdlijn{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tijdlijn li{background:var(--bord);color:#fff;border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px}
+.tijdlijn li+li::before{content:"";}
+
+/* ---------- contact ---------- */
+.contact{background:var(--bord);color:#fff;padding:96px 0 120px}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
+.contact h2{margin-bottom:24px}
+.tijden{width:100%;border-collapse:collapse;margin:0 0 28px;max-width:420px}
+.tijden td{padding:10px 0;border-bottom:1px dashed #40372f;vertical-align:top}
+.tijden td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.tijden tr.vandaag td{color:var(--geel);font-weight:700}
+.gegevens{display:grid;gap:14px;margin-bottom:28px}
+.gegevens a,.gegevens div{display:flex;gap:14px;align-items:flex-start;text-decoration:none;font-size:18px}
+.gegevens svg{width:22px;height:22px;color:var(--geel);flex:none;margin-top:3px}
+.gegevens a:hover span{text-decoration:underline}
+.kaart{border-radius:var(--radius);overflow:hidden;min-height:420px;background:var(--bord-2)}
+.kaart iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:grayscale(.2)}
+footer{background:#130f0e;color:#a99d95;font-size:14px;padding:26px 0 70px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:#d8cfc8}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--geel);color:var(--inkt);text-align:center;font:600 13px/1 Figtree,sans-serif;padding:9px 12px}
+
+/* ---------- mobiel ---------- */
+@media (max-width:900px){
+  .menuknop{display:block}
+  .top nav{position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--bord);flex-direction:column;align-items:stretch;gap:0;padding:12px 20px;transform:translateX(100%);transition:transform .25s ease;visibility:hidden}
+  .top.open nav{transform:none;visibility:visible}
+  .top nav a{font:400 30px/1 Anton,sans-serif;padding:18px 0;border-bottom:1px solid #3a322e;opacity:1}
+  .top nav a.bel{margin-top:20px;text-align:center;border:0;font:700 18px Figtree,sans-serif;padding:16px}
+  .strook .wrap{grid-template-columns:1fr}
+  .strook .vak{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:18px 0}
+  .strook .vak:first-child{border-top:0}
+  .paneel{grid-template-columns:1fr;gap:34px}
+  .kraam .intro,.over .wrap,.contact .wrap{grid-template-columns:1fr;gap:34px}
+  .pakketten{grid-template-columns:1fr}
+  .kraam .intro .beeld{box-shadow:8px 8px 0 var(--geel);margin-right:8px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .hero{padding:96px 0 44px;align-items:end}
+  .hero::after{background:linear-gradient(0deg,rgba(28,23,21,.97) 0%,rgba(28,23,21,.88) 50%,rgba(28,23,21,.45) 100%)}
+  .hero .logo{width:150px;margin-bottom:10px}
+  .hero h1{font-size:42px}
+  .nu{margin-bottom:16px}
+  .hero .lead{margin:14px 0 22px}
+  .knop{width:100%;justify-content:center}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding:0 20px 6px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{flex:none;font-size:17px}
+  .menu,.kraam,.over,.contact{padding-top:72px;padding-bottom:80px}
+  .kaart,.kaart iframe{min-height:320px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero .foto{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="merk" href="#start" aria-label="Snackstar, naar boven"><img src="img/logo-snackstar.png" alt="Snackstar" width="380" height="290"></a>
+    <button class="menuknop" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdnav"><span></span><span></span><span></span></button>
+    <nav id="hoofdnav" aria-label="Hoofdmenu">
+      <a href="#menukaart">Menukaart</a>
+      <a href="#patatkraam">Patatkraam</a>
+      <a href="#over-ons">Over ons</a>
+      <a href="#contact">Contact</a>
+      <a class="bel" href="tel:+31642275226">Bel en bestel</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="start">
+  <div class="foto" role="presentation"></div>
+  <div class="wrap">
+    <img class="logo" src="img/logo-snackstar.png" alt="" width="380" height="290">
+    <div class="nu" id="nu"><i></i><span>Openingstijden: vr, za en zo</span></div>
+    <h1>Patat, snacks en verse burgers in Uithuizen</h1>
+    <p class="lead">Cafetaria Snackstar aan de Departementsstraat, van vader en dochter Koenes. Bel uw bestelling door en haal hem op.</p>
+    <div class="knoppen">
+      <a class="knop rood" href="tel:+31642275226"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Bestel direct: 06 42 27 52 26</a>
+      <a class="knop licht" href="#menukaart">Bekijk de menukaart</a>
+    </div>
+  </div>
+</section>
+
+<section class="strook" aria-label="Snel overzicht">
+  <div class="wrap">
+    <div class="vak"><h3>Openingstijden</h3><p>Vr 11:30–14:00 en 16:00–20:00<br>Za 16:00–20:00 · Zo 16:30–20:00</p></div>
+    <div class="vak"><h3>Adres</h3><p>Departementsstraat 23<br>9981 GA Uithuizen</p></div>
+    <div class="vak"><h3>Bestellen</h3><p><a href="tel:+31642275226">06 42 27 52 26</a><br><a href="mailto:info@snackstar.nl">info@snackstar.nl</a></p></div>
+  </div>
+</section>
+
+<section class="menu" id="menukaart">
+  <div class="wrap">
+    <div class="kop">
+      <h2>Menukaart</h2>
+      <p>De hele kaart van de zaak, met prijzen. Liever bellen? Wij nemen uw bestelling graag op via 06 42 27 52 26.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Onderdelen van de menukaart">
+      <button role="tab" id="t-patat" aria-controls="p-patat" aria-selected="true">Patat &amp; sauzen</button>
+      <button role="tab" id="t-snacks" aria-controls="p-snacks" aria-selected="false" tabindex="-1">Snacks</button>
+      <button role="tab" id="t-burgers" aria-controls="p-burgers" aria-selected="false" tabindex="-1">Verse burgers</button>
+      <button role="tab" id="t-menus" aria-controls="p-menus" aria-selected="false" tabindex="-1">Menu's &amp; broodjes</button>
+      <button role="tab" id="t-speciaal" aria-controls="p-speciaal" aria-selected="false" tabindex="-1">Patat speciaal</button>
+      <button role="tab" id="t-drinken" aria-controls="p-drinken" aria-selected="false" tabindex="-1">Drinken</button>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-patat" aria-labelledby="t-patat">
+      <div class="groep">
+        <h3>Patat / raspatat / aardappelschijfjes</h3>
+        <ul class="lijst">
+          <li><span>Klein</span><b>€ 2,30</b></li>
+          <li><span>Normaal</span><b>€ 2,60</b></li>
+          <li><span>Groot</span><b>€ 3,10</b></li>
+          <li><span>Aardappelschijfjes</span><b>€ 3,90</b></li>
+        </ul>
+        <div class="sfeer" style="margin-top:28px"><img src="img/stock-patat-puntzak.jpg" alt="" loading="lazy" width="1200" height="900"></div>
+      </div>
+      <div class="groep">
+        <h3>Sauzen</h3>
+        <ul class="lijst">
+          <li><span>Mayonaise</span><b>€ 0,60</b></li>
+          <li><span>Curry</span><b>€ 0,60</b></li>
+          <li><span>Ketchup</span><b>€ 0,60</b></li>
+          <li><span>Mosterd</span><b>€ 0,60</b></li>
+          <li><span>Pindasaus</span><b>€ 0,75</b></li>
+          <li><span>Speciaal</span><b>€ 0,75</b></li>
+          <li><span>Oorlog</span><b>€ 0,75</b></li>
+          <li><span>Joppiesaus</span><b>€ 0,75</b></li>
+          <li><span>Brander mayonaise</span><b>€ 0,75</b></li>
+          <li><span>Appelmoes</span><b>€ 0,75</b></li>
+          <li><span>Knoflooksaus</span><b>€ 0,75</b></li>
+          <li><span>Chilisaus</span><b>€ 0,75</b></li>
+          <li class="tussen"><span>Bakje klein</span><b>€ 2,00</b></li>
+          <li><span>Bakje groot</span><b>€ 2,80</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-snacks" aria-labelledby="t-snacks" hidden>
+      <div class="groep">
+        <h3>Snacks</h3>
+        <ul class="lijst">
+          <li><span>Frikandel</span><b>€ 2,25</b></li>
+          <li><span>Frikandel XXL</span><b>€ 4,80</b></li>
+          <li><span>Kroket</span><b>€ 2,25</b></li>
+          <li><span>Bourgondische kroket</span><b>€ 2,80</b></li>
+          <li><span>Kwekkeboom kroket</span><b>€ 2,80</b></li>
+          <li><span>Saté kroket</span><b>€ 2,80</b></li>
+          <li><span>Kalfs kroket</span><b>€ 2,80</b></li>
+          <li><span>Groente kroket</span><b>€ 2,80</b></li>
+          <li><span>Ragoezi</span><b>€ 3,70</b></li>
+          <li><span>Berenhap</span><b>€ 3,80</b></li>
+          <li><span>Kikastick</span><b>€ 3,20</b></li>
+          <li><span>Eierbal</span><b>€ 3,35</b></li>
+          <li><span>Kaassoufflé</span><b>€ 2,70</b></li>
+          <li><span>Kipkorn</span><b>€ 2,90</b></li>
+        </ul>
+      </div>
+      <div class="groep">
+        <ul class="lijst">
+          <li><span>Hamburger</span><b>€ 2,85</b></li>
+          <li><span>Kipburger</span><b>€ 3,80</b></li>
+          <li><span>Bamischijf</span><b>€ 2,95</b></li>
+          <li><span>Nasischijf</span><b>€ 2,95</b></li>
+          <li><span>Pikanto</span><b>€ 2,90</b></li>
+          <li><span>Mexicano</span><b>€ 2,90</b></li>
+          <li><span>Shoarmarol</span><b>€ 3,50</b></li>
+          <li><span>Gehaktbal</span><b>€ 3,95</b></li>
+          <li><span>Boerenbrok</span><b>€ 3,30</b></li>
+          <li><span>Braadworst</span><b>€ 3,20</b></li>
+          <li><span>Loempia</span><b>€ 4,30</b></li>
+          <li><span>Kipnuggets (6 stuks)</span><b>€ 2,95</b></li>
+          <li><span>Bitterballen (6 stuks)</span><b>€ 3,90</b></li>
+          <li><span>Mini snacks (6 stuks)</span><b>€ 3,95</b></li>
+        </ul>
+        <h3 style="margin-top:30px">Vegetarische snacks<span class="blad" aria-hidden="true">🌱</span></h3>
+        <ul class="lijst">
+          <li><span>Bami / nasi schijf</span><b>€ 2,95</b></li>
+          <li><span>Frikandel</span><b>€ 2,90</b></li>
+          <li><span>Kaassoufflé</span><b>€ 2,70</b></li>
+          <li><span>Groente kroket</span><b>€ 2,80</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-burgers" aria-labelledby="t-burgers" hidden>
+      <div class="groep">
+        <div class="burgerfoto"><img src="img/eigen-burger.jpg" alt="Broodje Snackstar met verse burger, ei, spek en kaas" loading="lazy" width="420" height="295"></div>
+        <p class="fotobij">Foto van de eigen menukaart van Snackstar.</p>
+      </div>
+      <div class="groep">
+        <h3>Verse burgers</h3>
+        <ul class="lijst">
+          <li><span>Broodje “Snackstar” middel<small>Verse burger, saus, rode ui, sla, komkommer, tomaat, ei, spek, augurk, kaas</small></span><b>€ 6,95</b></li>
+          <li><span>Broodje “Snackstar” groot<small>Verse burger, saus, rode ui, sla, komkommer, tomaat, ei, spek, augurk, kaas</small></span><b>€ 8,50</b></li>
+          <li><span>Vers broodje hamburger speciaal<small>Verse burger, sla, komkommer, tomaat, speciaal saus</small></span><b>€ 5,75</b></li>
+          <li><span>Smokey BBQ burger<small>Verse burger, saus, rode ui, sla, komkommer, tomaat, ei, spek, augurk, kaas</small></span><b>€ 6,95</b></li>
+          <li><span>Cheese burger<small>Verse burger, saus, ui, augurk, kaas</small></span><b>€ 6,50</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-menus" aria-labelledby="t-menus" hidden>
+      <div class="groep">
+        <h3>Menu's / los</h3>
+        <p class="uitleg">Als menu met salade en (ras)patat of aardappelschijfjes naar keuze: + € 5,-</p>
+        <ul class="lijst">
+          <li><span>Huisgemaakte spareribs</span><b>€ 13,00</b></li>
+          <li><span>Huisgemaakte kipsaté</span><b>€ 9,80</b></li>
+          <li><span>Saté van de haas</span><b>€ 9,80</b></li>
+          <li><span>Schnitzel</span><b>€ 7,80</b></li>
+          <li><span>Braadworst</span><b>€ 3,20</b></li>
+          <li><span>Gehaktbal</span><b>€ 3,95</b></li>
+          <li class="tussen"><span>Bami / Nasi met kipsaté</span><b>€ 14,80</b></li>
+        </ul>
+      </div>
+      <div class="groep">
+        <h3>Broodjes</h3>
+        <ul class="lijst">
+          <li><span>Broodje hamburger speciaal</span><b>€ 4,20</b></li>
+          <li><span>Broodje kroket</span><b>€ 2,85</b></li>
+          <li><span>Broodje kipburger</span><b>€ 4,40</b></li>
+          <li><span>Broodje gehaktbal</span><b>€ 4,45</b></li>
+          <li><span>Broodje pulled chicken</span><b>€ 6,95</b></li>
+          <li><span>Broodje crispy chicken</span><b>€ 6,95</b></li>
+          <li><span>Broodje hete kip</span><b>€ 6,95</b></li>
+          <li><span>Broodje gezond</span><b>€ 6,00</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-speciaal" aria-labelledby="t-speciaal" hidden>
+      <div class="groep">
+        <h3>Patat speciaal</h3>
+        <ul class="lijst">
+          <li><span>Boeren patat</span><b>€ 11,95</b></li>
+          <li><span>Kapsalon</span><b>€ 11,95</b></li>
+          <li><span>Kebab</span><b>€ 11,95</b></li>
+          <li><span>Stoofvlees</span><b>€ 11,95</b></li>
+          <li><span>Pulled chicken</span><b>€ 11,95</b></li>
+          <li><span>Patat parmezaan<small>Truffelmayo, bosui</small></span><b>€ 8,95</b></li>
+        </ul>
+        <h3 style="margin-top:30px">Kids box</h3>
+        <ul class="lijst">
+          <li><span>Patat met keuze uit: frikandel, kroket, kipnuggets of vissticks<small>Met pakje drinken, fritessaus of appelmoes (incl. verrassing)</small></span><b>€ 6,95</b></li>
+        </ul>
+      </div>
+      <div class="sfeer"><img src="img/stock-loaded-fries.jpg" alt="" loading="lazy" width="1200" height="900"></div>
+    </div>
+
+    <div class="paneel" role="tabpanel" id="p-drinken" aria-labelledby="t-drinken" hidden>
+      <div class="groep">
+        <h3>Drinken</h3>
+        <ul class="lijst">
+          <li><span>Cola</span><b>€ 2,50</b></li>
+          <li><span>Sinas</span><b>€ 2,50</b></li>
+          <li><span>7Up</span><b>€ 2,50</b></li>
+          <li><span>Fristi</span><b>€ 2,50</b></li>
+          <li><span>Appelsap</span><b>€ 2,50</b></li>
+        </ul>
+      </div>
+      <div class="groep">
+        <ul class="lijst">
+          <li><span>Chocomelk</span><b>€ 2,50</b></li>
+          <li><span>Casis</span><b>€ 2,50</b></li>
+          <li><span>Ice tea</span><b>€ 2,50</b></li>
+          <li><span>Red Bull</span><b>€ 3,00</b></li>
+          <li><span>Water</span><b>€ 2,00</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="noot">Prijzen volgens de menukaart van Snackstar. Vraag bij twijfel even na in de zaak.</p>
+  </div>
+</section>
+
+<section class="kraam" id="patatkraam">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <h2>De patatkraam op uw feest</h2>
+        <p>Met onze patatkraam staan wij op allerlei evenementen. Ook voor uw eigen feest of een andere gelegenheid kunt u de kraam huren: denk aan een familiedag, bruiloft of bedrijfsfeest.</p>
+        <p>Het ziet er leuk uit en het is ook nog eens praktisch. U hoeft zelf niets voor te bereiden of op te ruimen. Er is ons niet snel iets te gek, dus neem gerust contact met ons op.</p>
+      </div>
+      <div class="beeld"><img src="img/stock-snacks.jpg" alt="" loading="lazy" width="1200" height="900"></div>
+    </div>
+
+    <div class="pakketten">
+      <article class="pakket">
+        <h3>Basis pakket</h3>
+        <ul><li>Patat</li><li>Frikandel</li><li>Kroket</li><li>Kaassoufflé</li></ul>
+        <p class="prijs">€ 11,00<small>per persoon</small></p>
+      </article>
+      <article class="pakket">
+        <h3>Medium pakket</h3>
+        <ul><li>Patat</li><li>Frikandel</li><li>Kroket</li><li>Kaassoufflé</li><li>Hamburger</li><li>Mexicano</li><li>Bami/nasi schijf</li><li>Kipcorn</li></ul>
+        <p class="prijs">€ 13,50<small>per persoon</small></p>
+      </article>
+      <article class="pakket luxe">
+        <h3>Luxe pakket</h3>
+        <ul><li>Patat</li><li>Verse hamburger van de plaat, op een rijk belegd broodje</li><li>Huisgemaakte saté van de plaat, met slaatje</li><li>Snacks uit het medium pakket</li></ul>
+        <p class="prijs">€ 18,00<small>per persoon</small></p>
+      </article>
+    </div>
+
+    <div class="extra">
+      <p><strong>Prijzen per persoon, vanaf 50 personen.</strong> Extra keuzes tegen meerprijs: belegde broodjes, huisgemaakte spareribs, gehaktbal en minisnacks. U kunt altijd vragen naar de mogelijkheden.</p>
+      <a class="knop rood" href="mailto:info@snackstar.nl?subject=Patatkraam%20huren">Vraag de patatkraam aan</a>
+    </div>
+  </div>
+</section>
+
+<section class="over" id="over-ons">
+  <div class="wrap">
+    <h2>Begonnen met een viskar</h2>
+    <div class="tekst">
+      <p>Het begon toen mede-eigenaar Brennie Koenes op het idee kwam om een viskar aan te schaffen. Met die kar stond hij een aantal jaar op evenementen en standplaatsen.</p>
+      <p>Op een gegeven moment was het tijd voor iets anders: de viskar werd omgebouwd tot patatkar, en Snackstar was geboren. Dochter Paula Koenes, ook mede-eigenaar, hoorde al snel bij het vaste team en is steeds meer op de voorgrond getreden.</p>
+      <p>Samen besloten vader en dochter de volgende stap te zetten. Het pand aan de Departementsstraat kwam leeg te staan, en na een grondige schoonmaak, renovatie en met frisse energie opende in januari officieel Cafetaria Snackstar.</p>
+      <ul class="tijdlijn" aria-label="Van kar tot cafetaria">
+        <li>Viskar</li><li>Patatkar</li><li>Cafetaria aan de Departementsstraat</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Langskomen of bellen</h2>
+      <table class="tijden" aria-label="Openingstijden">
+        <tbody>
+          <tr data-dag="5"><td>Vrijdag</td><td>11:30–14:00 en 16:00–20:00</td></tr>
+          <tr data-dag="6"><td>Zaterdag</td><td>16:00–20:00</td></tr>
+          <tr data-dag="0"><td>Zondag</td><td>16:30–20:00</td></tr>
+        </tbody>
+      </table>
+      <div class="gegevens">
+        <div><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Departementsstraat 23<br>9981 GA Uithuizen</span></div>
+        <a href="tel:+31642275226"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span>06 42 27 52 26</span></a>
+        <a href="mailto:info@snackstar.nl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H4v.6l8 5.4 8-5.4V7h-.4z"/></svg><span>info@snackstar.nl</span></a>
+        <a href="https://www.facebook.com/profile.php?id=100092324718177" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.5c0-.7.5-1 1-1h2V2h-3c-3 0-4 2-4 4.3V8H8v3.5h2V22h4V11.5h2.7L17 8z"/></svg><span>Volg Snackstar op Facebook</span></a>
+      </div>
+      <a class="knop rood" href="tel:+31642275226">Bel en bestel</a>
+    </div>
+    <div class="kaart">
+      <iframe title="Kaart: Departementsstraat 23, Uithuizen" src="https://maps.google.com/maps?q=Departementsstraat%2023%2C%209981%20GA%20Uithuizen&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Snackstar · Cafetaria Snackstar, Uithuizen</span>
+    <span>Foto's van eten zijn sfeerbeelden (Unsplash), behalve de burger uit de eigen menukaart.</span>
+  </div>
+</footer>
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20Snackstar%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  // mobiel menu
+  var top=document.getElementById('top'),knop=top.querySelector('.menuknop');
+  knop.addEventListener('click',function(){
+    var open=top.classList.toggle('open');
+    knop.setAttribute('aria-expanded',open);
+    knop.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');
+  });
+  top.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){
+    top.classList.remove('open');knop.setAttribute('aria-expanded','false');knop.setAttribute('aria-label','Menu openen');
+  });});
+
+  // tabs menukaart
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function kies(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){kies(t);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){kies(tabs[(i+1)%tabs.length],true);e.preventDefault();}
+      if(e.key==='ArrowLeft'){kies(tabs[(i-1+tabs.length)%tabs.length],true);e.preventDefault();}
+    });
+  });
+
+  // open/gesloten (tijden van de eigen site)
+  var uren={5:[[690,840],[960,1200]],6:[[960,1200]],0:[[990,1200]]};
+  var namen=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  function hhmm(m){return Math.floor(m/60)+':'+('0'+m%60).slice(-2);}
+  try{
+    var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Amsterdam'}));
+    var dag=d.getDay(),min=d.getHours()*60+d.getMinutes(),el=document.getElementById('nu'),txt=el.querySelector('span'),tekst='';
+    var vandaag=uren[dag]||[];
+    for(var i=0;i<vandaag.length;i++){if(min>=vandaag[i][0]&&min<vandaag[i][1]){tekst='Nu open, tot '+hhmm(vandaag[i][1]);el.classList.add('open');break;}}
+    if(!tekst){
+      for(var k=0;k<8&&!tekst;k++){var dd=(dag+k)%7,u=uren[dd]||[];
+        for(var j=0;j<u.length;j++){if(k>0||u[j][0]>min){tekst='Nu gesloten · open '+(k===0?'vandaag':k===1?'morgen':namen[dd])+' om '+hhmm(u[j][0]);break;}}}
+    }
+    if(tekst)txt.textContent=tekst;
+    var rij=document.querySelector('.tijden tr[data-dag="'+dag+'"]');if(rij)rij.classList.add('vandaag');
+  }catch(e){}
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
