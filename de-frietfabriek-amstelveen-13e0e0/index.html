@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>De Frietfabriek Amstelveen | Gewoon lekkere friet</title>
+<meta name="description" content="Vers gesneden ambachtelijke friet, burgers, snacks, salades en milkshakes in Amstelveen, vlak bij het Amsterdamse Bos. Elke dag open van 11:00 tot 20:00.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231c1915'/%3E%3Cpath d='M14 18h10v-8h4v8l8-6v6l8-6v34L32 58 14 28z' fill='%23f2b628'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Big+Shoulders+Stencil+Display:wght@800&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --roet:#1c1915;      /* soot black from the logo */
+  --roet-2:#2a261f;
+  --beton:#e8e5de;     /* concrete floor */
+  --papier:#fbfaf6;    /* frietzak paper */
+  --goud:#f2b628;      /* fry gold */
+  --goud-d:#c98d0c;
+  --ketchup:#c3361d;
+  --schil:#7a5a34;     /* potato skin */
+  --tekst:#24201a;
+  --zacht:#5f584d;
+  --lijn:#cfcabe;
+  --kop:"Big Shoulders Display", "Arial Narrow", sans-serif;
+  --stencil:"Big Shoulders Stencil Display", "Arial Narrow", sans-serif;
+  --body:"Archivo", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--beton);color:var(--tekst);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--goud);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--kop);line-height:.95;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:900}
+h3{font-size:1.7rem;font-weight:800}
+p{margin:0 0 1em}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--roet);color:#fff;border-bottom:3px solid var(--goud)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+.top .merk img{height:38px;width:auto;filter:invert(1);mix-blend-mode:screen}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+.nav a:hover{color:var(--goud)}
+.nav .bestel{background:var(--goud);color:var(--roet);padding:9px 16px;border-radius:4px}
+.nav .bestel:hover{background:#fff;color:var(--roet)}
+.menuknop{display:none;background:none;border:0;color:#fff;width:46px;height:46px;cursor:pointer;padding:10px}
+.menuknop span{display:block;height:3px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+.menuknop[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menuknop[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menuknop[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{background:var(--roet);color:#fff;padding-top:64px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:min(86vh,760px)}
+.hero-tekst{padding:clamp(40px,7vw,90px) 0 60px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero-logo{width:min(400px,80%);filter:invert(1);mix-blend-mode:screen;margin-bottom:34px;animation:stempel .55s ease-out both}
+@keyframes stempel{from{transform:scale(1.06);opacity:.2}to{transform:none;opacity:1}}
+.hero h1{font-family:var(--stencil);font-size:clamp(3.6rem,9.5vw,7.6rem);font-weight:800;color:var(--goud);line-height:.86;margin-bottom:22px}
+.hero .sub{font-size:1.15rem;max-width:30em;color:#e6e0d4}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.knop{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:4px;border:2px solid transparent;font-size:1rem}
+.knop.goud{background:var(--goud);color:var(--roet)}
+.knop.goud:hover{background:#fff}
+.knop.rand{border-color:#fff;color:#fff}
+.knop.rand:hover{background:#fff;color:var(--roet)}
+.knop.donker{background:var(--roet);color:#fff}
+.knop.donker:hover{background:var(--ketchup)}
+.knop.lijn{border-color:var(--roet);color:var(--roet)}
+.knop.lijn:hover{background:var(--roet);color:#fff}
+.knop svg{width:18px;height:18px;flex:none}
+.hero-foto{position:relative}
+.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--roet) 0,rgba(28,25,21,0) 22%);z-index:1}
+.stempel{position:absolute;right:28px;bottom:28px;z-index:2;background:var(--goud);color:var(--roet);width:150px;height:150px;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--kop);font-weight:900;font-size:1.35rem;line-height:1;transform:rotate(-8deg);border:4px solid var(--roet);box-shadow:0 0 0 3px var(--goud)}
+.stempel small{display:block;font-family:var(--body);font-weight:600;font-size:.72rem;margin-top:6px;line-height:1.2}
+
+/* info strip */
+.strip{background:var(--goud);color:var(--roet)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 40px;padding:16px 0;font-weight:600}
+.strip a{text-decoration:none}
+.strip b{font-family:var(--kop);font-size:1.25rem;font-weight:800;margin-right:6px}
+
+section{padding:clamp(64px,9vw,110px) 0}
+.intro{max-width:40em;color:var(--zacht);font-size:1.08rem}
+
+/* proces: their own production line */
+.proces{background:var(--papier)}
+.proces-kop{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:50px}
+.lijnband{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);position:relative;counter-reset:stap}
+.lijnband::before{content:"";position:absolute;left:0;right:0;top:27px;height:6px;background:repeating-linear-gradient(90deg,var(--roet) 0 18px,var(--goud) 18px 36px)}
+.lijnband li{counter-increment:stap;position:relative;padding:0 12px 0 0}
+.lijnband li::before{content:counter(stap);display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--roet);color:var(--goud);font-family:var(--kop);font-weight:900;font-size:1.8rem;position:relative;border:4px solid var(--papier);margin-bottom:16px}
+.lijnband h3{font-size:1.45rem;margin-bottom:6px}
+.lijnband p{font-size:.93rem;color:var(--zacht);margin:0}
+.proces-voet{margin-top:46px;font-family:var(--kop);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800}
+
+/* menu */
+.menu{background:var(--beton)}
+.menu-kop{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{font:700 1rem var(--body);background:transparent;border:2px solid var(--roet);color:var(--roet);padding:9px 16px;border-radius:40px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--roet);color:var(--goud)}
+.tab:hover{background:var(--roet-2);color:#fff}
+.paneel{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:start}
+.paneel[hidden]{display:none}
+.kaart{background:var(--papier);border-radius:6px;padding:clamp(22px,4vw,40px);border-top:8px solid var(--roet)}
+.kaart + .kaart{margin-top:24px}
+.kaart h3{margin-bottom:14px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.regel{display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--lijn)}
+.regel:last-child{border-bottom:0}
+.regel .naam{font-weight:600}
+.regel .stip{flex:1;border-bottom:2px dotted #bdb6a7;transform:translateY(-4px);min-width:16px}
+.regel .prijs{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.regel .uitleg{display:block;font-weight:400;font-size:.9rem;color:var(--zacht);margin-top:2px}
+.regel.lang{display:block}
+.regel.lang .boven{display:flex;gap:10px;align-items:baseline}
+.zij-foto{border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:var(--roet)}
+.zij-foto img{width:100%;height:100%;object-fit:cover}
+.twee{columns:2;column-gap:36px}
+.twee .regel{break-inside:avoid}
+.voorbehoud{font-size:.92rem;color:var(--zacht);margin-top:22px;max-width:44em}
+.pdf-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+/* aanbod */
+.aanbod{background:var(--roet);color:#fff}
+.aanbod-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+.tas{background:var(--goud);color:var(--roet);border-radius:6px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.tas .bedrag{font-family:var(--kop);font-weight:900;font-size:clamp(4.5rem,10vw,7rem);line-height:.8}
+.tas .bedrag small{display:block;font-size:1.1rem;font-weight:800;text-align:right}
+.tas h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin-bottom:14px}
+.tas .knoppen{grid-column:1/-1}
+.feest{background:var(--roet-2);border-radius:6px;padding:clamp(26px,4vw,46px);border:2px solid #3b362d}
+.feest h2{font-size:clamp(2.2rem,4.5vw,3.2rem);color:var(--goud);margin-bottom:14px}
+.feest p{color:#ddd6c8}
+.waarden{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+.waarde{border-top:3px solid var(--goud);padding-top:20px}
+.waarde h3{color:#fff;font-size:1.9rem;margin-bottom:10px}
+.waarde p{color:#cfc8ba;margin:0}
+
+/* vacatures */
+.jobs{background:var(--papier)}
+.jobs-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.vac{border:2px solid var(--roet);border-radius:6px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column}
+.vac h3{font-size:2.1rem;margin-bottom:14px}
+.vac ul{margin:0 0 18px;padding-left:1.2em}
+.vac li{margin-bottom:4px}
+.vac .knop{align-self:flex-start;margin-top:auto}
+
+/* contact */
+.contact{background:var(--beton)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:stretch}
+.blok{background:var(--papier);border-radius:6px;padding:clamp(24px,4vw,40px)}
+.blok dl{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 24px}
+.blok dt{font-weight:700}
+.blok dd{margin:0}
+.blok dd a{font-weight:600}
+.uren{font-family:var(--kop);font-weight:900;font-size:clamp(2.4rem,5vw,3.4rem);line-height:.95;margin:4px 0 6px}
+.kaartje{border-radius:6px;overflow:hidden;min-height:380px;background:#d6d2c8}
+.kaartje iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.social{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+
+footer{background:var(--roet);color:#cfc8ba;padding:44px 0 90px;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer img{height:34px;width:auto;filter:invert(1);mix-blend-mode:screen}
+footer a{color:#fff}
+
+.ribbon{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;background:var(--roet);color:#fff;font:600 .8rem/1.3 var(--body);padding:8px 16px;border-radius:30px;border:2px solid var(--goud);white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+
+@media (max-width:980px){
+  .lijnband{grid-template-columns:repeat(3,1fr);row-gap:34px}
+  .lijnband::before{display:none}
+  .paneel{grid-template-columns:1fr}
+  .zij-foto{display:none}
+}
+@media (max-width:860px){
+  .menuknop{display:block}
+  .nav{position:fixed;top:67px;left:0;right:0;background:var(--roet);flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 24px;display:none;border-bottom:3px solid var(--goud)}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid #3b362d;font-size:1.1rem}
+  .nav .bestel{margin-top:16px;text-align:center;border-bottom:0}
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-foto{height:min(70vw,420px);order:-1}
+  .hero-foto::before{background:linear-gradient(0deg,var(--roet) 0,rgba(28,25,21,0) 30%)}
+  .hero-tekst{padding:8px 0 48px}
+  .hero-logo{display:none}
+  .hero-tekst{padding-top:22px}
+  .stempel{width:112px;height:112px;font-size:1.05rem;right:16px;bottom:auto;top:16px}
+  .stempel small{font-size:.62rem}
+  .proces-kop,.aanbod-grid,.waarden,.jobs-grid,.contact-grid{grid-template-columns:1fr}
+  .proces-kop{gap:10px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .lijnband{grid-template-columns:1fr 1fr}
+  .twee{columns:1}
+  .tas{grid-template-columns:1fr}
+  .tas .bedrag small{text-align:left}
+  .knop{padding:13px 18px}
+  .knoppen .knop{flex:1 1 auto;justify-content:center}
+  .ribbon{font-size:.7rem;padding:7px 12px}
+  .blok dl{grid-template-columns:1fr;gap:2px}
+  .blok dd{margin-bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="merk" href="#top" aria-label="De Frietfabriek, naar boven"><img src="img/logo.png" alt="De Frietfabriek" width="114" height="38"></a>
+    <button class="menuknop" aria-label="Menu openen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#friet">Onze friet</a>
+      <a href="#menu">Menukaart</a>
+      <a href="#meer">Meer</a>
+      <a href="#jobs">Werken bij</a>
+      <a href="#contact">Contact</a>
+      <a class="bestel" href="https://mpluskassa.online/nl/guest/frietfabriek/order" target="_blank" rel="noopener">Online bestellen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Welkom" style="padding-bottom:0">
+    <div class="wrap hero-grid">
+      <div class="hero-tekst">
+        <img class="hero-logo" src="img/logo.png" alt="De Frietfabriek" width="600" height="200">
+        <h1>Gewoon lekkere friet.</h1>
+        <p class="sub">Elke dag zelf geschild en vers gesneden, van Nederlandse aardappels. Met burgers, snacks, salades en milkshakes erbij. In Amstelveen, vlak bij het Amsterdamse Bos.</p>
+        <div class="knoppen">
+          <a class="knop goud" href="https://mpluskassa.online/nl/guest/frietfabriek/order" target="_blank" rel="noopener">Bestel online</a>
+          <a class="knop rand" href="tel:+31208230066"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>020-8230066</a>
+        </div>
+      </div>
+      <div class="hero-foto">
+        <img src="img/stock-patat-puntzak.jpg" alt="" fetchpriority="high">
+        <div class="stempel"><div>Elke dag<br>open<small>11:00 tot 20:00</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <span><b>Ma t/m zo</b>11:00 tot 20:00</span>
+      <span><b>Adres</b>Nieuwe Kalfjeslaan 1, Amstelveen</span>
+      <span><b>Bellen</b><a href="tel:+31208230066">020-8230066</a></span>
+    </div>
+  </div>
+
+  <section class="proces" id="friet">
+    <div class="wrap">
+      <div class="proces-kop">
+        <h2>Ambachtelijke friet, zo maken wij hem</h2>
+        <p class="intro">Wij schillen zelf onze aardappels en snijden er verse friet van. Elke dag gaan we aan de slag met eerlijke aardappelen, speciaal door ons geselecteerd en afkomstig van Nederlandse boeren.</p>
+      </div>
+      <ol class="lijnband">
+        <li><h3>Schillen</h3><p>Professioneel geschild, tot aan het eerste huidje.</p></li>
+        <li><h3>Wassen</h3><p>Daarna worden ze gewassen.</p></li>
+        <li><h3>Snijden</h3><p>Vers gesneden, in onze eigen keuken.</p></li>
+        <li><h3>Uitlekken</h3><p>Eerst goed laten uitlekken.</p></li>
+        <li><h3>Voorbakken</h3><p>Op een lage temperatuur.</p></li>
+        <li><h3>Afbakken</h3><p>Voor jou, in gezonde en heldere olie. Krokant, met smaak en textuur.</p></li>
+      </ol>
+      <p class="proces-voet">Zo hoort friet te zijn, vinden wij.</p>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu-kop">
+        <div>
+          <h2>Menukaart</h2>
+          <p class="intro" style="margin-top:14px">Bestel direct, bel <a href="tel:+31208230066">020-8230066</a>, of zet je bestelling online alvast klaar voor een tijdstip dat jou uitkomt.</p>
+        </div>
+        <div class="pdf-links">
+          <a class="knop donker" href="https://mpluskassa.online/nl/guest/frietfabriek/order" target="_blank" rel="noopener">Bestel online</a>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Menukaart">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-friet" id="t-friet">Friet &amp; menu's</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-sauzen" id="t-sauzen" tabindex="-1">Sauzen</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-snacks" id="t-snacks" tabindex="-1">Hapjes &amp; snacks</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-salades" id="t-salades" tabindex="-1">Salades</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-dranken" id="t-dranken" tabindex="-1">Dranken</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-ijs" id="t-ijs" tabindex="-1">IJs &amp; shakes</button>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-friet" aria-labelledby="t-friet">
+        <div>
+          <div class="kaart">
+            <h3>Onze friet</h3>
+            <div class="regel"><span class="naam">Kleine friet</span><span class="stip"></span><span class="prijs">€ 2,20</span></div>
+            <div class="regel"><span class="naam">Normale friet</span><span class="stip"></span><span class="prijs">€ 2,70</span></div>
+            <div class="regel"><span class="naam">Grote friet</span><span class="stip"></span><span class="prijs">€ 3,25</span></div>
+          </div>
+          <div class="kaart">
+            <h3>Onze menu's</h3>
+            <div class="regel lang"><div class="boven"><span class="naam">Lady Burger Menu</span><span class="stip"></span><span class="prijs">€ 11,75</span></div><span class="uitleg">150 gram burger van Dutch Angus op versgebakken brood, sla, salsa, kaas, bacon. Met friet, saus en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Gents Burger Menu</span><span class="stip"></span><span class="prijs">€ 13,00</span></div><span class="uitleg">200 gram burger van Dutch Angus op versgebakken brood, sla, salsa, kaas, bacon. Met friet, saus en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Vegan Burger Menu</span><span class="stip"></span><span class="prijs">€ 12,75</span></div><span class="uitleg">130 gram vegan burger, sla, tomaat, courgette en avocado. Met friet, saus en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Biefstukspiezen Menu</span><span class="stip"></span><span class="prijs">€ 14,25</span></div><span class="uitleg">2 stokjes biefstukspiezen met groene pesto-marinade, met friet, saus en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Kipsaté Menu</span><span class="stip"></span><span class="prijs">€ 11,50</span></div><span class="uitleg">3 stokjes kippendijen-saté van Tromp Purmerland, met friet, sausje en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Steak Menu</span><span class="stip"></span><span class="prijs">€ 16,75</span></div><span class="uitleg">Diverse soorten, waaronder entrecôte, met friet, sausje en salade.</span></div>
+            <div class="regel lang"><div class="boven"><span class="naam">Vitamine Menu</span><span class="stip"></span><span class="prijs">€ 9,75</span></div><span class="uitleg">Kleine friet met saus, salade naar keuze en een vitamine water.</span></div>
+          </div>
+          <div class="kaart">
+            <h3>Los, zonder friet</h3>
+            <div class="regel"><span class="naam">Kipsaté</span><span class="stip"></span><span class="prijs">€ 7,25</span></div>
+            <div class="regel"><span class="naam">Lady Burger</span><span class="stip"></span><span class="prijs">€ 7,75</span></div>
+            <div class="regel"><span class="naam">Gents Burger</span><span class="stip"></span><span class="prijs">€ 9,35</span></div>
+            <div class="regel"><span class="naam">Vegan Burger</span><span class="stip"></span><span class="prijs">€ 9,00</span></div>
+          </div>
+        </div>
+        <div class="zij-foto"><img src="img/stock-burger.jpg" alt="" loading="lazy"></div>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-sauzen" aria-labelledby="t-sauzen" hidden>
+        <div class="kaart">
+          <h3>Onze sauzen</h3>
+          <div class="twee">
+            <div class="regel"><span class="naam">Mayo (Oliehoorn)</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Brander Mayo</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Truffel Mayo</span><span class="stip"></span><span class="prijs">€ 1,10</span></div>
+            <div class="regel"><span class="naam">Vlaamse Mayo</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Andalouse</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+            <div class="regel"><span class="naam">Samurai</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+            <div class="regel"><span class="naam">Tartare</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+            <div class="regel"><span class="naam">Hannibal</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+            <div class="regel"><span class="naam">Ketchup</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Curry</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Speciaal ketchup</span><span class="stip"></span><span class="prijs">€ 0,90</span></div>
+            <div class="regel"><span class="naam">Speciaal curry</span><span class="stip"></span><span class="prijs">€ 0,90</span></div>
+            <div class="regel"><span class="naam">Satésaus</span><span class="stip"></span><span class="prijs">€ 0,95</span></div>
+            <div class="regel"><span class="naam">Oorlog</span><span class="stip"></span><span class="prijs">€ 1,00</span></div>
+            <div class="regel"><span class="naam">Chilisaus</span><span class="stip"></span><span class="prijs">€ 0,80</span></div>
+            <div class="regel"><span class="naam">Sambal</span><span class="stip"></span><span class="prijs">€ 0,75</span></div>
+            <div class="regel"><span class="naam">Piccalilly</span><span class="stip"></span><span class="prijs">€ 0,70</span></div>
+            <div class="regel"><span class="naam">Joppie</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+            <div class="regel"><span class="naam">Knoflook</span><span class="stip"></span><span class="prijs">€ 0,85</span></div>
+          </div>
+        </div>
+        <div class="zij-foto"><img src="img/stock-bakjes-patat.jpg" alt="" loading="lazy"></div>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-snacks" aria-labelledby="t-snacks" hidden>
+        <div>
+          <div class="kaart">
+            <h3>Onze hapjes</h3>
+            <div class="regel"><span class="naam">Rundvleeskroket</span><span class="stip"></span><span class="prijs">€ 2,35</span></div>
+            <div class="regel"><span class="naam">Kalfskroket</span><span class="stip"></span><span class="prijs">€ 2,45</span></div>
+            <div class="regel"><span class="naam">Garnalenkroket</span><span class="stip"></span><span class="prijs">€ 3,10</span></div>
+            <div class="regel"><span class="naam">Groentekroket</span><span class="stip"></span><span class="prijs">€ 2,40</span></div>
+            <div class="regel"><span class="naam">Rucola-kaaskroket</span><span class="stip"></span><span class="prijs">€ 3,10</span></div>
+            <div class="regel"><span class="naam">Satékroket</span><span class="stip"></span><span class="prijs">€ 2,40</span></div>
+            <div class="regel"><span class="naam">Vijf mini kroketten zee</span><span class="stip"></span><span class="prijs">€ 5,00</span></div>
+            <div class="regel"><span class="naam">Vijf mini kroketten vega</span><span class="stip"></span><span class="prijs">€ 4,70</span></div>
+            <div class="regel"><span class="naam">Vijf mini kroketten vlees</span><span class="stip"></span><span class="prijs">€ 4,70</span></div>
+          </div>
+          <div class="kaart">
+            <h3>Onze snacks</h3>
+            <div class="regel"><span class="naam">Frikandel</span><span class="stip"></span><span class="prijs">€ 2,00</span></div>
+            <div class="regel"><span class="naam">Frikandel speciaal</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Berenhap</span><span class="stip"></span><span class="prijs">€ 2,60</span></div>
+            <div class="regel"><span class="naam">Picanto</span><span class="stip"></span><span class="prijs">€ 2,35</span></div>
+            <div class="regel"><span class="naam">Bamischijf</span><span class="stip"></span><span class="prijs">€ 2,10</span></div>
+            <div class="regel"><span class="naam">Kaassoufflé</span><span class="stip"></span><span class="prijs">€ 2,10</span></div>
+            <div class="regel"><span class="naam">Kipcorn</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Portie bitterballen</span><span class="stip"></span><span class="prijs">€ 4,15</span></div>
+            <div class="regel"><span class="naam">Portie kaasstengels</span><span class="stip"></span><span class="prijs">€ 4,15</span></div>
+            <div class="regel"><span class="naam">Portie vlammetjes</span><span class="stip"></span><span class="prijs">€ 4,15</span></div>
+            <div class="regel"><span class="naam">Portie kipnuggets</span><span class="stip"></span><span class="prijs">€ 3,80</span></div>
+          </div>
+        </div>
+        <div class="zij-foto"><img src="img/stock-kroketten.webp" alt="" loading="lazy"></div>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-salades" aria-labelledby="t-salades" hidden>
+        <div class="kaart">
+          <h3>Onze salades</h3>
+          <div class="regel"><span class="naam">Avocadosalade</span><span class="stip"></span><span class="prijs">€ 4,75</span></div>
+          <div class="regel"><span class="naam">Griekse salade</span><span class="stip"></span><span class="prijs">€ 4,75</span></div>
+          <div class="regel"><span class="naam">Italiaanse salade</span><span class="stip"></span><span class="prijs">€ 4,75</span></div>
+          <p class="voorbehoud" style="margin-top:16px">Ook vegan en vegetarisch eten? Kijk bij de vegan burger, de groentekroket en de mini kroketten vega.</p>
+        </div>
+        <div class="zij-foto"><img src="img/stock-burger.jpg" alt="" loading="lazy"></div>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-dranken" aria-labelledby="t-dranken" hidden>
+        <div>
+          <div class="kaart">
+            <h3>Onze dranken</h3>
+            <div class="regel"><span class="naam">Cola (regular, light en zero)</span><span class="stip"></span><span class="prijs">€ 2,35</span></div>
+            <div class="regel"><span class="naam">Fanta</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Sprite</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Aquarius</span><span class="stip"></span><span class="prijs">€ 2,30</span></div>
+            <div class="regel"><span class="naam">Ice tea</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Red Bull</span><span class="stip"></span><span class="prijs">€ 2,75</span></div>
+            <div class="regel"><span class="naam">Vitamin Well (alle smaken)</span><span class="stip"></span><span class="prijs">€ 2,75</span></div>
+            <div class="regel"><span class="naam">San Pellegrino limonata (4 soorten)</span><span class="stip"></span><span class="prijs">€ 2,25</span></div>
+            <div class="regel"><span class="naam">San Pellegrino</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Acqua Panna</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Schulp sap (diverse soorten)</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+          </div>
+          <div class="kaart">
+            <h3>Warme dranken</h3>
+            <div class="regel"><span class="naam">Koffie</span><span class="stip"></span><span class="prijs">€ 2,10</span></div>
+            <div class="regel"><span class="naam">Cappuccino</span><span class="stip"></span><span class="prijs">€ 2,30</span></div>
+            <div class="regel"><span class="naam">Espresso</span><span class="stip"></span><span class="prijs">€ 2,10</span></div>
+            <div class="regel"><span class="naam">Koffie verkeerd</span><span class="stip"></span><span class="prijs">€ 2,40</span></div>
+            <div class="regel"><span class="naam">Thee</span><span class="stip"></span><span class="prijs">€ 2,00</span></div>
+            <div class="regel"><span class="naam">Chocolade-, karamel- of hazelnootsiroop</span><span class="stip"></span><span class="prijs">€ 0,60</span></div>
+          </div>
+        </div>
+        <div class="zij-foto"><img src="img/stock-patat-puntzak.jpg" alt="" loading="lazy"></div>
+      </div>
+
+      <div class="paneel" role="tabpanel" id="p-ijs" aria-labelledby="t-ijs" hidden>
+        <div>
+          <div class="kaart">
+            <h3>IJs en sundaes</h3>
+            <div class="regel"><span class="naam">Kinderijsje</span><span class="stip"></span><span class="prijs">€ 1,00</span></div>
+            <div class="regel"><span class="naam">Oublie-hoorn</span><span class="stip"></span><span class="prijs">€ 1,75</span></div>
+            <div class="regel"><span class="naam">Bekertje ijs</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Sundae-ijs</span><span class="stip"></span><span class="prijs">€ 2,75</span></div>
+          </div>
+          <div class="kaart">
+            <h3>Milkshakes <small style="font:500 .95rem var(--body);color:var(--zacht)">aardbei, vanille, choco, banaan</small></h3>
+            <div class="regel"><span class="naam">Klein</span><span class="stip"></span><span class="prijs">€ 2,50</span></div>
+            <div class="regel"><span class="naam">Groot</span><span class="stip"></span><span class="prijs">€ 3,10</span></div>
+          </div>
+        </div>
+        <div class="zij-foto"><img src="img/stock-bakjes-patat.jpg" alt="" loading="lazy"></div>
+      </div>
+
+      <p class="voorbehoud">Prijzen onder voorbehoud. De actuele prijzen vind je in de online bestelomgeving en op de bestelzuilen in De Frietfabriek.</p>
+      <div class="pdf-links">
+        <a class="knop lijn" href="https://www.defrietfabriek.com/assets/pdf/De_Frietfabriek_Menu_NL.pdf?v=3" target="_blank" rel="noopener">Menukaart (pdf)</a>
+        <a class="knop lijn" href="https://www.defrietfabriek.com/assets/pdf/De_Frietfabriek_Menu_EN.pdf?v=3" target="_blank" rel="noopener">Our menu in English (pdf)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="aanbod" id="meer">
+    <div class="wrap">
+      <div class="aanbod-grid">
+        <div class="tas">
+          <div>
+            <h2>Te goed om weg te gooien</h2>
+            <p>Aan het einde van de dag vriezen we regelmatig onze verse friet in. Die verkopen we voor een spotprijs. Zo verspillen we minder eten, en jij scoort een lekkere deal. Bel de winkel en reserveer jouw tas.</p>
+          </div>
+          <div class="bedrag">€5<small>per tas</small></div>
+          <div class="knoppen"><a class="knop donker" href="tel:+31208230066">Bel 020-8230066</a></div>
+        </div>
+        <div class="feest">
+          <h2>Kinderfeestje of bezorging op kantoor?</h2>
+          <p>Bij De Frietfabriek kun je ook terecht voor kinderfeestjes en een bezorgservice voor bedrijven. Stuur ons een mail, dan kijken we samen wat er kan.</p>
+          <div class="knoppen"><a class="knop goud" href="mailto:info@defrietfabriek.com?subject=Informatie%20aanvraag%20via%20de%20website">Stuur ons een mail</a></div>
+        </div>
+      </div>
+      <div class="waarden">
+        <div class="waarde">
+          <h3>Lekker en gezond</h3>
+          <p>Onze producten zijn vers en met zorg geselecteerd, en vooral lekker. Denk aan vruchtensappen van Nederlandse fruitboerderijen, zelfgemaakte appelmoes en onze avocadosalade. Kom eens langs en proef het verschil.</p>
+        </div>
+        <div class="waarde">
+          <h3>Duurzaam verpakt</h3>
+          <p>Voor al onze verpakkingen kiezen we materialen die het milieu zo min mogelijk belasten. Goed voor het milieu, en het ziet er ook nog leuk uit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jobs" id="jobs">
+    <div class="wrap">
+      <h2>Bij ons werken?</h2>
+      <p class="intro" style="margin-top:14px">We zoeken nieuwe collega's.</p>
+      <div class="jobs-grid">
+        <article class="vac">
+          <h3>Ben jij onze nieuwe TikTok-ster?</h3>
+          <p>Thijs en Joël maakten tot nu toe onze filmpjes. Nu zoeken we één of twee opvolgers. Je maakt elke week twee filmpjes over wat er bij ons gebeurt: de friet, de keuken, het team en onze gasten. Je bedenkt zelf de ideeën, filmt en zet ze online.</p>
+          <ul>
+            <li>Bijbaan, uren in overleg</li>
+            <li>Je weet hoe TikTok werkt en hebt er zin in</li>
+            <li>Je woont of studeert in de buurt</li>
+          </ul>
+          <p>Stuur een mail met een link naar je TikTok of een paar filmpjes die je hebt gemaakt.</p>
+          <a class="knop donker" href="mailto:info@defrietfabriek.com?subject=Vacature%20TikTok">Reageer op de TikTok-vacature</a>
+        </article>
+        <article class="vac">
+          <h3>Ben jij onze nieuwe kok?</h3>
+          <p>We willen onze kaart uitbreiden met lekkere burgers en meer. Daar zoeken we een kok bij die meedenkt en het in de keuken waarmaakt.</p>
+          <ul>
+            <li>20 tot 38 uur per week</li>
+            <li>Je hebt keukenervaring, en burgers of de grill zijn je ding</li>
+            <li>Je werkt graag met verse producten</li>
+            <li>Je denkt mee over nieuwe gerechten</li>
+          </ul>
+          <p>Stuur je cv en een korte motivatie.</p>
+          <a class="knop donker" href="mailto:info@defrietfabriek.com?subject=Vacature%20kok">Reageer op de kok-vacature</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="blok">
+        <h2>Langskomen</h2>
+        <p class="uren">Maandag t/m zondag<br>11:00 tot 20:00</p>
+        <p style="color:var(--zacht)">Vers en direct van het land, van boeren met liefde voor hun aardappelen.</p>
+        <dl>
+          <dt>Adres</dt><dd>Nieuwe Kalfjeslaan 1<br>1181 CA Amstelveen</dd>
+          <dt>Telefoon</dt><dd><a href="tel:+31208230066">020-8230066</a></dd>
+          <dt>Mobiel</dt><dd><a href="tel:+31623188820">06-23188820</a></dd>
+          <dt>E-mail</dt><dd><a href="mailto:info@defrietfabriek.com">info@defrietfabriek.com</a></dd>
+        </dl>
+        <div class="social">
+          <a class="knop lijn" href="https://www.facebook.com/frietfabriek" target="_blank" rel="noopener">Facebook</a>
+          <a class="knop lijn" href="https://www.instagram.com/defrietfabriek/" target="_blank" rel="noopener">Instagram</a>
+          <a class="knop goud" href="https://mpluskassa.online/nl/guest/frietfabriek/order" target="_blank" rel="noopener">Online bestellen</a>
+        </div>
+      </div>
+      <div class="kaartje">
+        <iframe title="Kaart: Nieuwe Kalfjeslaan 1, Amstelveen" loading="lazy" src="https://maps.google.com/maps?q=Nieuwe%20Kalfjeslaan%201%2C%201181%20CA%20Amstelveen&amp;z=15&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="De Frietfabriek" width="102" height="34" loading="lazy">
+    <span>Nieuwe Kalfjeslaan 1, Amstelveen. Sfeerfoto's van eten: Unsplash.</span>
+    <a href="#top">Naar boven</a>
+  </div>
+</footer>
+
+<div class="kw-strip" role="note">Voorbeeld door <b>Kievits Webdesign</b><span class="kw-sep">·</span><a href="https://wa.me/31634268481?text=Hoi%20Marco%2C%20ik%20heb%20de%20nieuwe%20website%20voor%20De%20Frietfabriek%20gezien." target="_blank" rel="noopener">Interesse? App Marco</a></div>
+<style>.kw-strip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center}
+.kw-strip b{color:#f0c66b;font-weight:600}.kw-strip a{color:#7ee2a8;font-weight:700;text-decoration:none}.kw-strip a:hover{text-decoration:underline}
+@media (max-width:420px){.kw-strip{font-size:12px;padding:8px 12px}}</style>
+
+<script>
+(function(){
+  var knop=document.querySelector('.menuknop'), nav=document.getElementById('nav');
+  knop.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    knop.setAttribute('aria-expanded',open);
+    knop.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    nav.classList.remove('open');knop.setAttribute('aria-expanded','false');knop.setAttribute('aria-label','Menu openen');
+  });});
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function kies(t){
+    tabs.forEach(function(x){
+      var aan=x===t;
+      x.setAttribute('aria-selected',aan);
+      x.tabIndex=aan?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!aan;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){kies(t);});
+    t.addEventListener('keydown',function(e){
+      var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:null;
+      if(n===null)return;
+      n=(n+tabs.length)%tabs.length;tabs[n].focus();kies(tabs[n]);
+    });
+  });
+})();
+</script>
+<!-- counter --><script data-goatcounter="https://kievits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><!-- /counter -->
+</body>
+</html>
